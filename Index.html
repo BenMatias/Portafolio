@@ -78,15 +78,21 @@
       height: 600px;
       border: 1px solid var(--light-blue);
     }
-    .dashboard-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1rem;
+    .dashboard-entry {
+      margin-bottom: 2rem;
     }
-    .dashboard-gallery img {
+    .dashboard-entry img {
       width: 100%;
       border: 1px solid var(--light-blue);
       border-radius: 8px;
+    }
+    .dashboard-entry h3 {
+      margin: 0.5rem 0 0.2rem;
+      color: var(--deep-blue);
+    }
+    .dashboard-entry p {
+      margin: 0;
+      color: #444;
     }
     @media (max-width: 600px) {
       .profile {
@@ -131,11 +137,20 @@
 
     <section id="portfolio">
       <h2>Selected Work</h2>
-      <div class="dashboard-gallery">
-        <img src="dashboard1.png" alt="Currency Exchange Dashboard" />
-        <img src="dashboard2.png" alt="KPI Tracker" />
-        <img src="dashboard3.png" alt="Customer Segmentation" />
-        <img src="dashboard4.png" alt="Forecasting Model" />
+      <div class="dashboard-entry">
+        <img src="Dashboard 1.jpg" alt="Dashboard 1">
+        <h3>Currency Exchange Dashboard</h3>
+        <p>Interactive Power BI report monitoring real-time exchange rates and trends for financial decision-making.</p>
+      </div>
+      <div class="dashboard-entry">
+        <img src="Dashboard 2.jpg" alt="Dashboard 2">
+        <h3>KPI Tracker for Banking Operations</h3>
+        <p>A comprehensive Looker Studio dashboard to track operational performance and service-level KPIs across departments.</p>
+      </div>
+      <div class="dashboard-entry">
+        <img src="Dashboard 3.jpg" alt="Dashboard 3">
+        <h3>Customer Segmentation Analysis</h3>
+        <p>Data exploration project using clustering to identify client profiles and behavior patterns for targeted strategies.</p>
       </div>
     </section>
 
