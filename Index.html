@@ -98,13 +98,38 @@
     }
 </style>
   <script>
-    function toggleLang() {
-      const current = document.documentElement.lang;
-      const nextLang = current === 'en' ? 'es' : 'en';
-      document.documentElement.lang = nextLang;
-      document.querySelector('.lang-toggle').innerText = nextLang.toUpperCase() === 'EN' ? 'ES' : 'EN';
+  const translations = {
+    en: {
+      aboutTitle: "About Me",
+      paragraph1: "I'm an Industrial Engineer based in Santiago, Chile, with a strong passion for data, analytics, and strategic decision-making. I believe in the power of turning complex data into simple, actionable insights.",
+      paragraph2: "Throughout my professional journey, I’ve built and led the implementation of indicator tracking systems from scratch, delivering dashboards and reports that support operations and strategy. I've worked extensively with tools such as Looker Studio, Power BI, SQL, and Python.",
+      paragraph3: "Outside of work, I enjoy learning new languages, running, and spending quality time with my daughter. I'm a firm believer in lifelong learning and teamwork, and I'm always seeking opportunities to grow and collaborate on meaningful data-driven projects."
+    },
+    es: {
+      aboutTitle: "Sobre mí",
+      paragraph1: "Soy Ingeniero Civil Industrial de Santiago, Chile, con una gran pasión por los datos, la analítica y la toma de decisiones estratégicas. Creo en el poder de transformar datos complejos en conocimientos simples y accionables.",
+      paragraph2: "A lo largo de mi carrera he liderado la implementación de sistemas de seguimiento de indicadores desde cero, desarrollando tableros e informes que apoyan la operación y estrategia. He trabajado extensamente con herramientas como Looker Studio, Power BI, SQL y Python.",
+      paragraph3: "Fuera del trabajo, disfruto aprender idiomas, correr y pasar tiempo con mi hija. Creo firmemente en el aprendizaje continuo y el trabajo en equipo, y siempre busco oportunidades para crecer y colaborar en proyectos significativos impulsados por datos."
     }
-  </script>
+  };
+
+  function toggleLang() {
+    const current = document.documentElement.lang;
+    const nextLang = current === 'en' ? 'es' : 'en';
+    document.documentElement.lang = nextLang;
+    const langToggle = document.querySelector('.lang-toggle');
+    if (nextLang === 'en') {
+      langToggle.innerHTML = '<img id="lang-flag" src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN';
+    } else {
+      langToggle.innerHTML = '<img id="lang-flag" src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES';
+    }
+
+    document.getElementById('about-title').textContent = translations[nextLang].aboutTitle;
+    document.getElementById('about-p1').textContent = translations[nextLang].paragraph1;
+    document.getElementById('about-p2').textContent = translations[nextLang].paragraph2;
+    document.getElementById('about-p3').textContent = translations[nextLang].paragraph3;
+  }
+</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -115,7 +140,9 @@
       <a href="cv.html">CV</a>
       <a href="work.html">Work</a>
       <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
-      <span class="lang-toggle" style="margin-left: 1.5rem;" onclick="toggleLang()">ES</span>
+      <span class="lang-toggle" style="margin-left: 1.5rem; cursor: pointer;" onclick="toggleLang()">
+  <img id="lang-flag" src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES
+</span>
     </nav>
   </header>
 
@@ -130,21 +157,15 @@
 
   <div style="flex: 1;">
     <section class="about fade-in-up" style="max-width: 800px; margin: 0 auto;">
-      <h2>About Me</h2>
-      <p>
-        I'm an Industrial Engineer based in Santiago, Chile, with a strong passion for data, analytics, and strategic decision-making. I believe in the power of turning complex data into simple, actionable insights.
-      </p>
-      <p>
-        Throughout my professional journey, I’ve built and led the implementation of indicator tracking systems from scratch, delivering dashboards and reports that support operations and strategy. I've worked extensively with tools such as Looker Studio, Power BI, SQL, and Python.
-      </p>
-      <p>
-        Outside of work, I enjoy learning new languages, running, and spending quality time with my daughter. I'm a firm believer in lifelong learning and teamwork, and I'm always seeking opportunities to grow and collaborate on meaningful data-driven projects.
-      </p>
+      <h2 id="about-title">About Me</h2>
+      <p id="about-p1">I'm an Industrial Engineer based in Santiago, Chile, with a strong passion for data, analytics, and strategic decision-making. I believe in the power of turning complex data into simple, actionable insights.</p>
+      <p id="about-p2">Throughout my professional journey, I’ve built and led the implementation of indicator tracking systems from scratch, delivering dashboards and reports that support operations and strategy. I've worked extensively with tools such as Looker Studio, Power BI, SQL, and Python.</p>
+      <p id="about-p3">Outside of work, I enjoy learning new languages, running, and spending quality time with my daughter. I'm a firm believer in lifelong learning and teamwork, and I'm always seeking opportunities to grow and collaborate on meaningful data-driven projects.</p>
     </section>
   </div>
 </div>
 
-<footer style="position: relative; margin-top: 4rem;">
+<footer style="position: relative; margin-top: 2rem; padding-bottom: 0.5rem;">
   <div class="footer-contact">
     <p><i class="fas fa-envelope"></i> bmatiasespinoza@gmail.com</p>
     <p><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
