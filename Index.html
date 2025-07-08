@@ -38,6 +38,9 @@
       max-width: 960px;
       margin: 2rem auto;
       padding: 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     section {
       margin-top: 3rem;
@@ -68,6 +71,12 @@
       width: 100%;
       z-index: 1000;
     }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      align-items: center;
+    }
     .footer-contact p {
       margin: 0.2rem 0;
     }
@@ -96,6 +105,42 @@
       transform: scale(1.1);
       color: var(--light-blue);
     }
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .container {
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem;
+    }
+    .container > div {
+      width: 100%;
+    }
+    .footer-contact {
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+  }
 </style>
   <script>
   const translations = {
@@ -174,7 +219,7 @@
   </div>
 </div>
 
-<footer style="background: var(--dark-blue); color: white; padding: 0.75rem 1.5rem; text-align: center; font-size: 0.9rem;">
+<footer style="background: var(--dark-blue); color: white; padding: 1rem 1.5rem; text-align: center; font-size: 0.9rem;">
   <div class="footer-contact" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
     <p style="margin: 0.2rem 0;"><i class="fas fa-envelope"></i> bmatiasespinoza@gmail.com</p>
     <p style="margin: 0.2rem 0;"><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
