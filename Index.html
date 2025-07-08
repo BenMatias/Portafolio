@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ben Matias | Data Analyst Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: #f9fafb;
+      color: #111827;
+    }
+    header {
+      background: #1e3a8a;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      margin-left: 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .profile img {
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+    }
+    .about {
+      flex: 1;
+    }
+    section {
+      margin-top: 3rem;
+    }
+    h2 {
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1e3a8a;
+      color: white;
+      margin-top: 3rem;
+    }
+    .lang-toggle {
+      cursor: pointer;
+      margin-left: 1rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      .profile {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>Ben Matias</strong> – Data Analyst</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#cv">CV</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+      <span class="lang-toggle" onclick="toggleLang()">ES</span>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="profile">
+      <img src="profile.jpg" alt="Ben Matias profile" />
+      <div class="about">
+        <h1 id="about">Hi, I'm Ben Matias</h1>
+        <p>
+          I'm an Industrial Engineer and Data Analyst with experience building dashboards,
+          exploring and visualizing data using Looker Studio and Power BI. Currently working in the banking sector, I lead
+          initiatives to create data tracking systems that support strategic decision-making.
+        </p>
+      </div>
+    </div>
+
+    <section id="cv">
+      <h2>Curriculum Vitae</h2>
+      <p>You can view or download my full CV <a href="BenMatias_CV.pdf" target="_blank">here</a>.</p>
+    </section>
+
+    <section id="portfolio">
+      <h2>Dashboards & Projects</h2>
+      <ul>
+        <li><a href="#">Currency Exchange Dashboard – Power BI</a></li>
+        <li><a href="#">KPI Tracker – Looker Studio</a></li>
+        <li><a href="#">Customer Segmentation Analysis</a></li>
+        <li><a href="#">Forecasting Model for Retail Sales</a></li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:benmatias@example.com">benmatias@example.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/benmatias">linkedin.com/in/benmatias</a></p>
+      <p>GitHub: <a href="https://github.com/benmatias">github.com/benmatias</a></p>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Ben Matias. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleLang() {
+      const current = document.documentElement.lang;
+      if (current === 'en') {
+        document.documentElement.lang = 'es';
+        document.querySelector('header nav .lang-toggle').innerText = 'EN';
+        // Here you can integrate i18n libraries or JS code to dynamically switch content
+        alert('Language switched to Spanish (this would update dynamically in full version).');
+      } else {
+        document.documentElement.lang = 'en';
+        document.querySelector('header nav .lang-toggle').innerText = 'ES';
+        alert('Language switched to English.');
+      }
+    }
+  </script>
+</body>
+</html>
