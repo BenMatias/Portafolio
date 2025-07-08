@@ -16,7 +16,7 @@
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background: var(--almost-white);
+      background: linear-gradient(to bottom, #f6fafd, #e8f0f8);
       color: var(--dark-blue);
     }
     header {
@@ -60,7 +60,7 @@
     footer {
       background: var(--dark-blue);
       color: white;
-      padding: 2rem;
+      padding: 1rem 1.5rem;
       text-align: center;
       position: fixed;
       bottom: 0;
@@ -109,29 +109,44 @@
 </head>
 <body>
   <header>
-    <div><strong>Benjamin Espinoza</strong> – Data Analyst</div>
+    <div><a href="index.html" style="color: white; text-decoration: none; font-weight: 700; font-size: 1.1rem;">Benjamin Espinoza</a></div>
     <nav>
       <a href="index.html">About</a>
       <a href="cv.html">CV</a>
       <a href="work.html">Work</a>
       <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
-      <span class="lang-toggle" onclick="toggleLang()">ES</span>
+      <span class="lang-toggle" style="margin-left: 1.5rem;" onclick="toggleLang()">ES</span>
     </nav>
   </header>
 
-  <div class="container">
-    <section class="about fade-in-up" style="display: flex; align-items: center; gap: 2rem; flex-wrap: nowrap; justify-content: center;">
-  <img class="fade-in-left" src="assets/profile.jpg" alt="Benjamin Espinoza" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-  <div class="fade-in-right" style="max-width: 600px;">
-    <h1 id="about-title">Hi, I'm Benjamin Espinoza</h1>
-    <p id="about-description">
-      I'm an Industrial Engineer based in Santiago, Chile, passionate about data, analytics and helping teams make smarter decisions. I have experience leading the design and implementation of indicator tracking systems from scratch, creating impactful dashboards in Looker Studio and Power BI. I'm also an advocate for continuous learning and collaboration, and I enjoy mentoring and building data communities. Outside work, I enjoy running, learning languages and spending quality time with my daughter.
-    </p>
-  </div>
-</section>
-  </div>
+  <div class="container" style="display: flex; gap: 2rem; align-items: flex-start;">
+  <div style="flex: 0 0 220px; position: sticky; top: 6rem; text-align: center;">
+  <img src="assets/profile.jpg" alt="Benjamin Espinoza" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+  <h2 style="margin: 0.25rem 0 0; font-size: 1.2rem; font-weight: 700;">Benjamin Espinoza</h2>
+  <p style="margin: 0; font-size: 0.95rem; font-weight: 500; color: #4A7FA7;">Business & Data Analyst | Data Visualization Expert</p>
+  <p style="font-size: 0.85rem; color: #555;">Industrial Civil Engineer</p>
+  <p style="font-size: 0.85rem; margin-top: 1rem;"><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
+  <p style="font-size: 0.85rem;"><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benmatias" style="color: #4A7FA7;">LinkedIn</a></p>
+  <p style="font-size: 0.85rem;"><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #4A7FA7;">Email</a></p>
+</div>
 
-  <footer>
+  <div style="flex: 1;">
+    <section class="about fade-in-up" style="max-width: 800px; margin: 0 auto;">
+      <h2>About Me</h2>
+      <p>
+        I'm an Industrial Engineer based in Santiago, Chile, with a strong passion for data, analytics, and strategic decision-making. I believe in the power of turning complex data into simple, actionable insights.
+      </p>
+      <p>
+        Throughout my professional journey, I’ve built and led the implementation of indicator tracking systems from scratch, delivering dashboards and reports that support operations and strategy. I've worked extensively with tools such as Looker Studio, Power BI, SQL, and Python.
+      </p>
+      <p>
+        Outside of work, I enjoy learning new languages, running, and spending quality time with my daughter. I'm a firm believer in lifelong learning and teamwork, and I'm always seeking opportunities to grow and collaborate on meaningful data-driven projects.
+      </p>
+    </section>
+  </div>
+</div>
+
+<footer>
     <div class="footer-contact">
   <p><i class=\"fas fa-envelope\"></i> bmatiasespinoza@gmail.com</p>
   <p><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
