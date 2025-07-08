@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ben Matias | About</title>
+  <title>Ben Matias | Work</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
   <style>
     :root {
@@ -41,8 +41,18 @@
     section {
       margin-top: 3rem;
     }
-    h1 {
+    h2 {
+      border-bottom: 2px solid var(--light-blue);
+      padding-bottom: 0.5rem;
       color: var(--deep-blue);
+    }
+    .project {
+      margin-bottom: 2.5rem;
+    }
+    .project img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
     }
     footer {
       background: var(--dark-blue);
@@ -68,17 +78,26 @@
   </header>
 
   <div class="container">
-    <section class="about">
-      <h1>Hi, I'm Ben Matias</h1>
-      <p>
-        I'm an Industrial Engineer based in Santiago, Chile, passionate about data, analytics, and helping teams make smarter decisions.
-        Throughout my career, I’ve built and led data initiatives from scratch, including KPI systems, dashboards, and reporting pipelines across different departments.
-        My strength lies in blending technical skills with business understanding to deliver value through data.
-      </p>
-      <p>
-        I work primarily with Looker Studio, Power BI, SQL, and Python. I also enjoy learning languages, mentoring others, and building a culture of collaboration and growth.
-        Outside of work, I spend time with my daughter, enjoy running, and exploring the world of tech and personal development.
-      </p>
+    <section id="portfolio">
+      <h2>Selected Work</h2>
+
+      <div class="project">
+        <img src="assets/Dashboard 1.jpg" alt="Currency Exchange Dashboard" />
+        <h3>Currency Exchange Dashboard</h3>
+        <p>Interactive Power BI report monitoring real-time exchange rates and trends for financial decision-making.</p>
+      </div>
+
+      <div class="project">
+        <img src="assets/Dashboard 2.jpg" alt="KPI Tracker Dashboard" />
+        <h3>KPI Tracker for Banking Operations</h3>
+        <p>A comprehensive Looker Studio dashboard to track operational performance and service-level KPIs across departments.</p>
+      </div>
+
+      <div class="project">
+        <img src="assets/Dashboard 3.jpg" alt="Customer Segmentation" />
+        <h3>Customer Segmentation Analysis</h3>
+        <p>Clustering analysis to identify customer behavior patterns and segment audiences for targeted strategies.</p>
+      </div>
     </section>
   </div>
 

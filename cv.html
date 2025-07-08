@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ben Matias | About</title>
+  <title>Ben Matias | CV</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
   <style>
     :root {
@@ -41,8 +41,18 @@
     section {
       margin-top: 3rem;
     }
-    h1 {
+    h2 {
+      border-bottom: 2px solid var(--light-blue);
+      padding-bottom: 0.5rem;
       color: var(--deep-blue);
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    img.badge {
+      height: 40px;
+      vertical-align: middle;
+      margin-left: 0.5rem;
     }
     footer {
       background: var(--dark-blue);
@@ -68,17 +78,47 @@
   </header>
 
   <div class="container">
-    <section class="about">
-      <h1>Hi, I'm Ben Matias</h1>
-      <p>
-        I'm an Industrial Engineer based in Santiago, Chile, passionate about data, analytics, and helping teams make smarter decisions.
-        Throughout my career, I’ve built and led data initiatives from scratch, including KPI systems, dashboards, and reporting pipelines across different departments.
-        My strength lies in blending technical skills with business understanding to deliver value through data.
-      </p>
-      <p>
-        I work primarily with Looker Studio, Power BI, SQL, and Python. I also enjoy learning languages, mentoring others, and building a culture of collaboration and growth.
-        Outside of work, I spend time with my daughter, enjoy running, and exploring the world of tech and personal development.
-      </p>
+    <section id="cv">
+      <h2>Curriculum Vitae</h2>
+
+      <h3>Professional Experience</h3>
+      <p><strong>Banco Internacional</strong> – Business Analyst (May 2023 – Present)</p>
+      <ul>
+        <li>Led the creation of a data team and implemented a server for centralizing analytics.</li>
+        <li>Developed Excel and GA-based KPI tracking, migrated to Power BI, Tableau and Looker Studio.</li>
+        <li>Created dashboards that scaled to all departments; team expanded from 1 to 4 members.</li>
+        <li>Involved in creating user stories and expanding responsibilities into Product Ownership.</li>
+      </ul>
+
+      <h3>Education</h3>
+      <ul>
+        <li>Industrial Civil Engineering – Universidad de Santiago de Chile</li>
+      </ul>
+
+      <h3>Skills & Tools</h3>
+      <ul>
+        <li>SQL, Python, Excel</li>
+        <li>Looker Studio, Power BI, Tableau</li>
+        <li>Data storytelling, data modeling, cleaning</li>
+        <li>Google Cloud Platform (BigQuery)</li>
+        <li>Agile methodologies, Scrum</li>
+      </ul>
+
+      <h3>Certifications</h3>
+      <ul>
+        <li>
+          Google Data Analytics Professional Certificate
+          <img src="credly_google.png" alt="Google Badge" class="badge" />
+        </li>
+        <li>
+          Microsoft Power BI Data Analyst Associate
+          <img src="credly_powerbi.png" alt="Power BI Badge" class="badge" />
+        </li>
+        <li>
+          Scrum Fundamentals Certified
+          <img src="credly_scrum.png" alt="Scrum Badge" class="badge" />
+        </li>
+      </ul>
     </section>
   </div>
 
