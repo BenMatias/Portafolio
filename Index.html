@@ -100,12 +100,16 @@
   <script>
   const translations = {
     en: {
+      welcomeTitle: "Welcome",
+      welcomeText: "Thanks for visiting my portfolio! I'm excited to share more about who I am, what I do, and how I can help organizations grow through data-driven insights and innovative solutions.",
       aboutTitle: "About Me",
       paragraph1: "I'm an Industrial Engineer based in Santiago, Chile, with a strong passion for data, analytics, and strategic decision-making. I believe in the power of turning complex data into simple, actionable insights.",
       paragraph2: "Throughout my professional journey, I’ve built and led the implementation of indicator tracking systems from scratch, delivering dashboards and reports that support operations and strategy. I've worked extensively with tools such as Looker Studio, Power BI, SQL, and Python.",
       paragraph3: "Outside of work, I enjoy learning new languages, running, and spending quality time with my daughter. I'm a firm believer in lifelong learning and teamwork, and I'm always seeking opportunities to grow and collaborate on meaningful data-driven projects."
     },
     es: {
+      welcomeTitle: "Bienvenido",
+      welcomeText: "¡Gracias por visitar mi portafolio! Estoy entusiasmado por compartir quién soy, lo que hago y cómo puedo ayudar a las organizaciones a crecer mediante ideas basadas en datos y soluciones innovadoras.",
       aboutTitle: "Sobre mí",
       paragraph1: "Soy Ingeniero Civil Industrial de Santiago, Chile, con una gran pasión por los datos, la analítica y la toma de decisiones estratégicas. Creo en el poder de transformar datos complejos en conocimientos simples y accionables.",
       paragraph2: "A lo largo de mi carrera he liderado la implementación de sistemas de seguimiento de indicadores desde cero, desarrollando tableros e informes que apoyan la operación y estrategia. He trabajado extensamente con herramientas como Looker Studio, Power BI, SQL y Python.",
@@ -124,6 +128,8 @@
       langToggle.innerHTML = '<img id="lang-flag" src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES';
     }
 
+    document.getElementById('welcome-title').textContent = translations[nextLang].welcomeTitle;
+    document.getElementById('welcome-text').textContent = translations[nextLang].welcomeText;
     document.getElementById('about-title').textContent = translations[nextLang].aboutTitle;
     document.getElementById('about-p1').textContent = translations[nextLang].paragraph1;
     document.getElementById('about-p2').textContent = translations[nextLang].paragraph2;
@@ -146,7 +152,7 @@
     </nav>
   </header>
 
-  <div class="container" style="display: flex; gap: 2rem; align-items: flex-start;">
+  <div class="container" style="display: flex; gap: 2rem; align-items: flex-start; margin-bottom: 2rem;">
   <div style="flex: 0 0 220px; position: sticky; top: 6rem; text-align: center; height: fit-content;">
   <img src="assets/profile.jpg" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: 0 6px 16px rgba(0,0,0,0.15); margin-bottom: 1rem;" />
   <h2 style="margin: 0.25rem 0 0; font-size: 1.2rem; font-weight: 700;">Benjamin Espinoza</h2>
@@ -157,6 +163,9 @@
 
   <div style="flex: 1;">
     <section class="about fade-in-up" style="max-width: 800px; margin: 0 auto;">
+      <h2 id="welcome-title" style="color: var(--deep-blue);">Welcome</h2>
+      <p id="welcome-text" style="font-size: 1.05rem;">Thanks for visiting my portfolio! I'm excited to share more about who I am, what I do, and how I can help organizations grow through data-driven insights and innovative solutions.</p>
+      <br />
       <h2 id="about-title">About Me</h2>
       <p id="about-p1">I'm an Industrial Engineer based in Santiago, Chile, with a strong passion for data, analytics, and strategic decision-making. I believe in the power of turning complex data into simple, actionable insights.</p>
       <p id="about-p2">Throughout my professional journey, I’ve built and led the implementation of indicator tracking systems from scratch, delivering dashboards and reports that support operations and strategy. I've worked extensively with tools such as Looker Studio, Power BI, SQL, and Python.</p>
@@ -165,13 +174,13 @@
   </div>
 </div>
 
-<footer style="background: var(--dark-blue); color: white; padding: 1rem 1.5rem; text-align: center; width: 100%; box-sizing: border-box;">
-  <div class="footer-contact">
-    <p><i class="fas fa-envelope"></i> bmatiasespinoza@gmail.com</p>
-    <p><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
-    <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benmatias" style="color: #B3CFE5">linkedin.com/in/benmatias</a></p>
+<footer style="background: var(--dark-blue); color: white; padding: 0.75rem 1.5rem; text-align: center; font-size: 0.9rem;">
+  <div class="footer-contact" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+    <p style="margin: 0.2rem 0;"><i class="fas fa-envelope"></i> bmatiasespinoza@gmail.com</p>
+    <p style="margin: 0.2rem 0;"><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
+    <p style="margin: 0.2rem 0;"><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benmatias" style="color: #B3CFE5">linkedin.com/in/benmatias</a></p>
   </div>
-  <p>&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
+  <p style="margin-top: 0.5rem;">&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
 </footer>
 </body>
 </html>
