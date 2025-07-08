@@ -6,14 +6,21 @@
   <title>Ben Matias | Data Analyst Portfolio</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
   <style>
+    :root {
+      --dark-blue: #0A1931;
+      --light-blue: #B3CFE5;
+      --mid-blue: #4A7FA7;
+      --deep-blue: #1A3D63;
+      --almost-white: #F6FAFD;
+    }
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background: #f9fafb;
-      color: #111827;
+      background: var(--almost-white);
+      color: var(--dark-blue);
     }
     header {
-      background: #1e3a8a;
+      background: var(--dark-blue);
       color: white;
       padding: 1rem 2rem;
       display: flex;
@@ -50,13 +57,14 @@
       margin-top: 3rem;
     }
     h2 {
-      border-bottom: 2px solid #e5e7eb;
+      border-bottom: 2px solid var(--light-blue);
       padding-bottom: 0.5rem;
+      color: var(--deep-blue);
     }
     footer {
       text-align: center;
       padding: 2rem;
-      background: #1e3a8a;
+      background: var(--dark-blue);
       color: white;
       margin-top: 3rem;
     }
@@ -64,6 +72,21 @@
       cursor: pointer;
       margin-left: 1rem;
       font-size: 0.9rem;
+    }
+    .cv-embed {
+      width: 100%;
+      height: 600px;
+      border: 1px solid var(--light-blue);
+    }
+    .dashboard-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    .dashboard-gallery img {
+      width: 100%;
+      border: 1px solid var(--light-blue);
+      border-radius: 8px;
     }
     @media (max-width: 600px) {
       .profile {
@@ -79,7 +102,7 @@
     <nav>
       <a href="#about">About</a>
       <a href="#cv">CV</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="#portfolio">Work</a>
       <a href="#contact">Contact</a>
       <span class="lang-toggle" onclick="toggleLang()">ES</span>
     </nav>
@@ -100,17 +123,20 @@
 
     <section id="cv">
       <h2>Curriculum Vitae</h2>
-      <p>You can view or download my full CV <a href="BenMatias_CV.pdf" target="_blank">here</a>.</p>
+      <iframe class="cv-embed" src="https://heartfelt-semifreddo-d536b8.netlify.app/BenMatias_CV.pdf"></iframe>
+      <p style="margin-top: 0.5rem;">
+        <a href="https://heartfelt-semifreddo-d536b8.netlify.app/BenMatias_CV.pdf" download>Download my CV</a>
+      </p>
     </section>
 
     <section id="portfolio">
-      <h2>Dashboards & Projects</h2>
-      <ul>
-        <li><a href="#">Currency Exchange Dashboard – Power BI</a></li>
-        <li><a href="#">KPI Tracker – Looker Studio</a></li>
-        <li><a href="#">Customer Segmentation Analysis</a></li>
-        <li><a href="#">Forecasting Model for Retail Sales</a></li>
-      </ul>
+      <h2>Selected Work</h2>
+      <div class="dashboard-gallery">
+        <img src="dashboard1.png" alt="Currency Exchange Dashboard" />
+        <img src="dashboard2.png" alt="KPI Tracker" />
+        <img src="dashboard3.png" alt="Customer Segmentation" />
+        <img src="dashboard4.png" alt="Forecasting Model" />
+      </div>
     </section>
 
     <section id="contact">
@@ -131,8 +157,7 @@
       if (current === 'en') {
         document.documentElement.lang = 'es';
         document.querySelector('header nav .lang-toggle').innerText = 'EN';
-        // Here you can integrate i18n libraries or JS code to dynamically switch content
-        alert('Language switched to Spanish (this would update dynamically in full version).');
+        alert('Idioma cambiado a Español. (traducción automática próximamente)');
       } else {
         document.documentElement.lang = 'en';
         document.querySelector('header nav .lang-toggle').innerText = 'ES';
