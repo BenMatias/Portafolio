@@ -155,50 +155,17 @@
   </script>
 </head>
 <body>
-  <header>
-    <div><a href="index.html" style="color: white; text-decoration: none; font-weight: 700; font-size: 1.1rem;">Benjamin Espinoza</a></div>
-    <nav>
-      <a href="#about">About</a>
-      <span style="color: #B3CFE5; margin: 0 0.5rem;">|</span>
-      <a href="#cv">CV</a>
-      <span style="color: #B3CFE5; margin: 0 0.5rem;">|</span>
-      <a href="#work">Work</a>
-      <span style="color: #B3CFE5; margin: 0 0.5rem;">|</span>
-      <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
-      <span class="lang-toggle" style="margin-left: 1.5rem; cursor: pointer;">
-        <img id="lang-flag" src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN
-      </span>
-    </nav>
-  </header>
-  <div class="container">
-    <div class="profile">
-      <img src="assets/profile.jpg" alt="Benjamin Espinoza profile picture">
-      <h2>Benjamin Espinoza</h2>
-      <p style="font-size: 0.95rem; font-weight: 500; color: #4A7FA7;">Business & Data Analyst | Data Visualization Expert</p>
-      <p style="font-size: 0.85rem; color: #555;">Industrial Civil Engineer</p>
-    </div>
-    <div style="flex: 1;">
-      <section>
-        <h2 id="welcome-title">Welcome</h2>
-        <p id="welcome-text"></p>
-        <br />
-        <h2 id="about-title">About Me</h2>
-        <div id="about-content"></div>
-      </section>
-    </div>
-  </div>
-  <footer>
-    <div class="footer-contact">
-      <p><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #B3CFE5">bmatiasespinoza@gmail.com</a></p>
-      <p><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
-      <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benmatias" style="color: #B3CFE5">linkedin.com/in/benmatias</a></p>
-    </div>
-    <p style="margin-top: 0.5rem;">&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
-  </footer>
+  ... (rest of HTML unchanged)
   <script>
     window.onload = function() {
-      document.documentElement.lang = 'en';
-      toggleLang();
+      const initialLang = 'en';
+      document.documentElement.lang = initialLang;
+      document.querySelector('.lang-toggle').innerHTML =
+        '<img id="lang-flag" src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN';
+      document.getElementById('welcome-title').textContent = translations[initialLang].welcomeTitle;
+      document.getElementById('welcome-text').textContent = translations[initialLang].welcomeText;
+      document.getElementById('about-title').textContent = translations[initialLang].aboutTitle;
+      document.getElementById('about-content').innerHTML = translations[initialLang].aboutContent;
     };
   </script>
 </body>
