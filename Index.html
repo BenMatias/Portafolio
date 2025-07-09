@@ -149,16 +149,27 @@
       const current = document.documentElement.lang;
       const nextLang = current === 'en' ? 'es' : 'en';
       document.documentElement.lang = nextLang;
-      const langToggle = document.querySelector('.lang-toggle');
-      langToggle.innerHTML = nextLang === 'en'
-        ? '<img id="lang-flag" src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
-        : '<img id="lang-flag" src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES';
+      document.querySelector('.lang-toggle').innerHTML =
+        nextLang === 'en'
+          ? '<img id="lang-flag" src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
+          : '<img id="lang-flag" src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES';
 
       document.getElementById('welcome-title').textContent = translations[nextLang].welcomeTitle;
       document.getElementById('welcome-text').textContent = translations[nextLang].welcomeText;
       document.getElementById('about-title').textContent = translations[nextLang].aboutTitle;
       document.getElementById('about-content').innerHTML = translations[nextLang].aboutContent;
     }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const lang = 'en';
+      document.documentElement.lang = lang;
+      document.getElementById('welcome-title').textContent = translations[lang].welcomeTitle;
+      document.getElementById('welcome-text').textContent = translations[lang].welcomeText;
+      document.getElementById('about-title').textContent = translations[lang].aboutTitle;
+      document.getElementById('about-content').innerHTML = translations[lang].aboutContent;
+      document.querySelector('.lang-toggle').innerHTML =
+        '<img id="lang-flag" src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES';
+    });
   </script>
 </head>
 <body>
@@ -170,7 +181,7 @@
       <a href="work.html">Work</a>
       <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
       <span class="lang-toggle" style="margin-left: 1.5rem; cursor: pointer;" onclick="toggleLang()">
-        <img id="lang-flag" src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES
+        <!-- El idioma inicial se inyectará en el script -->
       </span>
     </nav>
   </header>
@@ -194,4 +205,10 @@
   <footer>
     <div class="footer-contact">
       <p><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #B3CFE5">bmatiasespinoza@gmail.com</a></p>
-      <p><i class="fas fa-ma
+      <p><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
+      <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benmatias" style="color: #B3CFE5">linkedin.com/in/benmatias</a></p>
+    </div>
+    <p style="margin-top: 0.5rem;">&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
+  </footer>
+</body>
+</html>
