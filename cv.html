@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Benjamin Espinoza | CV / Resume</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root {
       --dark-blue: #0A1931;
@@ -50,6 +50,11 @@
       transform: scale(1.1);
       color: var(--light-blue);
     }
+    .lang-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
     .hamburger {
       display: none;
       font-size: 1.5rem;
@@ -68,12 +73,11 @@
       width: 100%;
       z-index: 10;
     }
-    .mobile-nav a {
+    .mobile-nav a, .mobile-nav .lang-toggle {
       padding: 1rem;
       border-top: 1px solid #ffffff22;
       color: white;
       text-align: center;
-      text-decoration: none;
     }
     .container {
       max-width: 960px;
@@ -136,34 +140,40 @@
       <a href="cv.html">CV / Resume</a>
       <a href="work.html">Projects</a>
       <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
+      <span class="lang-toggle" onclick="toggleLang()">
+        <img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES
+      </span>
     </nav>
     <div id="mobile-nav" class="mobile-nav">
       <a href="index.html">About</a>
       <a href="cv.html">CV / Resume</a>
       <a href="work.html">Projects</a>
       <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
+      <div class="lang-toggle" onclick="toggleLang()">
+        <img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES
+      </div>
     </div>
   </header>
 
   <div class="container">
     <section id="cv">
-      <h2>Curriculum Vitae</h2>
+      <h2 id="cv-title">Curriculum Vitae</h2>
 
-      <h3>Professional Experience</h3>
+      <h3 id="exp-title">Professional Experience</h3>
       <p><strong>Banco Internacional</strong> – Business Analyst (May 2023 – Present)</p>
       <ul>
-        <li>Led the creation of a data team and implemented a server for centralizing analytics.</li>
-        <li>Developed Excel and GA-based KPI tracking, migrated to Power BI, Tableau and Looker Studio.</li>
-        <li>Created dashboards that scaled to all departments; team expanded from 1 to 4 members.</li>
-        <li>Involved in creating user stories and expanding responsibilities into Product Ownership.</li>
+        <li id="exp-1">Led the creation of a data team and implemented a server for centralizing analytics.</li>
+        <li id="exp-2">Developed Excel and GA-based KPI tracking, migrated to Power BI, Tableau and Looker Studio.</li>
+        <li id="exp-3">Created dashboards that scaled to all departments; team expanded from 1 to 4 members.</li>
+        <li id="exp-4">Involved in creating user stories and expanding responsibilities into Product Ownership.</li>
       </ul>
 
-      <h3>Education</h3>
+      <h3 id="edu-title">Education</h3>
       <ul>
-        <li>Industrial Civil Engineering – Universidad de Santiago de Chile</li>
+        <li id="edu-1">Industrial Civil Engineering – Universidad de Santiago de Chile</li>
       </ul>
 
-      <h3>Skills & Tools</h3>
+      <h3 id="skills-title">Skills & Tools</h3>
       <ul>
         <li>SQL, Python, Excel</li>
         <li>Looker Studio, Power BI, Tableau</li>
@@ -172,18 +182,15 @@
         <li>Agile methodologies, Scrum</li>
       </ul>
 
-      <h3>Certifications</h3>
+      <h3 id="cert-title">Certifications</h3>
       <ul>
-        <li>
-          Google Data Analytics Professional Certificate
+        <li>Google Data Analytics Professional Certificate
           <img src="credly_google.png" alt="Google Badge" class="badge" />
         </li>
-        <li>
-          Microsoft Power BI Data Analyst Associate
+        <li>Microsoft Power BI Data Analyst Associate
           <img src="credly_powerbi.png" alt="Power BI Badge" class="badge" />
         </li>
-        <li>
-          Scrum Fundamentals Certified
+        <li>Scrum Fundamentals Certified
           <img src="credly_scrum.png" alt="Scrum Badge" class="badge" />
         </li>
       </ul>
@@ -200,8 +207,64 @@
   </footer>
 
   <script>
-    document.getElementById('menu-toggle').addEventListener('click', function () {
-      document.getElementById('mobile-nav').classList.toggle('show');
+    const translations = {
+      en: {
+        cvTitle: "Curriculum Vitae",
+        expTitle: "Professional Experience",
+        exp: [
+          "Led the creation of a data team and implemented a server for centralizing analytics.",
+          "Developed Excel and GA-based KPI tracking, migrated to Power BI, Tableau and Looker Studio.",
+          "Created dashboards that scaled to all departments; team expanded from 1 to 4 members.",
+          "Involved in creating user stories and expanding responsibilities into Product Ownership."
+        ],
+        eduTitle: "Education",
+        edu: "Industrial Civil Engineering – Universidad de Santiago de Chile",
+        skillsTitle: "Skills & Tools",
+        certTitle: "Certifications"
+      },
+      es: {
+        cvTitle: "Currículum Vitae",
+        expTitle: "Experiencia Profesional",
+        exp: [
+          "Lideré la creación de un equipo de datos e implementé un servidor para centralizar analítica.",
+          "Desarrollé seguimiento de KPIs con Excel y GA, luego migrado a Power BI, Tableau y Looker Studio.",
+          "Creé dashboards que escalaron a todos los departamentos; el equipo creció de 1 a 4 miembros.",
+          "Participé en la creación de historias de usuario y expansión hacia responsabilidades de Product Owner."
+        ],
+        eduTitle: "Educación",
+        edu: "Ingeniería Civil Industrial – Universidad de Santiago de Chile",
+        skillsTitle: "Habilidades y Herramientas",
+        certTitle: "Certificaciones"
+      }
+    };
+
+    function toggleLang() {
+      const current = document.documentElement.lang;
+      const next = current === "en" ? "es" : "en";
+      document.documentElement.lang = next;
+
+      document.getElementById("cv-title").textContent = translations[next].cvTitle;
+      document.getElementById("exp-title").textContent = translations[next].expTitle;
+      document.getElementById("exp-1").textContent = translations[next].exp[0];
+      document.getElementById("exp-2").textContent = translations[next].exp[1];
+      document.getElementById("exp-3").textContent = translations[next].exp[2];
+      document.getElementById("exp-4").textContent = translations[next].exp[3];
+      document.getElementById("edu-title").textContent = translations[next].eduTitle;
+      document.getElementById("edu-1").textContent = translations[next].edu;
+      document.getElementById("skills-title").textContent = translations[next].skillsTitle;
+      document.getElementById("cert-title").textContent = translations[next].certTitle;
+
+      document.querySelectorAll(".lang-toggle").forEach(el => {
+        el.innerHTML = next === 'en'
+          ? '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES'
+          : '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN';
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("menu-toggle").addEventListener("click", function () {
+        document.getElementById("mobile-nav").classList.toggle("show");
+      });
     });
   </script>
 </body>
