@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ben Matias | CV</title>
+  <title>Benjamin Espinoza | CV / Resume</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
       --dark-blue: #0A1931;
@@ -26,12 +27,53 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+    }
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
     }
     nav a {
-      margin-left: 1rem;
       color: white;
       text-decoration: none;
       font-weight: 600;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    nav a:hover {
+      transform: scale(1.1);
+      color: var(--light-blue);
+    }
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--dark-blue);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+    .mobile-nav a {
+      padding: 1rem;
+      border-top: 1px solid #ffffff22;
+      color: white;
+      text-align: center;
+      text-decoration: none;
     }
     .container {
       max-width: 960px;
@@ -57,24 +99,50 @@
     footer {
       background: var(--dark-blue);
       color: white;
-      padding: 2rem;
+      padding: 2rem 1rem;
       text-align: center;
       margin-top: 4rem;
+      font-size: 0.9rem;
+    }
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
     }
     .footer-contact p {
       margin: 0.2rem 0;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .mobile-nav.show {
+        display: flex;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div><strong>Ben Matias</strong> – Data Analyst</div>
+    <div class="logo"><a href="index.html">Benjamin Espinoza</a></div>
+    <button id="menu-toggle" class="hamburger" aria-label="Toggle menu">&#9776;</button>
     <nav>
       <a href="index.html">About</a>
-      <a href="cv.html">CV</a>
-      <a href="work.html">Work</a>
-      <a href="mailto:benmatias@example.com">Contact</a>
+      <a href="cv.html">CV / Resume</a>
+      <a href="work.html">Projects</a>
+      <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
     </nav>
+    <div id="mobile-nav" class="mobile-nav">
+      <a href="index.html">About</a>
+      <a href="cv.html">CV / Resume</a>
+      <a href="work.html">Projects</a>
+      <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
+    </div>
   </header>
 
   <div class="container">
@@ -124,11 +192,17 @@
 
   <footer>
     <div class="footer-contact">
-      <p><strong>Email:</strong> benmatias@example.com</p>
-      <p><strong>Location:</strong> Santiago, Chile</p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/benmatias" style="color: #B3CFE5">linkedin.com/in/benmatias</a></p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #B3CFE5">bmatiasespinoza@gmail.com</a></p>
+      <p><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
+      <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benmatias" style="color: #B3CFE5">linkedin.com/in/benmatias</a></p>
     </div>
-    <p>&copy; 2025 Ben Matias. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      document.getElementById('mobile-nav').classList.toggle('show');
+    });
+  </script>
 </body>
 </html>
