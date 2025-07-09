@@ -52,13 +52,7 @@
       flex: 0 0 280px;
       text-align: center;
     }
-    .profile img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-      margin-bottom: 1rem;
+    $1margin-bottom: 1rem;
     }
     .profile h2 {
       margin: 0.25rem 0 0;
@@ -165,10 +159,12 @@
 <body>
   <header>
     <div><a href="index.html" style="color: white; text-decoration: none; font-weight: 700; font-size: 1.1rem;">Benjamin Espinoza</a></div>
-    <nav>
-      <a href="index.html">About</a>
-      <a href="cv.html">CV</a>
-      <a href="work.html">Work</a>
+    $1
+      <span style="color: #B3CFE5; margin: 0 0.5rem;">|</span>
+      $1
+      <span style="color: #B3CFE5; margin: 0 0.5rem;">|</span>
+      $1
+      <span style="color: #B3CFE5; margin: 0 0.5rem;">|</span>
       <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
       <span class="lang-toggle" style="margin-left: 1.5rem; cursor: pointer;" onclick="toggleLang()">
         <img id="lang-flag" src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES
@@ -211,3 +207,4 @@
   </script>
 </body>
 </html>
+
