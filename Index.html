@@ -27,9 +27,20 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+    }
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
     }
     nav a {
-      margin-left: 1rem;
       color: white;
       text-decoration: none;
       font-weight: 600;
@@ -39,6 +50,36 @@
       transform: scale(1.1);
       color: var(--light-blue);
     }
+    .lang-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--dark-blue);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+    .mobile-nav a, .mobile-nav .lang-toggle {
+      padding: 1rem;
+      border-top: 1px solid #ffffff22;
+      color: white;
+      text-align: center;
+    }
+
     .container {
       max-width: 960px;
       margin: 2rem auto;
@@ -94,30 +135,16 @@
     .footer-contact p {
       margin: 0.2rem;
     }
+
     @media (max-width: 768px) {
-      .footer-contact {
-        flex-direction: column;
-        align-items: center;
-      }
-      header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
       nav {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .mobile-nav.show {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-      }
-      .container {
-        flex-direction: column;
-        align-items: center;
-        padding: 0 1rem;
-      }
-      .container > div {
-        width: 100%;
       }
     }
   </style>
@@ -149,11 +176,11 @@
       const current = document.documentElement.lang;
       const nextLang = current === 'en' ? 'es' : 'en';
       document.documentElement.lang = nextLang;
-      document.querySelector('.lang-toggle').innerHTML =
-        nextLang === 'en'
-          ? '<img id="lang-flag" src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
-          : '<img id="lang-flag" src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES';
-
+      document.querySelectorAll('.lang-toggle').forEach(el => {
+        el.innerHTML = nextLang === 'en'
+          ? '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
+          : '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES';
+      });
       document.getElementById('welcome-title').textContent = translations[nextLang].welcomeTitle;
       document.getElementById('welcome-text').textContent = translations[nextLang].welcomeText;
       document.getElementById('about-title').textContent = translations[nextLang].aboutTitle;
@@ -167,24 +194,38 @@
       document.getElementById('welcome-text').textContent = translations[lang].welcomeText;
       document.getElementById('about-title').textContent = translations[lang].aboutTitle;
       document.getElementById('about-content').innerHTML = translations[lang].aboutContent;
-      document.querySelector('.lang-toggle').innerHTML =
-        '<img id="lang-flag" src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES';
+      document.querySelectorAll('.lang-toggle').forEach(el => {
+        el.innerHTML = '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES';
+      });
+
+      const menuBtn = document.getElementById('menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      menuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('show');
+      });
     });
   </script>
 </head>
 <body>
   <header>
-    <div><a href="index.html" style="color: white; text-decoration: none; font-weight: 700; font-size: 1.1rem;">Benjamin Espinoza</a></div>
+    <div class="logo"><a href="index.html">Benjamin Espinoza</a></div>
+    <button id="menu-toggle" class="hamburger" aria-label="Toggle menu">&#9776;</button>
     <nav>
       <a href="index.html">About</a>
       <a href="cv.html">CV</a>
       <a href="work.html">Work</a>
       <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
-      <span class="lang-toggle" style="margin-left: 1.5rem; cursor: pointer;" onclick="toggleLang()">
-        <!-- El idioma inicial se inyectará en el script -->
-      </span>
+      <span class="lang-toggle" onclick="toggleLang()"></span>
     </nav>
+    <div id="mobile-nav" class="mobile-nav">
+      <a href="index.html">About</a>
+      <a href="cv.html">CV</a>
+      <a href="work.html">Work</a>
+      <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
+      <div class="lang-toggle" onclick="toggleLang()"></div>
+    </div>
   </header>
+
   <div class="container">
     <div class="profile">
       <img src="assets/profile.jpg" alt="Benjamin Espinoza profile picture">
@@ -202,6 +243,7 @@
       </section>
     </div>
   </div>
+
   <footer>
     <div class="footer-contact">
       <p><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #B3CFE5">bmatiasespinoza@gmail.com</a></p>
