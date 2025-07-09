@@ -52,7 +52,13 @@
       flex: 0 0 280px;
       text-align: center;
     }
-    $1margin-bottom: 1rem;
+    .profile img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      margin-bottom: 1rem;
     }
     .profile h2 {
       margin: 0.25rem 0 0;
@@ -159,15 +165,16 @@
 <body>
   <header>
     <div><a href="index.html" style="color: white; text-decoration: none; font-weight: 700; font-size: 1.1rem;">Benjamin Espinoza</a></div>
-    $1
+    <nav>
+      <a href="#about">About</a>
       <span style="color: #B3CFE5; margin: 0 0.5rem;">|</span>
-      $1
+      <a href="#cv">CV</a>
       <span style="color: #B3CFE5; margin: 0 0.5rem;">|</span>
-      $1
+      <a href="#work">Work</a>
       <span style="color: #B3CFE5; margin: 0 0.5rem;">|</span>
       <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
-      <span class="lang-toggle" style="margin-left: 1.5rem; cursor: pointer;" onclick="toggleLang()">
-        <img id="lang-flag" src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES
+      <span class="lang-toggle" style="margin-left: 1.5rem; cursor: pointer;">
+        <img id="lang-flag" src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN
       </span>
     </nav>
   </header>
@@ -181,7 +188,7 @@
     <div style="flex: 1;">
       <section>
         <h2 id="welcome-title">Welcome</h2>
-        <p id="welcome-text">Thanks for visiting my portfolio! I'm excited to share more about who I am, what I do, and how I can help organizations grow through data-driven insights and innovative solutions.</p>
+        <p id="welcome-text"></p>
         <br />
         <h2 id="about-title">About Me</h2>
         <div id="about-content">
@@ -199,12 +206,10 @@
     <p style="margin-top: 0.5rem;">&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
   </footer>
   <script>
-    // Inicializa el idioma al cargar la página
     window.onload = function() {
-  document.documentElement.lang = 'en';
-  toggleLang();
-};
+      document.documentElement.lang = 'en';
+      toggleLang();
+    };
   </script>
 </body>
 </html>
-
