@@ -95,11 +95,6 @@
     ul {
       padding-left: 1.2rem;
     }
-    img.badge {
-      height: 40px;
-      vertical-align: middle;
-      margin-left: 0.5rem;
-    }
     footer {
       background: var(--dark-blue);
       color: white;
@@ -156,44 +151,8 @@
   </header>
 
   <div class="container">
-    <section id="cv">
-      <h2 id="cv-title">Curriculum Vitae</h2>
-
-      <h3 id="exp-title">Professional Experience</h3>
-      <p><strong>Banco Internacional</strong> – Business Analyst (May 2023 – Present)</p>
-      <ul>
-        <li id="exp-1">Led the creation of a data team and implemented a server for centralizing analytics.</li>
-        <li id="exp-2">Developed Excel and GA-based KPI tracking, migrated to Power BI, Tableau and Looker Studio.</li>
-        <li id="exp-3">Created dashboards that scaled to all departments; team expanded from 1 to 4 members.</li>
-        <li id="exp-4">Involved in creating user stories and expanding responsibilities into Product Ownership.</li>
-      </ul>
-
-      <h3 id="edu-title">Education</h3>
-      <ul>
-        <li id="edu-1">Industrial Civil Engineering – Universidad de Santiago de Chile</li>
-      </ul>
-
-      <h3 id="skills-title">Skills & Tools</h3>
-      <ul>
-        <li>SQL, Python, Excel</li>
-        <li>Looker Studio, Power BI, Tableau</li>
-        <li>Data storytelling, data modeling, cleaning</li>
-        <li>Google Cloud Platform (BigQuery)</li>
-        <li>Agile methodologies, Scrum</li>
-      </ul>
-
-      <h3 id="cert-title">Certifications</h3>
-      <ul>
-        <li>Google Data Analytics Professional Certificate
-          <img src="credly_google.png" alt="Google Badge" class="badge" />
-        </li>
-        <li>Microsoft Power BI Data Analyst Associate
-          <img src="credly_powerbi.png" alt="Power BI Badge" class="badge" />
-        </li>
-        <li>Scrum Fundamentals Certified
-          <img src="credly_scrum.png" alt="Scrum Badge" class="badge" />
-        </li>
-      </ul>
+    <section id="cv-content">
+      <!-- Content will be dynamically injected -->
     </section>
   </div>
 
@@ -209,52 +168,121 @@
   <script>
     const translations = {
       en: {
-        cvTitle: "Curriculum Vitae",
-        expTitle: "Professional Experience",
-        exp: [
-          "Led the creation of a data team and implemented a server for centralizing analytics.",
-          "Developed Excel and GA-based KPI tracking, migrated to Power BI, Tableau and Looker Studio.",
-          "Created dashboards that scaled to all departments; team expanded from 1 to 4 members.",
-          "Involved in creating user stories and expanding responsibilities into Product Ownership."
-        ],
-        eduTitle: "Education",
-        edu: "Industrial Civil Engineering – Universidad de Santiago de Chile",
-        skillsTitle: "Skills & Tools",
-        certTitle: "Certifications"
+        content: `
+        <h2>CV / Resume</h2>
+        <h3>Work Experience</h3>
+
+        <p><strong><a href="https://www.internacional.cl" target="_blank">Banco Internacional</a></strong> – Business Analyst<br><em>May 2023 – Present</em></p>
+        <ul>
+          <li>Led the development of a dynamic KPI monitoring system from scratch for the Innovation & Technology area using Looker Studio and Google Cloud infrastructure.</li>
+          <li>Created advanced dashboards and reports that are used daily by multiple departments to support operational and strategic decisions.</li>
+          <li>Built the foundation for scalable dashboard infrastructure and drove continuous improvement and stakeholder visibility.</li>
+          <li>Enabled the expansion of the reporting team from one to four analysts due to system adoption and success.</li>
+        </ul>
+
+        <p><strong><a href="https://lucasdiesel.cl" target="_blank">Lucas Diesel</a></strong> – Data Analyst & Controlling<br><em>Sept 2021 – Apr 2023</em></p>
+        <ul>
+          <li>Developed and implemented tools to monitor operational performance and generate actionable KPIs.</li>
+          <li>Delivered monthly performance dashboards and analyses for management decision-making.</li>
+          <li>Consolidated company-wide data to support process improvement and reporting needs.</li>
+        </ul>
+
+        <p><strong><a href="https://www.heavenward.cl" target="_blank">Heavenward Ascensores</a></strong> – Business Control Analyst<br><em>Nov 2019 – Sept 2021</em></p>
+        <ul>
+          <li>Managed KPI reporting and dashboard automation for senior leadership.</li>
+          <li>Led improvement meetings and generated insights to drive operational efficiency.</li>
+          <li>Delivered financial and administrative performance reports to management.</li>
+        </ul>
+
+        <h3>Education</h3>
+        <ul>
+          <li><strong>BYU-Pathway Worldwide</strong> – Diploma of Education (2022)</li>
+          <li><strong>Universidad de Valparaíso</strong> – Industrial Civil Engineering (2013–2020)</li>
+        </ul>
+
+        <h3>Skills & Tools</h3>
+        <ul>
+          <li><strong>Data Analytics:</strong> SQL, Excel, Python</li>
+          <li><strong>Visualization:</strong> Looker Studio, Power BI, Tableau</li>
+          <li><strong>Platforms:</strong> Google Cloud (BigQuery), SAP, Softland</li>
+          <li><strong>Methods:</strong> KPI design, Dashboard building, Process monitoring</li>
+          <li><strong>Other:</strong> Agile methodologies, Communication, Data storytelling</li>
+        </ul>
+
+        <h3>Certifications</h3>
+        <ul>
+          <li>Google Data Analytics Professional Certificate</li>
+          <li>Microsoft Power BI Data Analyst Associate</li>
+          <li>Scrum Fundamentals Certified</li>
+          <li>Analyze and Visualize Looker Data – Skill Badge</li>
+          <li>SQL from Zero to Expert</li>
+          <li>Data Integration with Microsoft SSIS</li>
+          <li>Linguaskill English Test – CEFR B2</li>
+        </ul>
+        `
       },
       es: {
-        cvTitle: "Currículum Vitae",
-        expTitle: "Experiencia Profesional",
-        exp: [
-          "Lideré la creación de un equipo de datos e implementé un servidor para centralizar analítica.",
-          "Desarrollé seguimiento de KPIs con Excel y GA, luego migrado a Power BI, Tableau y Looker Studio.",
-          "Creé dashboards que escalaron a todos los departamentos; el equipo creció de 1 a 4 miembros.",
-          "Participé en la creación de historias de usuario y expansión hacia responsabilidades de Product Owner."
-        ],
-        eduTitle: "Educación",
-        edu: "Ingeniería Civil Industrial – Universidad de Santiago de Chile",
-        skillsTitle: "Habilidades y Herramientas",
-        certTitle: "Certificaciones"
+        content: `
+        <h2>Currículum Vitae</h2>
+        <h3>Experiencia Profesional</h3>
+
+        <p><strong><a href="https://www.internacional.cl" target="_blank">Banco Internacional</a></strong> – Business Analyst<br><em>Mayo 2023 – Actualidad</em></p>
+        <ul>
+          <li>Desarrollé un sistema dinámico de monitoreo de KPIs desde cero para el área de Innovación y Tecnología utilizando Looker Studio y Google Cloud.</li>
+          <li>Creé dashboards y reportes avanzados utilizados diariamente por múltiples áreas para decisiones estratégicas y operativas.</li>
+          <li>Implementé una infraestructura escalable de dashboards y promoví visibilidad para los stakeholders.</li>
+          <li>El éxito del sistema permitió aumentar el equipo de analistas de 1 a 4 personas.</li>
+        </ul>
+
+        <p><strong><a href="https://lucasdiesel.cl" target="_blank">Lucas Diesel</a></strong> – Data Analyst & Controlling<br><em>Sept 2021 – Abr 2023</em></p>
+        <ul>
+          <li>Desarrollé herramientas para monitoreo del desempeño operativo y generación de KPIs accionables.</li>
+          <li>Elaboré informes mensuales de gestión para apoyar decisiones de la gerencia.</li>
+          <li>Consolidé datos corporativos para impulsar mejoras de procesos y reportabilidad.</li>
+        </ul>
+
+        <p><strong><a href="https://www.heavenward.cl" target="_blank">Heavenward Ascensores</a></strong> – Analista de Control de Gestión<br><em>Nov 2019 – Sept 2021</em></p>
+        <ul>
+          <li>Automatización de reportes y monitoreo de KPIs para la alta dirección.</li>
+          <li>Lideré reuniones de mejora continua basadas en datos.</li>
+          <li>Elaboración de informes financieros y operacionales.</li>
+        </ul>
+
+        <h3>Educación</h3>
+        <ul>
+          <li><strong>BYU-Pathway Worldwide</strong> – Diploma en Educación (2022)</li>
+          <li><strong>Universidad de Valparaíso</strong> – Ingeniería Civil Industrial (2013–2020)</li>
+        </ul>
+
+        <h3>Habilidades y Herramientas</h3>
+        <ul>
+          <li><strong>Análisis de Datos:</strong> SQL, Excel, Python</li>
+          <li><strong>Visualización:</strong> Looker Studio, Power BI, Tableau</li>
+          <li><strong>Plataformas:</strong> Google Cloud (BigQuery), SAP, Softland</li>
+          <li><strong>Métodos:</strong> Diseño de KPIs, creación de dashboards, monitoreo de procesos</li>
+          <li><strong>Otros:</strong> Metodologías ágiles, comunicación, storytelling con datos</li>
+        </ul>
+
+        <h3>Certificaciones</h3>
+        <ul>
+          <li>Google Data Analytics Professional Certificate</li>
+          <li>Microsoft Power BI Data Analyst Associate</li>
+          <li>Scrum Fundamentals Certified</li>
+          <li>Badge: Analyze and Visualize Looker Data</li>
+          <li>SQL de Cero a Experto</li>
+          <li>Integración de datos con SSIS de Microsoft</li>
+          <li>Linguaskill Inglés – CEFR B2</li>
+        </ul>
+        `
       }
     };
 
     function toggleLang() {
       const current = document.documentElement.lang;
-      const next = current === "en" ? "es" : "en";
+      const next = current === 'en' ? 'es' : 'en';
       document.documentElement.lang = next;
-
-      document.getElementById("cv-title").textContent = translations[next].cvTitle;
-      document.getElementById("exp-title").textContent = translations[next].expTitle;
-      document.getElementById("exp-1").textContent = translations[next].exp[0];
-      document.getElementById("exp-2").textContent = translations[next].exp[1];
-      document.getElementById("exp-3").textContent = translations[next].exp[2];
-      document.getElementById("exp-4").textContent = translations[next].exp[3];
-      document.getElementById("edu-title").textContent = translations[next].eduTitle;
-      document.getElementById("edu-1").textContent = translations[next].edu;
-      document.getElementById("skills-title").textContent = translations[next].skillsTitle;
-      document.getElementById("cert-title").textContent = translations[next].certTitle;
-
-      document.querySelectorAll(".lang-toggle").forEach(el => {
+      document.getElementById('cv-content').innerHTML = translations[next].content;
+      document.querySelectorAll('.lang-toggle').forEach(el => {
         el.innerHTML = next === 'en'
           ? '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES'
           : '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN';
@@ -262,8 +290,11 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("menu-toggle").addEventListener("click", function () {
-        document.getElementById("mobile-nav").classList.toggle("show");
+      document.documentElement.lang = 'en';
+      document.getElementById('cv-content').innerHTML = translations.en.content;
+
+      document.getElementById('menu-toggle').addEventListener('click', () => {
+        document.getElementById('mobile-nav').classList.toggle('show');
       });
     });
   </script>
