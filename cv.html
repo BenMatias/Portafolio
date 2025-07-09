@@ -106,6 +106,12 @@
     ul {
       padding-left: 1.2rem;
     }
+    .badge-widgets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
     footer {
       background: var(--dark-blue);
       color: white;
@@ -162,7 +168,7 @@
   </header>
   <div class="container">
     <section id="cv-content">
-      <!-- Content will be dynamically injected -->
+      <!-- Content injected by JavaScript -->
     </section>
   </div>
 
@@ -230,6 +236,18 @@
             <li>Data Integration with Microsoft SSIS</li>
             <li>Linguaskill English Test – CEFR B2</li>
           </ul>
+
+          <h3>Highlighted Badges</h3>
+          <div class="badge-widgets">
+            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="80084bf2-8bfb-485a-9815-81fdc3f8d88b" data-share-badge-host="https://www.credly.com"></div>
+            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="19420706-efb7-4da0-a955-2b58c25834dd" data-share-badge-host="https://www.credly.com"></div>
+            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="4a17b3b2-fe50-4165-8cc2-dab375fa8cb7" data-share-badge-host="https://www.credly.com"></div>
+          </div>
+          <p style="margin-top: 1rem;">
+            <a href="https://www.credly.com/users/benjamin-espinoza.a90179df" target="_blank" style="color: var(--mid-blue); font-weight: 600;">
+              <i class="fas fa-external-link-alt"></i> View profile on Credly
+            </a>
+          </p>
         `
       },
       es: {
@@ -285,6 +303,18 @@
             <li>Integración de datos con SSIS de Microsoft</li>
             <li>Linguaskill Inglés – CEFR B2</li>
           </ul>
+
+          <h3>Insignias destacadas</h3>
+          <div class="badge-widgets">
+            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="80084bf2-8bfb-485a-9815-81fdc3f8d88b" data-share-badge-host="https://www.credly.com"></div>
+            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="19420706-efb7-4da0-a955-2b58c25834dd" data-share-badge-host="https://www.credly.com"></div>
+            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="4a17b3b2-fe50-4165-8cc2-dab375fa8cb7" data-share-badge-host="https://www.credly.com"></div>
+          </div>
+          <p style="margin-top: 1rem;">
+            <a href="https://www.credly.com/users/benjamin-espinoza.a90179df" target="_blank" style="color: var(--mid-blue); font-weight: 600;">
+              <i class="fas fa-external-link-alt"></i> Ver perfil en Credly
+            </a>
+          </p>
         `
       }
     };
@@ -310,5 +340,6 @@
       });
     });
   </script>
+  <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
 </body>
 </html>
