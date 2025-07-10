@@ -102,6 +102,24 @@
       border-bottom: 2px solid var(--light-blue);
       padding-bottom: 0.5rem;
       color: var(--deep-blue);
+      margin: 0;
+    }
+    .h2-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .download-btn {
+      background: var(--dark-blue);
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     ul {
       padding-left: 1.2rem;
@@ -140,6 +158,10 @@
       .mobile-nav.show {
         display: flex;
       }
+      .h2-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -166,9 +188,15 @@
       </div>
     </div>
   </header>
+
   <div class="container">
+    <div class="h2-wrapper">
+      <h2>CV / Resume</h2>
+      <a class="download-btn" href="assets/Benjamin_Espinoza_CV.pdf" download>
+        <i class="fas fa-download"></i> Download PDF
+      </a>
+    </div>
     <section id="cv-content">
-      <!-- Content injected by JavaScript -->
     </section>
   </div>
 
@@ -185,7 +213,6 @@
     const translations = {
       en: {
         content: `
-          <h2>CV / Resume</h2>
           <h3>Work Experience</h3>
 
           <p><strong><a href="https://www.internacional.cl" target="_blank">Banco Internacional</a></strong> – Business Analyst<br><em>May 2023 – Present</em></p>
@@ -213,8 +240,8 @@
           <h3>Education</h3>
           <ul>
             <li><strong><a href="https://www.digitalbankla.com" target="_blank">Digital Bank LATAM</a></strong> – International Diploma in Digital Transformation for Financial Institutions (2024)</li>
-            <li><strong>Diploma in Web Design and Programming</strong> – 2022</li>
-            <li><strong><a href="https://www.byupathway.edu" target="_blank">BYU-Pathway Worldwide</a></strong> – Diploma of Education (2022)</li>
+            <li><strong><a href="https://www.fundaciontelefonica.cl" target="_blank">Fundación Telefónica</a> & <a href="https://www.aiep.cl" target="_blank">AIEP</a></strong> – Diploma in Web Design and Programming (2022)</li>
+            <li><strong><a href="https://www.byupathway.edu" target="_blank">BYU PathwayConnect (BYU-Idaho)</a></strong> – University Preparation Program (2022)</li>
             <li><strong><a href="https://uv.cl" target="_blank">Universidad de Valparaíso</a></strong> – Industrial Civil Engineering (2013–2020)</li>
           </ul>
 
@@ -252,7 +279,6 @@
       },
       es: {
         content: `
-          <h2>Currículum Vitae</h2>
           <h3>Experiencia Profesional</h3>
 
           <p><strong><a href="https://www.internacional.cl" target="_blank">Banco Internacional</a></strong> – Business Analyst<br><em>Mayo 2023 – Actualidad</em></p>
@@ -280,8 +306,8 @@
           <h3>Educación</h3>
           <ul>
             <li><strong><a href="https://www.digitalbankla.com" target="_blank">Digital Bank LATAM</a></strong> – Diplomado Internacional en Transformación Digital en Instituciones Financieras (2024)</li>
-            <li><strong>Diplomado en Diseño y Programación Web</strong> – 2022</li>
-            <li><strong><a href="https://www.byupathway.edu" target="_blank">BYU-Pathway Worldwide</a></strong> – Diplomado en Educación (2022)</li>
+            <li><strong><a href="https://www.fundaciontelefonica.cl" target="_blank">Fundación Telefónica</a> y <a href="https://www.aiep.cl" target="_blank">AIEP</a></strong> – Diplomado en Diseño y Programación Web (2022)</li>
+            <li><strong><a href="https://www.byupathway.edu" target="_blank">BYU PathwayConnect (BYU-Idaho)</a></strong> – Programa de preparación universitaria (2022)</li>
             <li><strong><a href="https://uv.cl" target="_blank">Universidad de Valparaíso</a></strong> – Ingeniería Civil Industrial (2013–2020)</li>
           </ul>
 
