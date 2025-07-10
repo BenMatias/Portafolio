@@ -28,9 +28,6 @@
       color: var(--light-blue);
       text-decoration: underline;
     }
-    a:visited {
-      color: var(--mid-blue);
-    }
     header {
       background: var(--dark-blue);
       color: white;
@@ -170,26 +167,26 @@
   <header>
     <div class="logo"><a href="index.html">Benjamin Espinoza</a></div>
     <button id="menu-toggle" class="hamburger" aria-label="Toggle menu">&#9776;</button>
-    <nav>
-      <a href="index.html">About</a>
-      <a href="cv.html">CV / Resume</a>
-      <a href="work.html">Projects</a>
-      <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
+    <nav id="main-nav">
+      <a href="index.html" data-key="about">About</a>
+      <a href="cv.html" data-key="cv">CV / Resume</a>
+      <a href="work.html" data-key="projects">Projects</a>
+      <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
       <span class="lang-toggle"></span>
     </nav>
     <div id="mobile-nav" class="mobile-nav">
-      <a href="index.html">About</a>
-      <a href="cv.html">CV / Resume</a>
-      <a href="work.html">Projects</a>
-      <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
+      <a href="index.html" data-key="about">About</a>
+      <a href="cv.html" data-key="cv">CV / Resume</a>
+      <a href="work.html" data-key="projects">Projects</a>
+      <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
       <div class="lang-toggle"></div>
     </div>
   </header>
 
   <div class="container">
     <div class="h2-wrapper">
-      <h2>CV / Resume</h2>
-      <a class="download-btn" href="assets/Benjamin_Espinoza_CV.pdf" download aria-label="Download my resume in PDF">
+      <h2 id="cv-title">CV / Resume</h2>
+      <a id="download-btn" class="download-btn" href="assets/Benjamin_Espinoza_CV.pdf" download>
         <i class="fas fa-download"></i> Download PDF
       </a>
     </div>
@@ -206,106 +203,62 @@
   </footer>
 
   <script>
-    const translations = {
+    const labels = {
       en: {
-        content: `
-          <h3>Work Experience</h3>
-
-          <p><strong><a href="https://www.internacional.cl" target="_blank">Banco Internacional</a></strong> – Business Analyst<br><em>May 2023 – Present</em></p>
-          <ul>
-            <li>Built a company-wide reporting and KPI system from scratch for the Innovation area, where performance tracking and outcome evaluation were previously nonexistent.</li>
-            <li>Created over 20 dashboards for departments such as Innovation, Fraud, Sales, Product Owners, and Strategic Planning, significantly improving decision-making visibility.</li>
-            <li>Led and scaled a metrics team to automate the reporting system via ETL pipelines and a centralized team-managed database, reducing manual work and ensuring data consistency.</li>
-            <li>Successfully phased out the metrics team after accomplishing full automation and transferring ownership to business units.</li>
-            <li>Currently serve in a cross-functional product squad as Business Analyst, responsible for stakeholder alignment, user stories, testing, and dashboard design for in-house products.</li>
-          </ul>
-
-          <p><strong><a href="https://lucasdiesel.cl" target="_blank">Lucas Diesel</a></strong> – Data & Business Control Analyst<br><em>Sep 2021 – Apr 2023</em></p>
-          <ul>
-            <li>Joined a newly created role to solve data and reporting gaps caused by shared administration across sister companies, prioritizing Lucas Diesel’s operational needs.</li>
-            <li>Developed and automated over 30 Power BI dashboards across Sales, Inventory, Procurement, Automotive Services, Operations, and C-level executives.</li>
-            <li>Automated daily report generation, saving 0.5–1 hour per day by eliminating manual ERP data entry and email distribution.</li>
-            <li>Acted as an internal analytics consultant, helping departments identify KPI gaps, optimize inventory, track service delivery times, and monitor sales targets.</li>
-            <li>Improved the budgeting process by reducing annual planning time from 6 to 3 months in year one, and down to 2 months in year two.</li>
-          </ul>
-
-          <p><strong><a href="https://www.heavenward.cl" target="_blank">Heavenward Ascensores</a></strong> – Financial Performance Analyst<br><em>Mar 2021 – Aug 2021</em></p>
-          <ul>
-            <li>Oversaw KPIs and cost tracking for elevator maintenance and modernization projects.</li>
-            <li>Developed Excel and Power BI reports to improve financial monitoring and operational efficiency.</li>
-            <li>Collaborated with management and technical teams to design dashboards supporting customer insights and service response times.</li>
-          </ul>
-          <h3>Educación</h3>
-          <ul>
-            <li><strong><a href="https://www.digitalbankla.com" target="_blank">Digital Bank LATAM</a></strong> – Diplomado Internacional en Transformación Digital para Instituciones Financieras (2024)</li>
-            <li><strong><a href="https://www.fundaciontelefonica.cl" target="_blank">Fundación Telefónica</a> & <a href="https://www.aiep.cl" target="_blank">AIEP</a></strong> – Diplomado en Diseño y Programación Web (2022)</li>
-            <li><strong><a href="https://www.byupathway.edu" target="_blank">BYU PathwayConnect (BYU-Idaho)</a></strong> – Programa preparatorio universitario (2022)</li>
-            <li><strong><a href="https://uv.cl" target="_blank">Universidad de Valparaíso</a></strong> – Ingeniería Civil Industrial (2013–2020)</li>
-          </ul>
-
-          <h3>Habilidades & Herramientas</h3>
-          <ul>
-            <li><strong>Análisis de datos:</strong> SQL, Excel</li>
-            <li><strong>Visualización:</strong> Looker Studio, Power BI, Tableau</li>
-            <li><strong>Modelado:</strong> LookML (modelado y métricas)</li>
-            <li><strong>Métodos:</strong> diseño de KPIs, dashboards, monitoreo de procesos</li>
-            <li><strong>Otros:</strong> metodologías ágiles, comunicación, storytelling con datos</li>
-          </ul>
-
-          <h3>Certificaciones</h3>
-          <ul>
-            <li><a href="assets/certificates/Certificacion Qlik.pdf" download>Certificación Qlik Sense Diseñador</a></li>
-            <li><a href="assets/certificates/Conceptos básicos de Google Tag Manager.pdf" download>Conceptos básicos de Google Tag Manager</a></li>
-            <li><a href="assets/certificates/Linguaskill Cambridge.pdf" download>Linguaskill Cambridge – Nivel B2</a></li>
-            <li><a href="assets/certificates/SQL" download>Certificación en SQL</a></li>
-            <li><a href="assets/certificates/SSIS" download>Certificación en SSIS</a></li>
-            <li><a href="assets/certificates/Tableau" download>Certificación Tableau & Tableau Prep (Udemy)</a></li>
-          </ul>
-
-          <h3>Insignias destacadas</h3>
-          <div class="badge-widgets">
-            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="80084bf2-8bfb-485a-9815-81fdc3f8d88b" data-share-badge-host="https://www.credly.com"></div>
-            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="19420706-efb7-4da0-a955-2b58c25834dd" data-share-badge-host="https://www.credly.com"></div>
-            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="4a17b3b2-fe50-4165-8cc2-dab375fa8cb7" data-share-badge-host="https://www.credly.com"></div>
-          </div>
-          <p style="margin-top: 1rem;">
-            <a href="https://www.credly.com/users/benjamin-espinoza.a90179df" target="_blank" style="color: var(--mid-blue); font-weight: 600;">
-              <i class="fas fa-external-link-alt"></i> Ver perfil en Credly
-            </a>
-          </p>
-        `
+        about: "About",
+        cv: "CV / Resume",
+        projects: "Projects",
+        contact: "Contact",
+        download: "Download PDF",
+        cvTitle: "CV / Resume",
+        langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES'
+      },
+      es: {
+        about: "Sobre mí",
+        cv: "CV / Currículum",
+        projects: "Proyectos",
+        contact: "Contacto",
+        download: "Descargar PDF",
+        cvTitle: "CV / Currículum",
+        langIcon: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
       }
     };
 
-    function toggleLang() {
-      const current = document.documentElement.lang;
-      const next = current === 'en' ? 'es' : 'en';
-      document.documentElement.lang = next;
+    const translations = {
+      en: { content: `<!-- CONTENIDO INGLES AQUI -->` },
+      es: { content: `<!-- CONTENIDO ESPAÑOL AQUI -->` }
+    };
 
-      // Set content based on language
-      const content = translations[next]?.content;
-      if (content) {
-        document.getElementById('cv-content').innerHTML = content;
-      }
-
-      // Update all language toggles
-      const langHTML = next === 'en'
-        ? '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES'
-        : '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN';
-
+    function updateLabels(lang) {
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        el.textContent = labels[lang][key] || key;
+      });
+      document.getElementById('cv-title').textContent = labels[lang].cvTitle;
+      document.getElementById('download-btn').innerHTML = `<i class="fas fa-download"></i> ${labels[lang].download}`;
       document.querySelectorAll('.lang-toggle').forEach(el => {
-        el.innerHTML = langHTML;
+        el.innerHTML = labels[lang].langIcon;
       });
     }
 
+    function toggleLang() {
+      const current = document.documentElement.lang;
+      const nextLang = current === 'en' ? 'es' : 'en';
+      document.documentElement.lang = nextLang;
+
+      // Update content
+      document.getElementById('cv-content').innerHTML = translations[nextLang].content;
+      updateLabels(nextLang);
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
-      const defaultLang = 'en';
+      const defaultLang = "en";
       document.documentElement.lang = defaultLang;
       document.getElementById('cv-content').innerHTML = translations[defaultLang].content;
+      updateLabels(defaultLang);
 
-      const initialLangHTML = '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES';
       document.querySelectorAll('.lang-toggle').forEach(el => {
-        el.innerHTML = initialLangHTML;
+        el.addEventListener('click', toggleLang);
       });
 
       const menuBtn = document.getElementById('menu-toggle');
@@ -316,6 +269,134 @@
       }
     });
   </script>
-  <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
+  <script>
+    translations.en.content = `
+      <h3>Work Experience</h3>
+
+      <p><strong><a href="https://www.internacional.cl" target="_blank">Banco Internacional</a></strong> – Business Analyst<br><em>May 2023 – Present</em></p>
+      <ul>
+        <li>Built a company-wide reporting and KPI system from scratch for the Innovation area, where performance tracking and outcome evaluation were previously nonexistent.</li>
+        <li>Created over 20 dashboards for departments such as Innovation, Fraud, Sales, Product Owners, and Strategic Planning.</li>
+        <li>Led and scaled a metrics team, automated processes using ETL pipelines and team-managed databases, ensuring data integrity and scalability.</li>
+        <li>Transitioned to cross-functional squad as Business Analyst: user stories, testing, flows and dashboards.</li>
+      </ul>
+
+      <p><strong><a href="https://lucasdiesel.cl" target="_blank">Lucas Diesel</a></strong> – Data & Business Control Analyst<br><em>Sep 2021 – Apr 2023</em></p>
+      <ul>
+        <li>Created a new data analytics function in a company lacking visibility due to shared finance with sister company.</li>
+        <li>Delivered 30+ Power BI reports across operations, sales, inventory, procurement, automotive services and executive dashboards.</li>
+        <li>Automated daily report delivery, saving up to 1 hour daily.</li>
+        <li>Improved annual budgeting from 6 to 2 months over two years.</li>
+      </ul>
+
+      <p><strong><a href="https://www.heavenward.cl" target="_blank">Heavenward Ascensores</a></strong> – Financial Performance Analyst<br><em>Mar 2021 – Aug 2021</em></p>
+      <ul>
+        <li>Tracked KPIs and costs for modernization projects.</li>
+        <li>Created dashboards in Excel and Power BI to support strategic decisions.</li>
+        <li>Worked with technical and executive teams to improve customer data insights.</li>
+      </ul>
+
+      <h3>Education</h3>
+      <ul>
+        <li><strong><a href="https://www.digitalbankla.com" target="_blank">Digital Bank LATAM</a></strong> – International Diploma in Digital Transformation (2024)</li>
+        <li><strong><a href="https://www.fundaciontelefonica.cl" target="_blank">Fundación Telefónica</a> & <a href="https://www.aiep.cl" target="_blank">AIEP</a></strong> – Diploma in Web Design & Programming (2022)</li>
+        <li><strong><a href="https://www.byupathway.edu" target="_blank">BYU PathwayConnect</a></strong> – University Preparation Program (2022)</li>
+        <li><strong><a href="https://uv.cl" target="_blank">Universidad de Valparaíso</a></strong> – Industrial Civil Engineering (2013–2020)</li>
+      </ul>
+
+      <h3>Skills & Tools</h3>
+      <ul>
+        <li><strong>Data:</strong> SQL, Excel, LookML</li>
+        <li><strong>Visualization:</strong> Power BI, Looker Studio, Tableau</li>
+        <li><strong>Methods:</strong> KPIs, Agile, dashboarding, storytelling</li>
+      </ul>
+
+      <h3>Certifications</h3>
+      <ul>
+        <li><a href="assets/certificates/Certificacion Qlik.pdf" download>Qlik Sense Designer</a></li>
+        <li><a href="assets/certificates/Conceptos básicos de Google Tag Manager.pdf" download>Google Tag Manager (Basics)</a></li>
+        <li><a href="assets/certificates/Linguaskill Cambridge.pdf" download>Linguaskill English B2</a></li>
+        <li><a href="assets/certificates/SQL" download>SQL Certification</a></li>
+        <li><a href="assets/certificates/SSIS" download>SSIS Certificate</a></li>
+        <li><a href="assets/certificates/Tableau" download>Tableau & Tableau Prep</a></li>
+      </ul>
+
+      <h3>Highlighted Badges</h3>
+      <div class="badge-widgets">
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="80084bf2-8bfb-485a-9815-81fdc3f8d88b" data-share-badge-host="https://www.credly.com"></div>
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="19420706-efb7-4da0-a955-2b58c25834dd" data-share-badge-host="https://www.credly.com"></div>
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="4a17b3b2-fe50-4165-8cc2-dab375fa8cb7" data-share-badge-host="https://www.credly.com"></div>
+      </div>
+      <p style="margin-top: 1rem;">
+        <a href="https://www.credly.com/users/benjamin-espinoza.a90179df" target="_blank" style="color: var(--mid-blue); font-weight: 600;">
+          <i class="fas fa-external-link-alt"></i> View profile on Credly
+        </a>
+      </p>
+    `;
+
+    translations.es.content = `
+      <h3>Experiencia laboral</h3>
+
+      <p><strong><a href="https://www.internacional.cl" target="_blank">Banco Internacional</a></strong> – Business Analyst<br><em>May 2023 – Actualidad</em></p>
+      <ul>
+        <li>Desarrollé un sistema de reportes y KPIs desde cero para el área de innovación, donde no existía medición previa.</li>
+        <li>Creé más de 20 dashboards para innovación, fraude, ventas, dueños de productos y planificación.</li>
+        <li>Lideré equipo de métricas que automatizó procesos mediante ETL y base de datos propia.</li>
+        <li>Transición exitosa al rol de Business Analyst en célula ágil con foco en historias de usuario, flujos y pruebas.</li>
+      </ul>
+
+      <p><strong><a href="https://lucasdiesel.cl" target="_blank">Lucas Diesel</a></strong> – Analista de Datos y Control de Gestión<br><em>Sep 2021 – Abr 2023</em></p>
+      <ul>
+        <li>Ingresé a una posición nueva para resolver brechas de visibilidad y reportes en una estructura financiera compartida.</li>
+        <li>Generé y automatizé más de 30 dashboards para ventas, inventario, abastecimiento, servicios automotrices, operaciones y gerencia.</li>
+        <li>Automatización diaria ahorró hasta 1 hora por día.</li>
+        <li>Reduje el proceso de presupuesto anual de 6 a 2 meses en dos años consecutivos.</li>
+      </ul>
+
+      <p><strong><a href="https://www.heavenward.cl" target="_blank">Heavenward Ascensores</a></strong> – Analista de Control de Gestión<br><em>Mar 2021 – Ago 2021</em></p>
+      <ul>
+        <li>Supervisión de KPIs y control de costos para proyectos de mantenimiento y modernización.</li>
+        <li>Reportes y dashboards en Excel y Power BI para análisis financiero y mejora de tiempos de respuesta.</li>
+      </ul>
+
+      <h3>Educación</h3>
+      <ul>
+        <li><strong><a href="https://www.digitalbankla.com" target="_blank">Digital Bank LATAM</a></strong> – Diplomado Internacional en Transformación Digital (2024)</li>
+        <li><strong><a href="https://www.fundaciontelefonica.cl" target="_blank">Fundación Telefónica</a> & <a href="https://www.aiep.cl" target="_blank">AIEP</a></strong> – Diplomado en Diseño y Programación Web (2022)</li>
+        <li><strong><a href="https://www.byupathway.edu" target="_blank">BYU PathwayConnect</a></strong> – Programa universitario introductorio (2022)</li>
+        <li><strong><a href="https://uv.cl" target="_blank">Universidad de Valparaíso</a></strong> – Ingeniería Civil Industrial (2013–2020)</li>
+      </ul>
+
+      <h3>Habilidades y herramientas</h3>
+      <ul>
+        <li><strong>Datos:</strong> SQL, Excel, LookML</li>
+        <li><strong>Visualización:</strong> Power BI, Looker Studio, Tableau</li>
+        <li><strong>Métodos:</strong> KPIs, Agile, dashboards, storytelling</li>
+      </ul>
+
+      <h3>Certificaciones</h3>
+      <ul>
+        <li><a href="assets/certificates/Certificacion Qlik.pdf" download>Qlik Sense Diseñador</a></li>
+        <li><a href="assets/certificates/Conceptos básicos de Google Tag Manager.pdf" download>Google Tag Manager (Básico)</a></li>
+        <li><a href="assets/certificates/Linguaskill Cambridge.pdf" download>Inglés B2 – Linguaskill</a></li>
+        <li><a href="assets/certificates/SQL" download>Certificación SQL</a></li>
+        <li><a href="assets/certificates/SSIS" download>Certificación SSIS</a></li>
+        <li><a href="assets/certificates/Tableau" download>Certificación Tableau & Tableau Prep</a></li>
+      </ul>
+
+      <h3>Insignias destacadas</h3>
+      <div class="badge-widgets">
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="80084bf2-8bfb-485a-9815-81fdc3f8d88b" data-share-badge-host="https://www.credly.com"></div>
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="19420706-efb7-4da0-a955-2b58c25834dd" data-share-badge-host="https://www.credly.com"></div>
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="4a17b3b2-fe50-4165-8cc2-dab375fa8cb7" data-share-badge-host="https://www.credly.com"></div>
+      </div>
+      <p style="margin-top: 1rem;">
+        <a href="https://www.credly.com/users/benjamin-espinoza.a90179df" target="_blank" style="color: var(--mid-blue); font-weight: 600;">
+          <i class="fas fa-external-link-alt"></i> Ver perfil en Credly
+        </a>
+      </p>
+    `;
+  </script>
+  <script async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
 </body>
 </html>
