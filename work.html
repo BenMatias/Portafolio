@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ben Matias | Work</title>
+  <title>Benjamin Espinoza | Projects</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root {
       --dark-blue: #0A1931;
@@ -19,6 +20,14 @@
       background: var(--almost-white);
       color: var(--dark-blue);
     }
+    a {
+      color: var(--mid-blue);
+      text-decoration: none;
+    }
+    a:hover {
+      color: var(--light-blue);
+      text-decoration: underline;
+    }
     header {
       background: var(--dark-blue);
       color: white;
@@ -26,12 +35,57 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+    }
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
     }
     nav a {
-      margin-left: 1rem;
       color: white;
       text-decoration: none;
       font-weight: 600;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    nav a:hover {
+      transform: scale(1.1);
+      color: var(--light-blue);
+    }
+    .lang-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--dark-blue);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+    .mobile-nav a, .mobile-nav .lang-toggle {
+      padding: 1rem;
+      border-top: 1px solid #ffffff22;
+      color: white;
+      text-align: center;
     }
     .container {
       max-width: 960px;
@@ -46,68 +100,139 @@
       padding-bottom: 0.5rem;
       color: var(--deep-blue);
     }
-    .project {
-      margin-bottom: 2.5rem;
-    }
-    .project img {
-      width: 100%;
-      border-radius: 6px;
-      margin-bottom: 0.5rem;
-    }
     footer {
       background: var(--dark-blue);
       color: white;
-      padding: 2rem;
+      padding: 2rem 1rem;
       text-align: center;
       margin-top: 4rem;
+      font-size: 0.9rem;
+    }
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
     }
     .footer-contact p {
       margin: 0.2rem 0;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .mobile-nav.show {
+        display: flex;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div><strong>Ben Matias</strong> – Data Analyst</div>
-    <nav>
-      <a href="index.html">About</a>
-      <a href="cv.html">CV</a>
-      <a href="work.html">Work</a>
-      <a href="mailto:benmatias@example.com">Contact</a>
+    <div class="logo"><a href="index.html">Benjamin Espinoza</a></div>
+    <button id="menu-toggle" class="hamburger" aria-label="Toggle menu">&#9776;</button>
+    <nav id="main-nav">
+      <a href="index.html" data-key="about">About</a>
+      <a href="cv.html" data-key="cv">CV / Resume</a>
+      <a href="work.html" data-key="projects">Projects</a>
+      <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
+      <span class="lang-toggle"></span>
     </nav>
+    <div id="mobile-nav" class="mobile-nav">
+      <a href="index.html" data-key="about">About</a>
+      <a href="cv.html" data-key="cv">CV / Resume</a>
+      <a href="work.html" data-key="projects">Projects</a>
+      <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
+      <div class="lang-toggle"></div>
+    </div>
   </header>
 
   <div class="container">
-    <section id="portfolio">
-      <h2>Selected Work</h2>
-
-      <div class="project">
-        <img src="assets/Dashboard 1.jpg" alt="Currency Exchange Dashboard" />
-        <h3>Currency Exchange Dashboard</h3>
-        <p>Interactive Power BI report monitoring real-time exchange rates and trends for financial decision-making.</p>
-      </div>
-
-      <div class="project">
-        <img src="assets/Dashboard 2.jpg" alt="KPI Tracker Dashboard" />
-        <h3>KPI Tracker for Banking Operations</h3>
-        <p>A comprehensive Looker Studio dashboard to track operational performance and service-level KPIs across departments.</p>
-      </div>
-
-      <div class="project">
-        <img src="assets/Dashboard 3.jpg" alt="Customer Segmentation" />
-        <h3>Customer Segmentation Analysis</h3>
-        <p>Clustering analysis to identify customer behavior patterns and segment audiences for targeted strategies.</p>
+    <section id="projects-section">
+      <h2 id="projects-title">Projects</h2>
+      <div id="projects-content">
+        <!-- Aquí irá el contenido dinámico de tus dashboards/proyectos -->
       </div>
     </section>
   </div>
 
   <footer>
     <div class="footer-contact">
-      <p><strong>Email:</strong> benmatias@example.com</p>
-      <p><strong>Location:</strong> Santiago, Chile</p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/benmatias" style="color: #B3CFE5">linkedin.com/in/benmatias</a></p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #B3CFE5">bmatiasespinoza@gmail.com</a></p>
+      <p><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
+      <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benmatias" style="color: #B3CFE5">linkedin.com/in/benmatias</a></p>
     </div>
-    <p>&copy; 2025 Ben Matias. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
   </footer>
+
+  <script>
+    const labels = {
+      en: {
+        about: "About",
+        cv: "CV / Resume",
+        projects: "Projects",
+        contact: "Contact",
+        langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES',
+        title: "Projects"
+      },
+      es: {
+        about: "Sobre mí",
+        cv: "CV / Currículum",
+        projects: "Proyectos",
+        contact: "Contacto",
+        langIcon: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN',
+        title: "Proyectos"
+      }
+    };
+
+    const translations = {
+      en: {
+        content: `<p>Here you will find a curated selection of dashboards and data projects I've created using tools like Power BI, Looker Studio, and Tableau. Due to confidentiality, no sensitive or proprietary information is shown.</p>`
+      },
+      es: {
+        content: `<p>Aquí encontrarás una selección de dashboards y proyectos de datos desarrollados con herramientas como Power BI, Looker Studio y Tableau. Por motivos de confidencialidad, no se muestra información sensible ni propietaria.</p>`
+      }
+    };
+
+    function updateLabels(lang) {
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        el.textContent = labels[lang][key] || key;
+      });
+      document.querySelectorAll('.lang-toggle').forEach(el => {
+        el.innerHTML = labels[lang].langIcon;
+      });
+      document.getElementById('projects-title').textContent = labels[lang].title;
+      document.getElementById('projects-content').innerHTML = translations[lang].content;
+    }
+
+    function toggleLang() {
+      const current = document.documentElement.lang;
+      const nextLang = current === 'en' ? 'es' : 'en';
+      document.documentElement.lang = nextLang;
+      updateLabels(nextLang);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const defaultLang = "en";
+      document.documentElement.lang = defaultLang;
+      updateLabels(defaultLang);
+
+      document.querySelectorAll('.lang-toggle').forEach(el => {
+        el.addEventListener('click', toggleLang);
+      });
+
+      const menuBtn = document.getElementById('menu-toggle');
+      if (menuBtn) {
+        menuBtn.addEventListener('click', () => {
+          document.getElementById('mobile-nav').classList.toggle('show');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
