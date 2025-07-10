@@ -109,6 +109,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
+      flex-wrap: wrap;
     }
     .download-btn {
       background: var(--dark-blue);
@@ -158,10 +159,6 @@
       .mobile-nav.show {
         display: flex;
       }
-      .h2-wrapper {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
   </style>
 </head>
@@ -192,7 +189,7 @@
   <div class="container">
     <div class="h2-wrapper">
       <h2>CV / Resume</h2>
-      <a class="download-btn" href="assets/Benjamin_Espinoza_CV.pdf" download>
+      <a class="download-btn" href="assets/Benjamin_Espinoza_CV.pdf" download aria-label="Download my resume in PDF">
         <i class="fas fa-download"></i> Download PDF
       </a>
     </div>
@@ -223,14 +220,14 @@
             <li>Helped grow the analytics team from 1 to 4 people due to demand and impact.</li>
           </ul>
 
-          <p><strong><a href="https://lucasdiesel.cl" target="_blank">Lucas Diesel</a></strong> – Data Analyst & Controlling<br><em>Sept 2021 – Apr 2023</em></p>
+          <p><strong><a href="https://lucasdiesel.cl" target="_blank">Lucas Diesel</a></strong> – Data Analyst & Controlling<br><em>Sep 2021 – Apr 2023</em></p>
           <ul>
             <li>Built tools to monitor performance and generate KPIs from operations.</li>
             <li>Created monthly reports to support executive decisions.</li>
             <li>Centralized company data to improve visibility and process improvement.</li>
           </ul>
 
-          <p><strong><a href="https://www.heavenward.cl" target="_blank">Heavenward Ascensores</a></strong> – Business Control Analyst<br><em>Nov 2019 – Sept 2021</em></p>
+          <p><strong><a href="https://www.heavenward.cl" target="_blank">Heavenward Ascensores</a></strong> – Business Control Analyst<br><em>Nov 2019 – Sep 2021</em></p>
           <ul>
             <li>Led KPI automation and reporting for upper management.</li>
             <li>Ran operational meetings based on data monitoring and follow-up.</li>
