@@ -273,7 +273,27 @@
         `
       },
       es: {
-        content: `<!-- Traducción en español ya definida y actualizada previamente -->`
+        content: `
+          <h3>Experiencia Profesional</h3>
+
+          <p><strong><a href="https://www.internacional.cl" target="_blank">Banco Internacional</a></strong> – Business Analyst<br><em>Mayo 2023 – Actualidad</em></p>
+          <ul>
+            <li>Implementé desde cero un sistema de reportería y KPIs en el área de Innovación, que hasta ese momento no contaba con visibilidad sobre el impacto de sus desarrollos.</li>
+            <li>Desarrollé más de 20 dashboards para áreas como Innovación, Fraude, Ventas, Dueños de Producto y Planificación Estratégica, mejorando la toma de decisiones basada en datos.</li>
+            <li>Formé y lideré un equipo de métricas que automatizó la reportería mediante ETL y una base de datos propia, reduciendo la dependencia de procesos manuales.</li>
+            <li>El sistema alcanzó tal grado de madurez que permitió disolver el equipo, integrando las métricas a la operación regular.</li>
+            <li>Actualmente me desempeño como Business Analyst en una célula de producto, donde creo historias de usuario, diseño dashboards, testeo soluciones y trabajo junto a stakeholders clave.</li>
+          </ul>
+
+          <p><strong><a href="https://lucasdiesel.cl" target="_blank">Lucas Diesel</a></strong> – Analista de Datos y Control de Gestión<br><em>Sept 2021 – Abr 2023</em></p>
+          <ul>
+            <li>Fui contratado para un cargo nuevo, con el objetivo de abordar la falta de reportería causada por la administración compartida entre empresas del grupo.</li>
+            <li>Desarrollé y automatizé más de 30 dashboards en Power BI para áreas como Ventas, Inventario, Abastecimiento, Servicio Técnico, Operaciones y Gerencia General.</li>
+            <li>Automaticé un reporte diario crítico, eliminando tareas manuales repetitivas y ahorrando hasta 1 hora diaria.</li>
+            <li>Actué como consultor interno de datos, apoyando a distintas áreas en la creación y seguimiento de KPIs, predicción de quiebres de stock, y control de cumplimiento.</li>
+            <li>Optimizamos el proceso presupuestario, reduciendo los tiempos de elaboración de 6 a 3 meses el primer año y a 2 meses el segundo año.</li>
+          </ul>
+        `
       }
     };
 
@@ -292,7 +312,6 @@
     document.addEventListener("DOMContentLoaded", () => {
       document.documentElement.lang = 'en';
       document.getElementById('cv-content').innerHTML = translations.en.content;
-
       document.getElementById('menu-toggle').addEventListener('click', () => {
         document.getElementById('mobile-nav').classList.toggle('show');
       });
