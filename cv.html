@@ -225,8 +225,8 @@
     };
 
     const translations = {
-      en: { content: `` },
-      es: { content: `` }
+      en: { content: `<!-- CONTENIDO INGLES AQUI -->` },
+      es: { content: `<!-- CONTENIDO ESPAÑOL AQUI -->` }
     };
 
     function updateLabels(lang) {
@@ -246,6 +246,7 @@
       const nextLang = current === 'en' ? 'es' : 'en';
       document.documentElement.lang = nextLang;
 
+      // Update content
       document.getElementById('cv-content').innerHTML = translations[nextLang].content;
       updateLabels(nextLang);
     }
@@ -268,54 +269,56 @@
       }
     });
   </script>
+  <script>
     translations.en.content = `
       <h3>Work Experience</h3>
 
-      <p><strong><a href="https://www.internacional.cl" target="_blank">Banco Internacional</a></strong> – Business Analyst<br><em>May 2023 – Present | Santiago, Chile</em></p>
+      <p><strong><a href="https://www.internacional.cl" target="_blank">Banco Internacional</a></strong> – Business Analyst<br><em>May 2023 – Present</em></p>
       <ul>
-        <li>Built a company-wide reporting and KPI system from scratch for the Innovation area.</li>
-        <li>Created 20+ dashboards for Innovation, Fraud, Sales, Product Owners, and Planning.</li>
-        <li>Led metrics team, automated reporting through ETL pipelines and managed data layer.</li>
-        <li>Now part of a cross-functional agile team: user stories, testing, and product dashboards.</li>
+        <li>Built a company-wide reporting and KPI system from scratch for the Innovation area, where performance tracking and outcome evaluation were previously nonexistent.</li>
+        <li>Created over 20 dashboards for departments such as Innovation, Fraud, Sales, Product Owners, and Strategic Planning.</li>
+        <li>Led and scaled a metrics team, automated processes using ETL pipelines and team-managed databases, ensuring data integrity and scalability.</li>
+        <li>Transitioned to cross-functional squad as Business Analyst: user stories, testing, flows and dashboards.</li>
       </ul>
 
-      <p><strong><a href="https://lucasdiesel.cl" target="_blank">Lucas Diesel</a></strong> – Data & Business Control Analyst<br><em>Sep 2021 – Apr 2023 | Santiago, Chile</em></p>
+      <p><strong><a href="https://lucasdiesel.cl" target="_blank">Lucas Diesel</a></strong> – Data & Business Control Analyst<br><em>Sep 2021 – Apr 2023</em></p>
       <ul>
-        <li>Created and automated 30+ Power BI dashboards across Sales, Operations, and Management.</li>
-        <li>Saved up to 1 hour daily by automating ERP-based daily reporting.</li>
-        <li>Improved budgeting cycle from 6 to 2 months over 2 years.</li>
+        <li>Created a new data analytics function in a company lacking visibility due to shared finance with sister company.</li>
+        <li>Delivered 30+ Power BI reports across operations, sales, inventory, procurement, automotive services and executive dashboards.</li>
+        <li>Automated daily report delivery, saving up to 1 hour daily.</li>
+        <li>Improved annual budgeting from 6 to 2 months over two years.</li>
       </ul>
 
-      <p><strong><a href="https://www.heavenward.cl" target="_blank">Heavenward Ascensores</a></strong> – Financial Performance Analyst<br><em>Nov 2019 – Aug 2021 | Santiago, Chile</em></p>
+      <p><strong><a href="https://www.heavenward.cl" target="_blank">Heavenward Ascensores</a></strong> – Financial Performance Analyst<br><em>Mar 2021 – Aug 2021</em></p>
       <ul>
-        <li>Monitored financial KPIs for modernization and maintenance projects.</li>
-        <li>Built Excel and Power BI dashboards to support service and operational decision-making.</li>
+        <li>Tracked KPIs and costs for modernization projects.</li>
+        <li>Created dashboards in Excel and Power BI to support strategic decisions.</li>
+        <li>Worked with technical and executive teams to improve customer data insights.</li>
       </ul>
 
       <h3>Education</h3>
       <ul>
-        <li><strong><a href="https://www.digitalbankla.com" target="_blank">Digital Bank LATAM</a></strong> – Int'l Diploma in Digital Transformation (2024)</li>
+        <li><strong><a href="https://www.digitalbankla.com" target="_blank">Digital Bank LATAM</a></strong> – International Diploma in Digital Transformation (2024)</li>
         <li><strong><a href="https://www.fundaciontelefonica.cl" target="_blank">Fundación Telefónica</a> & <a href="https://www.aiep.cl" target="_blank">AIEP</a></strong> – Diploma in Web Design & Programming (2022)</li>
         <li><strong><a href="https://www.byupathway.edu" target="_blank">BYU PathwayConnect</a></strong> – University Preparation Program (2022)</li>
         <li><strong><a href="https://uv.cl" target="_blank">Universidad de Valparaíso</a></strong> – Industrial Civil Engineering (2013–2020)</li>
       </ul>
 
-      <h3>Skills</h3>
+      <h3>Skills & Tools</h3>
       <ul>
-        <li><strong>Data Tools:</strong> SQL, Excel, LookML</li>
+        <li><strong>Data:</strong> SQL, Excel, LookML</li>
         <li><strong>Visualization:</strong> Power BI, Looker Studio, Tableau</li>
-        <li><strong>Business/BA:</strong> KPIs, dashboarding, user stories, testing, agile squads</li>
-        <li><strong>Soft Skills:</strong> stakeholder management, storytelling, self-learning</li>
+        <li><strong>Methods:</strong> KPIs, Agile, dashboarding, storytelling</li>
       </ul>
 
       <h3>Certifications</h3>
       <ul>
-        <li><a href="assets/certificates/Certificacion Qlik.pdf" download>Qlik Sense Designer (Spanish)</a></li>
-        <li><a href="assets/certificates/Conceptos básicos de Google Tag Manager.pdf" download>Google Tag Manager – Basics (Spanish)</a></li>
+        <li><a href="assets/certificates/Certificacion Qlik.pdf" download>Qlik Sense Designer</a></li>
+        <li><a href="assets/certificates/Conceptos básicos de Google Tag Manager.pdf" download>Google Tag Manager (Basics)</a></li>
         <li><a href="assets/certificates/Linguaskill Cambridge.pdf" download>Linguaskill English B2</a></li>
         <li><a href="assets/certificates/SQL" download>SQL Certification</a></li>
-        <li><a href="assets/certificates/SSIS" download>SSIS Certification</a></li>
-        <li><a href="assets/certificates/Tableau" download>Tableau & Prep – Udemy</a></li>
+        <li><a href="assets/certificates/SSIS" download>SSIS Certificate</a></li>
+        <li><a href="assets/certificates/Tableau" download>Tableau & Tableau Prep</a></li>
       </ul>
 
       <h3>Highlighted Badges</h3>
@@ -334,51 +337,51 @@
     translations.es.content = `
       <h3>Experiencia laboral</h3>
 
-      <p><strong><a href="https://www.internacional.cl" target="_blank">Banco Internacional</a></strong> – Business Analyst<br><em>May 2023 – Actualidad | Santiago, Chile</em></p>
+      <p><strong><a href="https://www.internacional.cl" target="_blank">Banco Internacional</a></strong> – Business Analyst<br><em>May 2023 – Actualidad</em></p>
       <ul>
-        <li>Diseñé e implementé un sistema completo de métricas y reportes para el área de Innovación.</li>
-        <li>Creé más de 20 dashboards para Innovación, Fraude, Ventas, Dueños de Productos y Planificación.</li>
-        <li>Lideré un equipo de métricas que automatizó reportes mediante pipelines ETL y una base de datos administrada por el equipo.</li>
-        <li>Actualmente formo parte de una célula ágil como Business Analyst: historias de usuario, pruebas, dashboards de productos.</li>
+        <li>Desarrollé un sistema de reportes y KPIs desde cero para el área de innovación, donde no existía medición previa.</li>
+        <li>Creé más de 20 dashboards para innovación, fraude, ventas, dueños de productos y planificación.</li>
+        <li>Lideré equipo de métricas que automatizó procesos mediante ETL y base de datos propia.</li>
+        <li>Transición exitosa al rol de Business Analyst en célula ágil con foco en historias de usuario, flujos y pruebas.</li>
       </ul>
 
-      <p><strong><a href="https://lucasdiesel.cl" target="_blank">Lucas Diesel</a></strong> – Analista de Datos y Control de Gestión<br><em>Sep 2021 – Abr 2023 | Santiago, Chile</em></p>
+      <p><strong><a href="https://lucasdiesel.cl" target="_blank">Lucas Diesel</a></strong> – Analista de Datos y Control de Gestión<br><em>Sep 2021 – Abr 2023</em></p>
       <ul>
-        <li>Desarrollé y automatizé más de 30 dashboards en Power BI para ventas, operaciones y gerencia.</li>
-        <li>Reduje hasta 1 hora diaria automatizando reportes basados en ERP.</li>
-        <li>Mejoré el ciclo de presupuesto anual, reduciendo su elaboración de 6 a 2 meses.</li>
+        <li>Ingresé a una posición nueva para resolver brechas de visibilidad y reportes en una estructura financiera compartida.</li>
+        <li>Generé y automatizé más de 30 dashboards para ventas, inventario, abastecimiento, servicios automotrices, operaciones y gerencia.</li>
+        <li>Automatización diaria ahorró hasta 1 hora por día.</li>
+        <li>Reduje el proceso de presupuesto anual de 6 a 2 meses en dos años consecutivos.</li>
       </ul>
 
-      <p><strong><a href="https://www.heavenward.cl" target="_blank">Heavenward Ascensores</a></strong> – Analista de Control de Gestión<br><em>Nov 2019 – Ago 2021 | Santiago, Chile</em></p>
+      <p><strong><a href="https://www.heavenward.cl" target="_blank">Heavenward Ascensores</a></strong> – Analista de Control de Gestión<br><em>Mar 2021 – Ago 2021</em></p>
       <ul>
-        <li>Supervisé KPIs financieros para proyectos de modernización y mantenimiento.</li>
-        <li>Diseñé dashboards en Excel y Power BI para respaldar decisiones operativas y de servicio.</li>
+        <li>Supervisión de KPIs y control de costos para proyectos de mantenimiento y modernización.</li>
+        <li>Reportes y dashboards en Excel y Power BI para análisis financiero y mejora de tiempos de respuesta.</li>
       </ul>
 
       <h3>Educación</h3>
       <ul>
         <li><strong><a href="https://www.digitalbankla.com" target="_blank">Digital Bank LATAM</a></strong> – Diplomado Internacional en Transformación Digital (2024)</li>
         <li><strong><a href="https://www.fundaciontelefonica.cl" target="_blank">Fundación Telefónica</a> & <a href="https://www.aiep.cl" target="_blank">AIEP</a></strong> – Diplomado en Diseño y Programación Web (2022)</li>
-        <li><strong><a href="https://www.byupathway.edu" target="_blank">BYU PathwayConnect</a></strong> – Programa introductorio universitario (2022)</li>
+        <li><strong><a href="https://www.byupathway.edu" target="_blank">BYU PathwayConnect</a></strong> – Programa universitario introductorio (2022)</li>
         <li><strong><a href="https://uv.cl" target="_blank">Universidad de Valparaíso</a></strong> – Ingeniería Civil Industrial (2013–2020)</li>
       </ul>
 
-      <h3>Habilidades</h3>
+      <h3>Habilidades y herramientas</h3>
       <ul>
-        <li><strong>Herramientas de datos:</strong> SQL, Excel, LookML</li>
+        <li><strong>Datos:</strong> SQL, Excel, LookML</li>
         <li><strong>Visualización:</strong> Power BI, Looker Studio, Tableau</li>
-        <li><strong>Negocio / BA:</strong> KPIs, dashboards, historias de usuario, testing, células ágiles</li>
-        <li><strong>Habilidades blandas:</strong> gestión de stakeholders, comunicación, aprendizaje continuo</li>
+        <li><strong>Métodos:</strong> KPIs, Agile, dashboards, storytelling</li>
       </ul>
 
       <h3>Certificaciones</h3>
       <ul>
-        <li><a href="assets/certificates/Certificacion Qlik.pdf" download>Qlik Sense Diseñador (español)</a></li>
-        <li><a href="assets/certificates/Conceptos básicos de Google Tag Manager.pdf" download>Google Tag Manager – Básico (español)</a></li>
+        <li><a href="assets/certificates/Certificacion Qlik.pdf" download>Qlik Sense Diseñador</a></li>
+        <li><a href="assets/certificates/Conceptos básicos de Google Tag Manager.pdf" download>Google Tag Manager (Básico)</a></li>
         <li><a href="assets/certificates/Linguaskill Cambridge.pdf" download>Inglés B2 – Linguaskill</a></li>
-        <li><a href="assets/certificates/SQL" download>Certificación en SQL</a></li>
-        <li><a href="assets/certificates/SSIS" download>Certificación en SSIS</a></li>
-        <li><a href="assets/certificates/Tableau" download>Certificado Tableau & Tableau Prep – Udemy</a></li>
+        <li><a href="assets/certificates/SQL" download>Certificación SQL</a></li>
+        <li><a href="assets/certificates/SSIS" download>Certificación SSIS</a></li>
+        <li><a href="assets/certificates/Tableau" download>Certificación Tableau & Tableau Prep</a></li>
       </ul>
 
       <h3>Insignias destacadas</h3>
