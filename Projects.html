@@ -100,6 +100,9 @@
       padding-bottom: 0.5rem;
       color: var(--deep-blue);
     }
+    .project-entry {
+      margin-bottom: 2rem;
+    }
     footer {
       background: var(--dark-blue);
       color: white;
@@ -155,7 +158,10 @@
     <section id="projects-section">
       <h2 id="projects-title">Projects</h2>
       <div id="projects-content">
-        <!-- Aquí irá el contenido dinámico de tus dashboards/proyectos -->
+        <div class="project-entry">
+          <h3><a href="projects/US-Unemployment.html">Unemployment in America – A Data-Driven Overview</a></h3>
+          <p>Interactive dashboard exploring U.S. unemployment trends across national, state, and metro levels, highlighting short- and long-term labor market dynamics.</p>
+        </div>
       </div>
     </section>
   </div>
@@ -177,7 +183,8 @@
         projects: "Projects",
         contact: "Contact",
         langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES',
-        title: "Projects"
+        title: "Projects",
+        description: "Interactive dashboard exploring U.S. unemployment trends across national, state, and metro levels, highlighting short- and long-term labor market dynamics."
       },
       es: {
         about: "Sobre mí",
@@ -185,16 +192,8 @@
         projects: "Proyectos",
         contact: "Contacto",
         langIcon: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN',
-        title: "Proyectos"
-      }
-    };
-
-    const translations = {
-      en: {
-        content: `<p>Here you will find a curated selection of dashboards and data projects I've created using tools like Power BI, Looker Studio, and Tableau. Due to confidentiality, no sensitive or proprietary information is shown.</p>`
-      },
-      es: {
-        content: `<p>Aquí encontrarás una selección de dashboards y proyectos de datos desarrollados con herramientas como Power BI, Looker Studio y Tableau. Por motivos de confidencialidad, no se muestra información sensible ni propietaria.</p>`
+        title: "Proyectos",
+        description: "Dashboard interactivo que explora las tendencias de desempleo en EE.UU. a nivel nacional, estatal y metropolitano, destacando la dinámica del mercado laboral en el corto y largo plazo."
       }
     };
 
@@ -207,7 +206,7 @@
         el.innerHTML = labels[lang].langIcon;
       });
       document.getElementById('projects-title').textContent = labels[lang].title;
-      document.getElementById('projects-content').innerHTML = translations[lang].content;
+      document.querySelector('.project-entry p').textContent = labels[lang].description;
     }
 
     function toggleLang() {
