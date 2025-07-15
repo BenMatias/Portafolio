@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>US Unemployment – Interactive Dashboard</title>
+  <title>Unemployment in America – Dashboard</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -36,6 +36,7 @@
       justify-content: space-between;
       align-items: center;
       position: relative;
+      flex-wrap: wrap;
     }
     .logo a {
       color: white;
@@ -43,61 +44,49 @@
       font-weight: 700;
       font-size: 1.1rem;
     }
-    nav {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: transform 0.2s ease, color 0.2s ease;
-    }
-    nav a:hover {
-      transform: scale(1.1);
-      color: var(--light-blue);
-    }
     .lang-toggle {
       cursor: pointer;
+      color: white;
+      font-weight: 500;
       display: flex;
       align-items: center;
     }
-
+    .lang-toggle img {
+      width: 20px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .buttons-top {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn {
+      background-color: var(--mid-blue);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 0.4rem 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background-color: var(--light-blue);
+    }
     .container {
       max-width: 960px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
-
-    .action-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .action-buttons button {
-      background: var(--mid-blue);
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border: none;
-      border-radius: 4px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .action-buttons button:hover {
-      background: var(--light-blue);
-    }
-
-    h2 {
-      border-bottom: 2px solid var(--light-blue);
-      padding-bottom: 0.5rem;
+    h1 {
       color: var(--deep-blue);
     }
-
     footer {
       background: var(--dark-blue);
       color: white;
@@ -116,59 +105,52 @@
     .footer-contact p {
       margin: 0.2rem 0;
     }
-
-    @media (max-width: 768px) {
-      .action-buttons {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
   </style>
 </head>
 <body>
   <header>
     <div class="logo"><a href="../index.html">Benjamin Espinoza</a></div>
-    <nav>
-      <a href="../index.html">About</a>
-      <a href="../cv.html">CV / Resume</a>
-      <a href="../projects.html">Projects</a>
-      <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <a href="../projects.html" class="btn"><i class="fas fa-arrow-left"></i> <span data-key="back">Back</span></a>
       <span class="lang-toggle" onclick="toggleLang()"></span>
-    </nav>
+    </div>
   </header>
-
   <div class="container">
-    <div class="action-buttons">
-      <a id="back-btn" href="../projects.html"><i class="fas fa-arrow-left"></i> Back</a>
-      <button id="linkedin-btn"><i class="fab fa-linkedin"></i> Share</button>
-      <button id="x-btn"><i class="fab fa-x-twitter"></i> Share</button>
-      <a id="looker-btn" href="https://lookerstudio.google.com/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45" target="_blank"><i class="fas fa-chart-bar"></i> View on Looker Studio</a>
+    <div class="buttons-top">
+      <a href="#" id="linkedin-share" class="btn" target="_blank"><i class="fab fa-linkedin"></i> Share</a>
+      <a href="#" id="x-share" class="btn" target="_blank"><i class="fab fa-x-twitter"></i> Share</a>
+      <a href="https://lookerstudio.google.com/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45" target="_blank" class="btn">
+        <i class="fas fa-chart-bar"></i> <span data-key="view">View on Looker Studio</span>
+      </a>
     </div>
     <h1 id="title">Unemployment in America – A Data-Driven Overview</h1>
 
-    <p id="paragraph-1">
-      This dashboard provides a comprehensive overview of unemployment in the United States as of May 2025, integrating national, state-level, and metro-area data to uncover both surface-level trends and deeper structural patterns.
+    <p id="description">
+      This dashboard provides a comprehensive overview of unemployment in the United States as of May 2025,
+      integrating national, state-level, and metro-area data to uncover both surface-level trends and deeper
+      structural patterns.
     </p>
-    <p id="paragraph-2">
-      While the national unemployment rate appears stable, disaggregating the data reveals significant disparities across states and urban regions. Cities such as New York, Los Angeles, and Washington D.C. show unique labor dynamics that differ markedly from their surrounding states, reflecting the influence of industry concentration, population density, and local policy environments.
+    <p>
+      While the national unemployment rate appears stable, disaggregating the data reveals significant disparities
+      across states and urban regions. Cities such as New York, Los Angeles, and Washington D.C. show unique labor
+      dynamics that differ markedly from their surrounding states, reflecting the influence of industry
+      concentration, population density, and local policy environments.
     </p>
-    <p id="paragraph-3">
-      By combining short-term (MoM) and long-term (YoY) variations with volume-based indicators, this dashboard goes beyond static metrics to support more informed decision-making.
+    <p>
+      By combining short-term (MoM) and long-term (YoY) variations with volume-based indicators, this dashboard goes
+      beyond static metrics to support more informed decision-making.
     </p>
-    <p id="paragraph-4">
-      The final section—focused on structural correlations—demonstrates that unemployment rates are not simply a function of population size or labor force scale. Instead, contextual factors play a critical role in shaping labor outcomes across the country.
+    <p>
+      The final section—focused on structural correlations—demonstrates that unemployment rates are not simply a
+      function of population size or labor force scale. Instead, contextual factors play a critical role in shaping
+      labor outcomes across the country.
     </p>
 
-    <h2 id="interactive-title">Interactive Dashboard</h2>
-    <p id="explore-text">Explore the interactive report below or use the tabs to dive into state and metro-level insights.</p>
+    <p id="guide-text">Explore the interactive report below or use the tabs to dive into state and metro-level insights.</p>
 
-    <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF"
-      frameborder="0"
-      style="width: 100%; height: 480px; border: 0;"
-      allowfullscreen
-      sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-    </iframe>
+    <iframe width="100%" height="600" src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
   </div>
+
   <footer>
     <div class="footer-contact">
       <p><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #B3CFE5">bmatiasespinoza@gmail.com</a></p>
@@ -177,81 +159,59 @@
     </div>
     <p style="margin-top: 0.5rem;">&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
   </footer>
-
-  <script>
-    const langData = {
-      en: {
-        back: "Back",
-        share: "Share",
-        view: "View on Looker Studio",
-        title: "Unemployment in America – A Data-Driven Overview",
-        paragraph1: "This dashboard provides a comprehensive overview of unemployment in the United States as of May 2025, integrating national, state-level, and metro-area data to uncover both surface-level trends and deeper structural patterns.",
-        paragraph2: "While the national unemployment rate appears stable, disaggregating the data reveals significant disparities across states and urban regions. Cities such as New York, Los Angeles, and Washington D.C. show unique labor dynamics that differ markedly from their surrounding states, reflecting the influence of industry concentration, population density, and local policy environments.",
-        paragraph3: "By combining short-term (MoM) and long-term (YoY) variations with volume-based indicators, this dashboard goes beyond static metrics to support more informed decision-making.",
-        paragraph4: "The final section—focused on structural correlations—demonstrates that unemployment rates are not simply a function of population size or labor force scale. Instead, contextual factors play a critical role in shaping labor outcomes across the country.",
-        interactive: "Interactive Dashboard",
-        explore: "Explore the interactive report below or use the tabs to dive into state and metro-level insights.",
-        langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES'
-      },
-      es: {
-        back: "Volver",
-        share: "Compartir",
-        view: "Ver en Looker Studio",
-        title: "Desempleo en EE. UU. – Una Visión Basada en Datos",
-        paragraph1: "Este dashboard proporciona una visión integral del desempleo en los Estados Unidos a mayo de 2025, integrando datos a nivel nacional, estatal y de áreas metropolitanas para descubrir tanto tendencias superficiales como patrones estructurales más profundos.",
-        paragraph2: "Mientras que la tasa de desempleo nacional parece estable, desagregar los datos revela disparidades significativas entre estados y regiones urbanas. Ciudades como Nueva York, Los Ángeles y Washington D.C. muestran dinámicas laborales únicas que difieren marcadamente de sus estados circundantes, reflejando la influencia de la concentración industrial, la densidad poblacional y los entornos políticos locales.",
-        paragraph3: "Al combinar variaciones a corto plazo (MoM) y a largo plazo (YoY) con indicadores basados en volumen, este dashboard va más allá de las métricas estáticas para apoyar una toma de decisiones más informada.",
-        paragraph4: "La sección final, centrada en las correlaciones estructurales, demuestra que las tasas de desempleo no son simplemente una función del tamaño de la población o la escala de la fuerza laboral. En cambio, los factores contextuales juegan un papel crítico en la configuración de los resultados laborales en todo el país.",
-        interactive: "Dashboard Interactivo",
-        explore: "Explora el informe interactivo o usa las pestañas para profundizar en los datos por estado y ciudad.",
-        langIcon: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
-      }
-    };
-
-    function toggleLang() {
-      const current = document.documentElement.lang;
-      const next = current === 'en' ? 'es' : 'en';
-      document.documentElement.lang = next;
-      updateText(next);
+<script>
+  const translations = {
+    en: {
+      title: "Unemployment in America – A Data-Driven Overview",
+      description: `This dashboard provides a comprehensive overview of unemployment in the United States as of May 2025,
+      integrating national, state-level, and metro-area data to uncover both surface-level trends and deeper
+      structural patterns.`,
+      guide: "Explore the interactive report below or use the tabs to dive into state and metro-level insights.",
+      back: "Back",
+      view: "View on Looker Studio",
+      langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL"> ES'
+    },
+    es: {
+      title: "Desempleo en Estados Unidos – Un análisis basado en datos",
+      description: `Este dashboard proporciona una visión integral del desempleo en los Estados Unidos a mayo de 2025,
+      integrando datos a nivel nacional, estatal y metropolitano para revelar tanto patrones superficiales como estructurales.`,
+      guide: "Explora el informe interactivo a continuación o utiliza las pestañas para profundizar en los estados y áreas metropolitanas.",
+      back: "Volver",
+      view: "Ver en Looker Studio",
+      langIcon: '<img src="https://flagcdn.com/us.svg" alt="US"> EN'
     }
+  };
 
-    function updateText(lang) {
-      document.getElementById("back-btn").innerHTML = `<i class="fas fa-arrow-left"></i> ${langData[lang].back}`;
-      document.getElementById("linkedin-btn").innerHTML = `<i class="fab fa-linkedin"></i> ${langData[lang].share}`;
-      document.getElementById("x-btn").innerHTML = `<i class="fab fa-x-twitter"></i> ${langData[lang].share}`;
-      document.getElementById("looker-btn").innerHTML = `<i class="fas fa-chart-bar"></i> ${langData[lang].view}`;
-      document.getElementById("title").textContent = langData[lang].title;
-      document.getElementById("paragraph-1").textContent = langData[lang].paragraph1;
-      document.getElementById("paragraph-2").textContent = langData[lang].paragraph2;
-      document.getElementById("paragraph-3").textContent = langData[lang].paragraph3;
-      document.getElementById("paragraph-4").textContent = langData[lang].paragraph4;
-      document.getElementById("interactive-title").textContent = langData[lang].interactive;
-      document.getElementById("explore-text").textContent = langData[lang].explore;
-      document.querySelectorAll(".lang-toggle").forEach(el => {
-        el.innerHTML = langData[lang].langIcon;
-      });
-    }
+  function updateLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.getElementById("title").textContent = translations[lang].title;
+    document.getElementById("description").textContent = translations[lang].description;
+    document.getElementById("guide-text").textContent = translations[lang].guide;
+    document.querySelectorAll("[data-key='back']").forEach(el => el.textContent = translations[lang].back);
+    document.querySelectorAll("[data-key='view']").forEach(el => el.textContent = translations[lang].view);
+    document.querySelectorAll(".lang-toggle").forEach(el => el.innerHTML = translations[lang].langIcon);
+  }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const lang = "en";
-      document.documentElement.lang = lang;
-      updateText(lang);
+  function toggleLang() {
+    const currentLang = document.documentElement.lang;
+    const newLang = currentLang === "en" ? "es" : "en";
+    updateLanguage(newLang);
+  }
 
-      document.querySelectorAll(".lang-toggle").forEach(el => {
-        el.addEventListener("click", toggleLang);
-      });
+  document.addEventListener("DOMContentLoaded", () => {
+    updateLanguage("en");
 
-      document.getElementById("linkedin-btn").addEventListener("click", () => {
-        const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(location.href)}`;
-        window.open(shareUrl, "_blank");
-      });
-
-      document.getElementById("x-btn").addEventListener("click", () => {
-        const tweetText = encodeURIComponent("Explore this interactive dashboard on unemployment trends in the U.S.");
-        const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}&url=${encodeURIComponent(location.href)}`;
-        window.open(tweetUrl, "_blank");
-      });
+    document.querySelectorAll(".lang-toggle").forEach(el => {
+      el.addEventListener("click", toggleLang);
     });
-  </script>
+
+    const pageUrl = encodeURIComponent(window.location.href);
+    const linkedinShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}`;
+    const xShareUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${encodeURIComponent("Explore U.S. unemployment trends with this interactive dashboard")}`;
+
+    document.getElementById("linkedin-share").href = linkedinShareUrl;
+    document.getElementById("x-share").href = xShareUrl;
+  });
+</script>
 </body>
 </html>
