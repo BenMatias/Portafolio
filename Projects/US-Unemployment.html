@@ -133,12 +133,6 @@
       font-size: 1.6rem;
     }
 
-    h2 {
-      color: var(--deep-blue);
-      font-size: 1.3rem;
-      margin-top: 2rem;
-    }
-
     .project-description p {
       line-height: 1.6;
       margin-bottom: 1rem;
@@ -208,10 +202,11 @@
       <a href="https://lookerstudio.google.com/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45" class="button" target="_blank"><i class="fas fa-chart-bar"></i> View on Looker Studio</a>
     </div>
 
-    <h1>Unemployment in America – A Data-Driven Overview</h1>
+    <h1 id="title">Unemployment in America – A Data-Driven Overview</h1>
+    <div id="project-text" class="project-description"></div>
 
-    <h2>Interactive Dashboard</h2>
-    <p><em>Explore the interactive report below or use the tabs to dive into state and metro-level insights.</em></p>
+    <p><strong>Interactive Dashboard</strong><br>
+    <em>Explore the interactive report below or use the tabs to dive into state and metro-level insights.</em></p>
 
     <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
   </div>
@@ -226,16 +221,57 @@
   </footer>
 
   <script>
+    const content = {
+      en: {
+        title: "Unemployment in America – A Data-Driven Overview",
+        description: 
+          <p>This dashboard provides a comprehensive overview of unemployment in the United States as of May 2025, integrating national, state-level, and metro-area data to uncover both surface-level trends and deeper structural patterns.</p>
+          <p>While the national unemployment rate appears stable, disaggregating the data reveals significant disparities across states and urban regions. Cities such as New York, Los Angeles, and Washington D.C. show unique labor dynamics that differ markedly from their surrounding states, reflecting the influence of industry concentration, population density, and local policy environments.</p>
+          <p>By combining short-term (MoM) and long-term (YoY) variations with volume-based indicators, this dashboard goes beyond static metrics to support more informed decision-making.</p>
+          <p>The final section—focused on structural correlations—demonstrates that unemployment rates are not simply a function of population size or labor force scale. Instead, contextual factors play a critical role in shaping labor outcomes across the country.</p>
+        ,
+        langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES'
+      },
+      es: {
+        title: "Desempleo en Estados Unidos – Un análisis basado en datos",
+        description: 
+          <p>Este dashboard proporciona una visión integral del desempleo en los Estados Unidos a mayo de 2025, integrando datos a nivel nacional, estatal y de áreas metropolitanas para descubrir tanto tendencias superficiales como patrones estructurales más profundos.</p>
+          <p>Aunque la tasa de desempleo nacional parece estable, desagregar los datos revela disparidades significativas entre estados y regiones urbanas. Ciudades como Nueva York, Los Ángeles y Washington D.C. muestran dinámicas laborales únicas que difieren marcadamente de sus estados circundantes, reflejando la influencia de la concentración industrial, la densidad poblacional y los entornos políticos locales.</p>
+          <p>Al combinar variaciones a corto plazo (mensuales) y a largo plazo (anuales) con indicadores basados en volumen, este dashboard va más allá de las métricas estáticas para apoyar una toma de decisiones más informada.</p>
+          <p>La sección final—centrada en las correlaciones estructurales—demuestra que las tasas de desempleo no son simplemente una función del tamaño de la población o de la escala de la fuerza laboral. En cambio, los factores contextuales juegan un papel crítico en la configuración de los resultados laborales en todo el país.</p>
+        ,
+        langIcon: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
+      }
+    };
+
+    function toggleLang() {
+      const current = document.documentElement.lang;
+      const nextLang = current === 'en' ? 'es' : 'en';
+      document.documentElement.lang = nextLang;
+      updateContent(nextLang);
+    }
+
+    function updateContent(lang) {
+      document.getElementById('title').textContent = content[lang].title;
+      document.getElementById('project-text').innerHTML = content[lang].description;
+      document.getElementById('lang-btn').innerHTML = content[lang].langIcon;
+      document.getElementById('lang-btn-mobile').innerHTML = content[lang].langIcon;
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
+      const defaultLang = "en";
+      document.documentElement.lang = defaultLang;
+      updateContent(defaultLang);
+
+      document.getElementById('lang-btn').addEventListener('click', toggleLang);
+      document.getElementById('lang-btn-mobile').addEventListener('click', toggleLang);
+
       const menuBtn = document.getElementById('menu-toggle');
       if (menuBtn) {
         menuBtn.addEventListener('click', () => {
           document.getElementById('mobile-nav').classList.toggle('show');
         });
       }
-
-      document.getElementById('lang-btn').style.display = 'none';
-      document.getElementById('lang-btn-mobile').style.display = 'none';
     });
   </script>
 </body>
