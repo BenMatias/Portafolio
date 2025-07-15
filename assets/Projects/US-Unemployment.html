@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>US Unemployment – Interactive Dashboard</title>
+  <title>Unemployment in America – A Data-Driven Overview</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -14,12 +14,14 @@
       --deep-blue: #1A3D63;
       --almost-white: #F6FAFD;
     }
+
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       background: var(--almost-white);
       color: var(--dark-blue);
     }
+
     header {
       background: var(--dark-blue);
       color: white;
@@ -29,74 +31,122 @@
       align-items: center;
       position: relative;
     }
+
     .logo a {
       color: white;
       text-decoration: none;
       font-weight: 700;
       font-size: 1.1rem;
     }
+
     nav {
       display: flex;
       gap: 1rem;
       align-items: center;
     }
+
     nav a {
       color: white;
       text-decoration: none;
       font-weight: 600;
       transition: transform 0.2s ease, color 0.2s ease;
     }
+
     nav a:hover {
       transform: scale(1.1);
       color: var(--light-blue);
     }
+
     .lang-toggle {
       cursor: pointer;
       display: flex;
       align-items: center;
     }
+
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--dark-blue);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .mobile-nav a, .mobile-nav .lang-toggle {
+      padding: 1rem;
+      border-top: 1px solid #ffffff22;
+      color: white;
+      text-align: center;
+    }
+
     .container {
       max-width: 960px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
-    .btn-row {
+
+    .btn-group {
       display: flex;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
       flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
     }
-    .btn-row a {
-      background: var(--mid-blue);
+
+    .button {
+      background-color: var(--mid-blue);
       color: white;
-      padding: 0.5rem 1rem;
+      border: none;
+      padding: 0.5rem 0.8rem;
       border-radius: 5px;
-      font-size: 0.85rem;
       text-decoration: none;
+      font-size: 0.9rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      transition: background 0.3s;
+      gap: 0.4rem;
+      transition: background-color 0.3s ease;
     }
-    .btn-row a:hover {
-      background: var(--light-blue);
+
+    .button:hover {
+      background-color: var(--light-blue);
     }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      margin-top: 1rem;
+    }
+
     h1 {
       color: var(--deep-blue);
+      font-size: 1.6rem;
+    }
+
+    .project-description p {
+      line-height: 1.6;
       margin-bottom: 1rem;
     }
-    p {
-      line-height: 1.6;
-      margin-bottom: 1.2rem;
-    }
+
     footer {
       background: var(--dark-blue);
       color: white;
       padding: 2rem 1rem;
       text-align: center;
-      margin-top: 4rem;
       font-size: 0.9rem;
+      margin-top: 3rem;
     }
+
     .footer-contact {
       display: flex;
       justify-content: center;
@@ -104,48 +154,59 @@
       gap: 2rem;
       flex-wrap: wrap;
     }
+
     .footer-contact p {
       margin: 0.2rem 0;
     }
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: 0;
-      margin-top: 2rem;
-    }
+
     @media (max-width: 768px) {
-      .btn-row {
-        flex-direction: column;
-        align-items: flex-start;
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .mobile-nav.show {
+        display: flex;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo"><a href="../index.html">Benjamin Espinoza</a></div>
-    <nav>
-      <a href="../index.html" data-key="about">About</a>
-      <a href="../cv.html" data-key="cv">CV / Resume</a>
-      <a href="../projects.html" data-key="projects">Projects</a>
+    <div class="logo"><a href="/index.html">Benjamin Espinoza</a></div>
+    <button id="menu-toggle" class="hamburger" aria-label="Toggle menu">&#9776;</button>
+    <nav id="main-nav">
+      <a href="/index.html" data-key="about">About</a>
+      <a href="/cv.html" data-key="cv">CV / Resume</a>
+      <a href="/projects.html" data-key="projects">Projects</a>
       <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
-      <span class="lang-toggle" onclick="toggleLang()"></span>
+      <span class="lang-toggle" id="lang-btn"></span>
     </nav>
+    <div id="mobile-nav" class="mobile-nav">
+      <a href="/index.html" data-key="about">About</a>
+      <a href="/cv.html" data-key="cv">CV / Resume</a>
+      <a href="/projects.html" data-key="projects">Projects</a>
+      <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
+      <div class="lang-toggle" id="lang-btn-mobile"></div>
+    </div>
   </header>
+
   <div class="container">
-    <div class="btn-row">
-      <a href="../projects.html"><i class="fas fa-arrow-left"></i> Back</a>
-      <a id="linkedin-share" target="_blank"><i class="fab fa-linkedin"></i> Share on LinkedIn</a>
-      <a id="x-share" target="_blank"><i class="fab fa-x-twitter"></i> Share on X</a>
-      <a href="https://lookerstudio.google.com/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45" target="_blank"><i class="fas fa-chart-bar"></i> View on Looker Studio</a>
+    <div class="btn-group">
+      <a href="/projects.html" class="button"><i class="fas fa-arrow-left"></i> Back</a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://benmatias.github.io/projects/US-Unemployment.html" class="button" target="_blank"><i class="fab fa-linkedin"></i> Share on LinkedIn</a>
+      <a href="https://twitter.com/intent/tweet?url=https://benmatias.github.io/projects/US-Unemployment.html&text=Explore%20US%20Unemployment%20Trends" class="button" target="_blank"><i class="fab fa-x-twitter"></i> Share on X</a>
+      <a href="https://lookerstudio.google.com/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45" class="button" target="_blank"><i class="fas fa-chart-bar"></i> View on Looker Studio</a>
     </div>
 
-    <h1 id="page-title">Unemployment in America – A Data-Driven Overview</h1>
+    <h1 id="title">Unemployment in America – A Data-Driven Overview</h1>
+    <div id="project-text" class="project-description"></div>
+    <p><strong>Interactive Dashboard</strong><br>
+    <em>Explore the interactive report below or use the tabs to dive into state and metro-level insights.</em></p>
 
-   
-
-    <h2 id="dashboard-title">Interactive Dashboard</h2>
-    <p id="guide-text">Explore the interactive report below or use the tabs to dive into state and metro-level insights.</p>
     <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
   </div>
 
@@ -159,48 +220,57 @@
   </footer>
 
   <script>
-    const shareUrl = encodeURIComponent(window.location.href);
-    const shareText = encodeURIComponent("Check out this interactive dashboard on U.S. unemployment trends:");
-    document.getElementById("linkedin-share").href = `https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareText}`;
-    document.getElementById("x-share").href = `https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`;
-
-    const translations = {
+    const content = {
       en: {
-        pageTitle: "Unemployment in America – A Data-Driven Overview",
+        title: "Unemployment in America – A Data-Driven Overview",
         description: `
           <p>This dashboard provides a comprehensive overview of unemployment in the United States as of May 2025, integrating national, state-level, and metro-area data to uncover both surface-level trends and deeper structural patterns.</p>
           <p>While the national unemployment rate appears stable, disaggregating the data reveals significant disparities across states and urban regions. Cities such as New York, Los Angeles, and Washington D.C. show unique labor dynamics that differ markedly from their surrounding states, reflecting the influence of industry concentration, population density, and local policy environments.</p>
           <p>By combining short-term (MoM) and long-term (YoY) variations with volume-based indicators, this dashboard goes beyond static metrics to support more informed decision-making.</p>
           <p>The final section—focused on structural correlations—demonstrates that unemployment rates are not simply a function of population size or labor force scale. Instead, contextual factors play a critical role in shaping labor outcomes across the country.</p>
         `,
-        dashboardTitle: "Interactive Dashboard",
-        guideText: "Explore the interactive report below or use the tabs to dive into state and metro-level insights.",
-        langToggle: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES'
+        langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES'
       },
       es: {
-        pageTitle: "Desempleo en Estados Unidos – Un análisis basado en datos",
+        title: "Desempleo en Estados Unidos – Un análisis basado en datos",
         description: `
           <p>Este dashboard proporciona una visión integral del desempleo en los Estados Unidos a mayo de 2025, integrando datos a nivel nacional, estatal y de áreas metropolitanas para descubrir tanto tendencias superficiales como patrones estructurales más profundos.</p>
-          <p>Aunque la tasa de desempleo nacional parece estable, al desagregar los datos se revelan disparidades significativas entre estados y regiones urbanas. Ciudades como Nueva York, Los Ángeles y Washington D.C. muestran dinámicas laborales únicas que difieren marcadamente de sus estados circundantes, reflejando la influencia de la concentración industrial, la densidad poblacional y los entornos políticos locales.</p>
-          <p>Al combinar variaciones a corto plazo (mensuales) y largo plazo (anuales) con indicadores basados en volumen, este dashboard va más allá de las métricas estáticas para apoyar una toma de decisiones más informada.</p>
-          <p>La sección final —centrada en correlaciones estructurales— demuestra que las tasas de desempleo no son simplemente una función del tamaño de la población o la escala de la fuerza laboral. En cambio, los factores contextuales juegan un papel crítico en la configuración de los resultados laborales en todo el país.</p>
+          <p>Aunque la tasa de desempleo nacional parece estable, desagregar los datos revela disparidades significativas entre estados y regiones urbanas. Ciudades como Nueva York, Los Ángeles y Washington D.C. muestran dinámicas laborales únicas que difieren marcadamente de sus estados circundantes, reflejando la influencia de la concentración industrial, la densidad poblacional y los entornos políticos locales.</p>
+          <p>Al combinar variaciones a corto plazo (mensuales) y a largo plazo (anuales) con indicadores basados en volumen, este dashboard va más allá de las métricas estáticas para apoyar una toma de decisiones más informada.</p>
+          <p>La sección final—centrada en las correlaciones estructurales—demuestra que las tasas de desempleo no son simplemente una función del tamaño de la población o de la escala de la fuerza laboral. En cambio, los factores contextuales juegan un papel crítico en la configuración de los resultados laborales en todo el país.</p>
         `,
-        dashboardTitle: "Dashboard Interactivo",
-        guideText: "Explora el reporte interactivo o usa las pestañas para ver datos por estado y ciudad.",
-        langToggle: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
+        langIcon: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
       }
     };
 
-    document.querySelectorAll('.lang-toggle').forEach(el => {
-      el.addEventListener('click', () => {
-        const lang = document.documentElement.lang === 'en' ? 'es' : 'en';
-        document.documentElement.lang = lang;
-        document.getElementById("page-title").textContent = translations[lang].pageTitle;
-        document.getElementById("description").innerHTML = translations[lang].description;
-        document.getElementById("dashboard-title").textContent = translations[lang].dashboardTitle;
-        document.getElementById("guide-text").textContent = translations[lang].guideText;
-        document.querySelectorAll(".lang-toggle").forEach(el => el.innerHTML = translations[lang].langToggle);
-      });
+    function toggleLang() {
+      const current = document.documentElement.lang;
+      const nextLang = current === 'en' ? 'es' : 'en';
+      document.documentElement.lang = nextLang;
+      updateContent(nextLang);
+    }
+
+    function updateContent(lang) {
+      document.getElementById('title').textContent = content[lang].title;
+      document.getElementById('project-text').innerHTML = content[lang].description;
+      document.getElementById('lang-btn').innerHTML = content[lang].langIcon;
+      document.getElementById('lang-btn-mobile').innerHTML = content[lang].langIcon;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const defaultLang = "en";
+      document.documentElement.lang = defaultLang;
+      updateContent(defaultLang);
+
+      document.getElementById('lang-btn').addEventListener('click', toggleLang);
+      document.getElementById('lang-btn-mobile').addEventListener('click', toggleLang);
+
+      const menuBtn = document.getElementById('menu-toggle');
+      if (menuBtn) {
+        menuBtn.addEventListener('click', () => {
+          document.getElementById('mobile-nav').classList.toggle('show');
+        });
+      }
     });
   </script>
 </body>
