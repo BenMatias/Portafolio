@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unemployment in America – A Data-Driven Overview</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>US Unemployment – Interactive Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     :root {
       --dark-blue: #0A1931;
@@ -58,50 +58,39 @@
       transform: scale(1.1);
       color: var(--light-blue);
     }
-    .lang-toggle {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      background: var(--dark-blue);
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      z-index: 10;
-    }
-    .mobile-nav a, .mobile-nav .lang-toggle {
-      padding: 1rem;
-      border-top: 1px solid #ffffff22;
-      color: white;
-      text-align: center;
-    }
     .container {
       max-width: 960px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
-    section {
-      margin-top: 3rem;
-    }
-    h1, h3 {
+    h2 {
+      border-bottom: 2px solid var(--light-blue);
+      padding-bottom: 0.5rem;
       color: var(--deep-blue);
+    }
+    .description {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.6;
     }
     iframe {
       width: 100%;
-      height: 600px;
-      border: none;
+      height: 480px;
+      margin-top: 1rem;
+      border: 0;
+    }
+    .back-button, .share-button {
+      display: inline-block;
+      margin: 0.5rem 0.5rem 2rem 0;
+      padding: 0.4rem 0.8rem;
+      background: var(--mid-blue);
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back-button:hover, .share-button:hover {
+      background: var(--light-blue);
     }
     footer {
       background: var(--dark-blue);
@@ -121,52 +110,43 @@
     .footer-contact p {
       margin: 0.2rem 0;
     }
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-      }
-      .hamburger {
-        display: block;
-      }
-      .mobile-nav.show {
-        display: flex;
-      }
-    }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo"><a href="../index.html">Benjamin Espinoza</a></div>
-    <button id="menu-toggle" class="hamburger" aria-label="Toggle menu">&#9776;</button>
-    <nav id="main-nav">
-      <a href="../index.html" data-key="about">About</a>
-      <a href="../cv.html" data-key="cv">CV / Resume</a>
-      <a href="../projects.html" data-key="projects">Projects</a>
-      <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
-      <span class="lang-toggle"></span>
+    <div class="logo"><a href="/index.html">Benjamin Espinoza</a></div>
+    <nav>
+      <a href="/index.html">About</a>
+      <a href="/cv.html">CV / Resume</a>
+      <a href="/projects.html">Projects</a>
+      <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
     </nav>
-    <div id="mobile-nav" class="mobile-nav">
-      <a href="../index.html" data-key="about">About</a>
-      <a href="../cv.html" data-key="cv">CV / Resume</a>
-      <a href="../projects.html" data-key="projects">Projects</a>
-      <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
-      <div class="lang-toggle"></div>
-    </div>
   </header>
 
   <div class="container">
-    <section>
-      <h1>Unemployment in America – A Data-Driven Overview</h1>
-      <p>This dashboard provides a comprehensive overview of unemployment in the United States as of May 2025, integrating national, state-level, and metro-area data to uncover both surface-level trends and deeper structural patterns.</p>
-      <p>While the national unemployment rate appears stable, disaggregating the data reveals significant disparities across states and urban regions. Cities such as New York, Los Angeles, and Washington D.C. show unique labor dynamics that differ markedly from their surrounding states, reflecting the influence of industry concentration, population density, and local policy environments.</p>
-      <p>By combining short-term (MoM) and long-term (YoY) variations with volume-based indicators, this dashboard goes beyond static metrics to support more informed decision-making.</p>
-      <p>The final section—focused on structural correlations—demonstrates that unemployment rates are not simply a function of population size or labor force scale. Instead, contextual factors play a critical role in shaping labor outcomes across the country.</p>
-    </section>
+    <a class="back-button" href="/projects.html"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+    <a class="share-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https://tu-sitio.com/projects/US-Unemployment.html" target="_blank">
+      <i class="fab fa-linkedin"></i> Share on LinkedIn
+    </a>
+    <h2>Interactive Dashboard</h2>
+    <p><em>Explore the interactive report below or use the tabs to dive into state and metro-level insights.</em></p>
+    <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
 
-    <section>
-      <h3>Interactive Dashboard</h3>
-      <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-    </section>
+    <div class="description">
+      <p>This dashboard provides a comprehensive overview of unemployment in the United States as of May 2025, integrating national, state-level, and metro-area data to uncover both surface-level trends and deeper structural patterns.</p>
+
+      <p>While the national unemployment rate appears stable, disaggregating the data reveals significant disparities across states and urban regions. Cities such as New York, Los Angeles, and Washington D.C. show unique labor dynamics that differ markedly from their surrounding states, reflecting the influence of industry concentration, population density, and local policy environments.</p>
+
+      <p>By combining short-term (MoM) and long-term (YoY) variations with volume-based indicators, this dashboard goes beyond static metrics to support more informed decision-making.</p>
+
+      <p>The final section—focused on structural correlations—demonstrates that unemployment rates are not simply a function of population size or labor force scale. Instead, contextual factors play a critical role in shaping labor outcomes across the country.</p>
+    </div>
+  </div>
+  <div class="buttons">
+    <a class="back-btn" href="/projects">&larr; Back to Projects</a>
+    <a class="linkedin-btn" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://benmatias.com/projects/US-Unemployment&title=Unemployment in America – A Data-Driven Overview&summary=Explore this interactive dashboard that analyzes U.S. unemployment across national, state, and metro levels.&source=LinkedIn">
+      <i class="fab fa-linkedin"></i> Share on LinkedIn
+    </a>
   </div>
 
   <footer>
@@ -179,56 +159,13 @@
   </footer>
 
   <script>
-    const labels = {
-      en: {
-        about: "About",
-        cv: "CV / Resume",
-        projects: "Projects",
-        contact: "Contact",
-        langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES'
-      },
-      es: {
-        about: "Sobre mí",
-        cv: "CV / Currículum",
-        projects: "Proyectos",
-        contact: "Contacto",
-        langIcon: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
-      }
-    };
-
-    function updateLabels(lang) {
-      document.querySelectorAll('[data-key]').forEach(el => {
-        const key = el.getAttribute('data-key');
-        el.textContent = labels[lang][key] || key;
-      });
-      document.querySelectorAll('.lang-toggle').forEach(el => {
-        el.innerHTML = labels[lang].langIcon;
+    const menuBtn = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('show');
       });
     }
-
-    function toggleLang() {
-      const current = document.documentElement.lang;
-      const nextLang = current === 'en' ? 'es' : 'en';
-      document.documentElement.lang = nextLang;
-      updateLabels(nextLang);
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const defaultLang = "en";
-      document.documentElement.lang = defaultLang;
-      updateLabels(defaultLang);
-
-      document.querySelectorAll('.lang-toggle').forEach(el => {
-        el.addEventListener('click', toggleLang);
-      });
-
-      const menuBtn = document.getElementById('menu-toggle');
-      if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-          document.getElementById('mobile-nav').classList.toggle('show');
-        });
-      }
-    });
   </script>
 </body>
 </html>
