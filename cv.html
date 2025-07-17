@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benjamin Espinoza | CV / Resume</title>
+  <title>Benjamin Espinoza | Data Analyst Portfolio</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <style>
     :root {
       --dark-blue: #0A1931;
@@ -14,55 +15,63 @@
       --deep-blue: #1A3D63;
       --almost-white: #F6FAFD;
     }
-    body {
-      font-family: 'Inter', sans-serif;
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
-      background: var(--almost-white);
+      padding: 0;
+      min-height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #f6fafd, #e8f0f8);
       color: var(--dark-blue);
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
     }
-    a {
-      color: var(--mid-blue);
-      text-decoration: none;
-    }
-    a:hover {
-      color: var(--light-blue);
-      text-decoration: underline;
-    }
+
     header {
       background: var(--dark-blue);
       color: white;
-      padding: 1rem 2rem;
+      padding: 0.5rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: relative;
     }
-    .logo a {
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
+
+    .logo img {
+      height: 30px;
+      max-width: 160px;
+      width: auto;
     }
+
     nav {
       display: flex;
       gap: 1rem;
       align-items: center;
     }
+
     nav a {
       color: white;
       text-decoration: none;
       font-weight: 600;
       transition: transform 0.2s ease, color 0.2s ease;
     }
+
     nav a:hover {
       transform: scale(1.1);
       color: var(--light-blue);
     }
+
     .lang-toggle {
       cursor: pointer;
       display: flex;
       align-items: center;
     }
+
     .hamburger {
       display: none;
       font-size: 1.5rem;
@@ -71,6 +80,7 @@
       color: white;
       cursor: pointer;
     }
+
     .mobile-nav {
       display: none;
       flex-direction: column;
@@ -81,65 +91,70 @@
       width: 100%;
       z-index: 10;
     }
+
     .mobile-nav a, .mobile-nav .lang-toggle {
       padding: 1rem;
       border-top: 1px solid #ffffff22;
       color: white;
       text-align: center;
     }
+
     .container {
+      flex: 1;
       max-width: 960px;
       margin: 2rem auto;
       padding: 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      width: 100%;
     }
+
+    .profile {
+      flex: 0 0 280px;
+      text-align: center;
+    }
+
+    .profile img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      margin-bottom: 1rem;
+    }
+
+    .profile h2 {
+      margin: 0.25rem 0 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .profile p {
+      margin: 0;
+    }
+
     section {
+      flex: 1;
       margin-top: 3rem;
+      overflow-wrap: break-word;
     }
+
     h2 {
       border-bottom: 2px solid var(--light-blue);
       padding-bottom: 0.5rem;
       color: var(--deep-blue);
-      margin: 0;
     }
-    .h2-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .download-btn {
-      background: var(--mid-blue);
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 5px;
-      font-size: 0.85rem;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-    .download-btn:hover {
-      background: var(--light-blue);
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    .badge-widgets {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
+
     footer {
       background: var(--dark-blue);
       color: white;
-      padding: 2rem 1rem;
+      padding: 0.5rem 1rem;
       text-align: center;
-      margin-top: 4rem;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
+
     .footer-contact {
       display: flex;
       justify-content: center;
@@ -147,18 +162,45 @@
       gap: 2rem;
       flex-wrap: wrap;
     }
+
     .footer-contact p {
-      margin: 0.2rem 0;
+      margin: 0.2rem;
     }
+
     @media (max-width: 768px) {
       nav {
         display: none;
       }
+
       .hamburger {
         display: block;
       }
+
       .mobile-nav.show {
         display: flex;
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .profile, section {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      section {
+        margin-top: 2rem;
+        padding: 0 0.5rem;
+        text-align: left;
+      }
+
+      #about-content p, #welcome-text {
+        text-align: left;
+        overflow-wrap: break-word;
       }
     }
   </style>
