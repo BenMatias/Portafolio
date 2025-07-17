@@ -14,20 +14,27 @@
       --deep-blue: #1A3D63;
       --almost-white: #F6FAFD;
     }
-    body {
-      font-family: 'Inter', sans-serif;
+
+    html, body {
+      height: 100%;
       margin: 0;
+      display: flex;
+      flex-direction: column;
       background: var(--almost-white);
       color: var(--dark-blue);
+      font-family: 'Inter', sans-serif;
     }
+
     a {
       color: var(--mid-blue);
       text-decoration: none;
     }
+
     a:hover {
       color: var(--light-blue);
       text-decoration: underline;
     }
+
     header {
       background: var(--dark-blue);
       color: white;
@@ -37,32 +44,38 @@
       align-items: center;
       position: relative;
     }
+
     .logo a {
       color: white;
       text-decoration: none;
       font-weight: 700;
       font-size: 1.1rem;
     }
+
     nav {
       display: flex;
       gap: 1rem;
       align-items: center;
     }
+
     nav a {
       color: white;
       text-decoration: none;
       font-weight: 600;
       transition: transform 0.2s ease, color 0.2s ease;
     }
+
     nav a:hover {
       transform: scale(1.1);
       color: var(--light-blue);
     }
+
     .lang-toggle {
       cursor: pointer;
       display: flex;
       align-items: center;
     }
+
     .hamburger {
       display: none;
       font-size: 1.5rem;
@@ -71,6 +84,7 @@
       color: white;
       cursor: pointer;
     }
+
     .mobile-nav {
       display: none;
       flex-direction: column;
@@ -81,36 +95,44 @@
       width: 100%;
       z-index: 10;
     }
+
     .mobile-nav a, .mobile-nav .lang-toggle {
       padding: 1rem;
       border-top: 1px solid #ffffff22;
       color: white;
       text-align: center;
     }
+
     .container {
+      flex: 1;
       max-width: 960px;
       margin: 2rem auto;
       padding: 0 1rem;
+      width: 100%;
     }
+
     section {
       margin-top: 3rem;
     }
+
     h2 {
       border-bottom: 2px solid var(--light-blue);
       padding-bottom: 0.5rem;
       color: var(--deep-blue);
     }
+
     .project-entry {
       margin-bottom: 2rem;
     }
+
     footer {
       background: var(--dark-blue);
       color: white;
       padding: 2rem 1rem;
       text-align: center;
-      margin-top: 4rem;
       font-size: 0.9rem;
     }
+
     .footer-contact {
       display: flex;
       justify-content: center;
@@ -118,9 +140,11 @@
       gap: 2rem;
       flex-wrap: wrap;
     }
+
     .footer-contact p {
       margin: 0.2rem 0;
     }
+
     @media (max-width: 768px) {
       nav {
         display: none;
