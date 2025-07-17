@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benjamin Espinoza | Data Analyst Portfolio</title>
+  <title>Ben Matias | Data Analyst Portfolio</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
       --dark-blue: #0A1931;
@@ -13,6 +13,10 @@
       --mid-blue: #4A7FA7;
       --deep-blue: #1A3D63;
       --almost-white: #F6FAFD;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
 
     html {
@@ -30,36 +34,22 @@
       overflow-x: hidden;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
     header {
       background: var(--dark-blue);
       color: white;
-      padding: 0.5rem 1.5rem;
+      padding: 0.5rem 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
     }
 
     .logo img {
-      height: 30px;
-      max-width: 160px;
-      width: auto;
-    }
-
-    @media (max-width: 480px) {
-      .logo img {
-        height: 28px;
-        max-width: 140px;
-      }
+      height: 40px;
     }
 
     nav {
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
       align-items: center;
     }
 
@@ -67,69 +57,30 @@
       color: white;
       text-decoration: none;
       font-weight: 600;
-      transition: transform 0.2s ease, color 0.2s ease;
+      transition: color 0.2s ease;
     }
 
     nav a:hover {
-      transform: scale(1.1);
       color: var(--light-blue);
     }
 
-    .lang-toggle {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
-
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      background: var(--dark-blue);
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      z-index: 10;
-    }
-
-    .mobile-nav a, .mobile-nav .lang-toggle {
-      padding: 1rem;
-      border-top: 1px solid #ffffff22;
-      color: white;
-      text-align: center;
-    }
-
     .container {
-      flex: 1;
-      max-width: 960px;
+      max-width: 1000px;
+      width: 100%;
       margin: 2rem auto;
       padding: 0 1rem;
+      flex: 1;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
       gap: 2rem;
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-      word-break: break-word;
+      flex-wrap: wrap;
     }
 
-    .profile {
-      flex: 0 0 280px;
+    .profile-section {
+      flex: 1 1 280px;
       text-align: center;
-      max-width: 100%;
     }
 
-    .profile img {
+    .profile-img {
       width: 200px;
       height: 200px;
       border-radius: 50%;
@@ -138,21 +89,8 @@
       margin-bottom: 1rem;
     }
 
-    .profile h2 {
-      margin: 0.25rem 0 0;
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .profile p {
-      margin: 0;
-    }
-
-    section {
-      flex: 1;
-      margin-top: 3rem;
-      max-width: 100%;
-      overflow-x: hidden;
+    .about-section {
+      flex: 2 1 500px;
     }
 
     h2 {
@@ -164,9 +102,9 @@
     footer {
       background: var(--dark-blue);
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 1rem;
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
 
     .footer-contact {
@@ -175,25 +113,41 @@
       align-items: center;
       gap: 2rem;
       flex-wrap: wrap;
-      max-width: 100%;
-      overflow-x: hidden;
+      margin-bottom: 0.5rem;
     }
 
     .footer-contact p {
-      margin: 0.2rem;
+      margin: 0.2rem 0;
+    }
+
+    a {
+      color: var(--mid-blue);
+    }
+
+    a:hover {
+      color: var(--light-blue);
     }
 
     @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .about-section {
+        padding: 0 0.5rem;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       nav {
-        display: none;
-      }
-
-      .hamburger {
-        display: block;
-      }
-
-      .mobile-nav.show {
-        display: flex;
+        margin-top: 0.5rem;
+        flex-wrap: wrap;
+        gap: 1rem;
       }
     }
   </style>
@@ -202,43 +156,36 @@
   <header>
     <div class="logo">
       <a href="index.html">
-        <img src="assets/Logo.PNG" alt="Ben Matias Logo">
+        <img src="assets/Logo.PNG" alt="Ben Matias Logo" />
       </a>
     </div>
-    <button id="menu-toggle" class="hamburger" aria-label="Toggle menu">&#9776;</button>
     <nav>
       <a href="index.html">About</a>
       <a href="cv.html">CV / Resume</a>
       <a href="projects.html">Projects</a>
       <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
-      <span class="lang-toggle" onclick="toggleLang()"></span>
     </nav>
-    <div id="mobile-nav" class="mobile-nav">
-      <a href="index.html">About</a>
-      <a href="cv.html">CV / Resume</a>
-      <a href="projects.html">Projects</a>
-      <a href="mailto:bmatiasespinoza@gmail.com">Contact</a>
-      <div class="lang-toggle" onclick="toggleLang()"></div>
-    </div>
   </header>
 
-  <div class="container">
-    <div class="profile">
-      <img src="assets/profile.jpg" alt="Benjamin Espinoza profile picture">
+  <main class="container">
+    <div class="profile-section">
+      <img src="assets/profile.jpg" alt="Benjamin Espinoza profile picture" class="profile-img" />
       <h2>Benjamin Espinoza</h2>
       <p style="font-size: 0.95rem; font-weight: 500; color: #4A7FA7;">Business & Data Analyst | Data Visualization Expert</p>
       <p style="font-size: 0.85rem; color: #555;">Industrial Civil Engineer</p>
     </div>
-    <div style="flex: 1;">
-      <section>
-        <h2 id="welcome-title">Welcome</h2>
-        <p id="welcome-text"></p>
-        <br />
-        <h2 id="about-title">About Me</h2>
-        <div id="about-content"></div>
-      </section>
+    <div class="about-section">
+      <h2>Welcome</h2>
+      <p>Thanks for visiting my portfolio!</p>
+      <br />
+      <h2>About Me</h2>
+      <p>I'm a Business & Data Analyst with a background in Industrial Engineering and a passion for transforming raw data into meaningful insights. I specialize in building reporting systems, automating dashboards, and helping organizations make informed decisions through tools like Looker Studio, Power BI, Tableau, SQL, and LookML.</p>
+      <p>Currently working in the financial industry, I led the implementation of an end-to-end analytics ecosystem for the Innovation area, scaling it from ad-hoc reports to an automated suite used by cross-functional teams. I've developed dashboards for stakeholders in fraud, sales, planning, and operations—always focusing on impact, usability, and scalability.</p>
+      <p>Earlier in my career, I took on a pioneering role at a mid-sized company to bring data visibility into operational decisions. That experience strengthened my analytical thinking, communication with stakeholders, and hands-on experience with data tools. I believe great analysis goes beyond numbers—it solves real business problems.</p>
+      <p>Outside of work, I'm a father of two, a lifelong learner currently improving my English and French, and a passionate guitarist and football fan. I value curiosity, empathy, and building things that last.</p>
+      <p>Let's connect on <a href="https://www.linkedin.com/in/benmatias" target="_blank">LinkedIn</a> or <a href="mailto:bmatiasespinoza@gmail.com">send me an email</a>.</p>
     </div>
-  </div>
+  </main>
 
   <footer>
     <div class="footer-contact">
@@ -246,61 +193,7 @@
       <p><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
       <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benmatias" style="color: #B3CFE5">linkedin.com/in/benmatias</a></p>
     </div>
-    <p style="margin-top: 0.5rem;">&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
+    <p>&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
   </footer>
-
-  <script>
-    const translations = {
-      en: {
-        welcomeTitle: "Welcome",
-        welcomeText: "Thanks for visiting my portfolio!",
-        aboutTitle: "About Me",
-        aboutContent: `<p>I'm a Business & Data Analyst with a background in Industrial Engineering and a passion for transforming raw data into meaningful insights. I specialize in building reporting systems, automating dashboards, and helping organizations make informed decisions through tools like Looker Studio, Power BI, Tableau, SQL, and LookML.</p>
-<p>Currently working in the financial industry, I led the implementation of an end-to-end analytics ecosystem for the Innovation area, scaling it from ad-hoc reports to an automated suite used by cross-functional teams. I've developed dashboards for stakeholders in fraud, sales, planning, and operations—always focusing on impact, usability, and scalability.</p>
-<p>Earlier in my career, I took on a pioneering role at a mid-sized company to bring data visibility into operational decisions. That experience strengthened my analytical thinking, communication with stakeholders, and hands-on experience with data tools. I believe great analysis goes beyond numbers—it solves real business problems.</p>
-<p>Outside of work, I'm a father of two, a lifelong learner currently improving my English and French, and a passionate guitarist and football fan. I value curiosity, empathy, and building things that last.</p>
-<p>Let's connect on <a href="https://www.linkedin.com/in/benmatias" style="color: #4A7FA7; font-weight: 500;">LinkedIn</a> or <a href="mailto:bmatiasespinoza@gmail.com" style="color: #4A7FA7; font-weight: 500;">send me an email</a>.</p>`
-      },
-      es: {
-        welcomeTitle: "Bienvenido",
-        welcomeText: "¡Gracias por visitar mi portafolio!",
-        aboutTitle: "Sobre mí",
-        aboutContent: `<p>Soy Business & Data Analyst con formación en Ingeniería Civil Industrial y una fuerte motivación por convertir datos en decisiones estratégicas. Me especializo en desarrollar sistemas de reportería, automatizar dashboards y apoyar a organizaciones a través de herramientas como Looker Studio, Power BI, Tableau, SQL y LookML.</p>
-<p>Actualmente trabajo en la industria financiera, donde lideré la creación de un ecosistema de analítica para el área de Innovación, evolucionando desde reportes manuales hasta un sistema automatizado adoptado por múltiples áreas. He desarrollado dashboards para fraude, ventas, planificación y operaciones, siempre priorizando el impacto y la usabilidad.</p>
-<p>Antes de eso, desempeñé un rol pionero en una empresa de tamaño medio, creando visibilidad operativa mediante reportes estratégicos. Esa experiencia fortaleció mis habilidades analíticas, mi comunicación con stakeholders y mi dominio de herramientas de datos. Creo que un buen análisis no solo entrega números, sino soluciones reales para el negocio.</p>
-<p>Fuera del trabajo, soy padre de dos hijos, estudioso permanente (perfeccionando inglés y francés), y aficionado a la música, el fútbol y el dibujo. Valoro la curiosidad, la empatía y construir cosas que trasciendan.</p>
-<p>Puedes contactarme por <a href="https://www.linkedin.com/in/benmatias" style="color: #4A7FA7; font-weight: 500;">LinkedIn</a> o por <a href="mailto:bmatiasespinoza@gmail.com" style="color: #4A7FA7; font-weight: 500;">correo</a>.</p>`
-      }
-    };
-
-    function toggleLang() {
-      const current = document.documentElement.lang;
-      const nextLang = current === 'en' ? 'es' : 'en';
-      document.documentElement.lang = nextLang;
-      updateLang(nextLang);
-    }
-
-    function updateLang(lang) {
-      document.getElementById('welcome-title').textContent = translations[lang].welcomeTitle;
-      document.getElementById('welcome-text').textContent = translations[lang].welcomeText;
-      document.getElementById('about-title').textContent = translations[lang].aboutTitle;
-      document.getElementById('about-content').innerHTML = translations[lang].aboutContent;
-      document.querySelectorAll('.lang-toggle').forEach(el => {
-        el.innerHTML = lang === 'en'
-          ? '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle;"> ES'
-          : '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle;"> EN';
-      });
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const lang = 'en';
-      document.documentElement.lang = lang;
-      updateLang(lang);
-
-      document.getElementById('menu-toggle').addEventListener('click', () => {
-        document.getElementById('mobile-nav').classList.toggle('show');
-      });
-    });
-  </script>
 </body>
 </html>
