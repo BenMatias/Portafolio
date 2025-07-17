@@ -6,6 +6,7 @@
   <title>Unemployment in America – A Data-Driven Overview</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <style>
     :root {
       --dark-blue: #0A1931;
@@ -15,31 +16,46 @@
       --almost-white: #F6FAFD;
     }
 
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     html, body {
-      height: 100%;
       margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #f6fafd, #e8f0f8);
+      color: var(--dark-blue);
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
-      font-family: 'Inter', sans-serif;
-      background: var(--almost-white);
-      color: var(--dark-blue);
+    }
+
+    a {
+      color: var(--mid-blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--light-blue);
+      text-decoration: underline;
     }
 
     header {
       background: var(--dark-blue);
       color: white;
-      padding: 1rem 2rem;
+      padding: 0.5rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: relative;
     }
 
-    .logo a {
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
+    .logo img {
+      height: 30px;
+      max-width: 160px;
+      width: auto;
     }
 
     nav {
@@ -155,6 +171,7 @@
       padding: 2rem 1rem;
       text-align: center;
       font-size: 0.9rem;
+      margin-top: 4rem;
     }
 
     .footer-contact {
@@ -186,9 +203,13 @@
 </head>
 <body>
   <header>
-    <div class="logo"><a href="/index.html">Benjamin Espinoza</a></div>
-    <button id="menu-toggle" class="hamburger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
-    <nav id="main-nav">
+    <div class="logo">
+      <a href="/index.html">
+        <img src="/assets/Logo.PNG" alt="Ben Matias Logo" />
+      </a>
+    </div>
+    <button id="menu-toggle" class="hamburger" aria-label="Toggle menu">&#9776;</button>
+    <nav>
       <a href="/index.html" data-key="about">About</a>
       <a href="/cv.html" data-key="cv">CV / Resume</a>
       <a href="/projects.html" data-key="projects">Projects</a>
@@ -203,7 +224,6 @@
       <div class="lang-toggle" id="lang-btn-mobile"></div>
     </div>
   </header>
-
   <main class="container">
     <div class="btn-group">
       <a href="/projects.html" class="button"><i class="fas fa-arrow-left"></i> Back</a>
@@ -226,7 +246,6 @@
 
     <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF" loading="lazy" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
   </main>
-
   <footer>
     <div class="footer-contact">
       <p><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #B3CFE5">bmatiasespinoza@gmail.com</a></p>
@@ -235,7 +254,6 @@
     </div>
     <p style="margin-top: 0.5rem;">&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
   </footer>
-
   <script>
     const baseURL = "https://www.benmatias.com/projects/US-Unemployment.html";
 
