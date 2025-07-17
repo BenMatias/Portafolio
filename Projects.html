@@ -157,6 +157,9 @@
   <div class="container">
     <section id="projects-section">
       <h2 id="projects-title">Projects</h2>
+      <p id="projects-intro" style="margin-top: 1rem;">
+        As a data analyst, I’ve developed numerous dashboards and KPI reports using tools like Power BI, Looker Studio, and Tableau. However, due to confidentiality agreements, I’m unable to publicly showcase those internal reports. For this portfolio, I use <strong>public datasets</strong> and <strong>Looker Studio</strong>—a free and accessible BI tool that allows me to share projects openly and interactively. Each project reflects real-world analytical approaches applied in a transparent, reproducible way.
+      </p>
       <div id="projects-content">
         <div class="project-entry">
           <h3><a href="projects/US-Unemployment.html">Unemployment in America – A Data-Driven Overview</a></h3>
@@ -184,7 +187,8 @@
         contact: "Contact",
         langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES',
         title: "Projects",
-        description: "Interactive dashboard exploring U.S. unemployment trends across national, state, and metro levels, highlighting short- and long-term labor market dynamics."
+        description: "Interactive dashboard exploring U.S. unemployment trends across national, state, and metro levels, highlighting short- and long-term labor market dynamics.",
+        intro: "As a data analyst, I’ve developed numerous dashboards and KPI reports using tools like Power BI, Looker Studio, and Tableau. However, due to confidentiality agreements, I’m unable to publicly showcase those internal reports. For this portfolio, I use <strong>public datasets</strong> and <strong>Looker Studio</strong>—a free and accessible BI tool that allows me to share projects openly and interactively. Each project reflects real-world analytical approaches applied in a transparent, reproducible way."
       },
       es: {
         about: "Sobre mí",
@@ -193,7 +197,8 @@
         contact: "Contacto",
         langIcon: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN',
         title: "Proyectos",
-        description: "Dashboard interactivo que explora las tendencias de desempleo en EE.UU. a nivel nacional, estatal y metropolitano, destacando la dinámica del mercado laboral en el corto y largo plazo."
+        description: "Dashboard interactivo que explora las tendencias de desempleo en EE.UU. a nivel nacional, estatal y metropolitano, destacando la dinámica del mercado laboral en el corto y largo plazo.",
+        intro: "Como analista de datos he desarrollado numerosos dashboards e informes de KPI utilizando herramientas como Power BI, Looker Studio y Tableau. Sin embargo, debido a acuerdos de confidencialidad, no puedo compartir públicamente esos reportes internos. Para este portafolio, utilizo <strong>datasets públicos</strong> y <strong>Looker Studio</strong>, una herramienta gratuita y accesible que me permite compartir proyectos de forma abierta e interactiva. Cada proyecto refleja enfoques analíticos del mundo real aplicados de forma transparente y reproducible."
       }
     };
 
@@ -207,6 +212,7 @@
       });
       document.getElementById('projects-title').textContent = labels[lang].title;
       document.querySelector('.project-entry p').textContent = labels[lang].description;
+      document.getElementById('projects-intro').innerHTML = labels[lang].intro;
     }
 
     function toggleLang() {
