@@ -207,9 +207,15 @@
   <main class="container">
     <div class="btn-group">
       <a href="/projects.html" class="button"><i class="fas fa-arrow-left"></i> Back</a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://benmatias.github.io/projects/US-Unemployment.html" class="button" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> Share on LinkedIn</a>
-      <a href="https://twitter.com/intent/tweet?url=https://benmatias.github.io/projects/US-Unemployment.html&text=Explore%20US%20Unemployment%20Trends" class="button" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> Share on X</a>
-      <a href="https://lookerstudio.google.com/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45" class="button" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> View on Looker Studio</a>
+      <a id="linkedin-btn" class="button" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i> Share on LinkedIn
+      </a>
+      <a id="twitter-btn" class="button" target="_blank" rel="noopener">
+        <i class="fab fa-x-twitter"></i> Share on X
+      </a>
+      <a href="https://lookerstudio.google.com/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45" class="button" target="_blank" rel="noopener">
+        <i class="fas fa-chart-bar"></i> View on Looker Studio
+      </a>
     </div>
 
     <h1 id="title">Unemployment in America – A Data-Driven Overview</h1>
@@ -231,6 +237,8 @@
   </footer>
 
   <script>
+    const baseURL = "https://www.benmatias.com/projects/US-Unemployment.html";
+
     const content = {
       en: {
         title: "Unemployment in America – A Data-Driven Overview",
@@ -275,6 +283,9 @@
 
       document.getElementById('lang-btn').addEventListener('click', toggleLang);
       document.getElementById('lang-btn-mobile').addEventListener('click', toggleLang);
+
+      document.getElementById('linkedin-btn').href = `https://www.linkedin.com/sharing/share-offsite/?url=${baseURL}`;
+      document.getElementById('twitter-btn').href = `https://twitter.com/intent/tweet?url=${baseURL}&text=Explore%20US%20Unemployment%20Trends`;
 
       const menuBtn = document.getElementById('menu-toggle');
       const mobileNav = document.getElementById('mobile-nav');
