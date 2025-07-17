@@ -165,24 +165,27 @@
 </head>
 <body>
   <header>
-    <div class="logo"><a href="index.html">Benjamin Espinoza</a></div>
-    <button id="menu-toggle" class="hamburger" aria-label="Toggle menu">&#9776;</button>
-    <nav id="main-nav">
-      <a href="index.html" data-key="about">About</a>
-      <a href="cv.html" data-key="cv">CV / Resume</a>
-      <a href="Projects.html" data-key="projects">Projects</a>
-      <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
-      <span class="lang-toggle"></span>
-    </nav>
-    <div id="mobile-nav" class="mobile-nav">
-      <a href="index.html" data-key="about">About</a>
-      <a href="cv.html" data-key="cv">CV / Resume</a>
-      <a href="Projects.html" data-key="projects">Projects</a>
-      <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
-      <div class="lang-toggle"></div>
-    </div>
-  </header>
-
+  <div class="logo">
+    <a href="index.html">
+      <img src="assets/Logo.PNG" alt="Ben Matias Logo">
+    </a>
+  </div>
+  <button id="menu-toggle" class="hamburger" aria-label="Toggle menu">&#9776;</button>
+  <nav>
+    <a href="index.html" data-key="about">About</a>
+    <a href="cv.html" data-key="cv">CV / Resume</a>
+    <a href="projects.html" data-key="projects">Projects</a>
+    <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
+    <span class="lang-toggle" onclick="toggleLang()"></span>
+  </nav>
+  <div id="mobile-nav" class="mobile-nav">
+    <a href="index.html" data-key="about">About</a>
+    <a href="cv.html" data-key="cv">CV / Resume</a>
+    <a href="projects.html" data-key="projects">Projects</a>
+    <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
+    <div class="lang-toggle" onclick="toggleLang()"></div>
+  </div>
+</header>
   <div class="container">
     <div class="h2-wrapper">
       <h2 id="cv-title">CV / Resume</h2>
