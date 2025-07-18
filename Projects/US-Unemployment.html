@@ -35,9 +35,12 @@
       font-family: 'Inter', sans-serif;
       background: linear-gradient(to bottom, #f6fafd, #e8f0f8);
       color: var(--dark-blue);
-      overflow-x: hidden;
       display: flex;
       flex-direction: column;
+    }
+
+    main {
+      flex: 1;
     }
 
     a {
@@ -118,7 +121,6 @@
     }
 
     .container {
-      flex: 1;
       max-width: 960px;
       margin: 2rem auto;
       padding: 0 1rem;
@@ -156,6 +158,70 @@
 
     .btn-looker { background-color: var(--looker-blue); }
     .btn-looker:hover { background-color: #2c6de0; }
+
+    h1 {
+      font-size: 1.6rem;
+      color: var(--deep-blue);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      color: var(--deep-blue);
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-contact p {
+      margin: 0.2rem 0;
+    }
+
+    footer {
+      background: var(--dark-blue);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 720px;
+      border: none;
+      margin-top: 1rem;
+    }
+
+    .lang {
+      display: none;
+    }
+
+    .lang.en,
+    .lang.es {
+      display: inline;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .mobile-nav.show {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
@@ -268,10 +334,8 @@
     <p class="lang es"><em>Explora el reporte interactivo o usa las pestañas para navegar por estado y ciudad.</em></p>
 
     <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF"
-            width="100%" height="720"
-            style="border: none; margin-top: 1rem;"
-            allowfullscreen
             loading="lazy"
+            allowfullscreen
             sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
     </iframe>
   </main>
