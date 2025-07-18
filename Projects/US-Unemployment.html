@@ -240,49 +240,93 @@
       <div class="lang-toggle" id="lang-btn-mobile"></div>
     </div>
   </header>
-  <main class="container">
-    <section class="btn-group">
-      <a href="/projects.html" class="button">
-        <i class="fas fa-arrow-left"></i>
-        <span class="lang en">Back to Projects</span>
-        <span class="lang es">Volver a Proyectos</span>
-      </a>
-      <a id="linkedin-btn" class="button" target="_blank" rel="noopener">
-        <i class="fab fa-linkedin"></i>
-        <span class="lang en">Share on LinkedIn</span>
-        <span class="lang es">Compartir en LinkedIn</span>
-      </a>
-      <a id="twitter-btn" class="button" target="_blank" rel="noopener">
-        <i class="fab fa-x-twitter"></i>
-        <span class="lang en">Share on X</span>
-        <span class="lang es">Compartir en X</span>
-      </a>
-      <a href="https://lookerstudio.google.com/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45" class="button" target="_blank" rel="noopener">
-        <i class="fas fa-chart-bar"></i>
-        <span class="lang en">View on Looker Studio</span>
-        <span class="lang es">Ver en Looker Studio</span>
-      </a>
-    </section>
+<main class="container">
+  <section class="btn-group">
+    <a href="/projects.html" class="button">
+      <i class="fas fa-arrow-left"></i>
+      <span class="lang en">Back to Projects</span>
+      <span class="lang es">Volver a Proyectos</span>
+    </a>
+    <a id="linkedin-btn" class="button" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin"></i>
+      <span class="lang en">Share on LinkedIn</span>
+      <span class="lang es">Compartir en LinkedIn</span>
+    </a>
+    <a id="twitter-btn" class="button" target="_blank" rel="noopener">
+      <i class="fab fa-x-twitter"></i>
+      <span class="lang en">Share on X</span>
+      <span class="lang es">Compartir en X</span>
+    </a>
+    <a href="https://lookerstudio.google.com/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45" class="button" target="_blank" rel="noopener">
+      <i class="fas fa-chart-bar"></i>
+      <span class="lang en">View on Looker Studio</span>
+      <span class="lang es">Ver en Looker Studio</span>
+    </a>
+  </section>
 
-    <section class="project-title">
-      <h1 id="title">Unemployment in America – A Data-Driven Overview</h1>
-    </section>
+  <section class="project-title">
+    <h1 id="title">Unemployment in America – A Data-Driven Overview</h1>
+  </section>
 
-    <section id="project-text" class="project-description"></section>
+  <section id="project-text" class="project-description"></section>
 
-    <section class="project-viz">
-      <h2 class="lang en">Interactive Dashboard</h2>
-      <h2 class="lang es">Dashboard Interactivo</h2>
-      <p class="lang en"><em>Explore the interactive report below or use the tabs to dive into state and metro-level insights.</em></p>
-      <p class="lang es"><em>Explora el reporte interactivo a continuación o usa las pestañas para acceder a datos por estado y ciudad.</em></p>
+  <!-- NUEVA SECCIÓN DE CONTEXTO ANALÍTICO -->
+  <section class="project-context">
+    <h2 class="lang en">🧠 Problem Statement</h2>
+    <h2 class="lang es">🧠 Problema</h2>
+    <p class="lang en">Despite a stable national unemployment rate, regional disparities often remain hidden. Stakeholders lack tools to explore labor dynamics at the local level, affecting policies and investments.</p>
+    <p class="lang es">A pesar de que la tasa nacional de desempleo parece estable, las disparidades regionales suelen pasar desapercibidas. Los responsables de tomar decisiones no siempre cuentan con herramientas para entender estas dinámicas a nivel local.</p>
 
-      <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF"
-              loading="lazy"
-              allowfullscreen
-              sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-      </iframe>
-    </section>
-  </main>
+    <h2 class="lang en">🎯 Dashboard Objective</h2>
+    <h2 class="lang es">🎯 Objetivo del Dashboard</h2>
+    <p class="lang en">To provide an interactive report that enables users to explore short- and long-term unemployment trends across U.S. regions, surfacing structural and contextual patterns.</p>
+    <p class="lang es">Proporcionar un informe interactivo que permita explorar las tendencias de desempleo a corto y largo plazo en distintas regiones de EE. UU., destacando patrones estructurales y contextuales.</p>
+
+    <h2 class="lang en">❓ Key Questions Answered</h2>
+    <h2 class="lang es">❓ Preguntas Clave que Responde</h2>
+    <ul class="lang en">
+      <li>📍 Which states and cities show the highest changes in unemployment?</li>
+      <li>📉 Are there persistent problem areas or short-term spikes?</li>
+      <li>🔍 What patterns emerge when comparing MoM vs YoY data?</li>
+    </ul>
+    <ul class="lang es">
+      <li>📍 ¿Qué estados y ciudades presentan mayores cambios en el desempleo?</li>
+      <li>📉 ¿Existen zonas problemáticas persistentes o solo picos temporales?</li>
+      <li>🔍 ¿Qué patrones emergen al comparar variaciones mensuales y anuales?</li>
+    </ul>
+
+    <h2 class="lang en">📂 Dataset Information</h2>
+    <h2 class="lang es">📂 Información del Dataset</h2>
+    <p class="lang en">
+      <strong>Source:</strong> <a href="https://www.bls.gov/data/" target="_blank">U.S. Bureau of Labor Statistics</a><br>
+      <strong>Period:</strong> Jan 2023 – May 2025<br>
+      <strong>Scope:</strong> National, State, Metro Areas (seasonally adjusted)
+    </p>
+    <p class="lang es">
+      <strong>Fuente:</strong> <a href="https://www.bls.gov/data/" target="_blank">Oficina de Estadísticas Laborales de EE. UU.</a><br>
+      <strong>Período:</strong> Ene 2023 – May 2025<br>
+      <strong>Cobertura:</strong> Nacional, Estatal, Áreas Metropolitanas (ajustado estacionalmente)
+    </p>
+
+    <h2 class="lang en">🛠️ My Role</h2>
+    <h2 class="lang es">🛠️ Mi Rol</h2>
+    <p class="lang en">I selected relevant datasets, designed the structure and filters in Looker Studio, and crafted the narrative to support exploration and insight generation.</p>
+    <p class="lang es">Seleccioné los datos relevantes, diseñé la estructura y los filtros en Looker Studio, y elaboré la narrativa para facilitar la exploración y generación de insights.</p>
+  </section>
+
+  <section class="project-viz">
+    <h2 class="lang en">📊 Interactive Dashboard</h2>
+    <h2 class="lang es">📊 Dashboard Interactivo</h2>
+    <p class="lang en"><em>Explore the interactive report below or use the tabs to dive into state and metro-level insights.</em></p>
+    <p class="lang es"><em>Explora el reporte interactivo a continuación o usa las pestañas para acceder a datos por estado y ciudad.</em></p>
+
+    <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF"
+            loading="lazy"
+            allowfullscreen
+            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+    </iframe>
+  </section>
+</main>
   <footer>
     <div class="footer-contact">
       <p><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #B3CFE5">bmatiasespinoza@gmail.com</a></p>
