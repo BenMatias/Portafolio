@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unemployment in America – A Data-Driven Overview</title>
+  <title>US Unemployment | Ben Matias</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
@@ -109,83 +109,6 @@
       text-align: center;
     }
 
-    .container {
-      flex: 1;
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      width: 100%;
-    }
-
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
-    }
-
-    .button {
-      background-color: var(--mid-blue);
-      color: white;
-      border: none;
-      padding: 0.5rem 0.8rem;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .button:hover {
-      background-color: var(--light-blue);
-    }
-
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      margin-top: 1rem;
-    }
-
-    h1 {
-      color: var(--deep-blue);
-      font-size: 1.6rem;
-    }
-
-    h2 {
-      font-size: 1.25rem;
-      margin-top: 2rem;
-      color: var(--deep-blue);
-    }
-
-    .project-description p {
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    footer {
-      background: var(--dark-blue);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-      margin-top: 4rem;
-    }
-
-    .footer-contact {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-contact p {
-      margin: 0.2rem 0;
-    }
-
     @media (max-width: 768px) {
       nav {
         display: none;
@@ -225,26 +148,37 @@
     </div>
   </header>
   <main class="container">
-    <div class="btn-group">
-      <a href="/projects.html" class="button"><i class="fas fa-arrow-left"></i> Back</a>
+    <section class="btn-group">
+      <a href="/projects.html" class="button"><i class="fas fa-arrow-left"></i> <span class="lang en">Back to Projects</span><span class="lang es">Volver a Proyectos</span></a>
       <a id="linkedin-btn" class="button" target="_blank" rel="noopener">
-        <i class="fab fa-linkedin"></i> Share on LinkedIn
+        <i class="fab fa-linkedin"></i> <span class="lang en">Share on LinkedIn</span><span class="lang es">Compartir en LinkedIn</span>
       </a>
       <a id="twitter-btn" class="button" target="_blank" rel="noopener">
-        <i class="fab fa-x-twitter"></i> Share on X
+        <i class="fab fa-x-twitter"></i> <span class="lang en">Share on X</span><span class="lang es">Compartir en X</span>
       </a>
       <a href="https://lookerstudio.google.com/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45" class="button" target="_blank" rel="noopener">
-        <i class="fas fa-chart-bar"></i> View on Looker Studio
+        <i class="fas fa-chart-bar"></i> <span class="lang en">View on Looker Studio</span><span class="lang es">Ver en Looker Studio</span>
       </a>
-    </div>
+    </section>
 
-    <h1 id="title">Unemployment in America – A Data-Driven Overview</h1>
-    <div id="project-text" class="project-description"></div>
+    <section class="project-title">
+      <h1 id="title">Unemployment in America – A Data-Driven Overview</h1>
+    </section>
 
-    <h2>Interactive Dashboard</h2>
-    <p><em>Explore the interactive report below or use the tabs to dive into state and metro-level insights.</em></p>
+    <section id="project-text" class="project-description"></section>
 
-    <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF" loading="lazy" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+    <section class="project-viz">
+      <h2 class="lang en">Interactive Dashboard</h2>
+      <h2 class="lang es">Dashboard Interactivo</h2>
+      <p class="lang en"><em>Explore the interactive report below or use the tabs to dive into state and metro-level insights.</em></p>
+      <p class="lang es"><em>Explora el reporte interactivo a continuación o usa las pestañas para acceder a datos por estado y ciudad.</em></p>
+
+      <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF"
+              loading="lazy"
+              allowfullscreen
+              sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+      </iframe>
+    </section>
   </main>
   <footer>
     <div class="footer-contact">
@@ -254,6 +188,7 @@
     </div>
     <p style="margin-top: 0.5rem;">&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
   </footer>
+
   <script>
     const baseURL = "https://www.benmatias.com/projects/US-Unemployment.html";
 
@@ -292,6 +227,10 @@
       document.getElementById('project-text').innerHTML = content[lang].description;
       document.getElementById('lang-btn').innerHTML = content[lang].langIcon;
       document.getElementById('lang-btn-mobile').innerHTML = content[lang].langIcon;
+
+      document.querySelectorAll('.lang').forEach(el => {
+        el.style.display = el.classList.contains(lang) ? 'inline' : 'none';
+      });
     }
 
     document.addEventListener("DOMContentLoaded", () => {
