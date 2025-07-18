@@ -136,39 +136,64 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
-    .project-card {
-      background: white;
-      border: 1px solid #d9e4ec;
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    .project-card.enhanced {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-left: 4px solid var(--mid-blue);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
 
-    .project-card h3 {
-      margin-top: 0;
-      font-size: 1.2rem;
+    .project-card.enhanced:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-card.enhanced .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-card.enhanced .icon {
+      font-size: 1.3rem;
+      color: var(--mid-blue);
+    }
+
+    .project-card.enhanced h3 {
+      margin: 0;
+      font-size: 1.15rem;
       color: var(--dark-blue);
     }
 
-    .project-card p {
+    .project-card.enhanced .description {
+      font-size: 0.95rem;
       margin: 0.5rem 0 1rem;
+      line-height: 1.5;
+      color: #333;
     }
 
-    .project-card a.button {
-      align-self: start;
+    .project-card.enhanced .date {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .project-card.enhanced .button.big {
+      padding: 0.55rem 1rem;
+      font-size: 0.95rem;
       background-color: var(--mid-blue);
       color: white;
-      padding: 0.4rem 0.75rem;
       border-radius: 4px;
       text-decoration: none;
-      font-size: 0.9rem;
-      transition: background-color 0.3s ease;
+      align-self: start;
     }
 
-    .project-card a.button:hover {
+    .project-card.enhanced .button.big:hover {
       background-color: var(--light-blue);
     }
 
@@ -231,26 +256,29 @@
       <div class="lang-toggle" id="lang-btn-mobile"></div>
     </div>
   </header>
-  <main class="container">
-    <section id="projects-section">
-      <h2 id="projects-title">Projects</h2>
-      <p id="projects-intro" class="intro-text">
-        As a data analyst, I’ve developed numerous dashboards and KPI reports using tools like Power BI, Looker Studio, and Tableau. However, due to confidentiality agreements, I’m unable to publicly showcase those internal reports. For this portfolio, I use <strong>public datasets</strong> and <strong>Looker Studio</strong>—a free and accessible BI tool that allows me to share projects openly and interactively. Each project reflects real-world analytical approaches applied in a transparent, reproducible way.
-      </p>
+<main class="container">
+  <section id="projects-section">
+    <h2 id="projects-title">Projects</h2>
+    <p id="projects-intro" class="intro-text">
+      As a data analyst, I’ve developed numerous dashboards and KPI reports using tools like Power BI, Looker Studio, and Tableau. However, due to confidentiality agreements, I’m unable to publicly showcase those internal reports. For this portfolio, I use <strong>public datasets</strong> and <strong>Looker Studio</strong>—a free and accessible BI tool that allows me to share projects openly and interactively. Each project reflects real-world analytical approaches applied in a transparent, reproducible way.
+    </p>
 
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card">
+    <div class="projects-grid">
+      <!-- Proyecto 1 -->
+      <div class="project-card enhanced">
+        <div class="card-header">
+          <i class="fas fa-chart-line icon"></i>
           <h3>Unemployment in America</h3>
-          <p>Analyze short- and long-term labor dynamics across U.S. states and cities using public data and interactive visuals.</p>
-          <p><strong>Published:</strong> July 2025</p>
-          <a href="projects/US-Unemployment.html" class="button">View Project</a>
         </div>
-
-        <!-- Aquí puedes agregar más tarjetas como esta -->
+        <p class="description">Analyze short- and long-term labor dynamics across U.S. states and cities using public data and interactive visuals.</p>
+        <p class="date"><strong>Published:</strong> July 2025</p>
+        <a href="projects/US-Unemployment.html" class="button big">View Project</a>
       </div>
-    </section>
-  </main>
+
+      <!-- Puedes duplicar este bloque para nuevos dashboards -->
+    </div>
+  </section>
+</main>
   <footer>
     <div class="footer-contact">
       <p><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #B3CFE5">bmatiasespinoza@gmail.com</a></p>
@@ -301,12 +329,11 @@
       document.getElementById('projects-title').textContent = labels[lang].title;
       document.getElementById('projects-intro').innerHTML = labels[lang].intro;
 
-      // Actualiza la tarjeta del primer proyecto
-      const projectCard = document.querySelector('.project-card');
-      if (projectCard) {
-        projectCard.querySelector('p').textContent = labels[lang].project1desc;
-        projectCard.querySelector('a.button').textContent = labels[lang].project1btn;
-        projectCard.querySelector('strong').textContent = labels[lang].published;
+      const card = document.querySelector('.project-card.enhanced');
+      if (card) {
+        card.querySelector('.description').textContent = labels[lang].project1desc;
+        card.querySelector('.button').textContent = labels[lang].project1btn;
+        card.querySelector('.date strong').textContent = labels[lang].published;
       }
     }
 
