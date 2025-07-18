@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benjamin Espinoza | Projects</title>
+  <title>Ben Matias | Projects</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
@@ -117,18 +117,59 @@
       width: 100%;
     }
 
-    section {
-      margin-top: 3rem;
-    }
-
     h2 {
+      font-size: 1.6rem;
+      color: var(--deep-blue);
       border-bottom: 2px solid var(--light-blue);
       padding-bottom: 0.5rem;
-      color: var(--deep-blue);
     }
 
-    .project-entry {
-      margin-bottom: 2rem;
+    .intro-text {
+      margin-top: 1rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid #d9e4ec;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: var(--dark-blue);
+    }
+
+    .project-card p {
+      margin: 0.5rem 0 1rem;
+    }
+
+    .project-card a.button {
+      align-self: start;
+      background-color: var(--mid-blue);
+      color: white;
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-card a.button:hover {
+      background-color: var(--light-blue);
     }
 
     footer {
@@ -180,30 +221,36 @@
       <a href="cv.html" data-key="cv">CV / Resume</a>
       <a href="projects.html" data-key="projects">Projects</a>
       <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
-      <span class="lang-toggle"></span>
+      <span class="lang-toggle" id="lang-btn"></span>
     </nav>
     <div id="mobile-nav" class="mobile-nav">
       <a href="index.html" data-key="about">About</a>
       <a href="cv.html" data-key="cv">CV / Resume</a>
       <a href="projects.html" data-key="projects">Projects</a>
       <a href="mailto:bmatiasespinoza@gmail.com" data-key="contact">Contact</a>
-      <div class="lang-toggle"></div>
+      <div class="lang-toggle" id="lang-btn-mobile"></div>
     </div>
   </header>
-  <div class="container">
+  <main class="container">
     <section id="projects-section">
       <h2 id="projects-title">Projects</h2>
-      <p id="projects-intro" style="margin-top: 1rem;">
+      <p id="projects-intro" class="intro-text">
         As a data analyst, I’ve developed numerous dashboards and KPI reports using tools like Power BI, Looker Studio, and Tableau. However, due to confidentiality agreements, I’m unable to publicly showcase those internal reports. For this portfolio, I use <strong>public datasets</strong> and <strong>Looker Studio</strong>—a free and accessible BI tool that allows me to share projects openly and interactively. Each project reflects real-world analytical approaches applied in a transparent, reproducible way.
       </p>
-      <div id="projects-content">
-        <div class="project-entry">
-          <h3><a href="projects/US-Unemployment.html">Unemployment in America – A Data-Driven Overview</a></h3>
-          <p>Interactive dashboard exploring U.S. unemployment trends across national, state, and metro levels, highlighting short- and long-term labor market dynamics.</p>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <h3>Unemployment in America</h3>
+          <p>Analyze short- and long-term labor dynamics across U.S. states and cities using public data and interactive visuals.</p>
+          <p><strong>Published:</strong> July 2025</p>
+          <a href="projects/US-Unemployment.html" class="button">View Project</a>
         </div>
+
+        <!-- Aquí puedes agregar más tarjetas como esta -->
       </div>
     </section>
-  </div>
+  </main>
   <footer>
     <div class="footer-contact">
       <p><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #B3CFE5">bmatiasespinoza@gmail.com</a></p>
@@ -212,6 +259,7 @@
     </div>
     <p style="margin-top: 0.5rem;">&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
   </footer>
+
   <script>
     const labels = {
       en: {
@@ -221,8 +269,10 @@
         contact: "Contact",
         langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES',
         title: "Projects",
-        description: "Interactive dashboard exploring U.S. unemployment trends across national, state, and metro levels, highlighting short- and long-term labor market dynamics.",
-        intro: "As a data analyst, I’ve developed numerous dashboards and KPI reports using tools like Power BI, Looker Studio, and Tableau. However, due to confidentiality agreements, I’m unable to publicly showcase those internal reports. For this portfolio, I use <strong>public datasets</strong> and <strong>Looker Studio</strong>—a free and accessible BI tool that allows me to share projects openly and interactively. Each project reflects real-world analytical approaches applied in a transparent, reproducible way."
+        intro: `As a data analyst, I’ve developed numerous dashboards and KPI reports using tools like Power BI, Looker Studio, and Tableau. However, due to confidentiality agreements, I’m unable to publicly showcase those internal reports. For this portfolio, I use <strong>public datasets</strong> and <strong>Looker Studio</strong>—a free and accessible BI tool that allows me to share projects openly and interactively. Each project reflects real-world analytical approaches applied in a transparent, reproducible way.`,
+        project1desc: "Analyze short- and long-term labor dynamics across U.S. states and cities using public data and interactive visuals.",
+        project1btn: "View Project",
+        published: "Published:"
       },
       es: {
         about: "Sobre mí",
@@ -231,8 +281,10 @@
         contact: "Contacto",
         langIcon: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN',
         title: "Proyectos",
-        description: "Dashboard interactivo que explora las tendencias de desempleo en EE.UU. a nivel nacional, estatal y metropolitano, destacando la dinámica del mercado laboral en el corto y largo plazo.",
-        intro: "Como analista de datos he desarrollado numerosos dashboards e informes de KPI utilizando herramientas como Power BI, Looker Studio y Tableau. Sin embargo, debido a acuerdos de confidencialidad, no puedo compartir públicamente esos reportes internos. Para este portafolio, utilizo <strong>datasets públicos</strong> y <strong>Looker Studio</strong>, una herramienta gratuita y accesible que me permite compartir proyectos de forma abierta e interactiva. Cada proyecto refleja enfoques analíticos del mundo real aplicados de forma transparente y reproducible."
+        intro: `Como analista de datos he desarrollado numerosos dashboards e informes de KPI utilizando herramientas como Power BI, Looker Studio y Tableau. Sin embargo, debido a acuerdos de confidencialidad, no puedo compartir públicamente esos reportes internos. Para este portafolio, utilizo <strong>datasets públicos</strong> y <strong>Looker Studio</strong>, una herramienta gratuita y accesible que me permite compartir proyectos de forma abierta e interactiva. Cada proyecto refleja enfoques analíticos del mundo real aplicados de forma transparente y reproducible.`,
+        project1desc: "Analiza dinámicas laborales de corto y largo plazo en EE.UU. con datos públicos y visualizaciones interactivas.",
+        project1btn: "Ver Proyecto",
+        published: "Publicado:"
       }
     };
 
@@ -241,12 +293,21 @@
         const key = el.getAttribute('data-key');
         el.textContent = labels[lang][key] || key;
       });
+
       document.querySelectorAll('.lang-toggle').forEach(el => {
         el.innerHTML = labels[lang].langIcon;
       });
+
       document.getElementById('projects-title').textContent = labels[lang].title;
       document.getElementById('projects-intro').innerHTML = labels[lang].intro;
-      document.querySelector('.project-entry p').textContent = labels[lang].description;
+
+      // Actualiza la tarjeta del primer proyecto
+      const projectCard = document.querySelector('.project-card');
+      if (projectCard) {
+        projectCard.querySelector('p').textContent = labels[lang].project1desc;
+        projectCard.querySelector('a.button').textContent = labels[lang].project1btn;
+        projectCard.querySelector('strong').textContent = labels[lang].published;
+      }
     }
 
     function toggleLang() {
