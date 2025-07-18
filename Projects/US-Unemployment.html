@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>US Unemployment | Ben Matias</title>
-  <meta name="description" content="An interactive dashboard analyzing unemployment across the United States, exploring state and metro-level trends using public labor market data. Created by Ben Matias, Data & Business Analyst.">
+  <meta name="description" content="An interactive dashboard analyzing unemployment across the United States, exploring state and metro-level trends using public labor market data.">
 
-  <!-- Open Graph for social media -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Unemployment in America – A Data-Driven Overview" />
   <meta property="og:description" content="Explore labor trends across U.S. states and cities through interactive visuals and insights. Built with public data and Looker Studio." />
   <meta property="og:image" content="https://www.benmatias.com/assets/img/us-unemployment-cover.png" />
   <meta property="og:url" content="https://www.benmatias.com/projects/US-Unemployment.html" />
   <meta property="og:type" content="website" />
 
-  <!-- Twitter Card -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Unemployment in America – A Data-Driven Overview">
   <meta name="twitter:description" content="Explore U.S. unemployment trends with this interactive dashboard built with public data and Looker Studio.">
@@ -124,6 +124,20 @@
       color: white;
       text-align: center;
     }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .mobile-nav.show {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
@@ -149,8 +163,8 @@
       <div class="lang-toggle" id="lang-btn-mobile"></div>
     </div>
   </header>
-<main class="container">
-  <section class="btn-group">
+<main class="container" style="max-width: 960px; margin: 2rem auto; padding: 0 1rem;">
+  <div class="btn-group" style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem;">
     <a href="/projects.html" class="button">
       <i class="fas fa-arrow-left"></i>
       <span class="lang en">Back to Projects</span>
@@ -171,20 +185,18 @@
       <span class="lang en">View on Looker Studio</span>
       <span class="lang es">Ver en Looker Studio</span>
     </a>
-  </section>
+  </div>
 
-  <section class="project-title">
-    <h1 id="title">Unemployment in America – A Data-Driven Overview</h1>
-  </section>
+  <h1 id="title" style="font-size: 1.6rem; color: #1A3D63;">Unemployment in America – A Data-Driven Overview</h1>
 
-  <section id="project-text" class="project-description">
+  <div id="project-text" class="project-description">
     <!-- ENGLISH -->
     <div class="lang en">
       <h2>Problem Statement</h2>
-      <p>The national unemployment rate in the United States appears stable. However, this aggregated figure hides important differences between states and metropolitan areas. Relying solely on the overall rate may lead decision-makers to overlook local labor market tensions, especially in cities where the unemployment situation differs significantly from national averages.</p>
+      <p>The national unemployment rate in the United States appears stable. However, this aggregated figure hides important differences between states and metropolitan areas.</p>
 
       <h2>Dashboard Objective</h2>
-      <p>The goal of this dashboard is to offer a detailed and interactive view of unemployment trends in the United States, with analysis by state and metro area. The dashboard enables the comparison of short-term (MoM) and long-term (YoY) unemployment variations, while also exploring structural patterns that affect regional labor dynamics.</p>
+      <p>The goal of this dashboard is to offer a detailed and interactive view of unemployment trends in the United States, with analysis by state and metro area.</p>
 
       <h2>Key Questions</h2>
       <ul>
@@ -194,58 +206,54 @@
       </ul>
 
       <h2>Dataset Information</h2>
-      <p>
-        <strong>Source:</strong> <a href="https://www.bls.gov/data/" target="_blank">U.S. Bureau of Labor Statistics</a><br>
-        <strong>Period:</strong> January 2023 – May 2025<br>
-        <strong>Scope:</strong> National, State, Metro Areas (seasonally adjusted)
-      </p>
+      <p><strong>Source:</strong> <a href="https://www.bls.gov/data/" target="_blank">U.S. Bureau of Labor Statistics</a><br>
+         <strong>Period:</strong> January 2023 – May 2025<br>
+         <strong>Scope:</strong> National, State, Metro Areas (seasonally adjusted)</p>
 
       <h2>My Role</h2>
-      <p>I sourced and filtered public datasets, defined KPIs and filtering logic, and designed the structure of the dashboard using Looker Studio. The project was focused on delivering actionable insights in a format accessible to analysts, executives, and policymakers.</p>
+      <p>I sourced and filtered public datasets, defined KPIs and filtering logic, and designed the dashboard using Looker Studio.</p>
     </div>
 
     <!-- ESPAÑOL -->
     <div class="lang es">
       <h2>Problema</h2>
-      <p>La tasa de desempleo nacional en Estados Unidos parece estable. Sin embargo, esta cifra agregada oculta diferencias importantes entre estados y áreas metropolitanas. Confiar únicamente en la tasa general puede llevar a los responsables de decisiones a ignorar tensiones en el mercado laboral local, especialmente en ciudades donde la situación difiere significativamente de los promedios nacionales.</p>
+      <p>La tasa de desempleo nacional en Estados Unidos parece estable. Sin embargo, esta cifra agregada oculta diferencias importantes entre estados y áreas metropolitanas.</p>
 
       <h2>Objetivo del Dashboard</h2>
-      <p>Este dashboard tiene como objetivo ofrecer una visión detallada e interactiva de las tendencias de desempleo en Estados Unidos, con análisis por estado y área metropolitana. Permite comparar variaciones de desempleo en el corto (mensual) y largo plazo (anual), y explorar patrones estructurales que influyen en las dinámicas laborales regionales.</p>
+      <p>Este dashboard tiene como objetivo ofrecer una visión detallada e interactiva de las tendencias de desempleo en Estados Unidos, con análisis por estado y ciudad.</p>
 
       <h2>Preguntas Clave</h2>
       <ul>
         <li>¿Qué regiones han tenido mayores aumentos o disminuciones en el desempleo a lo largo del tiempo?</li>
-        <li>¿Existen áreas metropolitanas que presenten consistentemente niveles altos o bajos de desempleo respecto a sus estados?</li>
-        <li>¿Qué patrones estructurales o correlaciones se observan entre ciudades y regiones?</li>
+        <li>¿Existen ciudades con niveles de desempleo distintos a sus estados?</li>
+        <li>¿Qué patrones estructurales se observan entre ciudades y regiones?</li>
       </ul>
 
       <h2>Información del Dataset</h2>
-      <p>
-        <strong>Fuente:</strong> <a href="https://www.bls.gov/data/" target="_blank">Oficina de Estadísticas Laborales de EE. UU.</a><br>
-        <strong>Período:</strong> Enero 2023 – Mayo 2025<br>
-        <strong>Cobertura:</strong> Nacional, Estatal, Áreas Metropolitanas (ajustado estacionalmente)
-      </p>
+      <p><strong>Fuente:</strong> <a href="https://www.bls.gov/data/" target="_blank">Oficina de Estadísticas Laborales de EE. UU.</a><br>
+         <strong>Período:</strong> Enero 2023 – Mayo 2025<br>
+         <strong>Cobertura:</strong> Nacional, Estatal, Áreas Metropolitanas (ajustado estacionalmente)</p>
 
       <h2>Mi Rol</h2>
-      <p>Seleccioné y filtré datasets públicos, definí indicadores clave (KPIs) y lógica de filtros, y diseñé la estructura del dashboard en Looker Studio. El proyecto se centró en entregar insights accionables en un formato accesible para analistas, ejecutivos y responsables de políticas públicas.</p>
+      <p>Filtré datos públicos, definí indicadores clave y diseñé el dashboard en Looker Studio para entregar insights accionables y comprensibles.</p>
     </div>
-  </section>
+  </div>
 
-  <section class="project-viz">
-    <h2 class="lang en">Interactive Dashboard</h2>
-    <h2 class="lang es">Dashboard Interactivo</h2>
-    <p class="lang en"><em>Explore the interactive report below or use the tabs to dive into state and metro-level insights.</em></p>
-    <p class="lang es"><em>Explora el reporte interactivo a continuación o usa las pestañas para acceder a datos por estado y ciudad.</em></p>
+  <h2 class="lang en" style="margin-top: 2.5rem; color: #1A3D63;">Interactive Dashboard</h2>
+  <h2 class="lang es" style="margin-top: 2.5rem; color: #1A3D63;">Dashboard Interactivo</h2>
+  <p class="lang en"><em>Explore the interactive report below or use the tabs to dive into state and metro-level insights.</em></p>
+  <p class="lang es"><em>Explora el reporte interactivo o usa las pestañas para navegar por estado y ciudad.</em></p>
 
-    <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF"
-            loading="lazy"
-            allowfullscreen
-            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-    </iframe>
-  </section>
+  <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF"
+          width="100%" height="720"
+          style="border: none; margin-top: 1rem;"
+          allowfullscreen
+          loading="lazy"
+          sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+  </iframe>
 </main>
   <footer>
-    <div class="footer-contact">
+    <div class="footer-contact" style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
       <p><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #B3CFE5">bmatiasespinoza@gmail.com</a></p>
       <p><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
       <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benmatias" style="color: #B3CFE5">linkedin.com/in/benmatias</a></p>
@@ -294,7 +302,6 @@
 
       document.getElementById('linkedin-btn').href =
         `https://www.linkedin.com/sharing/share-offsite/?url=${baseURL}`;
-
       document.getElementById('twitter-btn').href =
         `https://twitter.com/intent/tweet?url=${baseURL}&text=Explore%20US%20Unemployment%20Trends`;
 
