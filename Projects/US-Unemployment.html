@@ -148,14 +148,24 @@
       margin-bottom: 1rem;
     }
 
-    .project-description p {
+    .project-description h2 {
+      margin-top: 2rem;
+      color: var(--deep-blue);
+      font-size: 1.2rem;
+    }
+
+    .project-description p, .project-description ul {
       line-height: 1.6;
       margin-bottom: 1rem;
     }
 
+    .project-description ul {
+      padding-left: 1.2rem;
+    }
+
     .project-viz h2 {
-      font-size: 1.25rem;
       margin-top: 2rem;
+      font-size: 1.25rem;
       color: var(--deep-blue);
     }
 
@@ -271,25 +281,13 @@
   <section id="project-text" class="project-description">
     <h2 class="lang en">🧠 Problem Statement</h2>
     <h2 class="lang es">🧠 Problema</h2>
-    <p class="lang en">
-      Although the U.S. national unemployment rate appears stable, it hides deep disparities between states and urban areas.
-      Without disaggregated analysis tools, decision-makers lack visibility into these local labor dynamics, affecting policies and investments.
-    </p>
-    <p class="lang es">
-      Aunque la tasa de desempleo nacional en EE. UU. parece estable, oculta profundas disparidades entre estados y áreas urbanas.
-      Sin herramientas de análisis desagregado, los responsables de decisiones carecen de visibilidad sobre estas dinámicas locales, lo que afecta políticas e inversiones.
-    </p>
+    <p class="lang en">Although the U.S. national unemployment rate appears stable, it hides deep disparities between states and urban areas. Without disaggregated analysis tools, decision-makers lack visibility into these local labor dynamics, affecting policies and investments.</p>
+    <p class="lang es">Aunque la tasa de desempleo nacional en EE. UU. parece estable, oculta profundas disparidades entre estados y áreas urbanas. Sin herramientas de análisis desagregado, los responsables de decisiones carecen de visibilidad sobre estas dinámicas locales, lo que afecta políticas e inversiones.</p>
 
     <h2 class="lang en">🎯 Dashboard Objective</h2>
     <h2 class="lang es">🎯 Objetivo del Dashboard</h2>
-    <p class="lang en">
-      This dashboard allows users to explore unemployment trends at national, state, and metro levels, comparing short-term (MoM) and long-term (YoY) variations,
-      and highlighting structural factors that influence regional labor outcomes.
-    </p>
-    <p class="lang es">
-      Este dashboard permite explorar tendencias de desempleo a nivel nacional, estatal y metropolitano, comparando variaciones a corto (mensual) y largo plazo (anual),
-      y destacando factores estructurales que influyen en los resultados laborales regionales.
-    </p>
+    <p class="lang en">This dashboard allows users to explore unemployment trends at national, state, and metro levels, comparing short-term (MoM) and long-term (YoY) variations, and highlighting structural factors that influence regional labor outcomes.</p>
+    <p class="lang es">Este dashboard permite explorar tendencias de desempleo a nivel nacional, estatal y metropolitano, comparando variaciones a corto (mensual) y largo plazo (anual), y destacando factores estructurales que influyen en los resultados laborales regionales.</p>
 
     <h2 class="lang en">❓ Key Questions Answered</h2>
     <h2 class="lang es">❓ Preguntas que Responde</h2>
@@ -319,14 +317,8 @@
 
     <h2 class="lang en">🛠️ My Role</h2>
     <h2 class="lang es">🛠️ Mi Rol</h2>
-    <p class="lang en">
-      I sourced and selected public datasets, designed KPIs and filters, and built the dashboard structure in Looker Studio.
-      The narrative and structure are tailored for strategic exploration by business users and policymakers.
-    </p>
-    <p class="lang es">
-      Seleccioné datasets públicos relevantes, definí indicadores y filtros clave, y construí la estructura del dashboard en Looker Studio.
-      La narrativa y diseño están orientados a la exploración estratégica por usuarios de negocio y tomadores de decisiones.
-    </p>
+    <p class="lang en">I sourced and selected public datasets, designed KPIs and filters, and built the dashboard structure in Looker Studio. The narrative and structure are tailored for strategic exploration by business users and policymakers.</p>
+    <p class="lang es">Seleccioné datasets públicos relevantes, definí indicadores y filtros clave, y construí la estructura del dashboard en Looker Studio. La narrativa y diseño están orientados a la exploración estratégica por usuarios de negocio y tomadores de decisiones.</p>
   </section>
 
   <section class="project-viz">
@@ -357,14 +349,10 @@
     const content = {
       en: {
         title: "Unemployment in America – A Data-Driven Overview",
-        description: "" // Descripción principal está integrada en HTML
-        ,
         langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES'
       },
       es: {
         title: "Desempleo en Estados Unidos – Un análisis basado en datos",
-        description: "" // Descripción principal está integrada en HTML
-        ,
         langIcon: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
       }
     };
