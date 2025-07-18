@@ -268,31 +268,40 @@
     <h1 id="title">Unemployment in America – A Data-Driven Overview</h1>
   </section>
 
-  <section id="project-text" class="project-description"></section>
-
-  <!-- NUEVA SECCIÓN DE CONTEXTO ANALÍTICO -->
-  <section class="project-context">
+  <section id="project-text" class="project-description">
     <h2 class="lang en">🧠 Problem Statement</h2>
     <h2 class="lang es">🧠 Problema</h2>
-    <p class="lang en">Despite a stable national unemployment rate, regional disparities often remain hidden. Stakeholders lack tools to explore labor dynamics at the local level, affecting policies and investments.</p>
-    <p class="lang es">A pesar de que la tasa nacional de desempleo parece estable, las disparidades regionales suelen pasar desapercibidas. Los responsables de tomar decisiones no siempre cuentan con herramientas para entender estas dinámicas a nivel local.</p>
+    <p class="lang en">
+      Although the U.S. national unemployment rate appears stable, it hides deep disparities between states and urban areas.
+      Without disaggregated analysis tools, decision-makers lack visibility into these local labor dynamics, affecting policies and investments.
+    </p>
+    <p class="lang es">
+      Aunque la tasa de desempleo nacional en EE. UU. parece estable, oculta profundas disparidades entre estados y áreas urbanas.
+      Sin herramientas de análisis desagregado, los responsables de decisiones carecen de visibilidad sobre estas dinámicas locales, lo que afecta políticas e inversiones.
+    </p>
 
     <h2 class="lang en">🎯 Dashboard Objective</h2>
     <h2 class="lang es">🎯 Objetivo del Dashboard</h2>
-    <p class="lang en">To provide an interactive report that enables users to explore short- and long-term unemployment trends across U.S. regions, surfacing structural and contextual patterns.</p>
-    <p class="lang es">Proporcionar un informe interactivo que permita explorar las tendencias de desempleo a corto y largo plazo en distintas regiones de EE. UU., destacando patrones estructurales y contextuales.</p>
+    <p class="lang en">
+      This dashboard allows users to explore unemployment trends at national, state, and metro levels, comparing short-term (MoM) and long-term (YoY) variations,
+      and highlighting structural factors that influence regional labor outcomes.
+    </p>
+    <p class="lang es">
+      Este dashboard permite explorar tendencias de desempleo a nivel nacional, estatal y metropolitano, comparando variaciones a corto (mensual) y largo plazo (anual),
+      y destacando factores estructurales que influyen en los resultados laborales regionales.
+    </p>
 
     <h2 class="lang en">❓ Key Questions Answered</h2>
-    <h2 class="lang es">❓ Preguntas Clave que Responde</h2>
+    <h2 class="lang es">❓ Preguntas que Responde</h2>
     <ul class="lang en">
-      <li>📍 Which states and cities show the highest changes in unemployment?</li>
-      <li>📉 Are there persistent problem areas or short-term spikes?</li>
-      <li>🔍 What patterns emerge when comparing MoM vs YoY data?</li>
+      <li>📍 Which regions show the highest unemployment changes month-over-month and year-over-year?</li>
+      <li>📉 Are there persistent problem areas or only short-term spikes?</li>
+      <li>🔍 What structural patterns emerge across cities and states?</li>
     </ul>
     <ul class="lang es">
-      <li>📍 ¿Qué estados y ciudades presentan mayores cambios en el desempleo?</li>
-      <li>📉 ¿Existen zonas problemáticas persistentes o solo picos temporales?</li>
-      <li>🔍 ¿Qué patrones emergen al comparar variaciones mensuales y anuales?</li>
+      <li>📍 ¿Qué regiones presentan los mayores cambios en desempleo mes a mes y año a año?</li>
+      <li>📉 ¿Hay zonas problemáticas persistentes o solo variaciones temporales?</li>
+      <li>🔍 ¿Qué patrones estructurales se observan entre ciudades y estados?</li>
     </ul>
 
     <h2 class="lang en">📂 Dataset Information</h2>
@@ -304,14 +313,20 @@
     </p>
     <p class="lang es">
       <strong>Fuente:</strong> <a href="https://www.bls.gov/data/" target="_blank">Oficina de Estadísticas Laborales de EE. UU.</a><br>
-      <strong>Período:</strong> Ene 2023 – May 2025<br>
+      <strong>Período:</strong> Ene 2023 – Mayo 2025<br>
       <strong>Cobertura:</strong> Nacional, Estatal, Áreas Metropolitanas (ajustado estacionalmente)
     </p>
 
     <h2 class="lang en">🛠️ My Role</h2>
     <h2 class="lang es">🛠️ Mi Rol</h2>
-    <p class="lang en">I selected relevant datasets, designed the structure and filters in Looker Studio, and crafted the narrative to support exploration and insight generation.</p>
-    <p class="lang es">Seleccioné los datos relevantes, diseñé la estructura y los filtros en Looker Studio, y elaboré la narrativa para facilitar la exploración y generación de insights.</p>
+    <p class="lang en">
+      I sourced and selected public datasets, designed KPIs and filters, and built the dashboard structure in Looker Studio.
+      The narrative and structure are tailored for strategic exploration by business users and policymakers.
+    </p>
+    <p class="lang es">
+      Seleccioné datasets públicos relevantes, definí indicadores y filtros clave, y construí la estructura del dashboard en Looker Studio.
+      La narrativa y diseño están orientados a la exploración estratégica por usuarios de negocio y tomadores de decisiones.
+    </p>
   </section>
 
   <section class="project-viz">
@@ -342,22 +357,14 @@
     const content = {
       en: {
         title: "Unemployment in America – A Data-Driven Overview",
-        description: `
-          <p>This dashboard provides a comprehensive overview of unemployment in the United States as of May 2025, integrating national, state-level, and metro-area data to uncover both surface-level trends and deeper structural patterns.</p>
-          <p>While the national unemployment rate appears stable, disaggregating the data reveals significant disparities across states and urban regions. Cities such as New York, Los Angeles, and Washington D.C. show unique labor dynamics that differ markedly from their surrounding states, reflecting the influence of industry concentration, population density, and local policy environments.</p>
-          <p>By combining short-term (MoM) and long-term (YoY) variations with volume-based indicators, this dashboard goes beyond static metrics to support more informed decision-making.</p>
-          <p>The final section—focused on structural correlations—demonstrates that unemployment rates are not simply a function of population size or labor force scale. Instead, contextual factors play a critical role in shaping labor outcomes across the country.</p>
-        `,
+        description: "" // Descripción principal está integrada en HTML
+        ,
         langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES'
       },
       es: {
         title: "Desempleo en Estados Unidos – Un análisis basado en datos",
-        description: `
-          <p>Este dashboard proporciona una visión integral del desempleo en los Estados Unidos a mayo de 2025, integrando datos a nivel nacional, estatal y de áreas metropolitanas para descubrir tanto tendencias superficiales como patrones estructurales más profundos.</p>
-          <p>Aunque la tasa de desempleo nacional parece estable, desagregar los datos revela disparidades significativas entre estados y regiones urbanas. Ciudades como Nueva York, Los Ángeles y Washington D.C. muestran dinámicas laborales únicas que difieren marcadamente de sus estados circundantes, reflejando la influencia de la concentración industrial, la densidad poblacional y los entornos políticos locales.</p>
-          <p>Al combinar variaciones a corto plazo (mensuales) y a largo plazo (anuales) con indicadores basados en volumen, este dashboard va más allá de las métricas estáticas para apoyar una toma de decisiones más informada.</p>
-          <p>La sección final—centrada en las correlaciones estructurales—demuestra que las tasas de desempleo no son simplemente una función del tamaño de la población o de la escala de la fuerza laboral. En cambio, los factores contextuales juegan un papel crítico en la configuración de los resultados laborales en todo el país.</p>
-        `,
+        description: "" // Descripción principal está integrada en HTML
+        ,
         langIcon: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
       }
     };
@@ -371,7 +378,6 @@
 
     function updateContent(lang) {
       document.getElementById('title').textContent = content[lang].title;
-      document.getElementById('project-text').innerHTML = content[lang].description;
       document.getElementById('lang-btn').innerHTML = content[lang].langIcon;
       document.getElementById('lang-btn-mobile').innerHTML = content[lang].langIcon;
 
