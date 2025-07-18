@@ -4,21 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>US Unemployment | Ben Matias</title>
-  <meta name="description" content="An interactive dashboard analyzing unemployment across the United States, exploring state and metro-level trends using public labor market data.">
-
-  <!-- Open Graph -->
+  <meta name="description" content="Explore labor trends across the U.S. with an interactive dashboard analyzing unemployment at national, state, and metro levels.">
   <meta property="og:title" content="Unemployment in America – A Data-Driven Overview" />
-  <meta property="og:description" content="Explore labor trends across U.S. states and cities through interactive visuals and insights. Built with public data and Looker Studio." />
+  <meta property="og:description" content="Explore unemployment trends in the U.S. with an interactive dashboard by Ben Matias." />
   <meta property="og:image" content="https://www.benmatias.com/assets/img/us-unemployment-cover.png" />
   <meta property="og:url" content="https://www.benmatias.com/projects/US-Unemployment.html" />
   <meta property="og:type" content="website" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Unemployment in America – A Data-Driven Overview">
-  <meta name="twitter:description" content="Explore U.S. unemployment trends with this interactive dashboard built with public data and Looker Studio.">
-  <meta name="twitter:image" content="https://www.benmatias.com/assets/img/us-unemployment-cover.png">
-
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Unemployment in America – A Data-Driven Overview" />
+  <meta name="twitter:description" content="Explore labor market trends by Ben Matias in this interactive data dashboard." />
+  <meta name="twitter:image" content="https://www.benmatias.com/assets/img/us-unemployment-cover.png" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
@@ -30,6 +25,9 @@
       --mid-blue: #4A7FA7;
       --deep-blue: #1A3D63;
       --almost-white: #F6FAFD;
+      --linkedin-blue: #0077B5;
+      --twitter-black: #000000;
+      --looker-blue: #4285F4;
     }
 
     *, *::before, *::after {
@@ -125,6 +123,31 @@
       text-align: center;
     }
 
+    .container {
+      flex: 1;
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      color: var(--deep-blue);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      color: var(--deep-blue);
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .spacer {
+      margin-top: 2rem;
+    }
+
     @media (max-width: 768px) {
       nav {
         display: none;
@@ -163,34 +186,36 @@
       <div class="lang-toggle" id="lang-btn-mobile"></div>
     </div>
   </header>
-<main class="container" style="max-width: 960px; margin: 2rem auto; padding: 0 1rem;">
-  <div class="btn-group" style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem;">
-    <a href="/projects.html" class="button">
+<main class="container">
+  <section class="btn-group">
+    <a href="/projects.html" class="button back">
       <i class="fas fa-arrow-left"></i>
       <span class="lang en">Back to Projects</span>
       <span class="lang es">Volver a Proyectos</span>
     </a>
-    <a id="linkedin-btn" class="button" target="_blank" rel="noopener">
+    <a id="linkedin-btn" class="button linkedin" target="_blank" rel="noopener">
       <i class="fab fa-linkedin"></i>
       <span class="lang en">Share on LinkedIn</span>
       <span class="lang es">Compartir en LinkedIn</span>
     </a>
-    <a id="twitter-btn" class="button" target="_blank" rel="noopener">
+    <a id="twitter-btn" class="button twitter" target="_blank" rel="noopener">
       <i class="fab fa-x-twitter"></i>
       <span class="lang en">Share on X</span>
       <span class="lang es">Compartir en X</span>
     </a>
-    <a href="https://lookerstudio.google.com/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45" class="button" target="_blank" rel="noopener">
+    <a href="https://lookerstudio.google.com/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45" class="button looker" target="_blank" rel="noopener">
       <i class="fas fa-chart-bar"></i>
       <span class="lang en">View on Looker Studio</span>
       <span class="lang es">Ver en Looker Studio</span>
     </a>
-  </div>
+  </section>
 
-  <h1 id="title" style="font-size: 1.6rem; color: #1A3D63;">Unemployment in America – A Data-Driven Overview</h1>
+  <section class="project-title">
+    <h1 id="title">Unemployment in America – A Data-Driven Overview</h1>
+  </section>
 
-  <div id="project-text" class="project-description">
-    <!-- ENGLISH -->
+  <section id="project-text" class="project-description">
+    <!-- INGLÉS -->
     <div class="lang en">
       <h2>Problem Statement</h2>
       <p>The national unemployment rate in the United States appears stable. However, this aggregated figure hides important differences between states and metropolitan areas.</p>
@@ -206,12 +231,14 @@
       </ul>
 
       <h2>Dataset Information</h2>
-      <p><strong>Source:</strong> <a href="https://www.bls.gov/data/" target="_blank">U.S. Bureau of Labor Statistics</a><br>
-         <strong>Period:</strong> January 2023 – May 2025<br>
-         <strong>Scope:</strong> National, State, Metro Areas (seasonally adjusted)</p>
+      <p>
+        <strong>Source:</strong> <a href="https://www.bls.gov/data/" target="_blank">U.S. Bureau of Labor Statistics</a><br>
+        <strong>Period:</strong> January 2023 – May 2025<br>
+        <strong>Scope:</strong> National, State, Metro Areas (seasonally adjusted)
+      </p>
 
       <h2>My Role</h2>
-      <p>I sourced and filtered public datasets, defined KPIs and filtering logic, and designed the dashboard using Looker Studio.</p>
+      <p>I sourced and filtered public datasets, defined KPIs and filtering logic, and designed the structure of the dashboard using Looker Studio. The project was focused on delivering actionable insights in a format accessible to analysts, executives, and policymakers.</p>
     </div>
 
     <!-- ESPAÑOL -->
@@ -220,101 +247,102 @@
       <p>La tasa de desempleo nacional en Estados Unidos parece estable. Sin embargo, esta cifra agregada oculta diferencias importantes entre estados y áreas metropolitanas.</p>
 
       <h2>Objetivo del Dashboard</h2>
-      <p>Este dashboard tiene como objetivo ofrecer una visión detallada e interactiva de las tendencias de desempleo en Estados Unidos, con análisis por estado y ciudad.</p>
+      <p>Este dashboard tiene como objetivo ofrecer una visión detallada e interactiva de las tendencias de desempleo en Estados Unidos, con análisis por estado y área metropolitana.</p>
 
       <h2>Preguntas Clave</h2>
       <ul>
         <li>¿Qué regiones han tenido mayores aumentos o disminuciones en el desempleo a lo largo del tiempo?</li>
-        <li>¿Existen ciudades con niveles de desempleo distintos a sus estados?</li>
-        <li>¿Qué patrones estructurales se observan entre ciudades y regiones?</li>
+        <li>¿Existen áreas metropolitanas que presenten consistentemente niveles altos o bajos de desempleo respecto a sus estados?</li>
+        <li>¿Qué patrones estructurales o correlaciones se observan entre ciudades y regiones?</li>
       </ul>
 
       <h2>Información del Dataset</h2>
-      <p><strong>Fuente:</strong> <a href="https://www.bls.gov/data/" target="_blank">Oficina de Estadísticas Laborales de EE. UU.</a><br>
-         <strong>Período:</strong> Enero 2023 – Mayo 2025<br>
-         <strong>Cobertura:</strong> Nacional, Estatal, Áreas Metropolitanas (ajustado estacionalmente)</p>
+      <p>
+        <strong>Fuente:</strong> <a href="https://www.bls.gov/data/" target="_blank">Oficina de Estadísticas Laborales de EE. UU.</a><br>
+        <strong>Período:</strong> Enero 2023 – Mayo 2025<br>
+        <strong>Cobertura:</strong> Nacional, Estatal, Áreas Metropolitanas (ajustado estacionalmente)
+      </p>
 
       <h2>Mi Rol</h2>
-      <p>Filtré datos públicos, definí indicadores clave y diseñé el dashboard en Looker Studio para entregar insights accionables y comprensibles.</p>
+      <p>Seleccioné y filtré datasets públicos, definí indicadores clave (KPIs) y lógica de filtros, y diseñé la estructura del dashboard en Looker Studio. El proyecto se centró en entregar insights accionables en un formato accesible para analistas, ejecutivos y responsables de políticas públicas.</p>
     </div>
-  </div>
+  </section>
 
-  <h2 class="lang en" style="margin-top: 2.5rem; color: #1A3D63;">Interactive Dashboard</h2>
-  <h2 class="lang es" style="margin-top: 2.5rem; color: #1A3D63;">Dashboard Interactivo</h2>
-  <p class="lang en"><em>Explore the interactive report below or use the tabs to dive into state and metro-level insights.</em></p>
-  <p class="lang es"><em>Explora el reporte interactivo o usa las pestañas para navegar por estado y ciudad.</em></p>
+  <section class="project-viz">
+    <h2 class="lang en">Interactive Dashboard</h2>
+    <h2 class="lang es">Dashboard Interactivo</h2>
+    <p class="lang en"><em>Explore the interactive report below or use the tabs to dive into state and metro-level insights.</em></p>
+    <p class="lang es"><em>Explora el reporte interactivo a continuación o usa las pestañas para acceder a datos por estado y ciudad.</em></p>
 
-  <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF"
-          width="100%" height="720"
-          style="border: none; margin-top: 1rem;"
-          allowfullscreen
-          loading="lazy"
-          sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-  </iframe>
+    <iframe src="https://lookerstudio.google.com/embed/reporting/0c6a7b6a-a542-4cdc-8c57-dbe52b344e45/page/SE1QF"
+            loading="lazy"
+            allowfullscreen
+            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+            style="width:100%; height:720px; border:none;">
+    </iframe>
+  </section>
 </main>
-  <footer>
-    <div class="footer-contact" style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
-      <p><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #B3CFE5">bmatiasespinoza@gmail.com</a></p>
-      <p><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
-      <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benmatias" style="color: #B3CFE5">linkedin.com/in/benmatias</a></p>
-    </div>
-    <p style="margin-top: 0.5rem;">&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
-  </footer>
+<footer>
+  <div class="footer-contact">
+    <p><i class="fas fa-envelope"></i> <a href="mailto:bmatiasespinoza@gmail.com" style="color: #B3CFE5">bmatiasespinoza@gmail.com</a></p>
+    <p><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
+    <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benmatias" style="color: #B3CFE5">linkedin.com/in/benmatias</a></p>
+  </div>
+  <p style="margin-top: 0.5rem;">&copy; 2025 Benjamin Espinoza. All rights reserved.</p>
+</footer>
 
-  <script>
-    const baseURL = "https://www.benmatias.com/projects/US-Unemployment.html";
+<script>
+  const baseURL = "https://www.benmatias.com/projects/US-Unemployment.html";
 
-    const content = {
-      en: {
-        title: "Unemployment in America – A Data-Driven Overview",
-        langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES'
-      },
-      es: {
-        title: "Desempleo en Estados Unidos – Un análisis basado en datos",
-        langIcon: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
-      }
-    };
-
-    function toggleLang() {
-      const current = document.documentElement.lang;
-      const nextLang = current === 'en' ? 'es' : 'en';
-      document.documentElement.lang = nextLang;
-      updateContent(nextLang);
+  const content = {
+    en: {
+      title: "Unemployment in America – A Data-Driven Overview",
+      langIcon: '<img src="https://flagcdn.com/cl.svg" alt="CL" style="width: 20px; vertical-align: middle; margin-right: 4px;">ES'
+    },
+    es: {
+      title: "Desempleo en Estados Unidos – Un análisis basado en datos",
+      langIcon: '<img src="https://flagcdn.com/us.svg" alt="US" style="width: 20px; vertical-align: middle; margin-right: 4px;">EN'
     }
+  };
 
-    function updateContent(lang) {
-      document.getElementById('title').textContent = content[lang].title;
-      document.getElementById('lang-btn').innerHTML = content[lang].langIcon;
-      document.getElementById('lang-btn-mobile').innerHTML = content[lang].langIcon;
+  function toggleLang() {
+    const current = document.documentElement.lang;
+    const nextLang = current === 'en' ? 'es' : 'en';
+    document.documentElement.lang = nextLang;
+    updateContent(nextLang);
+  }
 
-      document.querySelectorAll('.lang').forEach(el => {
-        el.style.display = el.classList.contains(lang) ? 'inline' : 'none';
+  function updateContent(lang) {
+    document.getElementById('title').textContent = content[lang].title;
+    document.getElementById('lang-btn').innerHTML = content[lang].langIcon;
+    document.getElementById('lang-btn-mobile').innerHTML = content[lang].langIcon;
+
+    document.querySelectorAll('.lang').forEach(el => {
+      el.style.display = el.classList.contains(lang) ? 'inline' : 'none';
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const defaultLang = "en";
+    document.documentElement.lang = defaultLang;
+    updateContent(defaultLang);
+
+    document.getElementById('lang-btn').addEventListener('click', toggleLang);
+    document.getElementById('lang-btn-mobile').addEventListener('click', toggleLang);
+
+    document.getElementById('linkedin-btn').href = `https://www.linkedin.com/sharing/share-offsite/?url=${baseURL}`;
+    document.getElementById('twitter-btn').href = `https://twitter.com/intent/tweet?url=${baseURL}&text=Explore%20US%20Unemployment%20Trends`;
+
+    const menuBtn = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('show');
+        const expanded = mobileNav.classList.contains('show');
+        menuBtn.setAttribute('aria-expanded', expanded);
       });
     }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const defaultLang = "en";
-      document.documentElement.lang = defaultLang;
-      updateContent(defaultLang);
-
-      document.getElementById('lang-btn').addEventListener('click', toggleLang);
-      document.getElementById('lang-btn-mobile').addEventListener('click', toggleLang);
-
-      document.getElementById('linkedin-btn').href =
-        `https://www.linkedin.com/sharing/share-offsite/?url=${baseURL}`;
-      document.getElementById('twitter-btn').href =
-        `https://twitter.com/intent/tweet?url=${baseURL}&text=Explore%20US%20Unemployment%20Trends`;
-
-      const menuBtn = document.getElementById('menu-toggle');
-      const mobileNav = document.getElementById('mobile-nav');
-      if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-          mobileNav.classList.toggle('show');
-          const expanded = mobileNav.classList.contains('show');
-          menuBtn.setAttribute('aria-expanded', expanded);
-        });
-      }
-    });
-  </script>
+  });
+</script>
 </body>
 </html>
