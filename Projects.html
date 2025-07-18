@@ -137,14 +137,15 @@
     }
 
     .project-card.enhanced {
-      background: linear-gradient(to bottom right, #f6fafd, #e4effa);
+      background: var(--mid-blue);
       border-radius: 12px;
       padding: 1.8rem 1.5rem;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border-left: 4px solid var(--mid-blue);
+      border-left: 4px solid var(--light-blue);
       display: flex;
       flex-direction: column;
+      color: white;
     }
 
     .project-card.enhanced:hover {
@@ -161,40 +162,42 @@
 
     .project-card.enhanced .icon {
       font-size: 1.3rem;
-      color: var(--mid-blue);
+      color: white;
     }
 
     .project-card.enhanced h3 {
       margin: 0;
       font-size: 1.15rem;
-      color: var(--dark-blue);
+      color: white;
     }
 
     .project-card.enhanced .description {
       font-size: 0.95rem;
       margin: 0.5rem 0 1rem;
       line-height: 1.5;
-      color: #333;
+      color: white;
     }
 
     .project-card.enhanced .date {
       font-size: 0.85rem;
-      color: #666;
+      color: #e3e3e3;
       margin-bottom: 1rem;
     }
 
     .project-card.enhanced .button.big {
       padding: 0.55rem 1rem;
       font-size: 0.95rem;
-      background-color: var(--mid-blue);
-      color: white;
+      background-color: white;
+      color: var(--mid-blue);
       border-radius: 4px;
       text-decoration: none;
       align-self: start;
+      font-weight: 600;
     }
 
     .project-card.enhanced .button.big:hover {
       background-color: var(--light-blue);
+      color: white;
     }
 
     footer {
@@ -275,7 +278,7 @@
         <a href="projects/US-Unemployment.html" class="button big">View Project</a>
       </div>
 
-      <!-- Puedes duplicar este bloque para más dashboards -->
+      <!-- Puedes duplicar este bloque para agregar más proyectos -->
     </div>
   </section>
 </main>
