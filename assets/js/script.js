@@ -774,8 +774,33 @@ function setupScrollAnimations() {
   });
 }
 
+// --- NUEVA FUNCIÓN PARA BARAJAR EL CARRUSEL ---
+// Algoritmo Fisher-Yates (Knuth) Shuffle
+function shuffleArray(array) {
+  let currentIndex = array.length,  randomIndex;
+
+  // Mientras queden elementos por barajar.
+  while (currentIndex > 0) {
+    // Elige un elemento restante.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // Y cámbialo por el elemento actual.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
 function populateHomePage(lang, basePath) {
   const data = translations[lang] || translations.en;
+  
+  // --- ¡AQUÍ ESTÁ LA MAGIA! Barajamos los proyectos antes de mostrarlos ---
+  if (data.projects) {
+    shuffleArray(data.projects);
+  }
+
   getEl('hero-title').textContent = data.heroTitle;
   getEl("hero-subtitle").textContent = data.heroSubtitle;
   getEl("btn-projects").textContent = data.btnProjects;
