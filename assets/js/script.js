@@ -908,88 +908,35 @@ function populateProjectsPage(lang, basePath) {
     const data = translations[lang] || translations.en;
     const titleEl = getEl('projects-title');
     if (titleEl) {
-        titleEl.textContent = data.projects_page_title;
+        titleEl.innerHTML = `<i class="fas fa-lightbulb"></i> ${data.projects_page_title}`;
     }
 
-    const listUl = getEl('projects-list-ul');
-    const previewCol = getEl('projects-preview-column');
-
-    if (listUl) {
-        listUl.innerHTML = '';
-        if (previewCol) previewCol.innerHTML = '';
-        listUl.className = 'projects-list-ul'; // Reset classes
-
-        const isMobile = window.innerWidth <= 992;
-
-        if (isMobile) {
-            // Mobile Accordion View
-            listUl.classList.add('is-accordion');
-            (data.projects_list || []).forEach(project => {
-                const accordionItem = document.createElement('li');
-                accordionItem.className = 'accordion-item';
-                accordionItem.innerHTML = `
-                    <button class="accordion-header">
-                        <span>${project.title}</span>
-                        <i class="fas fa-chevron-down chevron-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p class="project-list-description">${project.description}</p>
-                        <a href="${project.link}" class="btn btn-outline-blue">${project.buttonText}</a>
-                    </div>
-                `;
-                listUl.appendChild(accordionItem);
-            });
-            setupAccordion('.projects-list-ul', '.accordion-header');
-
-        } else {
-            // Desktop Interactive List View
-            if (!previewCol) return;
-            (data.projects_list || []).forEach(project => {
-                let iconHtml = '';
-                if (project.tool === 'powerbi') {
-                    iconHtml = `<img src="${basePath}assets/img/logos/power-bi.png" alt="Power BI Logo" class="project-tool-icon">`;
-                } else if (project.tool === 'looker') {
-                    iconHtml = `<img src="${basePath}assets/img/logos/looker-studio.png" alt="Looker Studio Logo" class="project-tool-icon">`;
-                }
-
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `
-                    <a href="${project.link}" data-preview-target="${project.id}">
-                        <span class="project-list-title">
-                            ${iconHtml}
-                            ${project.title}
-                        </span>
-                        <span class="project-list-description">${project.description}</span>
-                    </a>`;
-                listUl.appendChild(listItem);
-
-                const previewImage = document.createElement('div');
-                previewImage.id = project.id;
-                previewImage.className = 'project-preview-image';
-                previewImage.style.backgroundImage = `url('${basePath}${project.imageUrl}')`;
-                previewCol.appendChild(previewImage);
-            });
-
-            const projectLinks = listUl.querySelectorAll('a');
-            projectLinks.forEach(link => {
-                link.addEventListener('mouseenter', () => {
-                    const targetId = link.getAttribute('data-preview-target');
-                    if(previewCol) {
-                        previewCol.querySelectorAll('.project-preview-image.is-active').forEach(activeImg => activeImg.classList.remove('is-active'));
-                        const targetImage = getEl(targetId);
-                        if (targetImage) targetImage.classList.add('is-active');
-                    }
-                });
-            });
-
-            if (listUl) {
-                listUl.addEventListener('mouseleave', () => {
-                    if(previewCol) {
-                        previewCol.querySelectorAll('.project-preview-image.is-active').forEach(activeImg => activeImg.classList.remove('is-active'));
-                    }
-                });
+    const gridContainer = getEl('project-gallery-grid');
+    if (gridContainer) {
+        gridContainer.innerHTML = '';
+        (data.projects_list || []).forEach(project => {
+            let toolIcon = '';
+            if (project.tool === 'powerbi') {
+                toolIcon = `<img src="${basePath}assets/img/logos/power-bi.png" alt="Power BI Logo" class="card-tool-icon">`;
+            } else if (project.tool === 'looker') {
+                toolIcon = `<img src="${basePath}assets/img/logos/looker-studio.png" alt="Looker Studio Logo" class="card-tool-icon">`;
             }
-        }
+
+            const cardItem = document.createElement('li');
+            cardItem.innerHTML = `
+                <a href="${project.link}" class="project-gallery-card">
+                    <div class="card-image" style="background-image: url('${basePath}${project.imageUrl}')"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3>${project.title}</h3>
+                            ${toolIcon}
+                        </div>
+                        <p>${project.description}</p>
+                    </div>
+                </a>
+            `;
+            gridContainer.appendChild(cardItem);
+        });
     }
 }
 
