@@ -343,99 +343,6 @@ p.timeline-company a:hover {
   opacity: 0.8;
 }
 
-/* --- ESTILOS PARA LA PÁGINA DE PROYECTOS (LISTA INTERACTIVA) --- */
-.page-projects .header-hero-wrapper header.container {
-    max-width: none;
-    margin: 0;
-}
-.page-projects .section-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(2.8rem, 7vw, 3.5rem);
-    border-left: none;
-    padding-left: 0;
-    margin-bottom: 1rem;
-    line-height: 1.1;
-}
-.projects-main-content {
-  display: flex;
-  min-height: calc(100vh - 220px);
-}
-.projects-list-column {
-  flex: 1 1 50%;
-  padding: 4rem;
-  overflow-y: auto;
-  border-right: 1px solid #e0eaf1;
-}
-.projects-preview-column {
-  flex: 1 1 50%;
-  position: relative;
-  overflow: hidden;
-  background-color: var(--almost-white);
-}
-.projects-list-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.projects-list-ul li a {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid #e0eaf1;
-  text-decoration: none;
-  transition: padding-left 0.3s ease;
-}
-.projects-list-ul li a:hover {
-  padding-left: 1.5rem;
-}
-.project-list-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.8rem;
-    color: var(--mid-blue);
-    transition: color 0.3s ease;
-    display: flex;
-    align-items: center;
-}
-.projects-list-ul li a:hover .project-list-title {
-  color: var(--dark-blue);
-}
-.project-list-description {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    color: var(--deep-blue);
-    font-weight: 400;
-}
-.project-preview-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transform: scale(1.05);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  z-index: 1;
-}
-.project-preview-image.is-active {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 2;
-}
-
-/* --- ESTILOS PARA ÍCONOS DE HERRAMIENTAS EN LA LISTA DE PROYECTOS --- */
-.project-tool-icon {
-  height: 1.5rem;
-  width: auto;
-  margin-right: 0.75rem;
-  vertical-align: middle;
-  position: relative;
-  top: -2px;
-}
-
-
 /* --- ESTILOS PARA "MODO INMERSIVO" DE PROYECTOS (GENERAL) --- */
 .project-header {
   margin-bottom: 2rem;
@@ -831,18 +738,6 @@ p.timeline-company a:hover {
   .lineup-tier-2 { width: 95%; }
   .lineup-tier-3 { width: 90%; }
   .lineup-tier-4 { width: 85%; }
-  
-  .projects-main-content {
-    flex-direction: column;
-  }
-  .projects-list-column { 
-    border-right: none; 
-    padding: 2rem 1rem; /* Ajuste para móvil */
-  }
-  /* Ocultar la columna de previsualización en móvil */
-  .projects-preview-column { 
-    display: none; 
-  }
 
   .case-study-layout {
     flex-direction: column;
@@ -855,62 +750,6 @@ p.timeline-company a:hover {
   }
   .project-dashboard-content { 
     order: 1; 
-  }
-
-  /* --- ESTILOS PARA ACORDEÓN DE PROYECTOS (MÓVIL) --- */
-  .projects-list-ul.is-accordion {
-    border-top: 1px solid #e0eaf1;
-  }
-  /* Ocultar la lista de escritorio por defecto en esta vista */
-  .projects-list-ul:not(.is-accordion) li a {
-      display: none;
-  }
-  .accordion-item {
-    border-bottom: 1px solid #e0eaf1;
-  }
-  .accordion-header {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 1.25rem 0.5rem;
-    text-align: left;
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.4rem;
-    color: var(--mid-blue);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: color 0.3s ease;
-  }
-  .accordion-header:hover {
-      color: var(--dark-blue);
-  }
-  .accordion-header .chevron-icon {
-    transition: transform 0.3s ease;
-    font-size: 1.1rem;
-  }
-  .accordion-item.active .accordion-header {
-    color: var(--dark-blue);
-  }
-  .accordion-item.active .chevron-icon {
-    transform: rotate(180deg);
-  }
-  .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-    padding: 0 0.5rem;
-  }
-  .accordion-item.active .accordion-content {
-    max-height: 250px;
-    padding: 0 0.5rem 1.5rem 0.5rem;
-  }
-  .accordion-content .project-list-description {
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-      color: var(--deep-blue);
-      font-size: 0.95rem;
   }
 }
 
@@ -938,7 +777,6 @@ p.timeline-company a:hover {
   .certifications-list { columns: 1; }
   .lineup-tier-1 { flex-wrap: wrap; }
   .lineup-tier-1, .lineup-tier-2, .lineup-tier-3, .lineup-tier-4 { width: 100%; }
-  .projects-list-column { padding: 2rem; }
 }
 
 @media (max-width: 480px) {
@@ -957,4 +795,73 @@ p.timeline-company a:hover {
 
 .subtitle-link:hover {
   opacity: 0.7; /* Efecto sutil al pasar el mouse */
+}
+
+/* --- ESTILOS PARA LA PÁGINA DE PROYECTOS (GRID GALLERY) --- */
+.page-projects .projects-main-content {
+  min-height: calc(100vh - 220px);
+}
+.page-projects .section-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(2.8rem, 7vw, 3.5rem);
+  border-left: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+.project-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.project-gallery-card {
+  background-color: var(--almost-white);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.project-gallery-card .card-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid #e0eaf1;
+}
+.project-gallery-card .card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Asegura que el contenido ocupe el espacio restante */
+}
+.project-gallery-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.project-gallery-card .card-header h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.4rem;
+  color: var(--dark-blue);
+  line-height: 1.3;
+}
+.project-gallery-card .card-tool-icon {
+  height: 24px;
+  width: 24px;
+  flex-shrink: 0;
+}
+.project-gallery-card .card-content p {
+  font-size: 0.95rem;
+  color: var(--deep-blue);
+  line-height: 1.6;
+  flex-grow: 1; /* Empuja el botón (si lo hubiera) hacia abajo */
 }
