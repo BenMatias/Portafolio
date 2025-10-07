@@ -10,10 +10,10 @@ const translations = {
     publications_page_title: "Publications",
     publications_list: [
       {
-        title: "From Seoul to Santiago: What Chile Can Learn from South Korea's Demographic Crisis (Spanish)",
-        description: "An analysis of South Korea's demographic challenges and the potential lessons for Chile's public policy. Published in CIPER Chile.",
-        imageUrl: "assets/img/covers/ciper-cover.png", // Debes crear y subir esta imagen
+        title: "From Seoul to Santiago: What Chile Can Learn from South Korea's Demographic Crisis",
+        description: "An analysis of South Korea's demographic challenges and the potential lessons for Chile's public policy.",
         outlet: "CIPER Chile",
+        date: "September 29, 2025",
         outletLogoUrl: "assets/img/logos/ciper-logo.png",
         externalUrl: "https://www.ciperchile.cl/2025/09/29/de-seul-a-santiago-lo-que-chile-puede-aprender-de-la-crisis-demografica-de-corea-del-sur"
       }
@@ -419,9 +419,9 @@ const translations = {
     publications_list: [
       {
         title: "De Seúl a Santiago: lo que Chile puede aprender de la crisis demográfica de Corea del Sur",
-        description: "Un análisis sobre los desafíos demográficos de Corea del Sur y las posibles lecciones para las políticas públicas de Chile. Publicado en CIPER Chile.",
-        imageUrl: "assets/img/covers/ciper-cover.png", 
+        description: "Un análisis sobre los desafíos demográficos de Corea del Sur y las posibles lecciones para las políticas públicas de Chile.",
         outlet: "CIPER Chile",
+        date: "29 de septiembre de 2025",
         outletLogoUrl: "assets/img/logos/ciper-logo.png",
         externalUrl: "https://www.ciperchile.cl/2025/09/29/de-seul-a-santiago-lo-que-chile-puede-aprender-de-la-crisis-demografica-de-corea-del-sur"
       }
@@ -455,7 +455,7 @@ const translations = {
     projectsTitle: "Proyectos Destacados",
     projects: [
         { title: "Evolución del Tipo de Cambio", description: "Un dashboard en Power BI que monitorea las principales divisas frente al CLP, actualizado automáticamente vía API del Banco Central.", imageUrl: "assets/img/exchange-rate-cover.png", link: "projects/exchange-rate-evolution.html", buttonText: "Ver Proyecto", tool: "powerbi" },
-        { title: "Pokédex Interactiva", description: "Una Pokédex Nacional de 1.025 Pokémon construida conectándose a la PokéAPI con Apps Script.", imageUrl: "assets/img/pokedex-cover.png", link: "projects/pokedex-dashboard.html", buttonText: "Ver Proyecto", tool: "looker" },
+        { title: "Pokédex Interactiva", description: "Una Pokédex Nacional de 1,025 Pokémon construida conectándose a la PokéAPI con Apps Script.", imageUrl: "assets/img/pokedex-cover.png", link: "projects/pokedex-dashboard.html", buttonText: "Ver Proyecto", tool: "looker" },
         { title: "Análisis de Desempleo en EE.UU.", description: "Explora tendencias de desempleo en EE.UU. a nivel estatal y metropolitano mediante dashboards interactivos.", imageUrl: "assets/img/us-unemployment-cover.png", link: "projects/US-Unemployment.html", buttonText: "Ver Proyecto", tool: "looker" },
         { title: "Inclusión Financiera Global", description: "Visualiza tendencias globales de titularidad de cuentas y comportamiento de crédito por región, ingreso y demografía.", imageUrl: "assets/img/global-financial-inclusion-cover.png", link: "projects/global-financial-inclusion.html", buttonText: "Ver Proyecto", tool: "looker" },
         { title: "NEO Tracker", description: "Un dashboard automatizado que se conecta a la API de la NASA para rastrear Objetos Cercanos a la Tierra de los últimos 7 días.", imageUrl: "assets/img/neo-tracker-cover.png", link: "projects/neo-tracker.html", buttonText: "Ver Proyecto", tool: "powerbi" }
@@ -714,735 +714,733 @@ let currentLang = 'en';
 let basePath = '';
 
 function getEl(id) {
-  return document.getElementById(id);
+  return document.getElementById(id);
 }
 
 // FUNCIÓN GLOBAL: Se ejecutará en todas las páginas
 function setupGlobalInteractions() {
-  const menuToggle = getEl('menu-toggle');
-  const mobileNav = getEl('mobile-nav');
+  const menuToggle = getEl('menu-toggle');
+  const mobileNav = getEl('mobile-nav');
 
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener('click', () => {
-      mobileNav.classList.toggle('show');
-    });
-  }
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('show');
+    });
+  }
 }
 
 // FUNCIÓN PARA EL INICIO: Se ejecutará solo en el index
 function setupHomePageCarousel() {
-  const carousel = getEl('project-carousel');
-  if (carousel) {
-    const prevButton = document.querySelector('.carousel-btn.prev');
-    const nextButton = document.querySelector('.carousel-btn.next');
+  const carousel = getEl('project-carousel');
+  if (carousel) {
+    const prevButton = document.querySelector('.carousel-btn.prev');
+    const nextButton = document.querySelector('.carousel-btn.next');
 
-    const checkCarouselButtons = () => {
-      if (!carousel || !prevButton || !nextButton) return;
-      const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-      prevButton.style.display = (carousel.scrollLeft <= 1) ? 'none' : 'block';
-      nextButton.style.display = (carousel.scrollLeft >= maxScrollLeft - 1) ? 'none' : 'block';
-    };
+    const checkCarouselButtons = () => {
+      if (!carousel || !prevButton || !nextButton) return;
+      const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+      prevButton.style.display = (carousel.scrollLeft <= 1) ? 'none' : 'block';
+      nextButton.style.display = (carousel.scrollLeft >= maxScrollLeft - 1) ? 'none' : 'block';
+    };
 
-    if (prevButton && nextButton) {
-      nextButton.addEventListener('click', () => {
-        carousel.scrollBy({ left: 324, behavior: 'smooth' });
-      });
-      prevButton.addEventListener('click', () => {
-        carousel.scrollBy({ left: -324, behavior: 'smooth' });
-      });
-      carousel.addEventListener('scroll', checkCarouselButtons);
-      setTimeout(checkCarouselButtons, 150);
-    }
-  }
+    if (prevButton && nextButton) {
+      nextButton.addEventListener('click', () => {
+        carousel.scrollBy({ left: 324, behavior: 'smooth' });
+      });
+      prevButton.addEventListener('click', () => {
+        carousel.scrollBy({ left: -324, behavior: 'smooth' });
+      });
+      carousel.addEventListener('scroll', checkCarouselButtons);
+      setTimeout(checkCarouselButtons, 150);
+    }
+  }
 }
 
 // --- LÓGICA DE ACORDEÓN ---
 function setupAccordion(containerSelector, headerSelector) {
-  const container = document.querySelector(containerSelector);
-  if (!container) return;
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
 
-  const headers = container.querySelectorAll(headerSelector);
-  headers.forEach(header => {
-    // Evitar añadir listeners múltiples veces si la función es llamada de nuevo
-    if (header.dataset.accordionAttached) return;
-    header.dataset.accordionAttached = 'true';
+  const headers = container.querySelectorAll(headerSelector);
+  headers.forEach(header => {
+    // Evitar añadir listeners múltiples veces si la función es llamada de nuevo
+    if (header.dataset.accordionAttached) return;
+    header.dataset.accordionAttached = 'true';
 
-    header.addEventListener('click', () => {
-      const item = header.parentElement;
-      const wasActive = item.classList.contains('active');
-      
-      // Cerrar todos los items dentro del mismo contenedor
-      container.querySelectorAll('.active').forEach(activeItem => {
-        activeItem.classList.remove('active');
-      });
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const wasActive = item.classList.contains('active');
+      
+      // Cerrar todos los items dentro del mismo contenedor
+      container.querySelectorAll('.active').forEach(activeItem => {
+        activeItem.classList.remove('active');
+      });
 
-      // Abrir el item clickeado si no estaba activo
-      if (!wasActive) {
-        item.classList.add('active');
-      }
-    });
-  });
+      // Abrir el item clickeado si no estaba activo
+      if (!wasActive) {
+        item.classList.add('active');
+      }
+    });
+  });
 }
 
 
 function setupScrollAnimations() {
-  const items = document.querySelectorAll('.timeline-item');
-  if (!items.length) return;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-  items.forEach(item => {
-    observer.observe(item);
-  });
+  const items = document.querySelectorAll('.timeline-item');
+  if (!items.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+  items.forEach(item => {
+    observer.observe(item);
+  });
 }
 
 // --- NUEVA FUNCIÓN PARA BARAJAR EL CARRUSEL ---
 // Algoritmo Fisher-Yates (Knuth) Shuffle
 function shuffleArray(array) {
-  let currentIndex = array.length,  randomIndex;
+  let currentIndex = array.length,  randomIndex;
 
-  // Mientras queden elementos por barajar.
-  while (currentIndex > 0) {
-    // Elige un elemento restante.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
+  // Mientras queden elementos por barajar.
+  while (currentIndex > 0) {
+    // Elige un elemento restante.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
 
-    // Y cámbialo por el elemento actual.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
-  }
+    // Y cámbialo por el elemento actual.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
 
-  return array;
+  return array;
 }
 
 function populateHomePage(lang, basePath) {
-  const data = translations[lang] || translations.en;
-  
-  // Barajamos los proyectos antes de mostrarlos
-  if (data.projects) {
-    shuffleArray(data.projects);
-  }
+  const data = translations[lang] || translations.en;
+  
+  // Barajamos los proyectos antes de mostrarlos
+  if (data.projects) {
+    shuffleArray(data.projects);
+  }
 
-  getEl('hero-title').textContent = data.heroTitle;
-  getEl("hero-subtitle").textContent = data.heroSubtitle;
-  getEl("btn-projects").textContent = data.btnProjects;
-  getEl("btn-resume").textContent = data.btnResume;
-  getEl("about-title").textContent = data.aboutTitle;
-  getEl("about-text-content").innerHTML = data.aboutContent;
-  getEl("impact-title").textContent = data.impactTitle;
-  
-  const impactGrid = document.querySelector('.impact-grid');
-  if (impactGrid) {
-    impactGrid.innerHTML = '';
-    data.impacts.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'impact-card';
-      card.innerHTML = `<i class="fas ${item.icon}"></i><h3>${item.title}</h3><p>${item.text}</p>`;
-      impactGrid.appendChild(card);
-    });
-  }
+  getEl('hero-title').textContent = data.heroTitle;
+  getEl("hero-subtitle").textContent = data.heroSubtitle;
+  getEl("btn-projects").textContent = data.btnProjects;
+  getEl("btn-resume").textContent = data.btnResume;
+  getEl("about-title").textContent = data.aboutTitle;
+  getEl("about-text-content").innerHTML = data.aboutContent;
+  getEl("impact-title").textContent = data.impactTitle;
+  
+  const impactGrid = document.querySelector('.impact-grid');
+  if (impactGrid) {
+    impactGrid.innerHTML = '';
+    data.impacts.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'impact-card';
+      card.innerHTML = `<i class="fas ${item.icon}"></i><h3>${item.title}</h3><p>${item.text}</p>`;
+      impactGrid.appendChild(card);
+    });
+  }
 
-  getEl("projects-title").textContent = data.projectsTitle;
-  const projectCarousel = getEl("project-carousel");
-  if (projectCarousel) {
-      projectCarousel.innerHTML = '';
-      (data.projects || []).forEach(project => {
-          const card = document.createElement('div');
-          card.className = 'project-card';
-          card.innerHTML = `
-              <img src="${basePath}${project.imageUrl}" alt="${project.title}">
-              <div class="project-card-content">
-                  <h3>${project.title}</h3>
-                  <p>${project.description}</p>
-                  <a href="${project.link}" class="btn btn-outline-blue">${project.buttonText}</a>
-              </div>`;
-          projectCarousel.appendChild(card);
-      });
-  }
-  getEl("view-all-btn").textContent = data.viewAllBtn;
+  getEl("projects-title").textContent = data.projectsTitle;
+  const projectCarousel = getEl("project-carousel");
+  if (projectCarousel) {
+      projectCarousel.innerHTML = '';
+      (data.projects || []).forEach(project => {
+          const card = document.createElement('div');
+          card.className = 'project-card';
+          card.innerHTML = `
+              <img src="${basePath}${project.imageUrl}" alt="${project.title}">
+              <div class="project-card-content">
+                  <h3>${project.title}</h3>
+                  <p>${project.description}</p>
+                  <a href="${project.link}" class="btn btn-outline-blue">${project.buttonText}</a>
+              </div>`;
+          projectCarousel.appendChild(card);
+      });
+  }
+  getEl("view-all-btn").textContent = data.viewAllBtn;
 }
 
 function populateCvPage(lang, basePath) {
-  const data = translations[lang] || translations.en;
-  if (getEl('cv-hero-title')) getEl('cv-hero-title').textContent = data.cv_hero_title;
-  if (getEl('cv-hero-summary')) getEl('cv-hero-summary').textContent = data.cv_hero_summary;
-  if (getEl('download-btn-text')) getEl('download-btn-text').textContent = data.cv_download;
-  if (getEl('work-experience-title')) getEl('work-experience-title').innerHTML = `<i class="fas fa-briefcase"></i> ${data.cv_work_title}`;
-  if (getEl('education-title')) getEl('education-title').innerHTML = `<i class="fas fa-graduation-cap"></i> ${data.cv_education_title}`;
-  if (getEl('skills-title')) getEl('skills-title').innerHTML = `<i class="fas fa-star"></i> ${data.cv_skills_title}`;
-  if (getEl('languages-title')) getEl('languages-title').innerHTML = `<i class="fas fa-language"></i> ${data.cv_languages_title}`;
-  if (getEl('interests-title')) getEl('interests-title').innerHTML = `<i class="fas fa-heart"></i> ${data.cv_interests_title}`;
-  if (getEl('certifications-title')) getEl('certifications-title').innerHTML = `<i class="fas fa-certificate"></i> ${data.cv_certifications_title}`;
-  if (getEl('badges-title')) getEl('badges-title').innerHTML = `<i class="fas fa-medal"></i> ${data.cv_badges_title}`;
-  if (getEl('credly-link')) getEl('credly-link').querySelector('span').textContent = data.cv_credly_link;
+  const data = translations[lang] || translations.en;
+  if (getEl('cv-hero-title')) getEl('cv-hero-title').textContent = data.cv_hero_title;
+  if (getEl('cv-hero-summary')) getEl('cv-hero-summary').textContent = data.cv_hero_summary;
+  if (getEl('download-btn-text')) getEl('download-btn-text').textContent = data.cv_download;
+  if (getEl('work-experience-title')) getEl('work-experience-title').innerHTML = `<i class="fas fa-briefcase"></i> ${data.cv_work_title}`;
+  if (getEl('education-title')) getEl('education-title').innerHTML = `<i class="fas fa-graduation-cap"></i> ${data.cv_education_title}`;
+  if (getEl('skills-title')) getEl('skills-title').innerHTML = `<i class="fas fa-star"></i> ${data.cv_skills_title}`;
+  if (getEl('languages-title')) getEl('languages-title').innerHTML = `<i class="fas fa-language"></i> ${data.cv_languages_title}`;
+  if (getEl('interests-title')) getEl('interests-title').innerHTML = `<i class="fas fa-heart"></i> ${data.cv_interests_title}`;
+  if (getEl('certifications-title')) getEl('certifications-title').innerHTML = `<i class="fas fa-certificate"></i> ${data.cv_certifications_title}`;
+  if (getEl('badges-title')) getEl('badges-title').innerHTML = `<i class="fas fa-medal"></i> ${data.cv_badges_title}`;
+  if (getEl('credly-link')) getEl('credly-link').querySelector('span').textContent = data.cv_credly_link;
 
-  const timelineWork = getEl('timeline-work-content');
-  if (timelineWork) {
-    timelineWork.innerHTML = data.cv_timeline_items.filter(item => item.type === 'work').map(item => `
-      <div class="timeline-item">
-        <div class="timeline-logo-wrapper"><img src="${basePath}${item.logo}" alt="${item.company} Logo" class="timeline-logo"></div>
-        <div class="timeline-content-block">
-            <div class="timeline-date">${item.date}</div>
-            <h3 class="timeline-title">${item.title}</h3>
-            <p class="timeline-company"><a href="${item.url}" target="_blank" rel="noopener">${item.company}</a></p>
-            ${item.description || ''}
-        </div>
-      </div>`).join('');
-  }
+  const timelineWork = getEl('timeline-work-content');
+  if (timelineWork) {
+    timelineWork.innerHTML = data.cv_timeline_items.filter(item => item.type === 'work').map(item => `
+      <div class="timeline-item">
+        <div class="timeline-logo-wrapper"><img src="${basePath}${item.logo}" alt="${item.company} Logo" class="timeline-logo"></div>
+        <div class="timeline-content-block">
+            <div class="timeline-date">${item.date}</div>
+            <h3 class="timeline-title">${item.title}</h3>
+            <p class="timeline-company"><a href="${item.url}" target="_blank" rel="noopener">${item.company}</a></p>
+            ${item.description || ''}
+        </div>
+      </div>`).join('');
+  }
 
-  const timelineEducation = getEl('timeline-education-content');
-  if (timelineEducation) {
-    timelineEducation.innerHTML = data.cv_timeline_items.filter(item => item.type === 'education').map(item => `
-      <div class="timeline-item">
-        <div class="timeline-logo-wrapper"><img src="${basePath}${item.logo}" alt="${item.company} Logo" class="timeline-logo"></div>
-        <div class="timeline-content-block">
-            <div class="timeline-date">${item.date}</div>
-            <h3 class="timeline-title">${item.title}</h3>
-            <p class="timeline-company"><a href="${item.url}" target="_blank" rel="noopener">${item.company}</a></p>
-            ${item.description || ''}
-        </div>
-      </div>`).join('');
-  }
+  const timelineEducation = getEl('timeline-education-content');
+  if (timelineEducation) {
+    timelineEducation.innerHTML = data.cv_timeline_items.filter(item => item.type === 'education').map(item => `
+      <div class="timeline-item">
+        <div class="timeline-logo-wrapper"><img src="${basePath}${item.logo}" alt="${item.company} Logo" class="timeline-logo"></div>
+        <div class="timeline-content-block">
+            <div class="timeline-date">${item.date}</div>
+            <h3 class="timeline-title">${item.title}</h3>
+            <p class="timeline-company"><a href="${item.url}" target="_blank" rel="noopener">${item.company}</a></p>
+            ${item.description || ''}
+        </div>
+      </div>`).join('');
+  }
 
-  const skillsContainer = getEl('skills-content');
-  if (skillsContainer) {
-    const { tier1, tier2, tier3, tier4 } = data.cv_skills_items;
-    let lineupHtml = '<div class="skills-lineup">';
-    if (tier1) lineupHtml += `<div class="lineup-tier lineup-tier-1">${tier1.map(s => `<div class="skill"><img src="${basePath}${s.logo}" class="skill-logo" alt="${s.name} logo"><span>${s.name}</span></div>`).join('')}</div>`;
-    if (tier2) lineupHtml += `<div class="lineup-tier lineup-tier-2">${tier2.map(s => `<div class="skill">${s}</div>`).join('')}</div>`;
-    if (tier3) lineupHtml += `<div class="lineup-tier lineup-tier-3">${tier3.map(s => `<div class="skill">${s}</div>`).join('')}</div>`;
-    if (tier4) lineupHtml += `<div class="lineup-tier lineup-tier-4">${tier4.map(s => `<div class="skill">${s}</div>`).join('')}</div>`;
-    lineupHtml += '</div>';
-    skillsContainer.innerHTML = lineupHtml;
-  }
+  const skillsContainer = getEl('skills-content');
+  if (skillsContainer) {
+    const { tier1, tier2, tier3, tier4 } = data.cv_skills_items;
+    let lineupHtml = '<div class="skills-lineup">';
+    if (tier1) lineupHtml += `<div class="lineup-tier lineup-tier-1">${tier1.map(s => `<div class="skill"><img src="${basePath}${s.logo}" class="skill-logo" alt="${s.name} logo"><span>${s.name}</span></div>`).join('')}</div>`;
+    if (tier2) lineupHtml += `<div class="lineup-tier lineup-tier-2">${tier2.map(s => `<div class="skill">${s}</div>`).join('')}</div>`;
+    if (tier3) lineupHtml += `<div class="lineup-tier lineup-tier-3">${tier3.map(s => `<div class="skill">${s}</div>`).join('')}</div>`;
+    if (tier4) lineupHtml += `<div class="lineup-tier lineup-tier-4">${tier4.map(s => `<div class="skill">${s}</div>`).join('')}</div>`;
+    lineupHtml += '</div>';
+    skillsContainer.innerHTML = lineupHtml;
+  }
 
-  const langContainer = getEl('languages-content');
-  if (langContainer) langContainer.innerHTML = data.cv_languages_items.map(item => `<div class="language-item"><img src="https://flagcdn.com/w40/${item.flag}.png" alt="${item.lang} flag"><div><p><strong>${item.lang}</strong></p><p class="lang-level">${item.level}</p></div></div>`).join('');
-  const interestsContainer = getEl('interests-content');
-  if (interestsContainer) interestsContainer.innerHTML = data.cv_interests_items.map(item => `<div class="interest-item"><i class="${item.icon}"></i><p>${item.name}</p></div>`).join('');
-  const certsContainer = getEl('certifications-content');
-  if (certsContainer) certsContainer.innerHTML = data.cv_certifications_items.map(item => `<li><a href="${basePath}${item.url}" target="_blank" rel="noopener">${item.name}</a></li>`).join('');
+  const langContainer = getEl('languages-content');
+  if (langContainer) langContainer.innerHTML = data.cv_languages_items.map(item => `<div class="language-item"><img src="https://flagcdn.com/w40/${item.flag}.png" alt="${item.lang} flag"><div><p><strong>${item.lang}</strong></p><p class="lang-level">${item.level}</p></div></div>`).join('');
+  const interestsContainer = getEl('interests-content');
+  if (interestsContainer) interestsContainer.innerHTML = data.cv_interests_items.map(item => `<div class="interest-item"><i class="${item.icon}"></i><p>${item.name}</p></div>`).join('');
+  const certsContainer = getEl('certifications-content');
+  if (certsContainer) certsContainer.innerHTML = data.cv_certifications_items.map(item => `<li><a href="${basePath}${item.url}" target="_blank" rel="noopener">${item.name}</a></li>`).join('');
 
-  setTimeout(setupScrollAnimations, 100);
+  setTimeout(setupScrollAnimations, 100);
 }
 
 function populateProjectsPage(lang, basePath) {
-    const data = translations[lang] || translations.en;
-    
-    // Barajamos la lista de proyectos de la galería
-    if (data.projects_list) {
-      shuffleArray(data.projects_list);
-    }
+    const data = translations[lang] || translations.en;
+    
+    // Barajamos la lista de proyectos de la galería
+    if (data.projects_list) {
+      shuffleArray(data.projects_list);
+    }
 
-    const titleEl = getEl('projects-title');
-    if (titleEl) {
-        titleEl.innerHTML = `<i class="fas fa-lightbulb"></i> ${data.projects_page_title}`;
-    }
+    const titleEl = getEl('projects-title');
+    if (titleEl) {
+        titleEl.innerHTML = `<i class="fas fa-lightbulb"></i> ${data.projects_page_title}`;
+    }
 
-    const gridContainer = getEl('project-gallery-grid');
-    if (gridContainer) {
-        gridContainer.innerHTML = '';
-        (data.projects_list || []).forEach(project => {
-            let toolIcon = '';
-            if (project.tool === 'powerbi') {
-                toolIcon = `<img src="${basePath}assets/img/logos/power-bi.png" alt="Power BI Logo" class="card-tool-icon">`;
-            } else if (project.tool === 'looker') {
-                toolIcon = `<img src="${basePath}assets/img/logos/looker-studio.png" alt="Looker Studio Logo" class="card-tool-icon">`;
-            }
+    const gridContainer = getEl('project-gallery-grid');
+    if (gridContainer) {
+        gridContainer.innerHTML = '';
+        (data.projects_list || []).forEach(project => {
+            let toolIcon = '';
+            if (project.tool === 'powerbi') {
+                toolIcon = `<img src="${basePath}assets/img/logos/power-bi.png" alt="Power BI Logo" class="card-tool-icon">`;
+            } else if (project.tool === 'looker') {
+                toolIcon = `<img src="${basePath}assets/img/logos/looker-studio.png" alt="Looker Studio Logo" class="card-tool-icon">`;
+            }
 
-            const cardItem = document.createElement('li');
-            cardItem.innerHTML = `
-                <a href="${project.link}" class="project-gallery-card">
-                    <div class="card-image" style="background-image: url('${basePath}${project.imageUrl}')"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <h3>${project.title}</h3>
-                            ${toolIcon}
-                        </div>
-                        <p>${project.description}</p>
-                    </div>
-                </a>
-            `;
-            gridContainer.appendChild(cardItem);
-        });
-    }
+            const cardItem = document.createElement('li');
+            cardItem.innerHTML = `
+                <a href="${project.link}" class="project-gallery-card">
+                    <div class="card-image" style="background-image: url('${basePath}${project.imageUrl}')"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3>${project.title}</h3>
+                            ${toolIcon}
+                        </div>
+                        <p>${project.description}</p>
+                    </div>
+                </a>
+            `;
+            gridContainer.appendChild(cardItem);
+        });
+    }
 }
 
 function populatePublicationsPage(lang, basePath) {
-    const data = translations[lang] || translations.en;
-    
-    const titleEl = getEl('publications-title');
-    if (titleEl) {
-        titleEl.innerHTML = `<i class="fas fa-feather-alt"></i> ${data.publications_page_title}`;
-    }
+    const data = translations[lang] || translations.en;
+    
+    const titleEl = getEl('publications-title');
+    if (titleEl) {
+        titleEl.innerHTML = `<i class="fas fa-feather-alt"></i> ${data.publications_page_title}`;
+    }
 
-    const gridContainer = getEl('publications-grid');
-    if (gridContainer) {
-        gridContainer.innerHTML = '';
-        (data.publications_list || []).forEach(publication => {
-            const outletLogo = `<img src="${basePath}${publication.outletLogoUrl}" alt="${publication.outlet} Logo" class="card-tool-icon">`;
-
-            const cardItem = document.createElement('li');
-            cardItem.innerHTML = `
-                <a href="${publication.externalUrl}" class="project-gallery-card" target="_blank" rel="noopener">
-                    <div class="card-image" style="background-image: url('${basePath}${publication.imageUrl}')"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <h3>${publication.title}</h3>
-                            ${outletLogo}
-                        </div>
-                        <p>${publication.description}</p>
-                    </div>
-                </a>
-            `;
-            gridContainer.appendChild(cardItem);
-        });
-    }
+    const listContainer = getEl('publications-list');
+    if (listContainer) {
+        listContainer.innerHTML = '';
+        (data.publications_list || []).forEach(publication => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <a href="${publication.externalUrl}" class="publication-item" target="_blank" rel="noopener">
+                    <div class="publication-logo">
+                        <img src="${basePath}${publication.outletLogoUrl}" alt="${publication.outlet} Logo">
+                    </div>
+                    <div class="publication-text-content">
+                        <span class="publication-meta">${publication.outlet} | ${publication.date}</span>
+                        <h3>${publication.title}</h3>
+                        <p>${publication.description}</p>
+                    </div>
+                </a>
+            `;
+            listContainer.appendChild(listItem);
+        });
+    }
 }
 
 function populateExchangeRatePage(lang, basePath) {
-    const data = translations[lang].project_exchange_rate || translations.en.project_exchange_rate;
-    const pageData = translations[lang] || translations.en;
-    
-    if (getEl('project-title')) getEl('project-title').textContent = data.pageTitle;
-    const btnGroup = getEl('project-button-group');
-    if (btnGroup) {
-      const pageUrl = window.location.href;
-      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
-      const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(data.pageTitle)}`;
-      
-      btnGroup.innerHTML = `
-        <a href="${basePath}projects.html" class="button btn-back"><i class="fas fa-arrow-left"></i> ${data.backButton || pageData.navProjects}</a>
-        <a href="${linkedinUrl}" class="button btn-linkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> ${data.linkedinButton}</a>
-        <a href="${twitterUrl}" class="button btn-x" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> ${data.xButton}</a>
-        <a href="https://app.powerbi.com/view?r=eyJrIjoiNmQ0NjMzOTItMTFmZi00YzAyLWE5MTctMDMzYTFiZjQ2MDdiIiwidCI6ImJiMDZmMmM2LTIxNjItNDczMS05NmYwLTljZTE0MGZmMWFmNiIsImMiOjR9" class="button btn-looker" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> ${data.lookerButton}</a>
-      `;
-    }
+    const data = translations[lang].project_exchange_rate || translations.en.project_exchange_rate;
+    const pageData = translations[lang] || translations.en;
+    
+    if (getEl('project-title')) getEl('project-title').textContent = data.pageTitle;
+    const btnGroup = getEl('project-button-group');
+    if (btnGroup) {
+      const pageUrl = window.location.href;
+      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
+      const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(data.pageTitle)}`;
+      
+      btnGroup.innerHTML = `
+        <a href="${basePath}projects.html" class="button btn-back"><i class="fas fa-arrow-left"></i> ${data.backButton || pageData.navProjects}</a>
+        <a href="${linkedinUrl}" class="button btn-linkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> ${data.linkedinButton}</a>
+        <a href="${twitterUrl}" class="button btn-x" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> ${data.xButton}</a>
+        <a href="https://app.powerbi.com/view?r=eyJrIjoiNmQ0NjMzOTItMTFmZi00YzAyLWE5MTctMDMzYTFiZjQ2MDdiIiwidCI6ImJiMDZmMmM2LTIxNjItNDczMS05NmYwLTljZTE0MGZmMWFmNiIsImMiOjR9" class="button btn-looker" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> ${data.lookerButton}</a>
+      `;
+    }
 
-    const summarySection = getEl('project-executive-summary');
-    if (summarySection && data.executiveSummary) {
-        summarySection.innerHTML = data.executiveSummary.map(item => `
-            <div class="summary-card">
-                <i class="${item.icon}"></i>
-                <div class="summary-card-text">
-                    <h3>${item.title}</h3>
-                    <p>${item.text}</p>
-                </div>
-            </div>
-        `).join('');
-    }
+    const summarySection = getEl('project-executive-summary');
+    if (summarySection && data.executiveSummary) {
+        summarySection.innerHTML = data.executiveSummary.map(item => `
+            <div class="summary-card">
+                <i class="${item.icon}"></i>
+                <div class="summary-card-text">
+                    <h3>${item.title}</h3>
+                    <p>${item.text}</p>
+                </div>
+            </div>
+        `).join('');
+    }
 
-    const sidebar = getEl('project-sidebar');
-    if (sidebar && data.problemTitle) {
-        sidebar.innerHTML = `
-            <div class="sidebar-section">
-                <h3><i class="fas fa-exclamation-circle"></i> ${data.problemTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.problemText}</p></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-bullseye"></i> ${data.objectiveTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.objectiveText}</p></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-user-tie"></i> ${data.roleTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.roleText}</p></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-database"></i> ${data.datasetTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>
-                    <strong>${data.datasetSource}</strong> <a href="${data.datasetSourceLink}" target="_blank" rel="noopener">${data.datasetSourceText}</a><br>
-                    <strong>${data.datasetScope}</strong> ${data.datasetScopeValue}
-                </p></div>
-            </div>
-        `;
-        setTimeout(() => setupAccordion('#project-sidebar', '.sidebar-section h3'), 0);
-    }
-  
-    const dashboardContent = getEl('project-dashboard-content');
-    if(dashboardContent){
-        const titleEl = dashboardContent.querySelector('#dashboard-title');
-        const subtitleEl = dashboardContent.querySelector('#dashboard-subtitle');
-        const embedEl = dashboardContent.querySelector('#dashboard-embed-container');
-        if (titleEl) titleEl.textContent = data.dashboardTitle;
-        if (subtitleEl) subtitleEl.innerHTML = data.dashboardSubtitle;
-        if (embedEl) embedEl.innerHTML = data.iframeEmbed;
-    }
+    const sidebar = getEl('project-sidebar');
+    if (sidebar && data.problemTitle) {
+        sidebar.innerHTML = `
+            <div class="sidebar-section">
+                <h3><i class="fas fa-exclamation-circle"></i> ${data.problemTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.problemText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-bullseye"></i> ${data.objectiveTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.objectiveText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-user-tie"></i> ${data.roleTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.roleText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-database"></i> ${data.datasetTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>
+                    <strong>${data.datasetSource}</strong> <a href="${data.datasetSourceLink}" target="_blank" rel="noopener">${data.datasetSourceText}</a><br>
+                    <strong>${data.datasetScope}</strong> ${data.datasetScopeValue}
+                </p></div>
+            </div>
+        `;
+        setTimeout(() => setupAccordion('#project-sidebar', '.sidebar-section h3'), 0);
+    }
+  
+    const dashboardContent = getEl('project-dashboard-content');
+    if(dashboardContent){
+        const titleEl = dashboardContent.querySelector('#dashboard-title');
+        const subtitleEl = dashboardContent.querySelector('#dashboard-subtitle');
+        const embedEl = dashboardContent.querySelector('#dashboard-embed-container');
+        if (titleEl) titleEl.textContent = data.dashboardTitle;
+        if (subtitleEl) subtitleEl.innerHTML = data.dashboardSubtitle;
+        if (embedEl) embedEl.innerHTML = data.iframeEmbed;
+    }
 }
 
 function populatePokedexPage(lang, basePath) {
-    const data = translations[lang].project_pokedex || translations.en.project_pokedex;
-    const pageData = translations[lang] || translations.en;
-    
-    if (getEl('project-title')) getEl('project-title').textContent = data.pageTitle;
-    const btnGroup = getEl('project-button-group');
-    if (btnGroup) {
-      const pageUrl = window.location.href;
-      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
-      const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(data.pageTitle)}`;
-      
-      btnGroup.innerHTML = `
-        <a href="${basePath}projects.html" class="button btn-back"><i class="fas fa-arrow-left"></i> ${data.backButton || pageData.navProjects}</a>
-        <a href="${linkedinUrl}" class="button btn-linkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> ${data.linkedinButton}</a>
-        <a href="${twitterUrl}" class="button btn-x" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> ${data.xButton}</a>
-        <a href="${data.lookerStudioUrl}" class="button btn-looker" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> ${data.lookerButton}</a>
-      `;
-    }
+    const data = translations[lang].project_pokedex || translations.en.project_pokedex;
+    const pageData = translations[lang] || translations.en;
+    
+    if (getEl('project-title')) getEl('project-title').textContent = data.pageTitle;
+    const btnGroup = getEl('project-button-group');
+    if (btnGroup) {
+      const pageUrl = window.location.href;
+      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
+      const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(data.pageTitle)}`;
+      
+      btnGroup.innerHTML = `
+        <a href="${basePath}projects.html" class="button btn-back"><i class="fas fa-arrow-left"></i> ${data.backButton || pageData.navProjects}</a>
+        <a href="${linkedinUrl}" class="button btn-linkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> ${data.linkedinButton}</a>
+        <a href="${twitterUrl}" class="button btn-x" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> ${data.xButton}</a>
+        <a href="${data.lookerStudioUrl}" class="button btn-looker" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> ${data.lookerButton}</a>
+      `;
+    }
 
-    const summarySection = getEl('project-executive-summary');
-    if (summarySection && data.executiveSummary) {
-        summarySection.innerHTML = data.executiveSummary.map(item => `
-            <div class="summary-card">
-                <i class="${item.icon}"></i>
-                <div class="summary-card-text">
-                    <h3>${item.title}</h3>
-                    <p>${item.text}</p>
-                </div>
-            </div>
-        `).join('');
-    }
+    const summarySection = getEl('project-executive-summary');
+    if (summarySection && data.executiveSummary) {
+        summarySection.innerHTML = data.executiveSummary.map(item => `
+            <div class="summary-card">
+                <i class="${item.icon}"></i>
+                <div class="summary-card-text">
+                    <h3>${item.title}</h3>
+                    <p>${item.text}</p>
+                </div>
+            </div>
+        `).join('');
+    }
 
-    const sidebar = getEl('project-sidebar');
-    if (sidebar && data.problemTitle) {
-        sidebar.innerHTML = `
-            <div class="sidebar-section">
-                <h3><i class="fas fa-lightbulb"></i> ${data.problemTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.problemText}</p></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-tasks"></i> ${data.objectiveTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.objectiveText}</p></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-user-tie"></i> ${data.roleTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.roleText}</p></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-cogs"></i> ${data.datasetTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>
-                    <strong>${data.datasetSource}</strong> <a href="${data.datasetSourceLink}" target="_blank" rel="noopener">${data.datasetSourceText}</a><br>
-                    <strong>${data.datasetScope}</strong> ${data.datasetScopeValue}
-                </p></div>
-            </div>
-        `;
-        setTimeout(() => setupAccordion('#project-sidebar', '.sidebar-section h3'), 0);
-    }
-  
-    const dashboardContent = getEl('project-dashboard-content');
-    if(dashboardContent){
-        const iframeHtml = data.iframeEmbed;
-        const titleEl = dashboardContent.querySelector('#dashboard-title');
-        const subtitleEl = dashboardContent.querySelector('#dashboard-subtitle');
-        const embedEl = dashboardContent.querySelector('#dashboard-embed-container');
-        if (titleEl) titleEl.textContent = data.dashboardTitle;
-        if (subtitleEl) subtitleEl.innerHTML = data.dashboardSubtitle;
-        if (embedEl) embedEl.innerHTML = iframeHtml;
-    }
+    const sidebar = getEl('project-sidebar');
+    if (sidebar && data.problemTitle) {
+        sidebar.innerHTML = `
+            <div class="sidebar-section">
+                <h3><i class="fas fa-lightbulb"></i> ${data.problemTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.problemText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-tasks"></i> ${data.objectiveTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.objectiveText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-user-tie"></i> ${data.roleTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.roleText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-cogs"></i> ${data.datasetTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>
+                    <strong>${data.datasetSource}</strong> <a href="${data.datasetSourceLink}" target="_blank" rel="noopener">${data.datasetSourceText}</a><br>
+                    <strong>${data.datasetScope}</strong> ${data.datasetScopeValue}
+                </p></div>
+            </div>
+        `;
+        setTimeout(() => setupAccordion('#project-sidebar', '.sidebar-section h3'), 0);
+    }
+  
+    const dashboardContent = getEl('project-dashboard-content');
+    if(dashboardContent){
+        const iframeHtml = data.iframeEmbed;
+        const titleEl = dashboardContent.querySelector('#dashboard-title');
+        const subtitleEl = dashboardContent.querySelector('#dashboard-subtitle');
+        const embedEl = dashboardContent.querySelector('#dashboard-embed-container');
+        if (titleEl) titleEl.textContent = data.dashboardTitle;
+        if (subtitleEl) subtitleEl.innerHTML = data.dashboardSubtitle;
+        if (embedEl) embedEl.innerHTML = iframeHtml;
+    }
 }
 
 function populateUnemploymentPage(lang, basePath) {
-    const data = translations[lang].project_unemployment || translations.en.project_unemployment;
-    const pageData = translations[lang] || translations.en;
-    
-    if (getEl('project-title')) getEl('project-title').textContent = data.pageTitle;
-    const btnGroup = getEl('project-button-group');
-    if (btnGroup) {
-      const pageUrl = window.location.href;
-      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
-      const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(data.pageTitle)}`;
-      
-      btnGroup.innerHTML = `
-        <a href="${basePath}projects.html" class="button btn-back"><i class="fas fa-arrow-left"></i> ${data.backButton || pageData.navProjects}</a>
-        <a href="${linkedinUrl}" class="button btn-linkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> ${data.linkedinButton}</a>
-        <a href="${twitterUrl}" class="button btn-x" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> ${data.xButton}</a>
-        <a href="${data.lookerStudioUrl}" class="button btn-looker" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> ${data.lookerButton}</a>
-      `;
-    }
+    const data = translations[lang].project_unemployment || translations.en.project_unemployment;
+    const pageData = translations[lang] || translations.en;
+    
+    if (getEl('project-title')) getEl('project-title').textContent = data.pageTitle;
+    const btnGroup = getEl('project-button-group');
+    if (btnGroup) {
+      const pageUrl = window.location.href;
+      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
+      const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(data.pageTitle)}`;
+      
+      btnGroup.innerHTML = `
+        <a href="${basePath}projects.html" class="button btn-back"><i class="fas fa-arrow-left"></i> ${data.backButton || pageData.navProjects}</a>
+        <a href="${linkedinUrl}" class="button btn-linkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> ${data.linkedinButton}</a>
+        <a href="${twitterUrl}" class="button btn-x" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> ${data.xButton}</a>
+        <a href="${data.lookerStudioUrl}" class="button btn-looker" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> ${data.lookerButton}</a>
+      `;
+    }
 
-    const summarySection = getEl('project-executive-summary');
-    if (summarySection && data.executiveSummary) {
-        summarySection.innerHTML = data.executiveSummary.map(item => `
-            <div class="summary-card">
-                <i class="${item.icon}"></i>
-                <div class="summary-card-text">
-                    <h3>${item.title}</h3>
-                    <p>${item.text}</p>
-                </div>
-            </div>
-        `).join('');
-    }
+    const summarySection = getEl('project-executive-summary');
+    if (summarySection && data.executiveSummary) {
+        summarySection.innerHTML = data.executiveSummary.map(item => `
+            <div class="summary-card">
+                <i class="${item.icon}"></i>
+                <div class="summary-card-text">
+                    <h3>${item.title}</h3>
+                    <p>${item.text}</p>
+                </div>
+            </div>
+        `).join('');
+    }
 
-    const sidebar = getEl('project-sidebar');
-    if (sidebar && data.problemTitle) {
-        sidebar.innerHTML = `
-            <div class="sidebar-section">
-                <h3><i class="fas fa-exclamation-circle"></i> ${data.problemTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.problemText}</p></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-bullseye"></i> ${data.objectiveTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.objectiveText}</p></div>
-            </div>
-             <div class="sidebar-section">
-                 <h3><i class="fas fa-question-circle"></i> ${data.questionsTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                 <div class="content"><ul>${data.questionsList.map(q => `<li>${q}</li>`).join('')}</ul></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-user-tie"></i> ${data.roleTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.roleText}</p></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-database"></i> ${data.datasetTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>
-                    <strong>${data.datasetSource}</strong> <a href="${data.datasetSourceLink}" target="_blank" rel="noopener">${data.datasetSourceText}</a><br>
-                    <strong>${data.datasetPeriod}</strong> ${data.datasetPeriodValue}<br>
-                    <strong>${data.datasetScope}</strong> ${data.datasetScopeValue}
-                </p></div>
-            </div>
-        `;
-        setTimeout(() => setupAccordion('#project-sidebar', '.sidebar-section h3'), 0);
-    }
-  
-    const dashboardContent = getEl('project-dashboard-content');
-    if(dashboardContent){
-        const iframeHtml = data.iframeEmbed;
-        const titleEl = dashboardContent.querySelector('#dashboard-title');
-        const subtitleEl = dashboardContent.querySelector('#dashboard-subtitle');
-        const embedEl = dashboardContent.querySelector('#dashboard-embed-container');
-        if (titleEl) titleEl.textContent = data.dashboardTitle;
-        if (subtitleEl) subtitleEl.innerHTML = data.dashboardSubtitle;
-        if (embedEl) embedEl.innerHTML = iframeHtml;
-    }
+    const sidebar = getEl('project-sidebar');
+    if (sidebar && data.problemTitle) {
+        sidebar.innerHTML = `
+            <div class="sidebar-section">
+                <h3><i class="fas fa-exclamation-circle"></i> ${data.problemTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.problemText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-bullseye"></i> ${data.objectiveTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.objectiveText}</p></div>
+            </div>
+             <div class="sidebar-section">
+                 <h3><i class="fas fa-question-circle"></i> ${data.questionsTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                 <div class="content"><ul>${data.questionsList.map(q => `<li>${q}</li>`).join('')}</ul></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-user-tie"></i> ${data.roleTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.roleText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-database"></i> ${data.datasetTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>
+                    <strong>${data.datasetSource}</strong> <a href="${data.datasetSourceLink}" target="_blank" rel="noopener">${data.datasetSourceText}</a><br>
+                    <strong>${data.datasetPeriod}</strong> ${data.datasetPeriodValue}<br>
+                    <strong>${data.datasetScope}</strong> ${data.datasetScopeValue}
+                </p></div>
+            </div>
+        `;
+        setTimeout(() => setupAccordion('#project-sidebar', '.sidebar-section h3'), 0);
+    }
+  
+    const dashboardContent = getEl('project-dashboard-content');
+    if(dashboardContent){
+        const iframeHtml = data.iframeEmbed;
+        const titleEl = dashboardContent.querySelector('#dashboard-title');
+        const subtitleEl = dashboardContent.querySelector('#dashboard-subtitle');
+        const embedEl = dashboardContent.querySelector('#dashboard-embed-container');
+        if (titleEl) titleEl.textContent = data.dashboardTitle;
+        if (subtitleEl) subtitleEl.innerHTML = data.dashboardSubtitle;
+        if (embedEl) embedEl.innerHTML = iframeHtml;
+    }
 }
 
 function populateFinancialInclusionPage(lang, basePath) {
-    const data = translations[lang].project_financial_inclusion || translations.en.project_financial_inclusion;
-    const pageData = translations[lang] || translations.en;
-    
-    if (getEl('project-title')) getEl('project-title').textContent = data.pageTitle;
-    const btnGroup = getEl('project-button-group');
-    if (btnGroup) {
-      const pageUrl = window.location.href;
-      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
-      const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(data.pageTitle)}`;
-      
-      btnGroup.innerHTML = `
-        <a href="${basePath}projects.html" class="button btn-back"><i class="fas fa-arrow-left"></i> ${data.backButton || pageData.navProjects}</a>
-        <a href="${linkedinUrl}" class="button btn-linkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> ${data.linkedinButton}</a>
-        <a href="${twitterUrl}" class="button btn-x" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> ${data.xButton}</a>
-        <a href="${data.lookerStudioUrl}" class="button btn-looker" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> ${data.lookerButton}</a>
-      `;
-    }
+    const data = translations[lang].project_financial_inclusion || translations.en.project_financial_inclusion;
+    const pageData = translations[lang] || translations.en;
+    
+    if (getEl('project-title')) getEl('project-title').textContent = data.pageTitle;
+    const btnGroup = getEl('project-button-group');
+    if (btnGroup) {
+      const pageUrl = window.location.href;
+      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
+      const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(data.pageTitle)}`;
+      
+      btnGroup.innerHTML = `
+        <a href="${basePath}projects.html" class="button btn-back"><i class="fas fa-arrow-left"></i> ${data.backButton || pageData.navProjects}</a>
+        <a href="${linkedinUrl}" class="button btn-linkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> ${data.linkedinButton}</a>
+        <a href="${twitterUrl}" class="button btn-x" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> ${data.xButton}</a>
+        <a href="${data.lookerStudioUrl}" class="button btn-looker" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> ${data.lookerButton}</a>
+      `;
+    }
 
-    const summarySection = getEl('project-executive-summary');
-    if (summarySection && data.executiveSummary) {
-        summarySection.innerHTML = data.executiveSummary.map(item => `
-            <div class="summary-card">
-                <i class="${item.icon}"></i>
-                <div class="summary-card-text">
-                    <h3>${item.title}</h3>
-                    <p>${item.text}</p>
-                </div>
-            </div>
-        `).join('');
-    }
+    const summarySection = getEl('project-executive-summary');
+    if (summarySection && data.executiveSummary) {
+        summarySection.innerHTML = data.executiveSummary.map(item => `
+            <div class="summary-card">
+                <i class="${item.icon}"></i>
+                <div class="summary-card-text">
+                    <h3>${item.title}</h3>
+                    <p>${item.text}</p>
+                </div>
+            </div>
+        `).join('');
+    }
 
-    const sidebar = getEl('project-sidebar');
-    if (sidebar && data.problemTitle) {
-        sidebar.innerHTML = `
-            <div class="sidebar-section">
-                <h3><i class="fas fa-exclamation-circle"></i> ${data.problemTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.problemText}</p></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-bullseye"></i> ${data.objectiveTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.objectiveText}</p></div>
-            </div>
-             <div class="sidebar-section">
-                 <h3><i class="fas fa-question-circle"></i> ${data.questionsTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                 <div class="content"><ul>${data.questionsList.map(q => `<li>${q}</li>`).join('')}</ul></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-user-tie"></i> ${data.roleTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.roleText}</p></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-database"></i> ${data.datasetTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>
-                    <strong>${data.datasetSource}</strong> <a href="${data.datasetSourceLink}" target="_blank" rel="noopener">${data.datasetSourceText}</a><br>
-                    <strong>${data.datasetPeriod}</strong> ${data.datasetPeriodValue}<br>
-                    <strong>${data.datasetScope}</strong> ${data.datasetScopeValue}
-                </p></div>
-            </div>
-        `;
-        setTimeout(() => setupAccordion('#project-sidebar', '.sidebar-section h3'), 0);
-    }
-  
-    const dashboardContent = getEl('project-dashboard-content');
-    if(dashboardContent){
-        const iframeHtml = data.iframeEmbed;
-        const titleEl = dashboardContent.querySelector('#dashboard-title');
-        const subtitleEl = dashboardContent.querySelector('#dashboard-subtitle');
-        const embedEl = dashboardContent.querySelector('#dashboard-embed-container');
-        if (titleEl) titleEl.textContent = data.dashboardTitle;
-        if (subtitleEl) subtitleEl.innerHTML = data.dashboardSubtitle;
-        if (embedEl) embedEl.innerHTML = iframeHtml;
-    }
+    const sidebar = getEl('project-sidebar');
+    if (sidebar && data.problemTitle) {
+        sidebar.innerHTML = `
+            <div class="sidebar-section">
+                <h3><i class="fas fa-exclamation-circle"></i> ${data.problemTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.problemText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-bullseye"></i> ${data.objectiveTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.objectiveText}</p></div>
+            </div>
+             <div class="sidebar-section">
+                 <h3><i class="fas fa-question-circle"></i> ${data.questionsTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                 <div class="content"><ul>${data.questionsList.map(q => `<li>${q}</li>`).join('')}</ul></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-user-tie"></i> ${data.roleTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.roleText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-database"></i> ${data.datasetTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>
+                    <strong>${data.datasetSource}</strong> <a href="${data.datasetSourceLink}" target="_blank" rel="noopener">${data.datasetSourceText}</a><br>
+                    <strong>${data.datasetPeriod}</strong> ${data.datasetPeriodValue}<br>
+                    <strong>${data.datasetScope}</strong> ${data.datasetScopeValue}
+                </p></div>
+            </div>
+        `;
+        setTimeout(() => setupAccordion('#project-sidebar', '.sidebar-section h3'), 0);
+    }
+  
+    const dashboardContent = getEl('project-dashboard-content');
+    if(dashboardContent){
+        const iframeHtml = data.iframeEmbed;
+        const titleEl = dashboardContent.querySelector('#dashboard-title');
+        const subtitleEl = dashboardContent.querySelector('#dashboard-subtitle');
+        const embedEl = dashboardContent.querySelector('#dashboard-embed-container');
+        if (titleEl) titleEl.textContent = data.dashboardTitle;
+        if (subtitleEl) subtitleEl.innerHTML = data.dashboardSubtitle;
+        if (embedEl) embedEl.innerHTML = iframeHtml;
+    }
 }
 
 function populateNeoTrackerPage(lang, basePath) {
-    const data = translations[lang].project_neo_tracker || translations.en.project_neo_tracker;
-    const pageData = translations[lang] || translations.en;
-    
-    if (getEl('project-title')) getEl('project-title').textContent = data.pageTitle;
-    const btnGroup = getEl('project-button-group');
-    if (btnGroup) {
-      const pageUrl = window.location.href;
-      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
-      const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(data.pageTitle)}`;
-      
-      btnGroup.innerHTML = `
-        <a href="${basePath}projects.html" class="button btn-back"><i class="fas fa-arrow-left"></i> ${data.backButton || pageData.navProjects}</a>
-        <a href="${linkedinUrl}" class="button btn-linkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> ${data.linkedinButton}</a>
-        <a href="${twitterUrl}" class="button btn-x" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> ${data.xButton}</a>
-        <a href="https://app.powerbi.com/view?r=eyJrIjoiN2FjMjk0N2YtMjFlYi00Nzc3LWIzZGMtZDM1ZmIzZDgxOGE3IiwidCI6ImJiMDZmMmM2LTIxNjItNDczMS05NmYwLTljZTE0MGZmMWFmNiIsImMiOjR9" class="button btn-looker" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> ${data.lookerButton}</a>
-      `;
-    }
+    const data = translations[lang].project_neo_tracker || translations.en.project_neo_tracker;
+    const pageData = translations[lang] || translations.en;
+    
+    if (getEl('project-title')) getEl('project-title').textContent = data.pageTitle;
+    const btnGroup = getEl('project-button-group');
+    if (btnGroup) {
+      const pageUrl = window.location.href;
+      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
+      const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(data.pageTitle)}`;
+      
+      btnGroup.innerHTML = `
+        <a href="${basePath}projects.html" class="button btn-back"><i class="fas fa-arrow-left"></i> ${data.backButton || pageData.navProjects}</a>
+        <a href="${linkedinUrl}" class="button btn-linkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> ${data.linkedinButton}</a>
+        <a href="${twitterUrl}" class="button btn-x" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> ${data.xButton}</a>
+        <a href="https://app.powerbi.com/view?r=eyJrIjoiN2FjMjk0N2YtMjFlYi00Nzc3LWIzZGMtZDM1ZmIzZDgxOGE3IiwidCI6ImJiMDZmMmM2LTIxNjItNDczMS05NmYwLTljZTE0MGZmMWFmNiIsImMiOjR9" class="button btn-looker" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> ${data.lookerButton}</a>
+      `;
+    }
 
-    const summarySection = getEl('project-executive-summary');
-    if (summarySection && data.executiveSummary) {
-        summarySection.innerHTML = data.executiveSummary.map(item => `
-            <div class="summary-card">
-                <i class="${item.icon}"></i>
-                <div class="summary-card-text">
-                    <h3>${item.title}</h3>
-                    <p>${item.text}</p>
-                </div>
-            </div>
-        `).join('');
-    }
+    const summarySection = getEl('project-executive-summary');
+    if (summarySection && data.executiveSummary) {
+        summarySection.innerHTML = data.executiveSummary.map(item => `
+            <div class="summary-card">
+                <i class="${item.icon}"></i>
+                <div class="summary-card-text">
+                    <h3>${item.title}</h3>
+                    <p>${item.text}</p>
+                </div>
+            </div>
+        `).join('');
+    }
 
-    const sidebar = getEl('project-sidebar');
-    if (sidebar && data.problemTitle) {
-        sidebar.innerHTML = `
-            <div class="sidebar-section">
-                <h3><i class="fas fa-exclamation-circle"></i> ${data.problemTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.problemText}</p></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-bullseye"></i> ${data.objectiveTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.objectiveText}</p></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-user-tie"></i> ${data.roleTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>${data.roleText}</p></div>
-            </div>
-            <div class="sidebar-section">
-                <h3><i class="fas fa-database"></i> ${data.datasetTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
-                <div class="content"><p>
-                    <strong>${data.datasetSource}</strong> <a href="${data.datasetSourceLink}" target="_blank" rel="noopener">${data.datasetSourceText}</a><br>
-                    <strong>${data.datasetScope}</strong> ${data.datasetScopeValue}
-                </p></div>
-            </div>
-        `;
-        setTimeout(() => setupAccordion('#project-sidebar', '.sidebar-section h3'), 0);
-    }
-  
-    const dashboardContent = getEl('project-dashboard-content');
-    if(dashboardContent){
-        const titleEl = dashboardContent.querySelector('#dashboard-title');
-        const subtitleEl = dashboardContent.querySelector('#dashboard-subtitle');
-        const embedEl = dashboardContent.querySelector('#dashboard-embed-container');
-        if (titleEl) titleEl.textContent = data.dashboardTitle;
-        if (subtitleEl) subtitleEl.innerHTML = data.dashboardSubtitle;
-        if (embedEl) embedEl.innerHTML = data.iframeEmbed;
-    }
+    const sidebar = getEl('project-sidebar');
+    if (sidebar && data.problemTitle) {
+        sidebar.innerHTML = `
+            <div class="sidebar-section">
+                <h3><i class="fas fa-exclamation-circle"></i> ${data.problemTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.problemText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-bullseye"></i> ${data.objectiveTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.objectiveText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-user-tie"></i> ${data.roleTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.roleText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-database"></i> ${data.datasetTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>
+                    <strong>${data.datasetSource}</strong> <a href="${data.datasetSourceLink}" target="_blank" rel="noopener">${data.datasetSourceText}</a><br>
+                    <strong>${data.datasetScope}</strong> ${data.datasetScopeValue}
+                </p></div>
+            </div>
+        `;
+        setTimeout(() => setupAccordion('#project-sidebar', '.sidebar-section h3'), 0);
+    }
+  
+    const dashboardContent = getEl('project-dashboard-content');
+    if(dashboardContent){
+        const titleEl = dashboardContent.querySelector('#dashboard-title');
+        const subtitleEl = dashboardContent.querySelector('#dashboard-subtitle');
+        const embedEl = dashboardContent.querySelector('#dashboard-embed-container');
+        if (titleEl) titleEl.textContent = data.dashboardTitle;
+        if (subtitleEl) subtitleEl.innerHTML = data.dashboardSubtitle;
+        if (embedEl) embedEl.innerHTML = data.iframeEmbed;
+    }
 }
 
 
 function setLanguage(lang, basePath) {
-  currentLang = lang;
-  document.documentElement.lang = lang;
-  const data = translations[lang] || translations.en;
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  const data = translations[lang] || translations.en;
 
-  document.querySelectorAll('[data-translate]').forEach(el => {
-    const key = el.getAttribute('data-translate');
-    if (data[key]) {
-      el.textContent = data[key];
-    }
-  });
+  document.querySelectorAll('[data-translate]').forEach(el => {
+    const key = el.getAttribute('data-translate');
+    if (data[key]) {
+      el.textContent = data[key];
+    }
+  });
 
-  if (document.body.classList.contains('page-home')) {
-    populateHomePage(lang, basePath);
-  } else if (document.body.classList.contains('page-cv')) {
-    populateCvPage(lang, basePath);
-  } else if (document.body.classList.contains('page-projects')) {
-    populateProjectsPage(lang, basePath);
-  } else if (document.body.classList.contains('page-publications')) {
-    populatePublicationsPage(lang, basePath);
-  } else if (document.body.classList.contains('page-project-case-study')) {
-    const bodyId = document.body.id;
-    
-    if (bodyId === 'page-pokedex') {
-        populatePokedexPage(lang, basePath);
-    } else if (bodyId === 'page-unemployment') {
-        populateUnemploymentPage(lang, basePath);
-    } else if (bodyId === 'page-financial-inclusion') {
-        populateFinancialInclusionPage(lang, basePath);
-    } else if (bodyId === 'page-exchange-rate') {
-        populateExchangeRatePage(lang, basePath);
-    } else if (bodyId === 'page-neo-tracker') {
-        populateNeoTrackerPage(lang, basePath);
-    }
-  }
+  if (document.body.classList.contains('page-home')) {
+    populateHomePage(lang, basePath);
+  } else if (document.body.classList.contains('page-cv')) {
+    populateCvPage(lang, basePath);
+  } else if (document.body.classList.contains('page-projects')) {
+    populateProjectsPage(lang, basePath);
+  } else if (document.body.classList.contains('page-publications')) {
+    populatePublicationsPage(lang, basePath);
+  } else if (document.body.classList.contains('page-project-case-study')) {
+    const bodyId = document.body.id;
+    
+    if (bodyId === 'page-pokedex') {
+        populatePokedexPage(lang, basePath);
+    } else if (bodyId === 'page-unemployment') {
+        populateUnemploymentPage(lang, basePath);
+    } else if (bodyId === 'page-financial-inclusion') {
+        populateFinancialInclusionPage(lang, basePath);
+    } else if (bodyId === 'page-exchange-rate') {
+        populateExchangeRatePage(lang, basePath);
+    } else if (bodyId === 'page-neo-tracker') {
+        populateNeoTrackerPage(lang, basePath);
+    }
+  }
 
-  document.querySelectorAll(".lang-toggle").forEach(el => {
-    const flag = lang === "en" ? 'cl' : 'us';
-    const alt = lang === "en" ? 'Bandera de Chile' : 'USA Flag';
-    const text = lang === "en" ? 'ES' : 'EN';
-    const flagUrl = `https://flagcdn.com/w20/${flag}.png`;
-    el.innerHTML = `<img src="${flagUrl}" alt="${alt}" style="width: 20px; vertical-align: middle;"> ${text}`;
-  });
+  document.querySelectorAll(".lang-toggle").forEach(el => {
+    const flag = lang === "en" ? 'cl' : 'us';
+    const alt = lang === "en" ? 'Bandera de Chile' : 'USA Flag';
+    const text = lang === "en" ? 'ES' : 'EN';
+    const flagUrl = `https://flagcdn.com/w20/${flag}.png`;
+    el.innerHTML = `<img src="${flagUrl}" alt="${alt}" style="width: 20px; vertical-align: middle;"> ${text}`;
+  });
 }
 
 function toggleLang() {
-  const newLang = currentLang === 'en' ? 'es' : 'en';
-  setLanguage(newLang, basePath);
-  localStorage.setItem('preferredLanguage', newLang);
+  const newLang = currentLang === 'en' ? 'es' : 'en';
+  setLanguage(newLang, basePath);
+  localStorage.setItem('preferredLanguage', newLang);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  basePath = '';
-  const path = window.location.pathname;
-  
-  if (path.endsWith('/') || path.endsWith('index.html') || path.length <= 1) {
-    document.body.classList.add('page-home');
-  } else if (path.includes('cv.html')) {
-    document.body.classList.add('page-cv');
-  } else if (path.includes('projects.html')) {
-    document.body.classList.add('page-projects');
-  } else if (path.includes('publications.html')) {
-    document.body.classList.add('page-publications');
-  } else if (path.includes('/projects/')) {
-    document.body.classList.add('page-project-case-study');
-    basePath = '../';
-  }
+  basePath = '';
+  const path = window.location.pathname;
+  
+  if (path.endsWith('/') || path.endsWith('index.html') || path.length <= 1) {
+    document.body.classList.add('page-home');
+  } else if (path.includes('cv.html')) {
+    document.body.classList.add('page-cv');
+  } else if (path.includes('projects.html')) {
+    document.body.classList.add('page-projects');
+  } else if (path.includes('publications.html')) {
+    document.body.classList.add('page-publications');
+  } else if (path.includes('/projects/')) {
+    document.body.classList.add('page-project-case-study');
+    basePath = '../';
+  }
 
-  // --- 1. EJECUCIÓN DE LÓGICA GLOBAL ---
-  setupGlobalInteractions();
+  // --- 1. EJECUCIÓN DE LÓGICA GLOBAL ---
+  setupGlobalInteractions();
 
-  // --- 2. GESTIÓN DE IDIOMA ---
-  const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
-  setLanguage(preferredLanguage, basePath);
-  document.querySelectorAll('.lang-toggle').forEach(el => el.addEventListener('click', toggleLang));
+  // --- 2. GESTIÓN DE IDIOMA ---
+  const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+  setLanguage(preferredLanguage, basePath);
+  document.querySelectorAll('.lang-toggle').forEach(el => el.addEventListener('click', toggleLang));
 
-  // --- 3. EJECUCIÓN DE LÓGICA ESPECÍFICA DE LA PÁGINA ---
-  if (document.body.classList.contains('page-home')) {
-    setupHomePageCarousel();
-  }
+  // --- 3. EJECUCIÓN DE LÓGICA ESPECÍFICA DE LA PÁGINA ---
+  if (document.body.classList.contains('page-home')) {
+    setupHomePageCarousel();
+  }
 });
