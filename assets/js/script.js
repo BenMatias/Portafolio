@@ -10,7 +10,7 @@ const translations = {
     publications_page_title: "Publications",
     publications_list: [
       {
-        title: "From Seoul to Santiago: What Chile Can Learn from South Korea's Demographic Crisis",
+        title: "From Seoul to Santiago: What Chile Can Learn from South Korea's Demographic Crisis (Spanish)",
         description: "An analysis of South Korea's demographic challenges and the potential lessons for Chile's public policy.",
         outlet: "CIPER Chile",
         date: "September 29, 2025",
