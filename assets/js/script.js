@@ -35,7 +35,8 @@ const translations = {
         { title: "Exchange Rate Evolution", description: "A Power BI dashboard that tracks major currencies against the CLP, updated automatically via the Central Bank API.", imageUrl: "assets/img/exchange-rate-cover.png", link: "projects/exchange-rate-evolution.html", buttonText: "View Project", tool: "powerbi" },
         { title: "Interactive Pokédex", description: "A National Pokédex of 1,025 Pokémon built by connecting to the PokéAPI with Apps Script.", imageUrl: "assets/img/pokedex-cover.png", link: "projects/pokedex-dashboard.html", buttonText: "View Project", tool: "looker" },
         { title: "US Unemployment Analysis", description: "Explores unemployment trends across U.S. states and metro areas using interactive dashboards.", imageUrl: "assets/img/us-unemployment-cover.png", link: "projects/US-Unemployment.html", buttonText: "View Project", tool: "looker" },
-        { title: "Global Financial Inclusion", description: "Visualize global trends in account ownership and borrowing behavior by region, income group, and demographics.", imageUrl: "assets/img/global-financial-inclusion-cover.png", link: "projects/global-financial-inclusion.html", buttonText: "View Project", tool: "looker" }
+        { title: "Global Financial Inclusion", description: "Visualize global trends in account ownership and borrowing behavior by region, income group, and demographics.", imageUrl: "assets/img/global-financial-inclusion-cover.png", link: "projects/global-financial-inclusion.html", buttonText: "View Project", tool: "looker" },
+        { title: "NEO Tracker", description: "An automated dashboard connecting to the NASA API to track Near-Earth Objects from the last 7 days.", imageUrl: "assets/img/neo-tracker-cover.png", link: "projects/neo-tracker.html", buttonText: "View Project", tool: "powerbi" }
     ],
     viewAllBtn: "View All Projects",
 
@@ -183,7 +184,8 @@ const translations = {
         { id: "project-exchange-rate", title: "Exchange Rate Evolution", description: "Real-time tracking of USD, EUR, and GBP against the Chilean Peso.", link: "projects/exchange-rate-evolution.html", imageUrl: "assets/img/exchange-rate-cover.png", buttonText: "View Project", tool: "powerbi" },
         { id: "project-pokedex", title: "Interactive Pokédex", description: "An interactive dashboard with data from over 1,000 Pokémon.", link: "projects/pokedex-dashboard.html", imageUrl: "assets/img/pokedex-cover.png", buttonText: "View Project", tool: "looker" },
         { id: "project-unemployment", title: "Unemployment in America", description: "Analysis of unemployment trends across U.S. states and metro areas.", link: "projects/US-Unemployment.html", imageUrl: "assets/img/us-unemployment-cover.png", buttonText: "View Project", tool: "looker" },
-        { id: "project-financial-inclusion", title: "Global Financial Inclusion", description: "Visualizing global trends in account ownership and borrowing behaviors.", link: "projects/global-financial-inclusion.html", imageUrl: "assets/img/global-financial-inclusion-cover.png", buttonText: "View Project", tool: "looker" }
+        { id: "project-financial-inclusion", title: "Global Financial Inclusion", description: "Visualizing global trends in account ownership and borrowing behaviors.", link: "projects/global-financial-inclusion.html", imageUrl: "assets/img/global-financial-inclusion-cover.png", buttonText: "View Project", tool: "looker" },
+        { id: "project-neo-tracker", title: "NEO Tracker", description: "Tracking Near-Earth Objects with NASA's API.", link: "projects/neo-tracker.html", imageUrl: "assets/img/neo-tracker-cover.png", buttonText: "View Project", tool: "powerbi" }
     ],
 
     // --- CASE STUDY DATA ---
@@ -362,6 +364,31 @@ const translations = {
       roleText: "I developed this dashboard from start to finish, handling the entire process from data cleaning and transformation to KPI design and the final build of the interactive dashboard in Looker Studio.",
       dashboardTitle: "Interactive Global Findex Dashboard",
       dashboardSubtitle: `Use the dynamic filters to explore financial inclusion data by year, region, country, and income group. You can see it in full screen <a href="https://lookerstudio.google.com/reporting/d245373a-d1e9-46ab-b29a-f11a40d153bb" target="_blank" rel="noopener" class="subtitle-link">here</a>.`
+    },
+    project_neo_tracker: {
+      pageTitle: "NEO Tracker – Weekly Data Overview",
+      lookerButton: "View on Power BI",
+      iframeEmbed: `<iframe title="NEO Tracker – Weekly Data Overview" width="100%" height="800" src="https://app.powerbi.com/view?r=eyJrIjoiN2FjMjk0N2YtMjFlYi00Nzc3LWIzZGMtZDM1ZmIzZDgxOGE3IiwidCI6ImJiMDZmMmM2LTIxNjItNDczMS05NmYwLTljZTE0MGZmMWFmNiIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>`,
+      backButton: "Back to Projects",
+      linkedinButton: "Share on LinkedIn",
+      xButton: "Share on X",
+      executiveSummary: [
+        { icon: "fas fa-satellite-dish", title: "154 NEOs Analyzed", text: "Tracked a total of 154 Near-Earth Objects approaching Earth over the last seven days using live data." },
+        { icon: "fas fa-exclamation-triangle", title: "3% Potentially Hazardous", text: "Automatically classified 3% of detected objects as potentially hazardous, monitoring their trajectories." },
+        { icon: "fas fa-meteor", title: "Largest Object: 968m", text: "Identified the largest approaching object, measuring an estimated 968 meters in diameter." }
+      ],
+      problemTitle: "Making Space Data Accessible",
+      problemText: "The vastness of space contains countless objects, some of which pass near Earth. This project aimed to create a dynamic, self-updating dashboard to provide a clear, weekly overview of Near-Earth Object (NEO) activity, making complex astronomical data accessible and easy to understand for a general audience.",
+      roleTitle: "My Role",
+      roleText: "I was responsible for the entire project lifecycle. This included connecting to the NASA NeoWs API, transforming the JSON data using Power Query, developing calculations with DAX, and designing the final interactive dashboard in Power BI.",
+      datasetTitle: "Technology & Data",
+      datasetSource: "Data Source:",
+      datasetSourceText: "NASA NeoWs API",
+      datasetSourceLink: "https://api.nasa.gov",
+      datasetScope: "Tools:",
+      datasetScopeValue: "Power BI, Power Query (M), DAX.",
+      dashboardTitle: "Interactive NEO Dashboard",
+      dashboardSubtitle: `This report updates automatically. Explore the data from the last 7 days. You can see it in full screen <a href="https://app.powerbi.com/view?r=eyJrIjoiN2FjMjk0N2YtMjFlYi00Nzc3LWIzZGMtZDM1ZmIzZDgxOGE3IiwidCI6ImJiMDZmMmM2LTIxNjItNDczMS05NmYwLTljZTE0MGZmMWFmNiIsImMiOjR9" target="_blank" rel="noopener" class="subtitle-link">here</a>.`
     }
   },
   es: {
@@ -400,7 +427,8 @@ const translations = {
         { title: "Evolución del Tipo de Cambio", description: "Un dashboard en Power BI que monitorea las principales divisas frente al CLP, actualizado automáticamente vía API del Banco Central.", imageUrl: "assets/img/exchange-rate-cover.png", link: "projects/exchange-rate-evolution.html", buttonText: "Ver Proyecto", tool: "powerbi" },
         { title: "Pokédex Interactiva", description: "Una Pokédex Nacional de 1.025 Pokémon construida conectándose a la PokéAPI con Apps Script.", imageUrl: "assets/img/pokedex-cover.png", link: "projects/pokedex-dashboard.html", buttonText: "Ver Proyecto", tool: "looker" },
         { title: "Análisis de Desempleo en EE.UU.", description: "Explora tendencias de desempleo en EE.UU. a nivel estatal y metropolitano mediante dashboards interactivos.", imageUrl: "assets/img/us-unemployment-cover.png", link: "projects/US-Unemployment.html", buttonText: "Ver Proyecto", tool: "looker" },
-        { title: "Inclusión Financiera Global", description: "Visualiza tendencias globales de titularidad de cuentas y comportamiento de crédito por región, ingreso y demografía.", imageUrl: "assets/img/global-financial-inclusion-cover.png", link: "projects/global-financial-inclusion.html", buttonText: "Ver Proyecto", tool: "looker" }
+        { title: "Inclusión Financiera Global", description: "Visualiza tendencias globales de titularidad de cuentas y comportamiento de crédito por región, ingreso y demografía.", imageUrl: "assets/img/global-financial-inclusion-cover.png", link: "projects/global-financial-inclusion.html", buttonText: "Ver Proyecto", tool: "looker" },
+        { title: "NEO Tracker", description: "Un dashboard automatizado que se conecta a la API de la NASA para rastrear Objetos Cercanos a la Tierra de los últimos 7 días.", imageUrl: "assets/img/neo-tracker-cover.png", link: "projects/neo-tracker.html", buttonText: "Ver Proyecto", tool: "powerbi" }
     ],
     viewAllBtn: "Ver Todos los Proyectos",
     
@@ -441,7 +469,8 @@ const translations = {
         { id: "project-exchange-rate", title: "Evolución del Tipo de Cambio", description: "Seguimiento en tiempo real del USD, EUR y GBP frente al peso chileno.", link: "projects/exchange-rate-evolution.html", imageUrl: "assets/img/exchange-rate-cover.png", buttonText: "Ver Proyecto", tool: "powerbi" },
         { id: "project-pokedex", title: "Pokédex Interactiva", description: "Un dashboard interactivo con datos de más de 1.000 Pokémon.", link: "projects/pokedex-dashboard.html", imageUrl: "assets/img/pokedex-cover.png", buttonText: "Ver Proyecto", tool: "looker" },
         { id: "project-unemployment", title: "Desempleo en América", description: "Análisis de tendencias de desempleo en estados y áreas metropolitanas de EE.UU.", link: "projects/US-Unemployment.html", imageUrl: "assets/img/us-unemployment-cover.png", buttonText: "Ver Proyecto", tool: "looker" },
-        { id: "project-financial-inclusion", title: "Inclusión Financiera Global", description: "Visualización de tendencias globales en posesión de cuentas y comportamientos de crédito.", link: "projects/global-financial-inclusion.html", imageUrl: "assets/img/global-financial-inclusion-cover.png", buttonText: "Ver Proyecto", tool: "looker" }
+        { id: "project-financial-inclusion", title: "Inclusión Financiera Global", description: "Visualización de tendencias globales en posesión de cuentas y comportamientos de crédito.", link: "projects/global-financial-inclusion.html", imageUrl: "assets/img/global-financial-inclusion-cover.png", buttonText: "Ver Proyecto", tool: "looker" },
+        { id: "project-neo-tracker", title: "NEO Tracker", description: "Seguimiento de Objetos Cercanos a la Tierra con la API de la NASA.", link: "projects/neo-tracker.html", imageUrl: "assets/img/neo-tracker-cover.png", buttonText: "Ver Proyecto", tool: "powerbi" }
     ],
 
     // --- CASE STUDY DATA ---
@@ -620,6 +649,31 @@ const translations = {
       roleText: "Desarrollé este dashboard de principio a fin, abarcando todo el proceso: desde la limpieza y transformación de los datos, hasta el diseño de KPIs y la construcción de la versión final interactiva en Looker Studio.",
       dashboardTitle: "Dashboard Interactivo de Inclusión Financiera",
       dashboardSubtitle: `Usa los filtros dinámicos para explorar los datos de inclusión financiera por año, región, país y grupo de ingresos. Puedes verlo en pantalla completa <a href="https://lookerstudio.google.com/reporting/d245373a-d1e9-46ab-b29a-f11a40d153bb" target="_blank" rel="noopener" class="subtitle-link">aquí</a>.`
+    },
+    project_neo_tracker: {
+      pageTitle: "NEO Tracker – Resumen Semanal de Datos",
+      lookerButton: "Ver en Power BI",
+      iframeEmbed: `<iframe title="NEO Tracker – Weekly Data Overview" width="100%" height="800" src="https://app.powerbi.com/view?r=eyJrIjoiN2FjMjk0N2YtMjFlYi00Nzc3LWIzZGMtZDM1ZmIzZDgxOGE3IiwidCI6ImJiMDZmMmM2LTIxNjItNDczMS05NmYwLTljZTE0MGZmMWFmNiIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>`,
+      backButton: "Volver a Proyectos",
+      linkedinButton: "Compartir en LinkedIn",
+      xButton: "Compartir en X",
+      executiveSummary: [
+        { icon: "fas fa-satellite-dish", title: "154 NEOs Analizados", text: "Se rastrearon 154 Objetos Cercanos a la Tierra en aproximación durante los últimos siete días usando datos en vivo." },
+        { icon: "fas fa-exclamation-triangle", title: "3% Potencialmente Peligrosos", text: "Se clasificó automáticamente el 3% de los objetos detectados como potencialmente peligrosos, monitoreando sus trayectorias." },
+        { icon: "fas fa-meteor", title: "Objeto Más Grande: 968m", text: "Se identificó el objeto más grande en aproximación, con un diámetro estimado de 968 metros." }
+      ],
+      problemTitle: "Haciendo Accesibles los Datos Espaciales",
+      problemText: "La inmensidad del espacio contiene innumerables objetos. El objetivo fue crear un dashboard dinámico y auto-actualizable para ofrecer un resumen semanal de la actividad de Objetos Cercanos a la Tierra (NEO), haciendo que los datos astronómicos complejos sean accesibles y fáciles de entender.",
+      roleTitle: "Mi Rol",
+      roleText: "Fui responsable del ciclo de vida completo del proyecto: desde la conexión a la API de la NASA y la transformación de datos con Power Query, hasta el desarrollo de cálculos con DAX y el diseño del dashboard interactivo final en Power BI.",
+      datasetTitle: "Tecnología y Datos",
+      datasetSource: "Fuente de Datos:",
+      datasetSourceText: "API NeoWs de la NASA",
+      datasetSourceLink: "https://api.nasa.gov",
+      datasetScope: "Herramientas:",
+      datasetScopeValue: "Power BI, Power Query (M), DAX.",
+      dashboardTitle: "Dashboard Interactivo de NEOs",
+      dashboardSubtitle: `Este reporte se actualiza automáticamente. Explora los datos de los últimos 7 días. Puedes verlo en pantalla completa <a href="https://app.powerbi.com/view?r=eyJrIjoiN2FjMjk0N2YtMjFlYi00Nzc3LWIzZGMtZDM1ZmIzZDgxOGE3IiwidCI6ImJiMDZmMmM2LTIxNjItNDczMS05NmYwLTljZTE0MGZmMWFmNiIsImMiOjR9" target="_blank" rel="noopener" class="subtitle-link">aquí</a>.`
     }
   }
 };
@@ -1229,6 +1283,9 @@ function setLanguage(lang, basePath) {
         populateFinancialInclusionPage(lang, basePath);
     } else if (bodyId === 'page-exchange-rate') {
         populateExchangeRatePage(lang, basePath);
+    } else if (bodyId === 'page-neo-tracker') { // AÑADIR ESTE CASO
+        // Aquí crearemos una nueva función para poblar la página de NEO Tracker
+        populateNeoTrackerPage(lang, basePath);
     }
   }
 
@@ -1240,6 +1297,73 @@ function setLanguage(lang, basePath) {
     el.innerHTML = `<img src="${flagUrl}" alt="${alt}" style="width: 20px; vertical-align: middle;"> ${text}`;
   });
 }
+
+// Nueva función para poblar la página de NEO Tracker
+function populateNeoTrackerPage(lang, basePath) {
+    const data = translations[lang].project_neo_tracker || translations.en.project_neo_tracker;
+    const pageData = translations[lang] || translations.en;
+    
+    if (getEl('project-title')) getEl('project-title').textContent = data.pageTitle;
+    const btnGroup = getEl('project-button-group');
+    if (btnGroup) {
+      const pageUrl = window.location.href;
+      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
+      const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(data.pageTitle)}`;
+      
+      btnGroup.innerHTML = `
+        <a href="${basePath}projects.html" class="button btn-back"><i class="fas fa-arrow-left"></i> ${data.backButton || pageData.navProjects}</a>
+        <a href="${linkedinUrl}" class="button btn-linkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> ${data.linkedinButton}</a>
+        <a href="${twitterUrl}" class="button btn-x" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> ${data.xButton}</a>
+        <a href="https://app.powerbi.com/view?r=eyJrIjoiN2FjMjk0N2YtMjFlYi00Nzc3LWIzZGMtZDM1ZmIzZDgxOGE3IiwidCI6ImJiMDZmMmM2LTIxNjItNDczMS05NmYwLTljZTE0MGZmMWFmNiIsImMiOjR9" class="button btn-looker" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> ${data.lookerButton}</a>
+      `;
+    }
+
+    const summarySection = getEl('project-executive-summary');
+    if (summarySection && data.executiveSummary) {
+        summarySection.innerHTML = data.executiveSummary.map(item => `
+            <div class="summary-card">
+                <i class="${item.icon}"></i>
+                <div class="summary-card-text">
+                    <h3>${item.title}</h3>
+                    <p>${item.text}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    const sidebar = getEl('project-sidebar');
+    if (sidebar && data.problemTitle) {
+        sidebar.innerHTML = `
+            <div class="sidebar-section">
+                <h3><i class="fas fa-exclamation-circle"></i> ${data.problemTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.problemText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-user-tie"></i> ${data.roleTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.roleText}</p></div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-database"></i> ${data.datasetTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>
+                    <strong>${data.datasetSource}</strong> <a href="${data.datasetSourceLink}" target="_blank" rel="noopener">${data.datasetSourceText}</a><br>
+                    <strong>${data.datasetScope}</strong> ${data.datasetScopeValue}
+                </p></div>
+            </div>
+        `;
+        setTimeout(() => setupAccordion('#project-sidebar', '.sidebar-section h3'), 0);
+    }
+  
+    const dashboardContent = getEl('project-dashboard-content');
+    if(dashboardContent){
+        const titleEl = dashboardContent.querySelector('#dashboard-title');
+        const subtitleEl = dashboardContent.querySelector('#dashboard-subtitle');
+        const embedEl = dashboardContent.querySelector('#dashboard-embed-container');
+        if (titleEl) titleEl.textContent = data.dashboardTitle;
+        if (subtitleEl) subtitleEl.innerHTML = data.dashboardSubtitle;
+        if (embedEl) embedEl.innerHTML = data.iframeEmbed;
+    }
+}
+
 
 function toggleLang() {
   const newLang = currentLang === 'en' ? 'es' : 'en';
@@ -1274,7 +1398,4 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.body.classList.contains('page-home')) {
     setupHomePageCarousel();
   }
-  // No es necesario llamar a setupAccordion aquí porque ahora
-  // las funciones 'populate' se encargan de su propia inicialización.
-  // Esto soluciona el bug de la doble inicialización.
 });
