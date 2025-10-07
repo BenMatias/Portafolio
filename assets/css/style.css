@@ -855,8 +855,8 @@ p.timeline-company a:hover {
   line-height: 1.3;
 }
 .project-gallery-card .card-tool-icon {
-  height: 28px; /* Cambiado de 24px a 28px */
-  width: 28px;  /* Cambiado de 24px a 28px */
+  height: 32px; /* Cambiado de 28px */
+  width: 32px;  /* Cambiado de 28px */
   flex-shrink: 0;
   object-fit: contain;
 }
