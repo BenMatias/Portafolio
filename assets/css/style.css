@@ -22,7 +22,7 @@ a { text-decoration: none; color: inherit; }
   vertical-align: -2px;
 }
 
-/* --- HEADER Y NAVEGACIÓN --- */
+/* --- HEADER Y NAVEGAÇÃO --- */
 .header-hero-wrapper { 
     background: var(--dark-blue); color: var(--white);
 }
@@ -858,6 +858,7 @@ p.timeline-company a:hover {
   height: 24px;
   width: 24px;
   flex-shrink: 0;
+  object-fit: contain; /* <-- ESTA ES LA LÍNEA AÑADIDA */
 }
 .project-gallery-card .card-content p {
   font-size: 0.95rem;
