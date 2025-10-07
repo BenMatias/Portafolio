@@ -796,7 +796,7 @@ function shuffleArray(array) {
 function populateHomePage(lang, basePath) {
   const data = translations[lang] || translations.en;
   
-  // --- ¡AQUÍ ESTÁ LA MAGIA! Barajamos los proyectos antes de mostrarlos ---
+  // Barajamos los proyectos antes de mostrarlos
   if (data.projects) {
     shuffleArray(data.projects);
   }
@@ -906,6 +906,12 @@ function populateCvPage(lang, basePath) {
 
 function populateProjectsPage(lang, basePath) {
     const data = translations[lang] || translations.en;
+    
+    // Barajamos la lista de proyectos de la galería
+    if (data.projects_list) {
+      shuffleArray(data.projects_list);
+    }
+
     const titleEl = getEl('projects-title');
     if (titleEl) {
         titleEl.innerHTML = `<i class="fas fa-lightbulb"></i> ${data.projects_page_title}`;
