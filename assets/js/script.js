@@ -373,12 +373,14 @@ const translations = {
       linkedinButton: "Share on LinkedIn",
       xButton: "Share on X",
       executiveSummary: [
-        { icon: "fas fa-satellite-dish", title: "154 NEOs Analyzed", text: "Tracked a total of 154 Near-Earth Objects approaching Earth over the last seven days using live data." },
-        { icon: "fas fa-exclamation-triangle", title: "3% Potentially Hazardous", text: "Automatically classified 3% of detected objects as potentially hazardous, monitoring their trajectories." },
-        { icon: "fas fa-meteor", title: "Largest Object: 968m", text: "Identified the largest approaching object, measuring an estimated 968 meters in diameter." }
+        { icon: "fas fa-satellite-dish", title: "Weekly Object Tracking", text: "Quantifies and displays all Near-Earth Objects detected by NASA in the last 7 days, providing a current snapshot of space activity." },
+        { icon: "fas fa-exclamation-triangle", title: "Real-Time Risk Classification", text: "Automatically categorizes each object based on its potential hazard level, allowing for quick identification of noteworthy threats." },
+        { icon: "fas fa-meteor", title: "Key Metric Identification", text: "Highlights critical data points such as the size, velocity, and miss distance of the largest and fastest approaching objects." }
       ],
       problemTitle: "Making Space Data Accessible",
       problemText: "The vastness of space contains countless objects, some of which pass near Earth. This project aimed to create a dynamic, self-updating dashboard to provide a clear, weekly overview of Near-Earth Object (NEO) activity, making complex astronomical data accessible and easy to understand for a general audience.",
+      objectiveTitle: "Dashboard Objective",
+      objectiveText: "To build a Power BI report that automatically connects to the NASA API, processes the last 7 days of NEO data, and visualizes key metrics such as object count, size, speed, proximity, and potential risk.",
       roleTitle: "My Role",
       roleText: "I was responsible for the entire project lifecycle. This included connecting to the NASA NeoWs API, transforming the JSON data using Power Query, developing calculations with DAX, and designing the final interactive dashboard in Power BI.",
       datasetTitle: "Technology & Data",
@@ -658,12 +660,14 @@ const translations = {
       linkedinButton: "Compartir en LinkedIn",
       xButton: "Compartir en X",
       executiveSummary: [
-        { icon: "fas fa-satellite-dish", title: "154 NEOs Analizados", text: "Se rastrearon 154 Objetos Cercanos a la Tierra en aproximación durante los últimos siete días usando datos en vivo." },
-        { icon: "fas fa-exclamation-triangle", title: "3% Potencialmente Peligrosos", text: "Se clasificó automáticamente el 3% de los objetos detectados como potencialmente peligrosos, monitoreando sus trayectorias." },
-        { icon: "fas fa-meteor", title: "Objeto Más Grande: 968m", text: "Se identificó el objeto más grande en aproximación, con un diámetro estimado de 968 metros." }
+        { icon: "fas fa-satellite-dish", title: "Seguimiento Semanal de Objetos", text: "Cuantifica y muestra todos los Objetos Cercanos a la Tierra detectados por la NASA en los últimos 7 días, ofreciendo una vista actual de la actividad espacial." },
+        { icon: "fas fa-exclamation-triangle", title: "Clasificación de Riesgo en Tiempo Real", text: "Categoriza automáticamente cada objeto según su nivel de peligrosidad potencial, permitiendo una rápida identificación de amenazas relevantes." },
+        { icon: "fas fa-meteor", title: "Identificación de Métricas Clave", text: "Destaca datos críticos como el tamaño, la velocidad y la distancia de aproximación de los objetos más grandes y rápidos." }
       ],
       problemTitle: "Haciendo Accesibles los Datos Espaciales",
       problemText: "La inmensidad del espacio contiene innumerables objetos. El objetivo fue crear un dashboard dinámico y auto-actualizable para ofrecer un resumen semanal de la actividad de Objetos Cercanos a la Tierra (NEO), haciendo que los datos astronómicos complejos sean accesibles y fáciles de entender.",
+      objectiveTitle: "Objetivo del Dashboard",
+      objectiveText: "Construir un reporte en Power BI que se conecte automáticamente a la API de la NASA, procese los datos de los últimos 7 días y visualice métricas clave como cantidad de objetos, tamaño, velocidad, proximidad y riesgo potencial.",
       roleTitle: "Mi Rol",
       roleText: "Fui responsable del ciclo de vida completo del proyecto: desde la conexión a la API de la NASA y la transformación de datos con Power Query, hasta el desarrollo de cálculos con DAX y el diseño del dashboard interactivo final en Power BI.",
       datasetTitle: "Tecnología y Datos",
@@ -1253,52 +1257,6 @@ function populateFinancialInclusionPage(lang, basePath) {
     }
 }
 
-
-function setLanguage(lang, basePath) {
-  currentLang = lang;
-  document.documentElement.lang = lang;
-  const data = translations[lang] || translations.en;
-
-  document.querySelectorAll('[data-translate]').forEach(el => {
-    const key = el.getAttribute('data-translate');
-    if (data[key]) {
-      el.textContent = data[key];
-    }
-  });
-
-  if (document.body.classList.contains('page-home')) {
-    populateHomePage(lang, basePath);
-  } else if (document.body.classList.contains('page-cv')) {
-    populateCvPage(lang, basePath);
-  } else if (document.body.classList.contains('page-projects')) {
-    populateProjectsPage(lang, basePath);
-  } else if (document.body.classList.contains('page-project-case-study')) {
-    const bodyId = document.body.id;
-    
-    if (bodyId === 'page-pokedex') {
-        populatePokedexPage(lang, basePath);
-    } else if (bodyId === 'page-unemployment') {
-        populateUnemploymentPage(lang, basePath);
-    } else if (bodyId === 'page-financial-inclusion') {
-        populateFinancialInclusionPage(lang, basePath);
-    } else if (bodyId === 'page-exchange-rate') {
-        populateExchangeRatePage(lang, basePath);
-    } else if (bodyId === 'page-neo-tracker') { // AÑADIR ESTE CASO
-        // Aquí crearemos una nueva función para poblar la página de NEO Tracker
-        populateNeoTrackerPage(lang, basePath);
-    }
-  }
-
-  document.querySelectorAll(".lang-toggle").forEach(el => {
-    const flag = lang === "en" ? 'cl' : 'us';
-    const alt = lang === "en" ? 'Bandera de Chile' : 'USA Flag';
-    const text = lang === "en" ? 'ES' : 'EN';
-    const flagUrl = `https://flagcdn.com/w20/${flag}.png`;
-    el.innerHTML = `<img src="${flagUrl}" alt="${alt}" style="width: 20px; vertical-align: middle;"> ${text}`;
-  });
-}
-
-// Nueva función para poblar la página de NEO Tracker
 function populateNeoTrackerPage(lang, basePath) {
     const data = translations[lang].project_neo_tracker || translations.en.project_neo_tracker;
     const pageData = translations[lang] || translations.en;
@@ -1339,6 +1297,10 @@ function populateNeoTrackerPage(lang, basePath) {
                 <div class="content"><p>${data.problemText}</p></div>
             </div>
             <div class="sidebar-section">
+                <h3><i class="fas fa-bullseye"></i> ${data.objectiveTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
+                <div class="content"><p>${data.objectiveText}</p></div>
+            </div>
+            <div class="sidebar-section">
                 <h3><i class="fas fa-user-tie"></i> ${data.roleTitle} <i class="fas fa-chevron-down more-icon"></i></h3>
                 <div class="content"><p>${data.roleText}</p></div>
             </div>
@@ -1364,6 +1326,49 @@ function populateNeoTrackerPage(lang, basePath) {
     }
 }
 
+
+function setLanguage(lang, basePath) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  const data = translations[lang] || translations.en;
+
+  document.querySelectorAll('[data-translate]').forEach(el => {
+    const key = el.getAttribute('data-translate');
+    if (data[key]) {
+      el.textContent = data[key];
+    }
+  });
+
+  if (document.body.classList.contains('page-home')) {
+    populateHomePage(lang, basePath);
+  } else if (document.body.classList.contains('page-cv')) {
+    populateCvPage(lang, basePath);
+  } else if (document.body.classList.contains('page-projects')) {
+    populateProjectsPage(lang, basePath);
+  } else if (document.body.classList.contains('page-project-case-study')) {
+    const bodyId = document.body.id;
+    
+    if (bodyId === 'page-pokedex') {
+        populatePokedexPage(lang, basePath);
+    } else if (bodyId === 'page-unemployment') {
+        populateUnemploymentPage(lang, basePath);
+    } else if (bodyId === 'page-financial-inclusion') {
+        populateFinancialInclusionPage(lang, basePath);
+    } else if (bodyId === 'page-exchange-rate') {
+        populateExchangeRatePage(lang, basePath);
+    } else if (bodyId === 'page-neo-tracker') {
+        populateNeoTrackerPage(lang, basePath);
+    }
+  }
+
+  document.querySelectorAll(".lang-toggle").forEach(el => {
+    const flag = lang === "en" ? 'cl' : 'us';
+    const alt = lang === "en" ? 'Bandera de Chile' : 'USA Flag';
+    const text = lang === "en" ? 'ES' : 'EN';
+    const flagUrl = `https://flagcdn.com/w20/${flag}.png`;
+    el.innerHTML = `<img src="${flagUrl}" alt="${alt}" style="width: 20px; vertical-align: middle;"> ${text}`;
+  });
+}
 
 function toggleLang() {
   const newLang = currentLang === 'en' ? 'es' : 'en';
