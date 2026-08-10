@@ -22,8 +22,9 @@ const translations = {
     // --- Hero KPI & Filters ---
     kpiDashboards: "BI Dashboards & Reports",
     kpiReports: "Cross-Functional Impact",
-    kpiAutomation: "Data & Analytics Stack",
+    kpiAutomation: "Modeling & Analytics",
     filterAll: "All Projects",
+    filterCaseStudy: "Case Studies",
     filterPowerBI: "Power BI",
     filterLooker: "Looker Studio",
 
@@ -35,37 +36,42 @@ const translations = {
     btnDownloadCV: "Download CV",
 
     // --- Index Page Content ---
-    heroTitle: "Business & Data Analyst | Product Owner",
-    heroSubtitle: "Transforming complex data into strategic decisions and scalable products through SQL analytics, Power BI / Looker Studio, Agile triads (BPMN 2.0), and Generative AI.",
+    heroTitle: "Data, BI & Business Analyst | Product Specialist",
+    heroSubtitle: "Bridging data analytics (SQL, Power BI, Looker Studio), business process engineering (BPMN 2.0, BDD), digital product management, and Generative AI to drive strategic decisions.",
     btnProjects: "View Projects",
     btnResume: "View Resume",
     aboutTitle: "About Me",
-    aboutContent: `<p>I'm <strong>Benjamín Espinoza</strong>, an Industrial Civil Engineer specializing in <strong>Data Analytics and Business Intelligence</strong>, serving in a dual role as <strong>Business Analyst (BA) and Product Owner (PO)</strong> at Banco Internacional. My core strength lies in transforming complex data into strategic decisions, designing KPI frameworks, and bridging business vision with technical execution.</p><p>Throughout my career across banking, retail, and industrial sectors, I have built over 50 executive and operational dashboards. At Banco Internacional, I execute advanced SQL queries in <strong>PostgreSQL</strong>, build reports in <strong>Looker Studio</strong> and Power BI, define MVP Canvases and User Story Maps in Jira/Confluence, lead the public website redesign (<strong>Puck CMS</strong>, GA4, GTM, Clarity), and perform functional QA testing.</p><p>Additionally, I am an early adopter of Generative AI (<strong>Gemini, NotebookLM, and Rovo AI</strong>) to automate data workflows, streamline documentation, and accelerate value delivery. A father, lifelong learner, passionate about music and continuous improvement.</p>`,
+    aboutContent: `<p>I am <strong>Benjamín Espinoza</strong>, an Industrial Engineer specializing in <strong>Data Analytics, Business Intelligence, Business Analysis, and Digital Product Strategy</strong>. Across my professional career in banking (Banco Internacional), retail, and industrial sectors (Lucas Diesel, Heavenward Elevators), I have built a versatile profile balancing four core disciplines: <strong>Data Analyst, BI Analyst, Business Analyst (BA), and Product Specialist (PO Target)</strong>.</p>
+
+<p>My core strength lies in transforming complex datasets into strategic decisions and scalable products: writing advanced <strong>SQL</strong> queries, extracting, modeling, and transforming data for dashboard creation, designing KPI architectures, and building executive & operational dashboards in <strong>Power BI, Looker Studio, and Tableau</strong>.</p>
+
+<p>At the same time, I bridge business strategy with tech execution within Agile triads (PO, Tech Lead, BA): authoring BDD User Stories (<em>Given-When-Then</em>) in Jira/Confluence, modeling operational workflows by gathering processes in <strong>BPMN 2.0</strong>, auditing regulatory compliance, and measuring product funnels with <strong>GA4, GTM, and Microsoft Clarity</strong>. Additionally, I pioneer the daily adoption of <strong>Generative AI (Gemini, NotebookLM, Rovo AI)</strong> to accelerate value delivery.</p>`,
     impactTitle: "How I’ve Made an Impact",
     impacts: [{
-      icon: "fa-users-gear",
-      title: "Agile Triad Execution & UX Delivery",
-      text: "Facilitated business-tech alignment in Agile triads (PO, Tech Lead, BA), crafting MVP Canvases, User Story Maps, and functional QA certifications."
-    }, {
-      icon: "fa-globe",
-      title: "Public Website Redesign & Web Analytics",
-      text: "Led the public website redesign team at Banco Internacional with hands-on Puck CMS administration and full GA4, GTM, and Clarity analytics monitoring."
-    }, {
-      icon: "fa-project-diagram",
-      title: "Process Optimization (BPMN 2.0 & AI)",
-      text: "Mapped business processes using BPMN 2.0 and accelerated flow diagramming and documentation with Rovo AI, Gemini, and NotebookLM."
+      icon: "fa-database",
+      title: "Data Analytics & SQL Queries",
+      text: "Extracted, modeled, and transformed data by writing advanced SQL queries for strategic decision-making."
     }, {
       icon: "fa-chart-pie",
-      title: "Data Analytics & SQL Dashboards",
-      text: "Extracted insights from PostgreSQL databases with SQL and created Looker Studio / Power BI dashboards for executive decision-making."
+      title: "BI Dashboards & Executive Reporting",
+      text: "Built interactive executive and operational dashboards in Power BI, Looker Studio, and Tableau with KPI architecture."
+    }, {
+      icon: "fa-project-diagram",
+      title: "Process Engineering & BA Requirements",
+      text: "Gathered and modeled operational processes in BPMN 2.0, authored BDD User Stories in Jira/Confluence, and audited compliance."
+    }, {
+      icon: "fa-bullseye",
+      title: "Digital Product Strategy & Agile Triads",
+      text: "Facilitated business-tech alignment in Agile triads (PO, Tech Lead, BA), defining MVP Canvases, Puck CMS management, and GA4 telemetry."
     }],
     projectsTitle: "Featured Projects",
     projects: [
-        { title: "Exchange Rate Evolution", description: "A Power BI dashboard that tracks major currencies against the CLP, updated automatically via the Central Bank API.", imageUrl: "assets/img/exchange-rate-cover.webp", link: "projects/exchange-rate-evolution.html", buttonText: "View Project", tool: "powerbi" },
-        { title: "Interactive Pokédex", description: "A National Pokédex of 1,025 Pokémon built by connecting to the PokéAPI with Apps Script.", imageUrl: "assets/img/pokedex-cover.webp", link: "projects/pokedex-dashboard.html", buttonText: "View Project", tool: "looker" },
-        { title: "US Unemployment Analysis", description: "Explores unemployment trends across U.S. states and metro areas using interactive dashboards.", imageUrl: "assets/img/us-unemployment-cover.webp", link: "projects/US-Unemployment.html", buttonText: "View Project", tool: "looker" },
-        { title: "Global Financial Inclusion", description: "Visualize global trends in account ownership and borrowing behavior by region, income group, and demographics.", imageUrl: "assets/img/global-financial-inclusion-cover.webp", link: "projects/global-financial-inclusion.html", buttonText: "View Project", tool: "looker" },
-        { title: "NEO Tracker", description: "An automated dashboard connecting to the NASA API to track Near-Earth Objects from the last 7 days.", imageUrl: "assets/img/neo-tracker-cover.webp", link: "projects/neo-tracker.html", buttonText: "View Project", tool: "powerbi" }
+        { id: "project-digital-banking", title: "Digital Product Redesign & Analytics", description: "End-to-end case study of a public banking portal redesign, featuring MVP Canvas, BPMN 2.0, PostgreSQL queries, and GA4 telemetry.", imageUrl: "assets/img/digital-banking-cover.webp", link: "projects/digital-banking-redesign.html", buttonText: "View Case Study", tool: "all", type: "case-study" },
+        { id: "project-exchange-rate", title: "Exchange Rate Evolution", description: "A Power BI dashboard that tracks major currencies against the CLP, updated automatically via the Central Bank API.", imageUrl: "assets/img/exchange-rate-cover.webp", link: "projects/exchange-rate-evolution.html", buttonText: "View Project", tool: "powerbi", type: "dashboard" },
+        { id: "project-pokedex", title: "Interactive Pokédex", description: "A National Pokédex of 1,025 Pokémon built by connecting to the PokéAPI with Apps Script.", imageUrl: "assets/img/pokedex-cover.webp", link: "projects/pokedex-dashboard.html", buttonText: "View Project", tool: "looker", type: "dashboard" },
+        { id: "project-unemployment", title: "US Unemployment Analysis", description: "Explores unemployment trends across U.S. states and metro areas using interactive dashboards.", imageUrl: "assets/img/us-unemployment-cover.webp", link: "projects/US-Unemployment.html", buttonText: "View Project", tool: "looker", type: "dashboard" },
+        { id: "project-financial-inclusion", title: "Global Financial Inclusion", description: "Visualize global trends in account ownership and borrowing behavior by region, income group, and demographics.", imageUrl: "assets/img/global-financial-inclusion-cover.webp", link: "projects/global-financial-inclusion.html", buttonText: "View Project", tool: "looker", type: "dashboard" },
+        { id: "project-neo-tracker", title: "NEO Tracker", description: "An automated dashboard connecting to the NASA API to track Near-Earth Objects from the last 7 days.", imageUrl: "assets/img/neo-tracker-cover.webp", link: "projects/neo-tracker.html", buttonText: "View Project", tool: "powerbi", type: "dashboard" }
     ],
     viewAllBtn: "View All Projects",
 
@@ -178,7 +184,7 @@ const translations = {
         "PostgreSQL & SQL Queries",
         "Jira & Confluence (Rovo AI)",
         "Gemini & NotebookLM (GenAI)",
-        "Puck CMS & Web Publishing",
+        "Strapi 5 & Puck CMS (React)",
         "Web Analytics (GA4 / GTM / Clarity)",
         "Figma & UX Collaboration",
         "Power Query & DAX"
@@ -250,14 +256,279 @@ const translations = {
       url: "assets/certificates/User Stories Certiprof.pdf"
     }],
 
+    // --- CASE STUDY DIGITAL BANKING ---
+    cs_hero_title: "Digital Product Redesign & Analytics: Public Banking",
+    cs_hero_subtitle: "End-to-end transformation of the public banking portal. Integrating Agile product management (MVP Canvas & User Stories), BPMN 2.0 process modeling, PostgreSQL data architecture, Headless Strapi 5 + Puck CMS administration, and advanced web analytics (GA4 / Clarity).",
+    cs_sum1_title: "The Business Challenge",
+    cs_sum1_desc: "The legacy public web portal suffered from high drop-off rates in digital product applications (accounts/loans), operational rigidity in launching campaigns, and a lack of user event telemetry.",
+    cs_sum2_title: "The Product Solution",
+    cs_sum2_desc: "Led the Agile triad to migrate to a No-Code/Low-Code visual frontend with Puck CMS connected to Strapi 5 (Headless CMS), AI-assisted UX mockups (Firebase), functional QA testing in Staging, and full GTM tagging.",
+    cs_sum3_title: "Quantitative Impact",
+    cs_sum3_desc: "+35% increase in digital application conversion, web publishing time slashed from weeks to minutes, and 100% certified QA quality prior to production deployment.",
+    cs_tab_po: "1. PO Strategy (MVP & Stories)",
+    cs_tab_bpmn: "2. BPMN 2.0 Processes",
+    cs_tab_sql: "3. SQL Architecture (PostgreSQL)",
+    cs_tab_dashboard: "4. Telemetry & Dashboard",
+    cs_tab_genai: "5. GenAI Acceleration",
+    cs_mvp_title: "Official 7-Block MVP Canvas Standard",
+    cs_mvp_subtitle: "Official MVP Canvas structure to validate business hypotheses, user journeys, minimum features, and execution schedule:",
+    cs_mvp_b1_title: "MVP Proposal",
+    cs_mvp_b1_text: "Complete redesign of the public banking web platform deploying a Headless Strapi 5 + Puck CMS React architecture, AI-assisted wireframing (Firebase), and real-time event telemetry (GA4 / Clarity), enabling instant campaign page publishing with 100% QA-certified quality.",
+    cs_mvp_b2_title: "Segmented Personas",
+    cs_mvp_b2_text: "<ul><li><strong>Persona 1 (Camila / 32 yrs):</strong> Seeks 100% digital checking account opening and consumer credit evaluation from her smartphone.</li><li><strong>Persona 2 (Roberto / 45 yrs):</strong> Requires commercial financing and clear, agile corporate investment information.</li><li><strong>Persona 3 (Marketing & Commercial Team):</strong> Product owners requiring autonomy to launch promotional campaigns and landings without waiting for dev sprints.</li></ul>",
+    cs_mvp_b3_title: "Journeys",
+    cs_mvp_b3_text: "<ul><li><strong>1. Discovery:</strong> User arrives at landing page via digital campaign or organic search.</li><li><strong>2. Intuitive & Seamless Navigation:</strong> Smooth interaction across responsive components and financial calculators.</li><li><strong>3. Application Intent:</strong> Click on primary CTA (<code>click_apply_now</code>) captured in GTM.</li><li><strong>4. Form & QA:</strong> Optimized 3-step application form certified through QA matrices.</li><li><strong>5. Conversion:</strong> Successful application confirmation logged in GA4 and real-time dashboard.</li></ul>",
+    cs_mvp_b4_title: "Features",
+    cs_mvp_b4_text: "<ul><li>Drag-and-Drop No-Code visual editor (Puck CMS) connected to Strapi 5 (Headless CMS).</li><li>Fast AI-assisted wireframing and prototyping (Firebase / Gemini).</li><li>Automatic GTM and GA4 event tracking.</li><li>Session recordings and anonymized heatmaps (Microsoft Clarity).</li><li>Functional QA Testing matrix in Staging environment prior to production release.</li></ul>",
+    cs_mvp_b5_title: "Expected Outcome",
+    cs_mvp_b5_text: "<ul><li><strong>+35% increase</strong> in digital product application conversion rate.</li><li><strong>Time-to-Market reduction:</strong> Web publishing SLA slashed from 2 weeks down to 15 minutes.</li><li><strong>Zero blocking defects:</strong> 100% quality guarantee in production via Staging QA certification.</li><li><strong>Operational Autonomy:</strong> Full independence for marketing/commercial teams to launch campaigns.</li></ul>",
+    cs_mvp_b6_title: "Metrics to Validate Hypotheses",
+    cs_mvp_b6_text: "<ul><li><strong>Conversion Rate (CR):</strong> <code>% of sessions completing application (submit_application_success)</code>.</li><li><strong>Time-to-Publish (TTP):</strong> <code>Minutes required to build and publish a landing page in Strapi 5 / Puck CMS</code>.</li><li><strong>Mobile Bounce Rate:</strong> <code>Mobile bounce rate monitored in Clarity & GA4</code>.</li><li><strong>Feature Adoption:</strong> <code>% interaction with financial simulators and primary CTAs</code>.</li></ul>",
+    cs_mvp_b7_title: "Cost and Schedule",
+    cs_mvp_b7_text: "<ul><li><strong>Schedule:</strong> 6 2-week Agile Sprints (12 weeks total) operating in triad (PO, Tech Lead, BA + Developers).</li><li><strong>Cost Optimization:</strong> Leveraging existing Bank infrastructure licenses (Google Cloud / GCP Suite: GA4, GTM, Looker Studio, Firebase; Jira, Confluence, Strapi 5).</li></ul>",
+    cs_usm_matrix_title: "User Story Map: Visual Product Board",
+    cs_usm_matrix_desc: "Product journey map structured into 4 Strategic Activities (Backbone) with their user steps vertically stacked:",
+    cs_usm_act1: "<i class=\"fas fa-paint-brush\"></i> 1. UX Design & Prototyping",
+    cs_usm_st11: "Component wireframing in Firebase.",
+    cs_usm_st12: "Functional site mockup creation.",
+    cs_usm_st13: "Mobile and Responsive format design.",
+    cs_usm_st14: "Accessibility tools design (WCAG).",
+    cs_usm_st15: "Initial image and content gathering for release.",
+    cs_usm_act2: "<i class=\"fas fa-code\"></i> 2. Puck & Strapi 5 Architecture",
+    cs_usm_st21: "Hard component development in Puck CMS.",
+    cs_usm_st22: "Puck implementation and Strapi 5 Headless API connection.",
+    cs_usm_st23: "Preloaded page creation in Puck for agile launch.",
+    cs_usm_st24: "Telemetry setup: GA4, Google Tag Manager, and Clarity.",
+    cs_usm_act3: "<i class=\"fas fa-vial\"></i> 3. Testing & Production Release",
+    cs_usm_st31: "QA Functional Testing matrix execution in Staging.",
+    cs_usm_st32: "Form validation & blocking defect prevention.",
+    cs_usm_st33: "QA certification sign-off & production release.",
+    cs_usm_act4: "<i class=\"fas fa-sliders-h\"></i> 4. Continuous Puck Operation",
+    cs_usm_st41: "Page creation and editing via Puck admin panel.",
+    cs_usm_st42: "Strategic role and permission setup (Marketing/Commercial).",
+    cs_usm_st43: "Key metrics & campaign event tagging in GTM.",
+    cs_usm_title: "Prioritized Product Backlog (Jira / Confluence)",
+    cs_usm_desc: "Product Backlog stories prioritized by Epics, with Story Point estimation, MoSCoW priority, and BDD Acceptance Criteria (Given-When-Then):",
+    cs_usm_b101_desc: "<strong>As a UX Designer</strong>, I want to wireframe visual components in Firebase and validate the responsive functional prototype prior to development.",
+    cs_usm_b101_ac: "<strong>Acceptance Criteria (BDD):</strong><br>• <i>Given:</i> Product requirements defined.<br>• <i>When:</i> Functional mockup is assembled in Firebase.<br>• <i>Then:</i> The Agile triad approves responsive layout.",
+    cs_usm_b102_desc: "<strong>As a PO</strong>, I want to ensure accessibility tools (WCAG) and initial content gathering to guarantee launch readiness.",
+    cs_usm_b102_ac: "<strong>Acceptance Criteria (BDD):</strong><br>• <i>Given:</i> UI components wireframed.<br>• <i>When:</i> Final contrast & imagery are applied.<br>• <i>Then:</i> WCAG AA accessibility compliance is met.",
+    cs_usm_b201_desc: "<strong>As a Lead Developer</strong>, I want to build visual components in Puck CMS and connect them to Strapi 5 API to publish pages in minutes.",
+    cs_usm_b201_ac: "<strong>Acceptance Criteria (BDD):</strong><br>• <i>Given:</i> Authenticated user in Puck CMS editor.<br>• <i>When:</i> Publishes visual content blocks.<br>• <i>Then:</i> Strapi 5 API updates production in < 15 min.",
+    cs_usm_b202_desc: "<strong>As a Business Analyst</strong>, I want to implement telemetry (GA4, GTM, Clarity) to log conversions and heatmaps.",
+    cs_usm_b202_ac: "<strong>Acceptance Criteria (BDD):</strong><br>• <i>Given:</i> Global GTM tag installed.<br>• <i>When:</i> User interacts with simulators/CTAs.<br>• <i>Then:</i> GA4 logs conversions & Clarity captures maps.",
+    cs_usm_b301_desc: "<strong>As a Business Analyst</strong>, I want to execute the QA Functional Testing matrix in Staging to prevent blocking defects.",
+    cs_usm_b301_ac: "<strong>Acceptance Criteria (BDD):</strong><br>• <i>Given:</i> Landing published in Staging.<br>• <i>When:</i> 100% of test case matrix runs.<br>• <i>Then:</i> Functional certification approved without high severity bugs.",
+    cs_usm_b302_desc: "<strong>As a PO</strong>, I want digital sign-off on the QA sign-off document to authorize automatic production deployment.",
+    cs_usm_b302_ac: "<strong>Acceptance Criteria (BDD):</strong><br>• <i>Given:</i> QA matrix approved in Staging.<br>• <i>When:</i> Production release document signed.<br>• <i>Then:</i> Pipeline triggers production release.",
+    cs_usm_b401_desc: "<strong>As a Product Owner</strong>, I want to administer Puck CMS and manage user roles/permissions to grant commercial team autonomy.",
+    cs_usm_b401_ac: "<strong>Acceptance Criteria (BDD):</strong><br>• <i>Given:</i> Marketing user needs to launch campaign.<br>• <i>When:</i> Assigned Commercial Editor role in Puck.<br>• <i>Then:</i> Can create/edit pages autonomously.",
+    cs_usm_b402_desc: "<strong>As a Business Analyst</strong>, I want to tag key metrics and campaign events in GTM in an agile manner.",
+    cs_usm_b402_ac: "<strong>Acceptance Criteria (BDD):</strong><br>• <i>Given:</i> New campaign built in Puck.<br>• <i>When:</i> Primary metric defined.<br>• <i>Then:</i> GTM trigger registered measuring conversions.",
+    cs_roadmap_title: "<i class=\"fas fa-map-signs\"></i> Strategic Product Roadmap (Quarterly Timeline - 6 Sprints)",
+    cs_roadmap_tag: "<i class=\"fas fa-calendar-alt\"></i> 12-Week Schedule (Agile Triad)",
+    cs_roadmap_desc: "Visual timeline of sequential deliverables organized by Backlog Epics, Sprints, and Estimated Timeframes for the public banking portal redesign (5 MVP Pages):",
+    cs_rm_col_epics: "<i class=\"fas fa-layer-group\"></i> Backlog Epics",
+    cs_rm_col_m1: "<i class=\"fas fa-clock\"></i> Month 1: Sprints 1-2<br><span style=\"font-size:0.72rem; color:#94a3b8;\">(Weeks 1 to 4)</span>",
+    cs_rm_col_m2: "<i class=\"fas fa-clock\"></i> Month 2: Sprints 3-4<br><span style=\"font-size:0.72rem; color:#94a3b8;\">(Weeks 5 to 8)</span>",
+    cs_rm_col_m3: "<i class=\"fas fa-clock\"></i> Month 3: Sprints 5-6<br><span style=\"font-size:0.72rem; color:#94a3b8;\">(Weeks 9 to 12)</span>",
+    cs_rm_e1_title: "<i class=\"fas fa-paint-brush\"></i> Epic 1: UX & Prototyping",
+    cs_rm_e1_sub: "Firebase & Wireframing (8 SP)",
+    cs_rm_e1_b1: "BIN-101: Firebase Wireframing & Functional Prototype (5 SP)",
+    cs_rm_e1_b2: "BIN-102: WCAG AA Accessibility & Initial Content (3 SP)",
+    cs_rm_e1_time: "<i class=\"fas fa-clock\"></i> Estimated Time: Weeks 1 to 4",
+    cs_rm_e2_title: "<i class=\"fas fa-code\"></i> Epic 2: Puck & Strapi 5",
+    cs_rm_e2_sub: "Core CMS & Telemetry (16 SP)",
+    cs_rm_e2_b1: "BIN-201: Puck CMS Visual Components & Strapi 5 API (11 SP)",
+    cs_rm_e2_b2: "BIN-202: Telemetry (GA4, GTM & Clarity) (5 SP)",
+    cs_rm_e2_time1: "<i class=\"fas fa-clock\"></i> Estimated Time: Weeks 3 to 8",
+    cs_rm_e3_title: "<i class=\"fas fa-vial\"></i> Epic 3: Testing & Prod Release",
+    cs_rm_e3_sub: "QA Quality & Deployment (8 SP)",
+    cs_rm_e3_b1: "BIN-301: Staging Functional QA Testing Matrix (5 SP)",
+    cs_rm_e3_b2: "BIN-302: QA Certification Sign-Off & Go-Live (3 SP)",
+    cs_rm_e3_time: "<i class=\"fas fa-clock\"></i> Estimated Time: Weeks 9 to 10",
+    cs_rm_e4_title: "<i class=\"fas fa-sliders-h\"></i> Epic 4: Continuous Operation",
+    cs_rm_e4_sub: "Commercial Autonomy (8 SP)",
+    cs_rm_e4_b1: "BIN-401: Puck Administration & Commercial Roles (5 SP)",
+    cs_rm_e4_b2: "BIN-402: GTM Campaign Metrics Tagging (3 SP)",
+    cs_rm_e4_time: "<i class=\"fas fa-clock\"></i> Estimated Time: Weeks 11 to 12",
+    btnBackProjects: "Back to Projects",
+    accExpandAll: "Expand All Cards",
+    accCollapseAll: "Collapse All Cards",
+    cs_scroll_hint: "<i class=\"fas fa-arrows-left-right\"></i> Swipe horizontally to view full 12-week schedule",
+    cs_flagship_badge: "Flagship Case Study",
+    cs_mvp_standardized_badge: "Standardized 7-Block Matrix",
+
+    cs_bpmn_summary_title: "<i class=\"fas fa-tachometer-alt\"></i> Process Reengineering Summary & KPI Matrix (AS-IS vs. TO-BE)",
+    cs_bpmn_summary_desc: "Executive summary of the direct impact of process reengineering on the public banking portal release cycle (5 MVP Pages):",
+    cs_bpmn_asis_title: "<i class=\"fas fa-exclamation-triangle\"></i> Current Process (AS-IS): IT Development Bottleneck",
+    cs_bpmn_asis_desc: "BPMN 2.0 modeling of the traditional workflow. Landing page updates are 100% dependent on hardcode dev capacity and late-night maintenance windows:",
+    cs_bpmn_tobe_title: "<i class=\"fas fa-rocket\"></i> Proposed Process (TO-BE): No-Code Commercial Autonomy with Puck CMS",
+    cs_bpmn_tobe_desc: "BPMN 2.0 modeling of the optimized workflow. Commercial Editor composes landings visually in minutes and Product Owner approves in Staging Sandbox prior to instant sync:",
+    cs_bpmn_gov_title: "<i class=\"fas fa-shield-alt\"></i> Governance Matrix, RBAC Roles & BPMN Business Rules",
+    cs_bpmn_gov_desc: "Formal definition of Role-Based Access Control (RBAC) and validation policies to operate the new process model without compromising banking security:",
+    cs_bpmn_asis_sla: "SLA: 14 to 21 Business Days",
+    cs_bpmn_tobe_sla: "SLA: 15 Minutes",
+    cs_bpmn_scroll_hint: "Swipe horizontally to navigate the full BPMN 2.0 diagram",
+    cs_bpmn_gov_change_ctrl: "Change Control",
+    cs_bpmn_gov_rbac_title: "1. RBAC Permissions Matrix in Puck Admin & Strapi 5",
+    cs_bpmn_gov_rbac_r1: "<strong>Commercial Editor (Marketing / Product):</strong> Permission to visually create and edit text, images, and banners only on the 5 preloaded MVP pages. No access to modify hardcode or infrastructure.",
+    cs_bpmn_gov_rbac_r2: "<strong>Product Owner / QA Certifier:</strong> Exclusive permission for final approval of the Staging Sandbox Gate and 1-Click production release.",
+    cs_bpmn_gov_rbac_r3: "<strong>Lead Developer / IT:</strong> Administration of base React components in Puck, data schema definition in Strapi 5, and CI/CD pipeline maintenance.",
+    cs_bpmn_gov_rules_title: "2. BPMN 2.0 Process Business Rules",
+    cs_bpmn_gov_rule1: "<strong>Rule 1 (Mandatory Quality Gate):</strong> No campaign or modification can be pushed to production without a prior preview and explicit approval in the Sandbox Staging environment.",
+    cs_bpmn_gov_rule2: "<strong>Rule 2 (Auto-Analytics Tagging):</strong> Every new landing page or button published via Puck CMS automatically applies DataLayer tags in GTM for conversion tracking in GA4 and heatmaps in Clarity without manual tagging.",
+
+    // --- Tab 3: SQL Architecture ---
+    cs_sql_title: "<i class=\"fas fa-database\"></i> Data Architecture & PostgreSQL SQL Queries",
+    cs_sql_badge_pg: "PostgreSQL",
+    cs_sql_badge_link: "Validates Canvas B5 & B6",
+    cs_sql_intro: "The redesigned process (Tab 2) generates digital product applications stored in the bank's internal PostgreSQL database. The following queries validate whether the KPI declared in the MVP Canvas — <strong style=\"color:#00e676;\">+35% digital application conversion rate</strong> — was achieved, using three tables from the bank's product system.",
+    cs_sql_schema_title: "<i class=\"fas fa-sitemap\"></i> Product System Table Schema (PostgreSQL)",
+    cs_sql_schema_badge: "3 Core Tables",
+    cs_sql_schema_desc: "Simplified model of the three internal banking system tables used to measure digital channel adoption and the impact of the portal redesign:",
+    cs_sql_t1_desc: "Record of each product application submitted through the web portal.",
+    cs_sql_t2_desc: "User session on the public portal with device and campaign context.",
+    cs_sql_t3_desc: "Validation error log captured in portal forms during the application process.",
+    cs_sql_col_field: "Field",
+    cs_sql_col_type: "Type",
+    cs_sql_col_desc: "Description",
+    cs_sql_t1_f1: "Unique ID", cs_sql_t1_f2: "account / credit", cs_sql_t1_f3: "web / branch / app",
+    cs_sql_t1_f4: "started / submitted / approved", cs_sql_t1_f5: "UTC date & time", cs_sql_t1_f6: "Link to web session",
+    cs_sql_t2_f1: "Unique session ID", cs_sql_t2_f2: "mobile / desktop / tablet", cs_sql_t2_f3: "UTM campaign source",
+    cs_sql_t2_f4: "Portal entry page", cs_sql_t2_f5: "Start timestamp",
+    cs_sql_t3_f1: "Unique error ID", cs_sql_t3_f2: "Session where it occurred", cs_sql_t3_f3: "Field that caused the error",
+    cs_sql_t3_f4: "validation / blocking / timeout", cs_sql_t3_f5: "Error timestamp",
+    cs_sql_q1_title: "<i class=\"fas fa-percent\"></i> Query 1 — Conversion Rate of Applications by Product Type",
+    cs_sql_q1_kpi: "Canvas B5: +35% conversion",
+    cs_sql_q1_desc: "Measures the digital application conversion rate by banking product type (checking account vs. consumer credit), directly validating the +35% conversion KPI declared in <strong>MVP Canvas Block 5</strong> and the project executive summary. Links to Personas Camila and Roberto defined in <strong>Canvas Block 2</strong>.",
+    cs_sql_simulated_result: "🟢 Simulated result (sample):",
+    cs_sql_q1_r_col1: "product_type", cs_sql_q1_r_col2: "total_applications", cs_sql_q1_r_col3: "approved",
+    cs_sql_q1_r_col4: "conversion_rate_pct", cs_sql_q1_r_col5: "prev_month_rate_pct",
+    cs_sql_q1_insight: "Insight: +35% growth validated → checking account grew from 41.5% → 56.0% (+35%), consumer credit from 35.6% → 48.0% (+35%).",
+    cs_sql_q2_title: "<i class=\"fas fa-filter\"></i> Query 2 — Funnel Analysis: Session → CTA → Form → Approved",
+    cs_sql_q2_kpi: "Canvas B6: submit_application_success",
+    cs_sql_q2_desc: "Traces the full conversion funnel from portal session to application approval. Validates the <code>submit_application_success</code> event defined in <strong>Canvas Block 6</strong> and steps 3, 4, and 5 of the <strong>Journey (Canvas Block 3)</strong>: Application Intent → Form → Conversion.",
+    cs_sql_q2_r_col1: "Step", cs_sql_q2_r_col2: "Count", cs_sql_q2_r_col3: "% Step Conversion",
+    cs_sql_q2_step1: "Portal sessions", cs_sql_q2_step2: "Started application",
+    cs_sql_q2_step3: "Submitted form", cs_sql_q2_step4: "Application approved",
+    cs_sql_q3_title: "<i class=\"fas fa-chart-bar\"></i> Query 3 — Digital Channel vs. Branch: Before & After the Redesign",
+    cs_sql_q3_kpi: "Canvas B5: Operational Autonomy",
+    cs_sql_q3_desc: "Compares the volume and share of the digital channel versus the in-person channel (branch) before and after the portal redesign. Validates the \"Operational Autonomy\" KPI from <strong>Canvas Block 5</strong> and the impact of the TO-BE flow implemented in <strong>Tab 2</strong>.",
+    cs_sql_q3_r_canal: "channel_origin", cs_sql_q3_r_periodo: "period",
+    cs_sql_q3_r_total: "total_applications", cs_sql_q3_r_pct: "share_pct",
+    cs_sql_q3_antes: "Before Redesign", cs_sql_q3_despues: "After Redesign",
+    cs_sql_q3_insight: "Insight: Web channel surpassed branches post-redesign (28.7% → 50.8%), validating Operational Autonomy from Canvas B5.",
+    cs_sql_q4_title: "<i class=\"fas fa-exclamation-triangle\"></i> Query 4 — Blocking Form Errors Log by Week",
+    cs_sql_q4_kpi: "Canvas B5: 0 blocking defects",
+    cs_sql_q4_desc: "Monitors the weekly trend of blocking errors in portal forms, validating the \"Zero blocking defects in production\" KPI from <strong>Canvas Block 5</strong> and the effectiveness of <strong>Epic 3: Testing & Go-Live</strong> in the Roadmap (BIN-301 and BIN-302).",
+    cs_sql_q4_r_week: "week", cs_sql_q4_r_field: "form_field",
+    cs_sql_q4_r_errors: "total_errors", cs_sql_q4_r_pct: "pct_sessions_with_error",
+    cs_sql_q4_insight: "Insight: Downward trend to zero blocking errors confirmed in week 4 post-launch. Canvas B5 \"Zero blocking defects\" KPI validated.",
+
+    // --- Tab 4: Telemetry & Live Dashboard ---
+    cs_dash_title: "<i class=\"fas fa-chart-line\"></i> Digital Telemetry & Live Analytics Dashboard",
+    cs_dash_badge_ga4: "GA4 & GTM Auto-Tagging",
+    cs_dash_badge_clarity: "Microsoft Clarity UX",
+    cs_dash_intro: "Real-time telemetry integration for the redesigned public banking portal. The architecture combines automated DataLayer event tagging in Google Tag Manager (GTM), conversion measurement in Google Analytics 4 (GA4), and visual behavior analysis (heatmaps and recordings) in Microsoft Clarity, enabling real-time validation of MVP Canvas adoption hypotheses.",
+    cs_dash_gtm_title: "<i class=\"fas fa-tags\"></i> 1. DataLayer Event Architecture in Google Tag Manager",
+    cs_dash_gtm_badge: "No-Code Auto-Tagging",
+    cs_dash_gtm_desc: "Event schema automatically tagged in GTM without hardcode, implemented via the Auto-Tagging Business Rule defined in the TO-BE flow (Tab 2) to power MVP Canvas metrics (Tab 1):",
+    cs_dash_gtm_col_event: "GA4 Event",
+    cs_dash_gtm_col_trigger: "GTM Trigger",
+    cs_dash_gtm_col_datalayer: "DataLayer Parameters",
+    cs_dash_gtm_col_purpose: "Funnel Purpose",
+    cs_dash_clarity_title: "<i class=\"fas fa-eye\"></i> 2. User Experience Analysis & Heatmaps (Microsoft Clarity)",
+    cs_dash_clarity_badge: "Heatmaps & Session Recording",
+    cs_dash_clarity_desc: "Continuous user experience optimization across mobile and desktop devices through anonymized session recordings and interaction heatmaps in Microsoft Clarity:",
+    cs_dash_c1_title: "Clickmaps & Hotspots",
+    cs_dash_c1_text: "82% of mobile clicks are concentrated above the fold (main CTA and financial installment calculator), confirming the effectiveness of Puck CMS responsive layout.",
+    cs_dash_c2_title: "Scroll Depth (Scrollmaps)",
+    cs_dash_c2_text: "76% of users scroll down to the requirements and benefits block before initiating the application, validating component visual hierarchy.",
+    cs_dash_c3_title: "Zero Rage Clicks in Forms",
+    cs_dash_c3_text: "Rage clicks and dead clicks reduced to 0% on mobile after form simplification to 3 steps certified during QA Staging Sandbox phase.",
+    cs_dash_embed_title: "<i class=\"fas fa-desktop\"></i> 3. Live Executive Product Dashboard (Native UI)",
+    cs_dash_embed_badge: "Nexus Digital Bank Telemetry",
+    cs_dash_embed_desc: "The dashboard visualizes real-time public banking portal adoption, consolidating application volume, conversion rate by channel, and device performance:",
+    dash_bank_sub: "Product Analytics & Growth Engine",
+    dash_opt_post: "Post-Launch (Last 30 Days)",
+    dash_opt_compare: "Comparison (Before vs After)",
+    dash_opt_all: "All Products",
+    dash_opt_checking: "Checking Account",
+    dash_opt_credit: "Consumer Credit",
+    dash_live_status: "LIVE TELEMETRY",
+    dash_kpi1_title: "Digital Applications",
+    dash_kpi1_sub: "PostgreSQL (Tab 3)",
+    dash_kpi2_title: "Conversion Rate (CR)",
+    dash_kpi2_sub: "GA4 submit_success",
+    dash_kpi3_title: "Time-to-Publish SLA",
+    dash_kpi3_sub: "BPMN TO-BE (Tab 2)",
+    dash_kpi4_title: "Friction & Rage Clicks",
+    dash_kpi4_sub: "Microsoft Clarity UX",
+    dash_panel_funnel_title: "Digital Conversion Funnel (GA4 + GTM Auto-Tagging)",
+    dash_panel_channel_title: "Channel Comparison (SQL Tab 3 Data)",
+    dash_ch_legacy: "Before (Legacy)",
+    dash_ch_tobe: "After (Puck CMS)",
+    dash_branch: "Branch",
+    dash_web: "Web",
+    dash_device_title: "Device (GA4): Mobile vs Desktop",
+    cs_dash_expl_title: "<i class=\"fas fa-info-circle\"></i> Dashboard Interpretation & Case Study Coherence",
+    cs_dash_expl1_t: "No-Code Auto-Tagging in GTM",
+    cs_dash_expl1_d: "Every landing created in Puck CMS (Tab 2) automatically fires DataLayer events (page_view_public, click_apply_now, submit_application_success) to GA4 without developer intervention.",
+    cs_dash_expl2_t: "UX Experience Optimization in Clarity",
+    cs_dash_expl2_d: "Heatmaps confirm that 82% of interactions occur in the 1st fold. Reduction of rage clicks to 0.0% certifies the elimination of form friction on mobile.",
+    cs_dash_expl3_t: "SQL Cross-Validation (PostgreSQL)",
+    cs_dash_expl3_d: "GA4 conversion events are cross-referenced against SQL queries from the core banking database (Tab 3), auditing actual web vs branch adoption.",
+    cs_ai_title: "<i class=\"fas fa-robot\"></i> Accelerating the Product Lifecycle with Generative AI",
+    cs_ai_badge1: "Gemini 1.5 Pro & Rovo AI",
+    cs_ai_badge2: "NotebookLM Compliance",
+    cs_ai_intro: "Strategic integration of Generative AI tools into the daily workflow of Product Owners and Business Analysts. Adopting Gemini, Atlassian Rovo AI, NotebookLM, and Firebase AI eliminated repetitive tasks, accelerated functional specifications, and increased team delivery velocity without compromising banking regulatory rigor.",
+    cs_ai_c1_t: "<i class=\"fas fa-feather-alt\"></i> BDD User Stories & Prototyping (Gemini & Firebase AI)",
+    cs_ai_c1_d: "Transforming business requirements into structured BDD User Stories (Given-When-Then) in Jira, and accelerating HTML/CSS component styling for Puck CMS in Staging Sandbox.",
+    cs_ai_c2_t: "<i class=\"fas fa-sitemap\"></i> Assisted BPMN 2.0 Diagramming (Rovo AI)",
+    cs_ai_c2_d: "Automatic conversion of meeting minutes and requirements in Confluence to Mermaid / PlantUML code to render sequence diagrams and BPMN 2.0 flows in real time.",
+    cs_ai_c3_t: "<i class=\"fas fa-brain\"></i> Legal & Compliance Audit (NotebookLM)",
+    cs_ai_c3_d: "Accelerated ingestion of financial regulations from CMF/SBIF and internal bank policies. Allows auditing in minutes whether copy and legal disclaimers on landing pages comply with regulations.",
+    cs_ai_table_title: "<i class=\"fas fa-tachometer-alt\"></i> Productivity & Operational Efficiency Impact Matrix",
+    cs_ai_col_task: "Product / BA Activity",
+    cs_ai_col_trad: "Traditional Workflow (No AI)",
+    cs_ai_col_ai: "Accelerated Workflow with AI",
+    cs_ai_col_gain: "Efficiency Gain",
+    cs_ai_row1_task: "<i class=\"fas fa-feather-alt\" style=\"color:#a855f7;\"></i> BDD User Stories & Puck CMS Prototyping",
+    cs_ai_row1_trad: "45 min / story & 3 days frontend dev",
+    cs_ai_row1_ai: "10 min (Gemini BDD) & 2 hrs Sandbox (Firebase AI)",
+    cs_ai_row1_gain: "<span class=\"kpi-badge-success\">-77% to -95% Time</span>",
+    cs_ai_row2_task: "<i class=\"fas fa-sitemap\" style=\"color:#38bdf8;\"></i> BPMN 2.0 & Sequence Diagramming",
+    cs_ai_row2_trad: "4 hours manual Visio/Lucid editing",
+    cs_ai_row2_ai: "20 min (Rovo AI + Auto Mermaid code)",
+    cs_ai_row2_gain: "<span class=\"kpi-badge-success\">-91% Diagramming Time</span>",
+    cs_ai_row3_task: "<i class=\"fas fa-brain\" style=\"color:#34d399;\"></i> CMF Regulatory Audit / Legal Compliance",
+    cs_ai_row3_trad: "2 business days manual legal review",
+    cs_ai_row3_ai: "15 min (NotebookLM Ingestion & Q&A)",
+    cs_ai_row3_gain: "<span class=\"kpi-badge-success\">-98% Compliance Cycle</span>",
+    cs_ai_jira_title: "<i class=\"fab fa-jira\"></i> Real Example: Given-When-Then Acceptance Criteria Generation",
+    cs_ai_jira_desc: "Sample structured prompt and output generated by Gemini for a banking portal User Story:",
+    cs_ai_prompt_lbl: "<i class=\"fas fa-comment-alt\"></i> Input Prompt (PO / BA)",
+    cs_ai_prompt_txt: "\"Act as Senior Financial BA. Generate 3 BDD criteria (Given-When-Then) for the 'Digital Checking Account Opening' story on mobile when the user fails passcode validation.\"",
+    cs_ai_out_lbl: "<i class=\"fas fa-check-circle\"></i> Generated BDD Criteria (Jira Ready)",
+    cs_ai_out_code: "<span class=\"sql-keyword\">SCENARIO</span>: Passcode validation error\n<span class=\"sql-func\">GIVEN</span> user is on Step 2 of the form\n<span class=\"sql-func\">WHEN</span> enters an incorrect passcode for the 3rd time\n<span class=\"sql-keyword\">THEN</span> system triggers form_validation_error event\n<span class=\"sql-keyword\">AND</span> temporarily locks attempt showing help option",
+    dash_funnel_s1: "1. Page View (page_view_public)",
+    dash_funnel_s2: "2. Intent CTA Click (click_apply_now)",
+    dash_funnel_s3: "3. Form Fill Start (start_form_fill)",
+    dash_funnel_s4: "4. Submitted Application (submit_application_success)",
+    cs_ai_c1_badge: "-77% Time",
+    cs_ai_c2_badge: "-91% Time",
+    cs_ai_c3_badge: "-98% Time",
+
     // --- Projects Page Content ---
     projects_page_title: "Projects",
     projects_list: [
-        { id: "project-exchange-rate", title: "Exchange Rate Evolution", description: "Real-time tracking of USD, EUR, and GBP against the Chilean Peso.", link: "projects/exchange-rate-evolution.html", imageUrl: "assets/img/exchange-rate-cover.webp", buttonText: "View Project", tool: "powerbi" },
-        { id: "project-pokedex", title: "Interactive Pokédex", description: "An interactive dashboard with data from over 1,000 Pokémon.", link: "projects/pokedex-dashboard.html", imageUrl: "assets/img/pokedex-cover.webp", buttonText: "View Project", tool: "looker" },
-        { id: "project-unemployment", title: "Unemployment in America", description: "Analysis of unemployment trends across U.S. states and metro areas.", link: "projects/US-Unemployment.html", imageUrl: "assets/img/us-unemployment-cover.webp", buttonText: "View Project", tool: "looker" },
-        { id: "project-financial-inclusion", title: "Global Financial Inclusion", description: "Visualizing global trends in account ownership and borrowing behaviors.", link: "projects/global-financial-inclusion.html", imageUrl: "assets/img/global-financial-inclusion-cover.webp", buttonText: "View Project", tool: "looker" },
-        { id: "project-neo-tracker", title: "NEO Tracker", description: "Tracking Near-Earth Objects with NASA's API.", link: "projects/neo-tracker.webp", imageUrl: "assets/img/neo-tracker-cover.webp", buttonText: "View Project", tool: "powerbi" }
+        { id: "project-digital-banking", title: "Digital Product Redesign & Analytics", description: "End-to-end case study of a public banking portal redesign, featuring MVP Canvas, BPMN 2.0, PostgreSQL queries, and GA4 telemetry.", link: "projects/digital-banking-redesign.html", imageUrl: "assets/img/digital-banking-cover.webp", buttonText: "View Case Study", tool: "all", type: "case-study" },
+        { id: "project-exchange-rate", title: "Exchange Rate Evolution", description: "Real-time tracking of USD, EUR, and GBP against the Chilean Peso.", link: "projects/exchange-rate-evolution.html", imageUrl: "assets/img/exchange-rate-cover.webp", buttonText: "View Project", tool: "powerbi", type: "dashboard" },
+        { id: "project-pokedex", title: "Interactive Pokédex", description: "An interactive dashboard with data from over 1,000 Pokémon.", link: "projects/pokedex-dashboard.html", imageUrl: "assets/img/pokedex-cover.webp", buttonText: "View Project", tool: "looker", type: "dashboard" },
+        { id: "project-unemployment", title: "Unemployment in America", description: "Analysis of unemployment trends across U.S. states and metro areas.", link: "projects/US-Unemployment.html", imageUrl: "assets/img/us-unemployment-cover.webp", buttonText: "View Project", tool: "looker", type: "dashboard" },
+        { id: "project-financial-inclusion", title: "Global Financial Inclusion", description: "Visualizing global trends in account ownership and borrowing behaviors.", link: "projects/global-financial-inclusion.html", imageUrl: "assets/img/global-financial-inclusion-cover.webp", buttonText: "View Project", tool: "looker", type: "dashboard" },
+        { id: "project-neo-tracker", title: "NEO Tracker", description: "Tracking Near-Earth Objects with NASA's API.", link: "projects/neo-tracker.html", imageUrl: "assets/img/neo-tracker-cover.webp", buttonText: "View Project", tool: "powerbi", type: "dashboard" }
     ],
 
     // --- CASE STUDY DATA ---
@@ -490,6 +761,7 @@ const translations = {
     kpiReports: "Impacto Transversal",
     kpiAutomation: "Modelado & Analítica",
     filterAll: "Todos los Proyectos",
+    filterCaseStudy: "Casos de Estudio",
     filterPowerBI: "Power BI",
     filterLooker: "Looker Studio",
 
@@ -501,37 +773,42 @@ const translations = {
     btnDownloadCV: "Descargar CV",
 
     // --- Index Page Content ---
-    heroTitle: "Business & Data Analyst | Product Owner",
-    heroSubtitle: "Transformo datos complejos en decisiones estratégicas y productos escalables mediante analítica SQL, Power BI / Looker Studio, triadas ágiles (BPMN 2.0) e IA Generativa.",
+    heroTitle: "Data, BI & Business Analyst | Product Specialist",
+    heroSubtitle: "Conecto la analítica de datos (SQL, Power BI, Looker Studio), el modelado de negocios (BPMN 2.0, BDD), la gestión de productos digitales e IA Generativa para tomar decisiones estratégicas.",
     btnProjects: "Ver Proyectos",
     btnResume: "Ver CV",
     aboutTitle: "Sobre mí",
-    aboutContent: `<p>Soy <strong>Benjamín Espinoza</strong>, Ingeniero Civil Industrial especializado en <strong>Análisis de Datos e Inteligencia de Negocios</strong>, desempeñándome en el rol dual de <strong>Business Analyst (BA) y Product Owner (PO)</strong> en Banco Internacional. Mi fuerte radica en transformar datos complejos en decisiones estratégicas, diseñar la arquitectura de indicadores de rendimiento (KPIs) y conectar la visión del negocio con el desarrollo tecnológico.</p><p>A lo largo de mi carrera en el sector financiero, retail e industrial, he desarrollado más de 50 tableros de control ejecutivos y operativos. En Banco Internacional ejecuto consultas SQL avanzadas en <strong>PostgreSQL</strong>, construyo reportes en <strong>Looker Studio</strong> y Power BI, estructuro el MVP Canvas y User Story Maps en Jira/Confluence para triadas ágiles, lidero el rediseño del sitio web público (<strong>Puck CMS</strong>, GA4, GTM, Clarity) y realizo pruebas funcionales (QA).</p><p>Adicionalmente, soy pionero en la integración diaria de Inteligencia Artificial Generativa (<strong>Gemini, NotebookLM y Rovo AI</strong>) para optimizar la analítica, automatizar la documentación y acelerar la entrega de valor. Padre, aprendiz constante, apasionado de la música y la mejora continua.</p>`,
+    aboutContent: `<p>Soy <strong>Benjamín Espinoza</strong>, Ingeniero Civil Industrial especializado en <strong>Análisis de Datos, Inteligencia de Negocios, Análisis de Negocios y Estrategia de Productos Digitales</strong>. A lo largo de mi trayectoria profesional en el sector financiero (Banco Internacional), retail e industrial (Lucas Diesel, Heavenward Elevators), he construido un perfil versátil que equilibra cuatro disciplinas fundamentales: <strong>Data Analyst, BI Analyst, Business Analyst (BA) y Product Specialist (PO Target)</strong>.</p>
+
+<p>Mi fortaleza radica en transformar volúmenes de datos complejos en decisiones estratégicas y productos escalables: escribo consultas avanzadas en <strong>SQL</strong>, extraigo, modelo y transformo datos para la creación de dashboards, diseño la arquitectura de KPIs y construyo tableros interactivos ejecutivos y operacionales en <strong>Power BI, Looker Studio y Tableau</strong>.</p>
+
+<p>Al mismo tiempo, conecto la visión de negocio con la ejecución tecnológica liderando el descubrimiento y especificación funcional en triadas ágiles (PO, Tech Lead, BA): redacto historias BDD (<em>Given-When-Then</em>) en Jira/Confluence, modelo flujos operacionales levantando procesos en <strong>BPMN 2.0</strong>, audito cumplimiento normativo CMF y mido la conversión con <strong>GA4, GTM y Microsoft Clarity</strong>. Adicionalmente, soy pionero en la integración diaria de <strong>IA Generativa (Gemini, NotebookLM, Rovo AI)</strong> para acelerar la entrega de valor.</p>`,
     impactTitle: "Cómo He Generado Impacto",
     impacts: [{
-      icon: "fa-users-gear",
-      title: "Triadas Ágiles & Entregables de Producto",
-      text: "Facilité la alineación negocio-tecnología en triadas ágiles (PO, Tech Lead, BA), creando MVP Canvas, User Story Maps y certificaciones de QA funcional."
-    }, {
-      icon: "fa-globe",
-      title: "Rediseño de Sitio Público & Analítica Web",
-      text: "Lideré el equipo del rediseño del sitio web público de Banco Internacional con administración en Puck CMS y monitoreo de GA4, GTM y Microsoft Clarity."
-    }, {
-      icon: "fa-project-diagram",
-      title: "Optimización de Procesos (BPMN 2.0 & IA)",
-      text: "Modelé flujos operacionales con BPMN 2.0 e impulsé la diagramación y documentación asistida por IA usando Rovo AI, Gemini y NotebookLM."
+      icon: "fa-database",
+      title: "Analítica de Datos & Consultas SQL",
+      text: "Extracción, modelado y transformación de datos ejecutando consultas SQL avanzadas para la toma de decisiones estratégicas."
     }, {
       icon: "fa-chart-pie",
-      title: "Analítica de Datos & Consultas SQL",
-      text: "Extraje insights ejecutando consultas SQL complejas en PostgreSQL y construyendo tableros en Looker Studio y Power BI para la toma de decisiones."
+      title: "Tableros BI & Reportabilidad Ejecutiva",
+      text: "Construcción de tableros interactivos ejecutivos y operacionales en Power BI, Looker Studio y Tableau con arquitectura de KPIs."
+    }, {
+      icon: "fa-project-diagram",
+      title: "Levantamiento de Procesos & Requerimientos BA",
+      text: "Levantamiento y modelado de procesos en BPMN 2.0, redacción de Historias de Usuario BDD en Jira/Confluence y cumplimiento normativo."
+    }, {
+      icon: "fa-bullseye",
+      title: "Estrategia de Producto & Triadas Ágiles",
+      text: "Alineación negocio-tecnología en triadas ágiles (PO, Tech Lead, BA), definición de MVP Canvas, gestión Puck CMS y analítica GA4/Clarity."
     }],
     projectsTitle: "Proyectos Destacados",
     projects: [
-        { title: "Evolución del Tipo de Cambio", description: "Un dashboard en Power BI que monitorea las principales divisas frente al CLP, actualizado automáticamente vía API del Banco Central.", imageUrl: "assets/img/exchange-rate-cover.webp", link: "projects/exchange-rate-evolution.html", buttonText: "Ver Proyecto", tool: "powerbi" },
-        { title: "Pokédex Interactiva", description: "Una Pokédex Nacional de 1,025 Pokémon construida conectándose a la PokéAPI con Apps Script.", imageUrl: "assets/img/pokedex-cover.webp", link: "projects/pokedex-dashboard.html", buttonText: "Ver Proyecto", tool: "looker" },
-        { title: "Análisis de Desempleo en EE.UU.", description: "Explora tendencias de desempleo en EE.UU. a nivel estatal y metropolitano mediante dashboards interactivos.", imageUrl: "assets/img/us-unemployment-cover.webp", link: "projects/US-Unemployment.html", buttonText: "Ver Proyecto", tool: "looker" },
-        { title: "Inclusión Financiera Global", description: "Visualiza tendencias globales de titularidad de cuentas y comportamiento de crédito por región, ingreso y demografía.", imageUrl: "assets/img/global-financial-inclusion-cover.webp", link: "projects/global-financial-inclusion.html", buttonText: "Ver Proyecto", tool: "looker" },
-        { title: "NEO Tracker", description: "Un dashboard automatizado que se conecta a la API de la NASA para rastrear Objetos Cercanos a la Tierra de los últimos 7 días.", imageUrl: "assets/img/neo-tracker-cover.webp", link: "projects/neo-tracker.html", buttonText: "Ver Proyecto", tool: "powerbi" }
+        { id: "project-digital-banking", title: "Rediseño Digital & Analítica de Producto", description: "Caso de estudio de extremo a extremo de rediseño de portal bancario público con MVP Canvas, BPMN 2.0, SQL en PostgreSQL y GA4.", imageUrl: "assets/img/digital-banking-cover.webp", link: "projects/digital-banking-redesign.html", buttonText: "Ver Caso de Estudio", tool: "all", type: "case-study" },
+        { id: "project-exchange-rate", title: "Evolución del Tipo de Cambio", description: "Un dashboard en Power BI que monitorea las principales divisas frente al CLP, actualizado automáticamente vía API del Banco Central.", imageUrl: "assets/img/exchange-rate-cover.webp", link: "projects/exchange-rate-evolution.html", buttonText: "Ver Proyecto", tool: "powerbi", type: "dashboard" },
+        { id: "project-pokedex", title: "Pokédex Interactiva", description: "Una Pokédex Nacional de 1,025 Pokémon construida conectándose a la PokéAPI con Apps Script.", imageUrl: "assets/img/pokedex-cover.webp", link: "projects/pokedex-dashboard.html", buttonText: "Ver Proyecto", tool: "looker", type: "dashboard" },
+        { id: "project-unemployment", title: "Análisis de Desempleo en EE.UU.", description: "Explora tendencias de desempleo en EE.UU. a nivel estatal y metropolitano mediante dashboards interactivos.", imageUrl: "assets/img/us-unemployment-cover.webp", link: "projects/US-Unemployment.html", buttonText: "Ver Proyecto", tool: "looker", type: "dashboard" },
+        { id: "project-financial-inclusion", title: "Inclusión Financiera Global", description: "Visualiza tendencias globales de titularidad de cuentas y comportamiento de crédito por región, ingreso y demografía.", imageUrl: "assets/img/global-financial-inclusion-cover.webp", link: "projects/global-financial-inclusion.html", buttonText: "Ver Proyecto", tool: "looker", type: "dashboard" },
+        { id: "project-neo-tracker", title: "NEO Tracker", description: "Un dashboard automatizado que se conecta a la API de la NASA para rastrear Objetos Cercanos a la Tierra de los últimos 7 días.", imageUrl: "assets/img/neo-tracker-cover.webp", link: "projects/neo-tracker.html", buttonText: "Ver Proyecto", tool: "powerbi", type: "dashboard" }
     ],
     viewAllBtn: "Ver Todos los Proyectos",
     
@@ -587,7 +864,7 @@ const translations = {
           "PostgreSQL & Consultas SQL",
           "Jira & Confluence (Rovo AI)",
           "Gemini & NotebookLM (GenAI)",
-          "Puck CMS & Publicación Web",
+          "Strapi 5 & Puck CMS (React)",
           "Analítica Web (GA4 / GTM / Clarity)",
           "Figma & Colaboración UX",
           "Power Query & DAX"
@@ -605,14 +882,280 @@ const translations = {
     cv_interests_items: [ { name: "Correr", icon: "fa-solid fa-person-running" }, { name: "Fútbol", icon: "fa-solid fa-futbol" }, { name: "Videojuegos", icon: "fa-solid fa-gamepad" }, { name: "Tenis", icon: "fa-solid fa-baseball" }, { name: "Guitarra", icon: "fa-solid fa-guitar" }, { name: "Dibujo", icon: "fa-solid fa-pencil-alt" }, { name: "Festivales", icon: "fa-solid fa-music" } ],
     cv_certifications_items: [ { name: "Qlik Sense Diseñador", url: "assets/certificates/Certificacion Qlik.pdf" }, { name: "Google Tag Manager (Básico)", url: "assets/certificates/Conceptos básicos de Google Tag Manager.pdf" }, { name: "Inglés B2 – Linguaskill", url: "assets/certificates/Linguaskill Cambridge.pdf" }, { name: "Certificación SQL", url: "assets/certificates/SQL.pdf" }, { name: "Certificación SSIS", url: "assets/certificates/SSIS.pdf" }, { name: "Tableau & Tableau Prep", url: "assets/certificates/Tableau.pdf" }, { name: "User Stories Certificate", url: "assets/certificates/User Stories Certiprof.pdf" } ],
 
+    // --- CASE STUDY DIGITAL BANKING ---
+    cs_hero_title: "Rediseño Digital & Analítica de Producto: Banca Pública",
+    cs_hero_subtitle: "Transformación de extremo a extremo de la plataforma pública bancaria. Integración de gestión de producto ágil (MVP Canvas & User Stories), modelamiento de procesos BPMN 2.0, arquitectura de datos en PostgreSQL, administración con Strapi 5 + Puck CMS y analítica digital avanzada (GA4 / Clarity).",
+    cs_sum1_title: "El Desafío de Negocio",
+    cs_sum1_desc: "El portal web público legacy presentaba altas tasas de abandono en solicitudes de productos (cuentas/créditos), rigidez operativa para publicar campañas comerciales y falta de telemetría de eventos de usuario.",
+    cs_sum2_title: "La Solución de Producto",
+    cs_sum2_desc: "Liderazgo de triada ágil para migrar a un frontend visual No-Code con Puck CMS conectado a Strapi 5 (Headless CMS), maquetación apoyada en IA (Firebase), pruebas QA funcionales en Staging y etiquetado GTM completo.",
+    cs_sum3_title: "Impacto Cuantitativo",
+    cs_sum3_desc: "+35% en conversión de solicitudes digitales, reducción de tiempo de publicación web de semanas a minutos y 100% de calidad probada previo a despliegue productivo.",
+    cs_tab_po: "1. Estrategia PO (MVP & Stories)",
+    cs_tab_bpmn: "2. Procesos BPMN 2.0",
+    cs_tab_sql: "3. Arquitectura SQL (PostgreSQL)",
+    cs_tab_dashboard: "4. Telemetría & Dashboard",
+    cs_tab_genai: "5. Aceleración con GenAI",
+    cs_mvp_title: "MVP Canvas Oficial (Estándar de 7 Bloques)",
+    cs_mvp_subtitle: "Estructura oficial del MVP Canvas para validar las hipótesis de negocio, definir los viajes de usuario, las funcionalidades mínimas y el cronograma de ejecución:",
+    cs_mvp_b1_title: "Propuesta de MVP",
+    cs_mvp_b1_text: "Rediseño de la plataforma web pública bancaria implementando arquitectura desacoplada Strapi 5 (Headless CMS) + Puck CMS React, maquetación asistida por IA (Firebase) y telemetría en tiempo real (GA4 / Clarity), permitiendo publicar landing pages comerciales en minutos con 100% de calidad aprobada en QA.",
+    cs_mvp_b2_title: "Personas Segmentadas",
+    cs_mvp_b2_text: "<ul><li><strong>Persona 1 (Camila / 32 yrs):</strong> Busca apertura de cuenta corriente y evaluación de crédito de consumo 100% digital desde smartphone.</li><li><strong>Persona 2 (Roberto / 45 yrs):</strong> Requiere financiamiento comercial e información de inversión corporativa clara y ágil.</li><li><strong>Persona 3 (Equipo de Marketing & Comercial):</strong> Dueños de producto y campaña que necesitan autonomía para lanzar landing pages sin depender del backlog dev.</li></ul>",
+    cs_mvp_b3_title: "Viajes de Usuario",
+    cs_mvp_b3_text: "<ul><li><strong>1. Descubrimiento:</strong> Usuario ingresa a landing pública desde campaña digital o búsqueda orgánica.</li><li><strong>2. Navegación Intuitiva y Fluida:</strong> Interacción sencilla en componentes responsive y simuladores financieros.</li><li><strong>3. Intención de Solicitud:</strong> Clic en CTA principal (<code>click_apply_now</code>) capturado en GTM.</li><li><strong>4. Formulario & QA:</strong> Llenado optimizado en 3 pasos con validaciones funcionales certificadas.</li><li><strong>5. Conversión:</strong> Confirmación de solicitud exitosa registrada en GA4 y dashboard en vivo.</li></ul>",
+    cs_mvp_b4_title: "Funcionalidades",
+    cs_mvp_b4_text: "<ul><li>Editor visual Drag-and-Drop No-Code (Puck CMS) conectado a Strapi 5 (Headless CMS).</li><li>Maquetación rápida apoyada en IA Generativa (Firebase / Gemini).</li><li>Etiquetado automático de eventos en Google Tag Manager (GTM) y GA4.</li><li>Mapas de calor y grabación de sesiones anonimizadas (Microsoft Clarity).</li><li>Matriz de Pruebas Funcionales QA en ambiente Staging previo a producción.</li></ul>",
+    cs_mvp_b5_title: "Resultado Esperado",
+    cs_mvp_b5_text: "<ul><li><strong>+35% de incremento</strong> en la tasa de conversión de solicitudes de productos digitales.</li><li><strong>Reducción de Time-to-Market:</strong> Tiempo de publicación web reducido de 2 semanas a solo 15 minutos.</li><li><strong>Cero defectos bloqueantes:</strong> Garantía del 100% de calidad en producción mediante certificación QA en Staging.</li><li><strong>Autonomía Operativa:</strong> Capacidad total del equipo de producto/marketing para lanzar campañas comerciales.</li></ul>",
+    cs_mvp_b6_title: "Métricas para Validar Hipótesis",
+    cs_mvp_b6_text: "<ul><li><strong>Conversion Rate (CR):</strong> <code>% de sesiones que completan la solicitud (submit_application_success)</code>.</li><li><strong>Time-to-Publish (TTP):</strong> <code>Minutos requeridos para crear y publicar una landing en Strapi 5 / Puck CMS</code>.</li><li><strong>Bounce Rate Mobile:</strong> <code>Tasa de rebote en móviles monitoreada con Clarity</code>.</li><li><strong>Feature Adoption:</strong> <code>% de interacción con simuladores y CTAs principales</code>.</li></ul>",
+    cs_mvp_b7_title: "Costo y Cronograma",
+    cs_mvp_b7_text: "<ul><li><strong>Cronograma:</strong> 6 Sprints ágiles de 2 semanas (12 semanas totales) operando en triada (PO, Tech Lead, BA + Developers).</li><li><strong>Costo Operativo:</strong> Optimizado reutilizando la suite existente del banco (GCP / Google Cloud Suite: GA4, GTM, Looker Studio, Firebase; Jira, Confluence, Strapi 5).</li></ul>",
+    cs_usm_matrix_title: "User Story Map: Matriz Visual de Producto",
+    cs_usm_matrix_desc: "Mapa de viaje del producto estructurado en 4 Actividades Estratégicas (Backbone) con sus tareas y pasos de flujo (Steps) ordenados verticalmente:",
+    cs_usm_act1: "<i class=\"fas fa-paint-brush\"></i> 1. Diseño UX & Prototipado",
+    cs_usm_st11: "Maquetación de componentes en Firebase.",
+    cs_usm_st12: "Creación de la maqueta funcional del nuevo sitio.",
+    cs_usm_st13: "Diseño de formato Mobile y Responsive.",
+    cs_usm_st14: "Diseño de herramientas de accesibilidad (WCAG).",
+    cs_usm_st15: "Levantamiento de imágenes y contenido para salida a producción.",
+    cs_usm_act2: "<i class=\"fas fa-code\"></i> 2. Arquitectura Puck & Strapi 5",
+    cs_usm_st21: "Desarrollo duro de componentes visuales en Puck CMS.",
+    cs_usm_st22: "Implementación de Puck y conexión API con Strapi 5 (Headless CMS).",
+    cs_usm_st23: "Creación de páginas precargadas en Puck para salida ágil.",
+    cs_usm_st24: "Implementación de telemetría: GA4, Google Tag Manager y Clarity.",
+    cs_usm_act3: "<i class=\"fas fa-vial\"></i> 3. Pruebas & Pase a Producción",
+    cs_usm_st31: "Ejecución de Matriz de Pruebas Funcionales QA en Staging.",
+    cs_usm_st32: "Validación de formularios y prevención de errores bloqueantes.",
+    cs_usm_st33: "Firma de acta de certificación QA y despliegue a Producción.",
+    cs_usm_act4: "<i class=\"fas fa-sliders-h\"></i> 4. Operación Continua Puck",
+    cs_usm_st41: "Creación y modificación de páginas a través del administrador Puck.",
+    cs_usm_st42: "Creación de perfiles y permisos para usuarios estratégicos (Marketing/Comercial).",
+    cs_usm_st43: "Tagueo de métricas clave y eventos de campaña en GTM.",
+    cs_usm_title: "Backlog Priorizado del Producto (Jira / Confluence)",
+    cs_usm_desc: "Historias de Usuario del Backlog priorizadas por Épicas, con estimación en Puntos de Historia (Story Points), priorización MoSCoW y Criterios de Aceptación BDD (Given-When-Then):",
+    cs_usm_b101_desc: "<strong>Como UX Designer</strong>, quiero maquetar los componentes visuales en Firebase y validar el prototipo funcional responsive antes del desarrollo.",
+    cs_usm_b101_ac: "<strong>Criterios de Aceptación (BDD):</strong><br>• <i>Given:</i> Requerimientos de producto definidos.<br>• <i>When:</i> Se arma el prototipo funcional en Firebase.<br>• <i>Then:</i> La triada aprueba la maquetación responsive.",
+    cs_usm_b102_desc: "<strong>Como PO</strong>, quiero asegurar herramientas de accesibilidad (WCAG) y el levantamiento de contenido inicial para salida a producción.",
+    cs_usm_b102_ac: "<strong>Criterios de Aceptación (BDD):</strong><br>• <i>Given:</i> Componentes UI maquetados.<br>• <i>When:</i> Se aplican contrastes e imágenes finales.<br>• <i>Then:</i> Se cumple la norma de accesibilidad WCAG AA.",
+    cs_usm_b201_desc: "<strong>Como Lead Developer</strong>, quiero desarrollar los componentes visuales en Puck CMS y conectarlos por API a Strapi 5 para publicar páginas en minutos.",
+    cs_usm_b201_ac: "<strong>Criterios de Aceptación (BDD):</strong><br>• <i>Given:</i> Usuario autenticado en editor Puck CMS.<br>• <i>When:</i> Publica bloques de contenido visual.<br>• <i>Then:</i> API Strapi 5 actualiza producción en < 15 min.",
+    cs_usm_b202_desc: "<strong>Como Business Analyst</strong>, quiero implementar la telemetría (GA4, GTM, Clarity) para registrar conversiones y mapas de calor.",
+    cs_usm_b202_ac: "<strong>Criterios de Aceptación (BDD):</strong><br>• <i>Given:</i> Tag global GTM instalado.<br>• <i>When:</i> El usuario interactúa con simuladores/CTAs.<br>• <i>Then:</i> GA4 registra conversiones y Clarity captura mapas.",
+    cs_usm_b301_desc: "<strong>Como Business Analyst</strong>, quiero ejecutar la matriz de Pruebas Funcionales QA en Staging para prevenir errores bloqueantes.",
+    cs_usm_b301_ac: "<strong>Criterios de Aceptación (BDD):</strong><br>• <i>Given:</i> Landing publicada en Staging.<br>• <i>When:</i> Se ejecuta 100% de matriz de casos de prueba.<br>• <i>Then:</i> Certificación funcional aprobada sin incidencias.",
+    cs_usm_b302_desc: "<strong>Como PO</strong>, quiero contar con la firma digital del acta QA para autorizar el pase automático a Producción.",
+    cs_usm_b302_ac: "<strong>Criterios de Aceptación (BDD):</strong><br>• <i>Given:</i> Matriz QA aprobada en Staging.<br>• <i>When:</i> Se firma el acta de pase a producción.<br>• <i>Then:</i> Pipeline desata el despliegue productivo.",
+    cs_usm_b401_desc: "<strong>Como Product Owner</strong>, quiero administrar Puck CMS y gestionar perfiles/permisos para otorgar autonomía al equipo comercial.",
+    cs_usm_b401_ac: "<strong>Criterios de Aceptación (BDD):</strong><br>• <i>Given:</i> Usuario de marketing requiere crear campana.<br>• <i>When:</i> Se asigna rol Editor Comercial en Puck.<br>• <i>Then:</i> Puede crear/editar páginas con total autonomía.",
+    cs_usm_b402_desc: "<strong>Como Business Analyst</strong>, quiero taguear métricas clave y eventos de campañas promocionales en GTM de forma ágil.",
+    cs_usm_b402_ac: "<strong>Criterios de Aceptación (BDD):</strong><br>• <i>Given:</i> Nueva campaña creada en Puck.<br>• <i>When:</i> Se define la métrica principal.<br>• <i>Then:</i> Trigger GTM registrado y midiendo conversiones.",
+    cs_roadmap_title: "<i class=\"fas fa-map-signs\"></i> Roadmap Estratégico del Producto (Quarterly Timeline - 6 Sprints)",
+    cs_roadmap_tag: "<i class=\"fas fa-calendar-alt\"></i> Cronograma de 12 Semanas (Triada Ágil)",
+    cs_roadmap_desc: "Cronograma visual de entregas secuenciales organizado por Épicas del Backlog, Sprints y Tiempos Estimados para el rediseño del portal público bancario (5 Páginas del MVP):",
+    cs_rm_col_epics: "<i class=\"fas fa-layer-group\"></i> Épicas del Backlog",
+    cs_rm_col_m1: "<i class=\"fas fa-clock\"></i> Mes 1: Sprints 1-2<br><span style=\"font-size:0.72rem; color:#94a3b8;\">(Semanas 1 a 4)</span>",
+    cs_rm_col_m2: "<i class=\"fas fa-clock\"></i> Mes 2: Sprints 3-4<br><span style=\"font-size:0.72rem; color:#94a3b8;\">(Semanas 5 a 8)</span>",
+    cs_rm_col_m3: "<i class=\"fas fa-clock\"></i> Mes 3: Sprints 5-6<br><span style=\"font-size:0.72rem; color:#94a3b8;\">(Semanas 9 a 12)</span>",
+    cs_rm_e1_title: "<i class=\"fas fa-paint-brush\"></i> Épica 1: UX & Prototipado",
+    cs_rm_e1_sub: "Firebase & Maquetación (8 SP)",
+    cs_rm_e1_b1: "BIN-101: Maquetación Firebase & Prototipo Funcional (5 SP)",
+    cs_rm_e1_b2: "BIN-102: Accesibilidad WCAG AA & Contenido Inicial (3 SP)",
+    cs_rm_e1_time: "<i class=\"fas fa-clock\"></i> Tiempo Estimado: Semanas 1 a 4",
+    cs_rm_e2_title: "<i class=\"fas fa-code\"></i> Épica 2: Puck & Strapi 5",
+    cs_rm_e2_sub: "CMS & Telemetría Core (16 SP)",
+    cs_rm_e2_b1: "BIN-201: Componentes Puck CMS & API Strapi 5 (11 SP)",
+    cs_rm_e2_b2: "BIN-202: Telemetría (GA4, GTM & Clarity) (5 SP)",
+    cs_rm_e2_time1: "<i class=\"fas fa-clock\"></i> Tiempo Estimado: Semanas 3 a 8",
+    cs_rm_e3_title: "<i class=\"fas fa-vial\"></i> Épica 3: Pruebas & Pase Prod",
+    cs_rm_e3_sub: "Calidad QA & Despliegue (8 SP)",
+    cs_rm_e3_b1: "BIN-301: Matriz Pruebas Funcionales QA Staging (5 SP)",
+    cs_rm_e3_b2: "BIN-302: Firma Acta Certificación QA & Go-Live (3 SP)",
+    cs_rm_e3_time: "<i class=\"fas fa-clock\"></i> Tiempo Estimado: Semanas 9 a 10",
+    cs_rm_e4_title: "<i class=\"fas fa-sliders-h\"></i> Épica 4: Operación Continua",
+    cs_rm_e4_sub: "Autonomía Comercial (8 SP)",
+    cs_rm_e4_b1: "BIN-401: Administración Puck & Roles Comercial (5 SP)",
+    cs_rm_e4_b2: "BIN-402: Tagueo Métricas de Campaña GTM (3 SP)",
+    cs_rm_e4_time: "<i class=\"fas fa-clock\"></i> Tiempo Estimado: Semanas 11 a 12",
+    btnBackProjects: "Volver a Proyectos",
+    accExpandAll: "Expandir Todas las Tarjetas",
+    accCollapseAll: "Contraer Todas las Tarjetas",
+    cs_scroll_hint: "<i class=\"fas fa-arrows-left-right\"></i> Desliza horizontalmente para ver el cronograma completo de 12 semanas",
+    cs_flagship_badge: "Caso de Estudio Insignia",
+    cs_mvp_standardized_badge: "Matriz Estandarizada de 7 Bloques",
+
+    cs_bpmn_summary_title: "<i class=\"fas fa-tachometer-alt\"></i> Ficha de Reingeniería & Matriz Comparativa de KPIs (AS-IS vs. TO-BE)",
+    cs_bpmn_summary_desc: "Resumen ejecutivo del impacto directo de la reingeniería de procesos en el ciclo de publicación del portal público bancario (5 Páginas del MVP):",
+    cs_bpmn_asis_title: "<i class=\"fas fa-exclamation-triangle\"></i> Proceso Actual (AS-IS): Cuello de Botella en Desarrollo TI",
+    cs_bpmn_asis_desc: "Modelamiento en estándar BPMN 2.0 del flujo tradicional. Los cambios de landing pages dependen 100% de la capacidad de desarrollo duro y ventanas nocturnas de mantenimiento:",
+    cs_bpmn_tobe_title: "<i class=\"fas fa-rocket\"></i> Proceso Propuesto (TO-BE): Autonomía Comercial No-Code con Puck CMS",
+    cs_bpmn_tobe_desc: "Modelamiento en estándar BPMN 2.0 del flujo optimizado. El Editor Comercial compone landings visualmente en minutos y el Product Owner aprueba en Staging Sandbox previo a la sincronización instantánea:",
+    cs_bpmn_gov_title: "<i class=\"fas fa-shield-alt\"></i> Matriz de Gobernanza, Roles RBAC & Reglas de Negocio BPMN",
+    cs_bpmn_gov_desc: "Definición formal de perfiles de acceso (Role-Based Access Control) y políticas de validación para operar el nuevo modelo de procesos sin comprometer la seguridad bancaria:",
+    cs_bpmn_asis_sla: "SLA: 14 a 21 Días Hábiles",
+    cs_bpmn_tobe_sla: "SLA: 15 Minutos",
+    cs_bpmn_scroll_hint: "Desliza horizontalmente para navegar el diagrama BPMN 2.0 en tamaño completo",
+    cs_bpmn_gov_change_ctrl: "Control de Cambios",
+    cs_bpmn_gov_rbac_title: "1. Matriz de Permisos RBAC en Puck Admin & Strapi 5",
+    cs_bpmn_gov_rbac_r1: "<strong>Editor Comercial (Marketing / Producto):</strong> Permiso de creación y modificación visual de textos, imágenes y banners únicamente sobre los componentes precargados en las 5 páginas del MVP. Sin acceso a modificar código duro ni infraestructura.",
+    cs_bpmn_gov_rbac_r2: "<strong>Product Owner / QA Certifier:</strong> Permiso exclusivo de aprobación final del Gate de Staging Sandbox y ejecución del pase a producción en 1-Click.",
+    cs_bpmn_gov_rbac_r3: "<strong>Lead Developer / TI:</strong> Administración de componentes React base en Puck, definición de esquemas de datos en Strapi 5 y mantenimiento del pipeline CI/CD.",
+    cs_bpmn_gov_rules_title: "2. Reglas de Negocio del Proceso BPMN 2.0",
+    cs_bpmn_gov_rule1: "<strong>Regla 1 (Quality Gate Obligatorio):</strong> Ninguna campaña o modificación puede pasar a producción sin previa vista previa y aprobación explícita en el ambiente Sandbox Staging.",
+    cs_bpmn_gov_rule2: "<strong>Regla 2 (Auto-Tagueo de Analítica):</strong> Toda nueva landing o botón publicado vía Puck CMS aplica automáticamente las etiquetas DataLayer en GTM para seguimiento de conversiones en GA4 y mapas de calor en Clarity sin requerir tagueo manual.",
+
+    // --- Tab 3: Arquitectura SQL ---
+    cs_sql_title: "<i class=\"fas fa-database\"></i> Arquitectura de Datos & Consultas SQL en PostgreSQL",
+    cs_sql_badge_pg: "PostgreSQL",
+    cs_sql_badge_link: "Valida Canvas B5 & B6",
+    cs_sql_intro: "El proceso redise\u00f1ado (Tab 2) genera solicitudes de productos digitales que quedan registradas en la base de datos interna del banco en PostgreSQL. Las siguientes consultas validan si el KPI declarado en el MVP Canvas \u2014<strong style=\"color:#00e676;\">+35% de conversi\u00f3n de solicitudes digitales</strong>\u2014 se cumpli\u00f3, utilizando tres tablas del sistema de productos bancario.",
+    cs_sql_schema_title: "<i class=\"fas fa-sitemap\"></i> Esquema de Tablas del Sistema de Productos (PostgreSQL)",
+    cs_sql_schema_badge: "3 Tablas Core",
+    cs_sql_schema_desc: "Modelo simplificado de las tres tablas del sistema bancario interno utilizadas para medir la adopci\u00f3n del canal digital y el impacto del redise\u00f1o del portal:",
+    cs_sql_t1_desc: "Registro de cada solicitud de producto enviada desde el portal web.",
+    cs_sql_t2_desc: "Sesi\u00f3n de usuario en el portal p\u00fablico con su contexto de dispositivo y campa\u00f1a.",
+    cs_sql_t3_desc: "Log de errores de validaci\u00f3n capturados en los formularios del portal durante el proceso de solicitud.",
+    cs_sql_col_field: "Campo",
+    cs_sql_col_type: "Tipo",
+    cs_sql_col_desc: "Descripci\u00f3n",
+    cs_sql_t1_f1: "ID \u00fanico", cs_sql_t1_f2: "cuenta / cr\u00e9dito", cs_sql_t1_f3: "web / sucursal / app",
+    cs_sql_t1_f4: "iniciada / enviada / aprobada", cs_sql_t1_f5: "Fecha y hora UTC", cs_sql_t1_f6: "Enlace a sesi\u00f3n web",
+    cs_sql_t2_f1: "ID \u00fanico de sesi\u00f3n", cs_sql_t2_f2: "mobile / desktop / tablet", cs_sql_t2_f3: "Fuente de campa\u00f1a UTM",
+    cs_sql_t2_f4: "P\u00e1gina de entrada al portal", cs_sql_t2_f5: "Timestamp de inicio",
+    cs_sql_t3_f1: "ID \u00fanico de error", cs_sql_t3_f2: "Sesi\u00f3n donde ocurri\u00f3", cs_sql_t3_f3: "Campo que gener\u00f3 el error",
+    cs_sql_t3_f4: "validaci\u00f3n / bloqueante / timeout", cs_sql_t3_f5: "Timestamp del error",
+    cs_sql_q1_title: "<i class=\"fas fa-percent\"></i> Query 1 \u2014 Tasa de Conversi\u00f3n de Solicitudes por Tipo de Producto",
+    cs_sql_q1_kpi: "Canvas B5: +35% conversi\u00f3n",
+    cs_sql_q1_desc: "Mide la tasa de conversi\u00f3n de solicitudes digitales por tipo de producto bancario (cuenta corriente vs. cr\u00e9dito de consumo), validando directamente el KPI de +35% de conversi\u00f3n declarado en el <strong>MVP Canvas Bloque 5</strong> y en el resumen ejecutivo del proyecto. Conecta con las Personas Camila y Roberto definidas en el <strong>Canvas Bloque 2</strong>.",
+    cs_sql_simulated_result: "\uD83D\uDFE2 Resultado simulado (muestra):",
+    cs_sql_q1_r_col1: "tipo_producto", cs_sql_q1_r_col2: "total_solicitudes", cs_sql_q1_r_col3: "aprobadas",
+    cs_sql_q1_r_col4: "tasa_conversion_pct", cs_sql_q1_r_col5: "tasa_mes_anterior_pct",
+    cs_sql_q1_insight: "Insight: +35% de incremento validado \u2192 cuenta corriente creci\u00f3 de 41.5% \u2192 56.0% (+35%), cr\u00e9dito de consumo de 35.6% \u2192 48.0% (+35%).",
+    cs_sql_q2_title: "<i class=\"fas fa-filter\"></i> Query 2 \u2014 An\u00e1lisis de Embudo: Sesi\u00f3n \u2192 CTA \u2192 Formulario \u2192 Aprobada",
+    cs_sql_q2_kpi: "Canvas B6: submit_application_success",
+    cs_sql_q2_desc: "Traza el embudo de conversi\u00f3n de extremo a extremo, desde la sesi\u00f3n en el portal hasta la aprobaci\u00f3n de la solicitud. Valida el evento <code>submit_application_success</code> definido en el <strong>Canvas Bloque 6</strong> y los pasos 3, 4 y 5 del <strong>Journey (Canvas Bloque 3)</strong>: Intenci\u00f3n de Solicitud \u2192 Formulario \u2192 Conversi\u00f3n.",
+    cs_sql_q2_r_col1: "Paso", cs_sql_q2_r_col2: "Cantidad", cs_sql_q2_r_col3: "% Conversi\u00f3n del paso",
+    cs_sql_q2_step1: "Sesiones en portal", cs_sql_q2_step2: "Iniciaron solicitud",
+    cs_sql_q2_step3: "Enviaron formulario", cs_sql_q2_step4: "Solicitud aprobada",
+    cs_sql_q3_title: "<i class=\"fas fa-chart-bar\"></i> Query 3 \u2014 Canal Digital vs. Sucursal: Antes y Despu\u00e9s del Redise\u00f1o",
+    cs_sql_q3_kpi: "Canvas B5: Autonom\u00eda Operativa",
+    cs_sql_q3_desc: "Compara el volumen y participaci\u00f3n del canal digital frente al canal presencial (sucursal) antes y despu\u00e9s del redise\u00f1o del portal. Valida el KPI de \"Autonom\u00eda Operativa\" del <strong>Canvas Bloque 5</strong> y el impacto del flujo TO-BE implementado en la <strong>Tab 2</strong>.",
+    cs_sql_q3_r_canal: "canal_origen", cs_sql_q3_r_periodo: "periodo",
+    cs_sql_q3_r_total: "total_solicitudes", cs_sql_q3_r_pct: "participacion_pct",
+    cs_sql_q3_antes: "Antes del Redise\u00f1o", cs_sql_q3_despues: "Despu\u00e9s del Redise\u00f1o",
+    cs_sql_q3_insight: "Insight: El canal web super\u00f3 a sucursal post-redise\u00f1o (28.7% \u2192 50.8%), validando la Autonom\u00eda Operativa del Canvas B5.",
+    cs_sql_q4_title: "<i class=\"fas fa-exclamation-triangle\"></i> Query 4 \u2014 Logs de Errores Bloqueantes en Formularios por Semana",
+    cs_sql_q4_kpi: "Canvas B5: 0 defectos bloqueantes",
+    cs_sql_q4_desc: "Monitorea la tendencia semanal de errores bloqueantes en los formularios del portal, validando el KPI de \"Cero defectos bloqueantes en producci\u00f3n\" del <strong>Canvas Bloque 5</strong> y la efectividad de la <strong>\u00c9pica 3: Pruebas & Pase a Producci\u00f3n</strong> del Roadmap (BIN-301 y BIN-302).",
+    cs_sql_q4_r_week: "semana", cs_sql_q4_r_field: "campo_formulario",
+    cs_sql_q4_r_errors: "total_errores", cs_sql_q4_r_pct: "pct_sesiones_con_error",
+    cs_sql_q4_insight: "Insight: Tendencia a cero errores bloqueantes confirmada en semana 4 post-lanzamiento. KPI Canvas B5 \"Cero defectos bloqueantes\" validado.",
+
+    // --- Tab 4: Telemetría & Dashboard ---
+    cs_dash_title: "<i class=\"fas fa-chart-line\"></i> Telemetría Digital & Tablero de Analítica en Vivo",
+    cs_dash_badge_ga4: "GA4 & GTM Auto-Tagging",
+    cs_dash_badge_clarity: "Microsoft Clarity UX",
+    cs_dash_intro: "Integración de telemetría en tiempo real sobre el portal público rediseñado. La arquitectura combina el etiquetado automático de eventos DataLayer en Google Tag Manager (GTM), la medición de conversión en Google Analytics 4 (GA4) y el análisis de comportamiento visual (mapas de calor y grabaciones) en Microsoft Clarity, permitiendo validar las hipótesis de adopción del MVP Canvas en tiempo real.",
+    cs_dash_gtm_title: "<i class=\"fas fa-tags\"></i> 1. Arquitectura de Eventos DataLayer en Google Tag Manager",
+    cs_dash_gtm_badge: "Auto-Tagueo No-Code",
+    cs_dash_gtm_desc: "Esquema de eventos etiquetados automáticamente en GTM sin requerir código duro, implementado mediante la Regla de Negocio de Auto-Tagueo definida en el flujo TO-BE (Tab 2) para alimentar las métricas del MVP Canvas (Tab 1):",
+    cs_dash_gtm_col_event: "Evento GA4",
+    cs_dash_gtm_col_trigger: "Disparador GTM (Trigger)",
+    cs_dash_gtm_col_datalayer: "Parámetros DataLayer",
+    cs_dash_gtm_col_purpose: "Propósito en el Embudo",
+    cs_dash_clarity_title: "<i class=\"fas fa-eye\"></i> 2. Análisis de Experiencia de Usuario & Mapas de Calor (Microsoft Clarity)",
+    cs_dash_clarity_badge: "Heatmaps & Session Recording",
+    cs_dash_clarity_desc: "Optimización de la experiencia de usuario en móviles y escritorio mediante el análisis continuo de grabaciones de sesión y mapas de interacción anonimizados en Microsoft Clarity:",
+    cs_dash_c1_title: "Clickmaps & Zonas Calientes",
+    cs_dash_c1_text: "El 82% de los clics en móviles se concentran en el primer fold de la landing page (CTA principal y simulador de cuotas), confirmando la efectividad de la maquetación responsive en Puck CMS.",
+    cs_dash_c2_title: "Profundidad de Scroll (Scrollmaps)",
+    cs_dash_c2_text: "El 76% de los usuarios navega hasta el bloque de requisitos y beneficios antes de iniciar la solicitud, validando la jerarquía visual de los componentes maquetados.",
+    cs_dash_c3_title: "Cero Rage Clicks en Formularios",
+    cs_dash_c3_text: "Reducción a 0% de rage clicks y clics muertos en móviles tras la simplificación del formulario a 3 pasos certificada en la fase de QA Staging Sandbox.",
+    cs_dash_embed_title: "<i class=\"fas fa-desktop\"></i> 3. Tablero Ejecutivo de Producto en Vivo (Dashboard Nativo)",
+    cs_dash_embed_badge: "Nexus Digital Bank Telemetry",
+    cs_dash_embed_desc: "El dashboard visualiza en tiempo real la adopción del portal público bancario, consolidando volumen de solicitudes, tasa de conversión por canal y rendimiento por dispositivo:",
+    dash_bank_sub: "Motor de Analítica de Producto & Crecimiento",
+    dash_opt_post: "Post-Lanzamiento (Últimos 30 Días)",
+    dash_opt_compare: "Comparativa (Antes vs Después)",
+    dash_opt_all: "Todos los Productos",
+    dash_opt_checking: "Cuenta Corriente",
+    dash_opt_credit: "Crédito de Consumo",
+    dash_live_status: "TELEMETRÍA EN VIVO",
+    dash_kpi1_title: "Solicitudes Digitales",
+    dash_kpi1_sub: "PostgreSQL (Tab 3)",
+    dash_kpi2_title: "Tasa de Conversión (CR)",
+    dash_kpi2_sub: "GA4 submit_success",
+    dash_kpi3_title: "Time-to-Publish SLA",
+    dash_kpi3_sub: "BPMN TO-BE (Tab 2)",
+    dash_kpi4_title: "Fricción & Rage Clicks",
+    dash_kpi4_sub: "Microsoft Clarity UX",
+    dash_panel_funnel_title: "Embudo de Conversión Digital (GA4 + GTM Auto-Tagging)",
+    dash_panel_channel_title: "Comparativa de Canales (SQL Tab 3 Data)",
+    dash_ch_legacy: "Antes (Legacy)",
+    dash_ch_tobe: "Después (Puck CMS)",
+    dash_branch: "Sucursal",
+    dash_web: "Web",
+    dash_device_title: "Dispositivo (GA4): Mobile vs Desktop",
+    cs_dash_expl_title: "<i class=\"fas fa-info-circle\"></i> Interpretación del Tablero & Coherencia del Caso de Estudio",
+    cs_dash_expl1_t: "Auto-Tagueo No-Code en GTM",
+    cs_dash_expl1_d: "Toda landing creada en Puck CMS (Tab 2) emite automáticamente los eventos DataLayer (page_view_public, click_apply_now, submit_application_success) a GA4 sin requerir intervención de TI.",
+    cs_dash_expl2_t: "Optimización de Experiencia UX en Clarity",
+    cs_dash_expl2_d: "Los mapas de calor confirman que el 82% de la interacción ocurre en el 1er fold. La reducción de rage clicks a 0.0% certifica la eliminación de bloqueos en formularios responsive.",
+    cs_dash_expl3_t: "Validación Cruzada con SQL (PostgreSQL)",
+    cs_dash_expl3_d: "Los eventos de conversión en GA4 se contrastan con las consultas SQL del sistema core bancario (Tab 3), auditando la adopción real del canal web frente a sucursales.",
+    cs_ai_title: "<i class=\"fas fa-robot\"></i> Aceleración del Ciclo de Producto con IA Generativa",
+    cs_ai_badge1: "Gemini 1.5 Pro & Rovo AI",
+    cs_ai_badge2: "NotebookLM Compliance",
+    cs_ai_intro: "Integración estratégica de herramientas de Inteligencia Artificial Generativa en el flujo de trabajo diario de Product Owner y Business Analyst. La adopción de Gemini, Atlassian Rovo AI, NotebookLM y Firebase AI permitió eliminar tareas repetitivas, acelerar la especificación funcional y elevar la velocidad de entrega del equipo sin comprometer el rigor normativo bancario.",
+    cs_ai_c1_t: "<i class=\"fas fa-feather-alt\"></i> Redacción BDD & Prototipado No-Code (Gemini & Firebase AI)",
+    cs_ai_c1_d: "Transformación de requerimientos de negocio en Historias de Usuario BDD (Given-When-Then) en Jira, y maquetación acelerada de componentes visuales para Puck CMS en Sandbox Staging.",
+    cs_ai_c2_t: "<i class=\"fas fa-sitemap\"></i> Diagramación Asistida BPMN 2.0 (Rovo AI)",
+    cs_ai_c2_d: "Conversión automática de minutas de reunión y requerimientos en Confluence a código Mermaid / PlantUML para renderizar diagramas de secuencia y flujos BPMN 2.0 en tiempo real.",
+    cs_ai_c3_t: "<i class=\"fas fa-brain\"></i> Auditoría Legal & Compliance (NotebookLM)",
+    cs_ai_c3_d: "Ingesta acelerada de compendios normativos CMF/SBIF y políticas internas del banco. Permite auditar en minutos si los descargos legales y copys en landing pages cumplen con la regulación.",
+    cs_ai_table_title: "<i class=\"fas fa-tachometer-alt\"></i> Matriz de Impacto en Productividad & Eficiencia Operativa",
+    cs_ai_col_task: "Actividad de Producto / BA",
+    cs_ai_col_trad: "Flujo Tradicional (Sin IA)",
+    cs_ai_col_ai: "Flujo Acelerado con IA",
+    cs_ai_col_gain: "Ganancia de Eficiencia",
+    cs_ai_row1_task: "<i class=\"fas fa-feather-alt\" style=\"color:#a855f7;\"></i> Redacción BDD & Prototipado Puck CMS",
+    cs_ai_row1_trad: "45 min por historia / 3 días dev",
+    cs_ai_row1_ai: "10 min (Gemini BDD) y 2 hrs Sandbox (Firebase AI)",
+    cs_ai_row1_gain: "<span class=\"kpi-badge-success\">-77% a -95% Tiempo</span>",
+    cs_ai_row2_task: "<i class=\"fas fa-sitemap\" style=\"color:#38bdf8;\"></i> Diagramación BPMN 2.0 y Secuencia",
+    cs_ai_row2_trad: "4 horas de edición manual en Visio/Lucid",
+    cs_ai_row2_ai: "20 min (Rovo AI + Código Mermaid automático)",
+    cs_ai_row2_gain: "<span class=\"kpi-badge-success\">-91% Tiempo Diagramación</span>",
+    cs_ai_row3_task: "<i class=\"fas fa-brain\" style=\"color:#34d399;\"></i> Auditoría Normativa CMF / Legal Compliance",
+    cs_ai_row3_trad: "2 días hábiles de revisión manual",
+    cs_ai_row3_ai: "15 min (NotebookLM Ingestión y Q&A)",
+    cs_ai_row3_gain: "<span class=\"kpi-badge-success\">-98% Ciclo Compliance</span>",
+    cs_ai_jira_title: "<i class=\"fab fa-jira\"></i> Ejemplo Real: Generación de Criterios de Aceptación Given-When-Then",
+    cs_ai_jira_desc: "Muestra del prompt estructurado y el output generado por Gemini para una Historia de Usuario del portal bancario:",
+    cs_ai_prompt_lbl: "<i class=\"fas fa-comment-alt\"></i> Prompt de Entrada (PO / BA)",
+    cs_ai_prompt_txt: "\"Actúa como Senior BA Financiero. Genera 3 criterios BDD (Given-When-Then) para la historia 'Apertura Digital de Cuenta Corriente' en móviles cuando el usuario falla la validación de clave de acceso.\"",
+    cs_ai_out_lbl: "<i class=\"fas fa-check-circle\"></i> Criterio BDD Generado (Jira Ready)",
+    cs_ai_out_code: "<span class=\"sql-keyword\">SCENARIO</span>: Error en validación de clave de acceso\n<span class=\"sql-func\">GIVEN</span> el usuario se encuentra en el Paso 2 del formulario\n<span class=\"sql-func\">WHEN</span> ingresa una clave incorrecta por 3ra vez\n<span class=\"sql-keyword\">THEN</span> el sistema emite el evento form_validation_error\n<span class=\"sql-keyword\">AND</span> bloquea temporalmente el intento mostrando la ayuda",
+    dash_funnel_s1: "1. Page View (page_view_public)",
+    dash_funnel_s2: "2. Clic CTA Intención (click_apply_now)",
+    dash_funnel_s3: "3. Inicio de Formulario (start_form_fill)",
+    dash_funnel_s4: "4. Solicitud Enviada (submit_application_success)",
+    cs_ai_c1_badge: "-77% Tiempo",
+    cs_ai_c2_badge: "-91% Tiempo",
+    cs_ai_c3_badge: "-98% Tiempo",
+    cs_ai_c4_badge: "-95% Tiempo",
+
     // --- Projects Page Content (Spanish) ---
     projects_page_title: "Proyectos",
     projects_list: [
-        { id: "project-exchange-rate", title: "Evolución del Tipo de Cambio", description: "Seguimiento en tiempo real del USD, EUR y GBP frente al peso chileno.", link: "projects/exchange-rate-evolution.html", imageUrl: "assets/img/exchange-rate-cover.webp", buttonText: "Ver Proyecto", tool: "powerbi" },
-        { id: "project-pokedex", title: "Pokédex Interactiva", description: "Un dashboard interactivo con datos de más de 1.000 Pokémon.", link: "projects/pokedex-dashboard.html", imageUrl: "assets/img/pokedex-cover.webp", buttonText: "Ver Proyecto", tool: "looker" },
-        { id: "project-unemployment", title: "Desempleo en América", description: "Análisis de tendencias de desempleo en estados y áreas metropolitanas de EE.UU.", link: "projects/US-Unemployment.html", imageUrl: "assets/img/us-unemployment-cover.webp", buttonText: "Ver Proyecto", tool: "looker" },
-        { id: "project-financial-inclusion", title: "Inclusión Financiera Global", description: "Visualización de tendencias globales en posesión de cuentas y comportamientos de crédito.", link: "projects/global-financial-inclusion.html", imageUrl: "assets/img/global-financial-inclusion-cover.webp", buttonText: "Ver Proyecto", tool: "looker" },
-        { id: "project-neo-tracker", title: "NEO Tracker", description: "Seguimiento de Objetos Cercanos a la Tierra con la API de la NASA.", link: "projects/neo-tracker.html", imageUrl: "assets/img/neo-tracker-cover.webp", buttonText: "Ver Proyecto", tool: "powerbi" }
+        { id: "project-digital-banking", title: "Rediseño Digital & Analítica de Producto", description: "Caso de estudio de extremo a extremo de rediseño de portal bancario público con MVP Canvas, BPMN 2.0, SQL en PostgreSQL y GA4.", link: "projects/digital-banking-redesign.html", imageUrl: "assets/img/digital-banking-cover.webp", buttonText: "Ver Caso de Estudio", tool: "all", type: "case-study" },
+        { id: "project-exchange-rate", title: "Evolución del Tipo de Cambio", description: "Seguimiento en tiempo real del USD, EUR y GBP frente al peso chileno.", link: "projects/exchange-rate-evolution.html", imageUrl: "assets/img/exchange-rate-cover.webp", buttonText: "Ver Proyecto", tool: "powerbi", type: "dashboard" },
+        { id: "project-pokedex", title: "Pokédex Interactiva", description: "Un dashboard interactivo con datos de más de 1.000 Pokémon.", link: "projects/pokedex-dashboard.html", imageUrl: "assets/img/pokedex-cover.webp", buttonText: "Ver Proyecto", tool: "looker", type: "dashboard" },
+        { id: "project-unemployment", title: "Desempleo en América", description: "Análisis de tendencias de desempleo en estados y áreas metropolitanas de EE.UU.", link: "projects/US-Unemployment.html", imageUrl: "assets/img/us-unemployment-cover.webp", buttonText: "Ver Proyecto", tool: "looker", type: "dashboard" },
+        { id: "project-financial-inclusion", title: "Inclusión Financiera Global", description: "Visualización de tendencias globales en posesión de cuentas y comportamientos de crédito.", link: "projects/global-financial-inclusion.html", imageUrl: "assets/img/global-financial-inclusion-cover.webp", buttonText: "Ver Proyecto", tool: "looker", type: "dashboard" },
+        { id: "project-neo-tracker", title: "NEO Tracker", description: "Seguimiento de Objetos Cercanos a la Tierra con la API de la NASA.", link: "projects/neo-tracker.html", imageUrl: "assets/img/neo-tracker-cover.webp", buttonText: "Ver Proyecto", tool: "powerbi", type: "dashboard" }
     ],
 
     // --- CASE STUDY DATA ---
@@ -1011,10 +1554,17 @@ function populateHomePage(lang, basePath) {
   const projectCarousel = getEl("project-carousel");
   if (projectCarousel) {
       projectCarousel.innerHTML = '';
+      const isEn = (typeof currentLang !== 'undefined' ? currentLang : 'en') === 'en';
       (data.projects || []).forEach(project => {
           const card = document.createElement('div');
           card.className = 'project-card';
+
+          const isCaseStudy = project.type === 'case-study';
+          const typeBadgeLabel = isCaseStudy ? (isEn ? 'Case Study' : 'Caso de Estudio') : 'Dashboard';
+          const typeBadgeClass = isCaseStudy ? 'badge-case-study' : 'badge-dashboard';
+
           card.innerHTML = `
+              <span class="project-type-badge ${typeBadgeClass}">${typeBadgeLabel}</span>
               <img src="${basePath}${project.imageUrl}" alt="${project.title}">
               <div class="project-card-content">
                   <h3>${project.title}</h3>
@@ -1107,6 +1657,7 @@ function populateProjectsPage(lang, basePath) {
     const gridContainer = getEl('project-gallery-grid');
     if (gridContainer) {
         gridContainer.innerHTML = '';
+        const isEn = (typeof currentLang !== 'undefined' ? currentLang : 'en') === 'en';
         (data.projects_list || []).forEach(project => {
             let toolIcon = '';
             if (project.tool === 'powerbi') {
@@ -1115,10 +1666,16 @@ function populateProjectsPage(lang, basePath) {
                 toolIcon = `<img src="${basePath}assets/img/logos/looker-studio.webp" alt="Looker Studio Logo" class="card-tool-icon">`;
             }
 
+            const isCaseStudy = project.type === 'case-study';
+            const typeBadgeLabel = isCaseStudy ? (isEn ? 'Case Study' : 'Caso de Estudio') : 'Dashboard';
+            const typeBadgeClass = isCaseStudy ? 'badge-case-study' : 'badge-dashboard';
+
             const cardItem = document.createElement('li');
             cardItem.innerHTML = `
                 <a href="${project.link}" class="project-gallery-card">
-                    <div class="card-image" style="background-image: url('${basePath}${project.imageUrl}')"></div>
+                    <div class="card-image" style="background-image: url('${basePath}${project.imageUrl}')">
+                        <span class="project-type-badge ${typeBadgeClass}">${typeBadgeLabel}</span>
+                    </div>
                     <div class="card-content">
                         <div class="card-header">
                             <h3>${project.title}</h3>
@@ -1530,9 +2087,11 @@ function setLanguage(lang, basePath) {
   document.querySelectorAll('[data-translate]').forEach(el => {
     const key = el.getAttribute('data-translate');
     if (data[key]) {
-      el.textContent = data[key];
+      el.innerHTML = data[key];
     }
   });
+
+  setupNativeDashboardFilters();
 
   if (document.body.classList.contains('page-home')) {
     populateHomePage(lang, basePath);
@@ -1593,9 +2152,12 @@ function setupProjectFilterTabs() {
       cards.forEach(card => {
         const isPowerBI = card.querySelector('img[alt*="Power BI"]');
         const isLooker = card.querySelector('img[alt*="Looker"]');
+        const isCaseStudy = card.querySelector('.badge-case-study');
 
         if (filterVal === 'all') {
           card.style.display = 'block';
+        } else if (filterVal === 'casestudy') {
+          card.style.display = isCaseStudy ? 'block' : 'none';
         } else if (filterVal === 'powerbi') {
           card.style.display = isPowerBI ? 'block' : 'none';
         } else if (filterVal === 'looker') {
@@ -1936,27 +2498,52 @@ const GeminiChatWidget = {
     const isEn = currentLang === 'en';
     const ctxName = isEn ? activeData.name.en : activeData.name.es;
 
-    if (q.includes('skill') || q.includes('habilidad') || q.includes('tool') || q.includes('tecnolog')) {
+    // 1. Intent: Data Analyst / Analista de Datos
+    if (q.includes('data analyst') || q.includes('analista de datos') || q.includes('analista datos') || q.includes('data analytics') || q.includes('analitica de datos') || q.includes('analista bi') || q.includes('business intelligence analyst')) {
       return isEn
-        ? `💡 **Skills & Tech in ${ctxName}**:\n${activeData.context}\n\n*(Benjamín specializes in Power BI, Looker Studio, SQL, DAX, and Apps Script)*.`
-        : `💡 **Tecnologías y Enfoque en ${ctxName}**:\n${activeData.context}\n\n*(Benjamín se especializa en Power BI, Looker Studio, SQL, DAX y Apps Script)*.`;
+        ? `📊 **Data Analyst Alignment**:\nBenjamín Espinoza is a natural fit for **Data Analyst** roles, blending an Industrial Engineering degree with hands-on banking (Banco Internacional), retail, and industrial experience:\n\n• **SQL & Relational Databases**: Advanced querying in **PostgreSQL** for data extraction, filtering, complex JOINs, aggregations, and cohort metrics.\n• **Data Modeling & Visualization (BI)**: Developed over 50 executive dashboards in **Power BI** and **Looker Studio** utilizing DAX and Power Query M.\n• **ETL & Data Automation**: Automated data extraction pipelines from REST APIs (Central Bank of Chile, NASA, PokéAPI) using **Apps Script** and Python.\n• **Digital Analytics & Web Telemetry**: Audit and configuration of **GA4** events, Google Tag Manager (GTM), and Microsoft Clarity heatmaps to eliminate UX friction and drive conversion.`
+        : `📊 **Perfil & Encaje como Data Analyst**:\nBenjamín Espinoza encaja de manera directa e integral en posiciones de **Data Analyst**, combinando su formación como Ingeniero Civil Industrial con experiencia práctica en banca (Banco Internacional), retail e industria:\n\n• **SQL & Bases de Datos Relacionales**: Consultas SQL avanzadas en **PostgreSQL** para extracción masiva, agregación, uniones complejas (JOINs) y análisis de cohortes.\n• **Modelado & Visualización de Datos (BI)**: Creación de más de 50 tableros interactivos ejecutivos y operativos en **Power BI** y **Looker Studio** usando DAX y Power Query.\n• **Automatización de ETL**: Creación de pipelines automatizados para ingerir datos desde APIs REST (Banco Central de Chile, NASA, PokéAPI) mediante **Apps Script** y Python.\n• **Analítica Digital & Telemetría**: Tagueo de eventos en **GA4**, Google Tag Manager (GTM) y auditoría de mapas de calor en Microsoft Clarity para medir conversión y optimizar la experiencia digital.`;
     }
 
-    if (q.includes('api') || q.includes('data') || q.includes('dato') || q.includes('source') || q.includes('fuente')) {
+    // 2. Intent: Product Owner / Product Manager / Product Analyst / PO
+    if (q.includes('product owner') || q.includes('po') || q.includes('product manager') || q.includes('product analyst') || q.includes('gestion de producto') || q.includes('gestión de producto') || q.includes('direccion de producto') || q.includes('dirección de producto')) {
       return isEn
-        ? `📊 **Data Sources & Pipeline for ${ctxName}**:\n${activeData.context}`
-        : `📊 **Pipeline de Datos y Fuentes para ${ctxName}**:\n${activeData.context}`;
+        ? `🎯 **Alignment with Product Owner / Product Manager Roles**:\nBenjamín Espinoza has solid experience as a **Senior Business Analyst & Digital Product Specialist** in banking (Banco Internacional), preparing him for Product Management positions:\n\n• **Agile Triad Execution**: Collaborates directly with POs, Tech Leads, and developers to drive product discovery, refine backlogs, and plan Sprints.\n• **Product Discovery & Specifications**: Defines MVP Canvases, User Story Maps in Jira/Confluence, and writes BDD Acceptance Criteria (*Given-When-Then*).\n• **Product Analytics**: Leverages GA4, GTM, Microsoft Clarity, and PostgreSQL SQL queries to measure conversion funnels and prioritize high-value features.\n• **No-Code Web Management**: Administered public portal landings using Puck CMS, dropping Time-to-Market from weeks to 15 minutes.`
+        : `🎯 **Adaptación del Perfil a Cargos de Product Owner / Product Manager**:\nBenjamín Espinoza cuenta con una sólida trayectoria como **Senior Business Analyst y Analista de Productos Digitales** en el sector bancario (Banco Internacional), proyectando su perfil hacia la dirección de productos:\n\n• **Liderazgo en Triadas Ágiles**: Trabaja codo a codo con POs, Tech Leads y equipos de desarrollo en el descubrimiento de productos y priorización de backlog en Jira.\n• **Estrategia & Especificación**: Diseña MVP Canvas, User Story Maps y Criterios de Aceptación BDD (*Given-When-Then*).\n• **Analítica de Producto**: Mide funnels de conversión en tiempo real con GA4, GTM, Microsoft Clarity y consultas SQL en PostgreSQL para orientar el roadmap.\n• **Gestión de Landings (Puck CMS)**: Lideró la administración de portales web sin código, reduciendo el ciclo de publicación de semanas a 15 minutos.`;
     }
 
-    if (q.includes('contact') || q.includes('contacto') || q.includes('email') || q.includes('linkedin')) {
+    // 3. Intent: Business Analyst / BA / Requirements / BPMN
+    if (q.includes('business analyst') || q.includes('ba') || q.includes('analista de negocio') || q.includes('bpmn') || q.includes('requerimientos') || q.includes('bdd') || q.includes('procesos')) {
       return isEn
-        ? `📩 You can contact **Benjamín Espinoza** via email at \`bmatiasespinoza@gmail.com\` or on [LinkedIn](https://www.linkedin.com/in/benmatias).`
-        : `📩 Puedes contactar a **Benjamín Espinoza** por correo a \`bmatiasespinoza@gmail.com\` o en [LinkedIn](https://www.linkedin.com/in/benmatias).`;
+        ? `📋 **Business Analyst (BA) & Process Engineering Expertise**:\nBenjamín bridges business requirements with technical execution:\n\n• **Process Modeling (BPMN 2.0)**: Maps AS-IS and TO-BE operational workflows to remove bottlenecks.\n• **Agile Requirements**: Authors structured BDD User Stories (*Given-When-Then*) in Jira and Confluence.\n• **Regulatory Compliance**: Audits financial landing content against CMF/SBIF regulations using Generative AI (NotebookLM).\n• **QA & Validation**: Executes functional test plans ensuring clean deployments.`
+        : `📋 **Experiencia como Business Analyst (BA) & Ingeniería de Procesos**:\nBenjamín conecta las necesidades de negocio con la ejecución técnica:\n\n• **Modelado de Procesos (BPMN 2.0)**: Mapea flujos operacionales AS-IS y TO-BE eliminando cuellos de botella.\n• **Requerimientos Ágiles**: Redacta Historias de Usuario BDD (*Given-When-Then*) estructuradas en Jira y Confluence.\n• **Cumplimiento Normativo**: Audita landings financieras frente a regulaciones CMF/SBIF mediante IA Generativa (NotebookLM).\n• **Certificación de QA**: Diseña y ejecuta planes de pruebas funcionales para asegurar lanzamientos sin errores.`;
     }
 
+    // 4. Intent: Technical Stack / Skills / Tools
+    if (q.includes('skill') || q.includes('habilidad') || q.includes('tool') || q.includes('tecnolog') || q.includes('stack') || q.includes('herramienta') || q.includes('power bi') || q.includes('looker') || q.includes('python') || q.includes('sql')) {
+      return isEn
+        ? `💡 **Skills & Technical Stack**:\n• **Databases & Querying**: PostgreSQL, SQL Server, Dimensional Data Modeling.\n• **Business Intelligence**: Power BI, Looker Studio, Tableau, DAX, Power Query (M).\n• **Automation & Scripts**: Google Apps Script, Python, REST APIs, JSON.\n• **Web & Product Analytics**: GA4, Google Tag Manager (GTM), Microsoft Clarity, Puck CMS.\n• **Agile & Process Tools**: Jira, Confluence, BPMN 2.0, BDD (Given-When-Then), Generative AI (Gemini, Rovo AI, NotebookLM).`
+        : `💡 **Habilidades Técnicas y Herramientas**:\n• **Bases de Datos & SQL**: PostgreSQL, SQL Server, Modelado Dimensional.\n• **Inteligencia de Negocios (BI)**: Power BI, Looker Studio, Tableau, DAX, Power Query (M).\n• **Automatización & Scripting**: Google Apps Script, Python, APIs REST, JSON.\n• **Analítica Digital & Producto**: GA4, Google Tag Manager (GTM), Microsoft Clarity, Puck CMS.\n• **Gestión Ágil & Procesos**: Jira, Confluence, BPMN 2.0, BDD (Given-When-Then), IA Generativa (Gemini, Rovo AI, NotebookLM).`;
+    }
+
+    // 5. Intent: Education / Academic background
+    if (q.includes('estudio') || q.includes('educacion') || q.includes('educación') || q.includes('titulo') || q.includes('título') || q.includes('universidad') || q.includes('carrera') || q.includes('diplomado')) {
+      return isEn
+        ? `🎓 **Academic Background & Certifications**:\n• **Industrial Engineering Degree**: Universidad de Valparaíso (Graduated).\n• **International Diploma in Digital Transformation**: Executive specialization.\n• **Continuous Learning**: Advanced SQL, Power BI, Scrum & Agile Frameworks, Generative AI for Analytics.`
+        : `🎓 **Formación Académica & Certificaciones**:\n• **Ingeniería Civil Industrial**: Universidad de Valparaíso (Titulado).\n• **Diplomado Internacional en Transformación Digital**: Especialización ejecutiva.\n• **Formación Continua**: SQL Avanzado, Power BI, Scrum & Metodologías Ágiles, IA Generativa aplicada a Analítica.`;
+    }
+
+    // 6. Intent: Contact / Email / LinkedIn
+    if (q.includes('contact') || q.includes('contacto') || q.includes('email') || q.includes('linkedin') || q.includes('mail') || q.includes('contratar') || q.includes('trabajar')) {
+      return isEn
+        ? `📩 You can contact **Benjamín Espinoza** via email at \`bmatiasespinoza@gmail.com\` or connect on [LinkedIn](https://www.linkedin.com/in/benmatias).`
+        : `📩 Puedes contactar a **Benjamín Espinoza** por correo a \`bmatiasespinoza@gmail.com\` o en su perfil de [LinkedIn](https://www.linkedin.com/in/benmatias).`;
+    }
+
+    // 7. General Conversational Fallback
     return isEn
-      ? `🤖 **${ctxName} Summary**:\n${activeData.context}\n\n*(Note: Configure a Gemini API Key using the 🔑 icon above for unrestricted open AI conversations).*`
-      : `🤖 **Resumen sobre ${ctxName}**:\n${activeData.context}\n\n*(Nota: Puedes ingresar tu API Key de Gemini con el icono 🔑 para realizar cualquier pregunta abierta).*`;
+      ? `🤖 **Benjamín Espinoza Professional Summary**:\nBenjamín is a **Senior Business & Data Analyst** (Industrial Engineer) at Banco Internacional. He specializes in transforming complex data into strategic business decisions and scalable digital products using **PostgreSQL SQL**, **Power BI / Looker Studio**, **Agile triads (BPMN 2.0)**, and **Generative AI**.\n\nWould you like to know more about his experience as a **Data Analyst**, **Product Owner**, or **Business Analyst**?`
+      : `🤖 **Resumen del Perfil Profesional de Benjamín Espinoza**:\nBenjamín es **Senior Business & Data Analyst** (Ingeniero Civil Industrial) en Banco Internacional. Se especializa en transformar datos complejos en decisiones estratégicas y productos digitales escalables mediante **SQL (PostgreSQL)**, **Power BI / Looker Studio**, **triadas ágiles (BPMN 2.0)** e **IA Generativa**.\n\n¿Te gustaría saber más sobre su encaje como **Data Analyst**, **Product Owner**, **Business Analyst** o explorar sus **Publicaciones** y **Dashboards**?`;
   }
 };
 
@@ -1992,7 +2579,157 @@ document.addEventListener("DOMContentLoaded", () => {
     setupProjectFilterTabs();
   }
 
-  // --- 4. INICIALIZACIÓN DEL WIDGET DE CHAT GEMINI ---
+  // --- 4. INICIALIZACIÓN DEL WIDGET DE CHAT GEMINI & DASHBOARD NATIVO ---
   GeminiChatWidget.init();
+  setupNativeDashboardFilters();
+  showLanguageSwitchHint();
 });
+
+function showLanguageSwitchHint() {
+  const toggleBtn = document.querySelector('.lang-toggle');
+  if (!toggleBtn) return;
+
+  const existing = document.querySelector('.lang-tooltip');
+  if (existing) existing.remove();
+
+  const hintText = currentLang === 'es'
+    ? 'You can change the language here! 🌐'
+    : '¡Puedes cambiar el idioma aquí! 🌐';
+
+  const tooltip = document.createElement('div');
+  tooltip.className = 'lang-tooltip';
+  tooltip.innerHTML = hintText;
+  toggleBtn.appendChild(tooltip);
+
+  setTimeout(() => {
+    tooltip.classList.add('fade-out');
+    setTimeout(() => tooltip.remove(), 450);
+  }, 4000);
+}
+
+function setupNativeDashboardFilters() {
+  const periodFilter = document.getElementById('dash-period-filter');
+  const productFilter = document.getElementById('dash-product-filter');
+  if (!periodFilter || !productFilter) return;
+
+  const isEn = (typeof currentLang !== 'undefined' ? currentLang : 'en') === 'en';
+  const arrow = '<i class="fas fa-arrow-right" style="font-size:0.75rem; color:#00df81; margin:0 0.15rem;"></i>';
+
+  const data = {
+    all: {
+      post: {
+        apps: '5,361', deltaApps: isEn ? '<i class="fas fa-arrow-up"></i> +35.0% vs Previous' : '<i class="fas fa-arrow-up"></i> +35.0% vs Anterior',
+        cr: '52.4%', deltaCr: '<i class="fas fa-arrow-up"></i> +16.8% pp',
+        sla: '15 min', deltaSla: isEn ? '<i class="fas fa-arrow-down"></i> -99.9% Cycle' : '<i class="fas fa-arrow-down"></i> -99.9% Ciclo',
+        friction: '0.0%', deltaFriction: '<i class="fas fa-check"></i> 100% QA OK',
+        c1: isEn ? '12,400 sessions' : '12,400 sesiones', b1: '100%',
+        c2: isEn ? '4,712 intents' : '4,712 intenciones', b2: '38.0%',
+        c3: isEn ? '3,261 forms' : '3,261 formularios', b3: '26.3%',
+        c4: isEn ? '2,043 submitted' : '2,043 enviadas', b4: '16.5%'
+      },
+      compare: {
+        apps: `7,702 <span style="font-size:0.75rem; color:#aacbc4; font-weight:600;">(${isEn ? 'Total' : 'Total'})</span>`, deltaApps: isEn ? '<i class="fas fa-chart-line"></i> +35.0% Growth' : '<i class="fas fa-chart-line"></i> +35.0% Crecimiento',
+        cr: `<span style="font-size:1.05rem; color:#94a3b8; font-weight:700;">28.7%</span>${arrow}<span style="font-size:1.35rem; color:#00df81; font-weight:800;">50.8%</span>`, deltaCr: isEn ? '<i class="fas fa-arrow-up"></i> +22.1% pp Web Channel' : '<i class="fas fa-arrow-up"></i> +22.1% pp Canal Web',
+        sla: `<span style="font-size:1.05rem; color:#94a3b8; font-weight:700;">14 ${isEn ? 'Days' : 'Días'}</span>${arrow}<span style="font-size:1.35rem; color:#00df81; font-weight:800;">15 min</span>`, deltaSla: isEn ? '<i class="fas fa-check"></i> Commercial Autonomy' : '<i class="fas fa-check"></i> Autonomía Comercial',
+        friction: `<span style="font-size:1.05rem; color:#94a3b8; font-weight:700;">12.0%</span>${arrow}<span style="font-size:1.35rem; color:#00df81; font-weight:800;">0.0%</span>`, deltaFriction: isEn ? '<i class="fas fa-shield-alt"></i> Certified Staging QA' : '<i class="fas fa-shield-alt"></i> QA Staging Certificado',
+        c1: isEn ? '24,800 sessions' : '24,800 sesiones', b1: '100%',
+        c2: isEn ? '8,210 intents' : '8,210 intenciones', b2: '33.1%',
+        c3: isEn ? '5,420 forms' : '5,420 formularios', b3: '21.8%',
+        c4: isEn ? '3,540 submitted' : '3,540 enviadas', b4: '14.2%'
+      }
+    },
+    checking: {
+      post: {
+        apps: '2,654', deltaApps: isEn ? '<i class="fas fa-arrow-up"></i> +38.5% vs Previous' : '<i class="fas fa-arrow-up"></i> +38.5% vs Anterior',
+        cr: '56.0%', deltaCr: '<i class="fas fa-arrow-up"></i> +14.5% pp',
+        sla: '15 min', deltaSla: isEn ? '<i class="fas fa-arrow-down"></i> -99.9% Cycle' : '<i class="fas fa-arrow-down"></i> -99.9% Ciclo',
+        friction: '0.0%', deltaFriction: '<i class="fas fa-check"></i> 100% QA OK',
+        c1: isEn ? '6,120 sessions' : '6,120 sesiones', b1: '100%',
+        c2: isEn ? '2,448 intents' : '2,448 intenciones', b2: '40.0%',
+        c3: isEn ? '1,836 forms' : '1,836 formularios', b3: '30.0%',
+        c4: isEn ? '1,031 submitted' : '1,031 enviadas', b4: '16.8%'
+      },
+      compare: {
+        apps: `3,842 <span style="font-size:0.75rem; color:#aacbc4; font-weight:600;">(${isEn ? 'Total' : 'Total'})</span>`, deltaApps: isEn ? '<i class="fas fa-chart-line"></i> +38.5% Growth' : '<i class="fas fa-chart-line"></i> +38.5% Crecimiento',
+        cr: `<span style="font-size:1.05rem; color:#94a3b8; font-weight:700;">41.5%</span>${arrow}<span style="font-size:1.35rem; color:#00df81; font-weight:800;">56.0%</span>`, deltaCr: '<i class="fas fa-arrow-up"></i> +14.5% pp',
+        sla: `<span style="font-size:1.05rem; color:#94a3b8; font-weight:700;">14 ${isEn ? 'Days' : 'Días'}</span>${arrow}<span style="font-size:1.35rem; color:#00df81; font-weight:800;">15 min</span>`, deltaSla: isEn ? '<i class="fas fa-check"></i> Commercial Autonomy' : '<i class="fas fa-check"></i> Autonomía Comercial',
+        friction: `<span style="font-size:1.05rem; color:#94a3b8; font-weight:700;">8.0%</span>${arrow}<span style="font-size:1.35rem; color:#00df81; font-weight:800;">0.0%</span>`, deltaFriction: isEn ? '<i class="fas fa-shield-alt"></i> Certified Staging QA' : '<i class="fas fa-shield-alt"></i> QA Staging Certificado',
+        c1: isEn ? '12,200 sessions' : '12,200 sesiones', b1: '100%',
+        c2: isEn ? '4,510 intents' : '4,510 intenciones', b2: '36.9%',
+        c3: isEn ? '3,120 forms' : '3,120 formularios', b3: '25.5%',
+        c4: isEn ? '1,842 submitted' : '1,842 enviadas', b4: '15.1%'
+      }
+    },
+    credit: {
+      post: {
+        apps: '2,707', deltaApps: isEn ? '<i class="fas fa-arrow-up"></i> +31.8% vs Previous' : '<i class="fas fa-arrow-up"></i> +31.8% vs Anterior',
+        cr: '48.0%', deltaCr: '<i class="fas fa-arrow-up"></i> +12.4% pp',
+        sla: '15 min', deltaSla: isEn ? '<i class="fas fa-arrow-down"></i> -99.9% Cycle' : '<i class="fas fa-arrow-down"></i> -99.9% Ciclo',
+        friction: '0.0%', deltaFriction: '<i class="fas fa-check"></i> 100% QA OK',
+        c1: isEn ? '6,280 sessions' : '6,280 sesiones', b1: '100%',
+        c2: isEn ? '2,264 intents' : '2,264 intenciones', b2: '36.0%',
+        c3: isEn ? '1,425 forms' : '1,425 formularios', b3: '22.7%',
+        c4: isEn ? '1,012 submitted' : '1,012 enviadas', b4: '16.1%'
+      },
+      compare: {
+        apps: `3,860 <span style="font-size:0.75rem; color:#aacbc4; font-weight:600;">(${isEn ? 'Total' : 'Total'})</span>`, deltaApps: isEn ? '<i class="fas fa-chart-line"></i> +31.8% Growth' : '<i class="fas fa-chart-line"></i> +31.8% Crecimiento',
+        cr: `<span style="font-size:1.05rem; color:#94a3b8; font-weight:700;">35.6%</span>${arrow}<span style="font-size:1.35rem; color:#00df81; font-weight:800;">48.0%</span>`, deltaCr: '<i class="fas fa-arrow-up"></i> +12.4% pp',
+        sla: `<span style="font-size:1.05rem; color:#94a3b8; font-weight:700;">14 ${isEn ? 'Days' : 'Días'}</span>${arrow}<span style="font-size:1.35rem; color:#00df81; font-weight:800;">15 min</span>`, deltaSla: isEn ? '<i class="fas fa-check"></i> Commercial Autonomy' : '<i class="fas fa-check"></i> Autonomía Comercial',
+        friction: `<span style="font-size:1.05rem; color:#94a3b8; font-weight:700;">15.0%</span>${arrow}<span style="font-size:1.35rem; color:#00df81; font-weight:800;">0.0%</span>`, deltaFriction: isEn ? '<i class="fas fa-shield-alt"></i> Certified Staging QA' : '<i class="fas fa-shield-alt"></i> QA Staging Certificado',
+        c1: isEn ? '12,600 sessions' : '12,600 sesiones', b1: '100%',
+        c2: isEn ? '3,700 intents' : '3,700 intenciones', b2: '29.3%',
+        c3: isEn ? '2,300 forms' : '2,300 formularios', b3: '18.25%',
+        c4: isEn ? '1,698 submitted' : '1,698 enviadas', b4: '13.4%'
+      }
+    }
+  };
+
+  function updateDash() {
+    const prod = productFilter.value || 'all';
+    const period = periodFilter.value || 'post';
+    const current = (data[prod] && data[prod][period]) ? data[prod][period] : data.all.post;
+
+    const elApps = document.getElementById('dash-val-apps');
+    const elDeltaApps = document.getElementById('dash-delta-apps');
+    const elCr = document.getElementById('dash-val-cr');
+    const elDeltaCr = document.getElementById('dash-delta-cr');
+    const elSla = document.getElementById('dash-val-sla');
+    const elDeltaSla = document.getElementById('dash-delta-sla');
+    const elFriction = document.getElementById('dash-val-friction');
+    const elDeltaFriction = document.getElementById('dash-delta-friction');
+
+    if (elApps) elApps.innerHTML = current.apps;
+    if (elDeltaApps) elDeltaApps.innerHTML = current.deltaApps;
+    if (elCr) elCr.innerHTML = current.cr;
+    if (elDeltaCr) elDeltaCr.innerHTML = current.deltaCr;
+    if (elSla) elSla.innerHTML = current.sla;
+    if (elDeltaSla) elDeltaSla.innerHTML = current.deltaSla;
+    if (elFriction) elFriction.innerHTML = current.friction;
+    if (elDeltaFriction) elDeltaFriction.innerHTML = current.deltaFriction;
+
+    const elC1 = document.getElementById('funnel-c1');
+    const elC2 = document.getElementById('funnel-c2');
+    const elC3 = document.getElementById('funnel-c3');
+    const elC4 = document.getElementById('funnel-c4');
+
+    if (elC1) elC1.textContent = current.c1;
+    if (elC2) elC2.textContent = current.c2;
+    if (elC3) elC3.textContent = current.c3;
+    if (elC4) elC4.textContent = current.c4;
+
+    const elB1 = document.getElementById('funnel-b1');
+    const elB2 = document.getElementById('funnel-b2');
+    const elB3 = document.getElementById('funnel-b3');
+    const elB4 = document.getElementById('funnel-b4');
+
+    if (elB1) elB1.style.width = current.b1;
+    if (elB2) elB2.style.width = current.b2;
+    if (elB3) elB3.style.width = current.b3;
+    if (elB4) elB4.style.width = current.b4;
+  }
+
+  periodFilter.addEventListener('change', updateDash);
+  productFilter.addEventListener('change', updateDash);
+}
+
 
