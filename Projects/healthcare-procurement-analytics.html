@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Procurement Analytics — Supply Chain & Vendor Performance | Benjamín Espinoza</title>
+    <meta name="description" content="An independent data analysis of Chile's public healthcare supply chain, covering vendor compliance, OTIF tracking, procurement effectiveness, and a proposed vendor management model.">
+    <meta name="keywords" content="healthcare procurement, supply chain analytics, vendor performance, CENABAST, ChileCompra, OTIF, process redesign, BPMN 2.0, data analysis, Benjamin Espinoza">
+
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Benjamín Espinoza Portfolio" />
+    <meta property="og:title" content="Healthcare Procurement Analytics | Case Study" />
+    <meta property="og:description" content="Independent analysis of Chile's public healthcare supply chain: vendor compliance, procurement effectiveness, OTIF metrics, and a data-driven vendor management model." />
+    <meta property="og:url" content="https://benmatias.com/projects/healthcare-procurement-analytics.html" />
+    <meta property="og:image" content="https://benmatias.com/assets/img/healthcare-procurement-cover.jpg" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Healthcare Procurement Analytics | Case Study" />
+    <meta name="twitter:description" content="Independent analysis of Chile's public healthcare supply chain: vendor compliance, OTIF metrics, and a data-driven vendor management model." />
+    <meta name="twitter:image" content="https://benmatias.com/assets/img/healthcare-procurement-cover.jpg" />
+
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PZ6WFTW7');</script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Z42HX3EZZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6Z42HX3EZZ');
+    </script>
+
+    <!-- Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "xvdor0ntw2");
+    </script>
+
+    <style>
+        /* ===== BASE ===== */
+        body { background: #060d16; }
+
+        /* ===== HERO ===== */
+        .case-study-hero {
+            padding: 5rem 0 2.5rem 0;
+            background: linear-gradient(135deg, #0a192f 0%, #0d1b2a 100%);
+            border-bottom: 1px solid rgba(0,180,216,0.2);
+        }
+        .pill-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.35rem 0.9rem; border-radius: 50px; font-size: 0.82rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+            background: rgba(0,230,118,0.15); color: #00e676; border: 1px solid #00e676;
+            margin-bottom: 1rem;
+        }
+        .pill-badge-blue {
+            background: rgba(0,180,216,0.15); color: #00b4d8; border: 1px solid #00b4d8;
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .case-study-title {
+            font-size: clamp(2rem,4vw,3rem); font-weight: 800; color: #ffffff;
+            line-height: 1.2; margin-bottom: 1rem;
+        }
+        .case-study-subtitle {
+            font-size: 1.15rem; color: #94a3b8; max-width: 850px;
+            line-height: 1.6; margin-bottom: 2rem;
+        }
+        .meta-pills-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
+        .meta-tag {
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+            color: #e2e8f0; padding: 0.4rem 0.85rem; border-radius: 6px;
+            font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;
+        }
+
+        /* ===== TABS ===== */
+        .cs-tabs-wrapper {
+            display: flex; gap: 0.5rem;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            overflow-x: auto; padding-bottom: 0;
+            scrollbar-width: none;
+        }
+        .cs-tabs-wrapper::-webkit-scrollbar { display: none; }
+        .cs-tab-btn {
+            background: transparent; border: none; color: #94a3b8;
+            padding: 0.85rem 1.4rem; font-size: 0.95rem; font-weight: 700;
+            cursor: pointer; border-bottom: 3px solid transparent;
+            transition: all 0.3s ease; white-space: nowrap;
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .cs-tab-btn:hover { color: #00b4d8; }
+        .cs-tab-btn.active {
+            color: #00e676; border-bottom-color: #00e676;
+            background: rgba(0,230,118,0.05); border-radius: 8px 8px 0 0;
+        }
+        .cs-tab-pane { display: none; padding: 2rem 0; animation: fadeIn 0.4s ease; }
+        .cs-tab-pane.active { display: block; }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+        /* ===== CARDS ===== */
+        .artifact-card {
+            background: #111c2e; border: 1.5px solid rgba(0,180,216,0.25);
+            border-radius: 12px; padding: 1.75rem; margin-bottom: 1.5rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3); color: #f8fafc !important;
+        }
+        .artifact-header {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.75rem;
+        }
+        .artifact-title {
+            font-size: 1.2rem; font-weight: 700; color: #00b4d8 !important;
+            margin: 0; display: flex; align-items: center; gap: 0.6rem;
+        }
+        .artifact-card > p, .artifact-card > ul > li { color: #cbd5e1 !important; line-height: 1.55; }
+        .artifact-card h3, .artifact-card h4 { color: #ffffff !important; }
+        .artifact-card strong, .artifact-card b { color: #ffffff !important; font-weight: 700; }
+        /* Make sure direct paragraphs in cards are visible */
+        .artifact-card p { color: #cbd5e1; line-height: 1.6; }
+
+        /* ===== KPI CARDS ===== */
+        .kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+        @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .kpi-grid { grid-template-columns: 1fr; } }
+        .kpi-card {
+            background: #0f172a; border: 1.5px solid rgba(0,180,216,0.3);
+            border-radius: 12px; padding: 1.4rem 1.25rem;
+            text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+        .kpi-card:hover { transform: translateY(-3px); border-color: #00e676; }
+        .kpi-card .kpi-value {
+            font-size: 2.4rem; font-weight: 800; color: #00e676;
+            font-family: 'Outfit', sans-serif; line-height: 1;
+        }
+        .kpi-card .kpi-value.warning { color: #f59e0b; }
+        .kpi-card .kpi-value.danger { color: #f87171; }
+        .kpi-card .kpi-value.info { color: #00b4d8; }
+        .kpi-card .kpi-label { font-size: 0.8rem; color: #94a3b8; margin-top: 0.4rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .kpi-card .kpi-sub { font-size: 0.75rem; color: #64748b; margin-top: 0.35rem; }
+
+        /* ===== SUMMARY CARDS ===== */
+        .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+        @media (max-width: 900px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .summary-grid { grid-template-columns: 1fr; } }
+        .summary-card {
+            background: #0f172a; border: 1.5px solid rgba(0,180,216,0.3); border-left: 4px solid #00b4d8;
+            border-radius: 12px; padding: 1.35rem; display: flex; align-items: flex-start; gap: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4); color: #f8fafc !important;
+        }
+        .summary-card i { font-size: 1.6rem !important; color: #00e676 !important; margin-top: 0.2rem; flex-shrink: 0; }
+        .summary-card h3 { font-size: 1.05rem !important; font-weight: 700; color: #ffffff !important; margin: 0 0 0.5rem 0; }
+        .summary-card p { font-size: 0.88rem !important; color: #cbd5e1 !important; line-height: 1.55; margin: 0; }
+
+        /* ===== CHART BARS ===== */
+        .chart-container { margin: 1.5rem 0; }
+        .chart-title { font-size: 0.9rem; font-weight: 700; color: #94a3b8; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .bar-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.7rem; }
+        .bar-label { font-size: 0.78rem; color: #94a3b8; width: 80px; text-align: right; flex-shrink: 0; font-weight: 600; }
+        .bar-track { flex: 1; background: rgba(255,255,255,0.06); border-radius: 4px; height: 22px; overflow: hidden; position: relative; }
+        .bar-fill {
+            height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px;
+            font-size: 0.72rem; font-weight: 700; color: #0d1b2a;
+            transition: width 0.8s ease;
+        }
+        .bar-fill.compliance { background: linear-gradient(90deg, #00b4d8, #00e676); }
+        .bar-fill.warning { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+        .bar-fill.danger { background: linear-gradient(90deg, #f87171, #ef4444); }
+
+        /* ===== PROCESS FLOW ===== */
+        .process-flow { display: flex; gap: 0; margin: 1.5rem 0; align-items: stretch; overflow-x: auto; padding-bottom: 0.5rem; }
+        .process-node {
+            background: #0f172a; border: 1.5px solid rgba(0,180,216,0.35);
+            border-radius: 10px; padding: 1.1rem; flex: 1; min-width: 155px; max-width: 200px;
+            position: relative; text-align: center;
+        }
+        .process-node .node-icon { font-size: 1.5rem; color: #00b4d8; margin-bottom: 0.5rem; }
+        .process-node .node-title { font-size: 0.8rem; font-weight: 700; color: #ffffff; margin-bottom: 0.35rem; }
+        .process-node .node-desc { font-size: 0.7rem; color: #94a3b8; line-height: 1.4; }
+        .process-node .node-pain {
+            margin-top: 0.6rem; font-size: 0.67rem; color: #f87171; font-weight: 600;
+            background: rgba(248,113,113,0.1); border-radius: 4px; padding: 0.25rem 0.4rem;
+        }
+        .process-arrow {
+            display: flex; align-items: center; justify-content: center; color: #00e676; font-size: 1.1rem;
+            padding: 0 0.25rem; flex-shrink: 0; min-width: 24px;
+        }
+
+        /* ===== PROBLEM/OBJECTIVE TREE ===== */
+        .tree-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+        .tree-col { display: flex; flex-direction: column; gap: 0.75rem; }
+        .tree-node {
+            border-radius: 8px; padding: 0.9rem; font-size: 0.8rem; line-height: 1.4;
+            font-weight: 600; text-align: center; border: 1.5px solid;
+        }
+        .tree-node.effect { background: rgba(248,113,113,0.1); border-color: #f87171; color: #fca5a5; }
+        .tree-node.center { background: rgba(245,158,11,0.12); border-color: #f59e0b; color: #fcd34d; font-size: 0.9rem; font-weight: 800; }
+        .tree-node.cause { background: rgba(96,165,250,0.1); border-color: #60a5fa; color: #93c5fd; }
+        .tree-node.obj-effect { background: rgba(0,230,118,0.1); border-color: #00e676; color: #6ee7b7; }
+        .tree-node.obj-center { background: rgba(0,180,216,0.12); border-color: #00b4d8; color: #7dd3fc; font-size: 0.9rem; font-weight: 800; }
+        .tree-node.obj-cause { background: rgba(167,139,250,0.1); border-color: #a78bfa; color: #c4b5fd; }
+        .tree-col-label { font-size: 0.7rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.5rem; }
+        @media (max-width: 768px) {
+            .tree-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== VENDOR SCORECARD ===== */
+        .vendor-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+        .vendor-table th {
+            background: rgba(0,180,216,0.15); color: #00b4d8; padding: 0.75rem 0.9rem;
+            text-align: left; font-weight: 700; text-transform: uppercase; font-size: 0.72rem;
+            letter-spacing: 0.5px; border-bottom: 1px solid rgba(0,180,216,0.3);
+        }
+        .vendor-table td { padding: 0.7rem 0.9rem; color: #cbd5e1; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .vendor-table tr:hover td { background: rgba(255,255,255,0.03); }
+        .badge-ok { color: #00e676; font-weight: 700; }
+        .badge-warn { color: #f59e0b; font-weight: 700; }
+        .badge-danger { color: #f87171; font-weight: 700; }
+
+        /* ===== KPI DEFINITION CARDS ===== */
+        .kpi-def-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem 0; }
+        @media (max-width: 700px) { .kpi-def-grid { grid-template-columns: 1fr; } }
+        .kpi-def-card {
+            background: #0f172a; border: 1.5px solid rgba(0,180,216,0.2);
+            border-radius: 10px; padding: 1.2rem;
+        }
+        .kpi-def-card .kpi-name { font-size: 0.88rem; font-weight: 800; color: #00b4d8; margin-bottom: 0.4rem; }
+        .kpi-def-card .kpi-formula { font-family: 'Fira Code', monospace; font-size: 0.75rem; color: #38bdf8; background: rgba(15,23,42,0.9); padding: 0.3rem 0.5rem; border-radius: 4px; margin-bottom: 0.5rem; display: block; }
+        .kpi-def-card .kpi-current { font-size: 0.78rem; color: #94a3b8; }
+        .kpi-def-card .kpi-target { font-size: 0.78rem; color: #00e676; font-weight: 700; }
+
+        /* ===== IMPACT TABLE ===== */
+        .impact-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin: 1rem 0; }
+        .impact-table th {
+            background: rgba(0,230,118,0.1); color: #00e676; padding: 0.7rem 1rem;
+            text-align: left; font-weight: 700; border-bottom: 1px solid rgba(0,230,118,0.25);
+        }
+        .impact-table td { padding: 0.65rem 1rem; color: #cbd5e1; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .impact-table .as-is { color: #f87171; font-weight: 700; }
+        .impact-table .to-be { color: #00e676; font-weight: 700; }
+
+        /* ===== TOOLS GRID ===== */
+        .tools-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0; }
+        .tool-chip {
+            background: rgba(0,180,216,0.1); border: 1px solid rgba(0,180,216,0.35);
+            color: #7dd3fc; padding: 0.35rem 0.8rem; border-radius: 6px;
+            font-size: 0.8rem; font-weight: 600;
+        }
+
+        /* ===== SOURCE BOX ===== */
+        .source-box {
+            background: rgba(100,116,139,0.08); border: 1px solid rgba(100,116,139,0.25);
+            border-radius: 8px; padding: 1rem 1.2rem; margin-top: 1.5rem;
+            font-size: 0.78rem; color: #64748b;
+        }
+        .source-box strong { color: #94a3b8; }
+
+        /* ===== SURVEY RESULT BARS ===== */
+        .survey-item { margin-bottom: 1rem; }
+        .survey-question { font-size: 0.82rem; color: #cbd5e1; margin-bottom: 0.4rem; font-weight: 500; }
+        .survey-bar-wrap { display: flex; align-items: center; gap: 0.75rem; }
+        .survey-bar-track { flex: 1; background: rgba(255,255,255,0.06); border-radius: 4px; height: 20px; overflow: hidden; }
+        .survey-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #00b4d8, #a78bfa); display: flex; align-items: center; padding-left: 6px; font-size: 0.7rem; font-weight: 700; color: #fff; }
+        .survey-pct { font-size: 0.8rem; font-weight: 700; color: #00e676; width: 38px; text-align: right; flex-shrink: 0; }
+
+        /* ===== CANVAS (Osterwalder 9-Box Layout) ===== */
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.85rem;
+            margin-top: 1.25rem;
+        }
+        .canvas-card {
+            background: #0f172a; border: 1.5px solid rgba(0,180,216,0.3);
+            border-radius: 10px; padding: 1rem; position: relative;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            display: flex; flex-direction: column;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+        .canvas-card:hover { transform: translateY(-2px); border-color: #00e676; }
+        .canvas-card .canvas-num {
+            position: absolute; top: 10px; right: 10px;
+            width: 24px; height: 24px; border-radius: 50%;
+            background: linear-gradient(135deg, #00b4d8, #00e676);
+            color: #0d1b2a; font-weight: 800; font-size: 0.75rem;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .canvas-card h4 { color: #00e676 !important; font-size: 0.82rem; font-weight: 800; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.4px; padding-right: 28px; }
+        .canvas-card ul { padding-left: 1rem; margin: 0; flex: 1; }
+        .canvas-card li { font-size: 0.75rem; color: #cbd5e1 !important; margin-bottom: 0.35rem; line-height: 1.35; }
+        .canvas-card p { font-size: 0.75rem; color: #cbd5e1 !important; margin: 0; line-height: 1.4; flex: 1; }
+
+        /* Osterwalder 9-Box Grid Positions */
+        .bm-partners { grid-column: 1 / 2; grid-row: 1 / 3; }
+        .bm-activities { grid-column: 2 / 3; grid-row: 1 / 2; }
+        .bm-resources { grid-column: 2 / 3; grid-row: 2 / 3; }
+        .bm-value { grid-column: 3 / 4; grid-row: 1 / 3; }
+        .bm-relationships { grid-column: 4 / 5; grid-row: 1 / 2; }
+        .bm-channels { grid-column: 4 / 5; grid-row: 2 / 3; }
+        .bm-customers { grid-column: 5 / 6; grid-row: 1 / 3; }
+        .bm-costs { grid-column: 1 / 3; grid-row: 3 / 4; }
+        .bm-revenues { grid-column: 3 / 6; grid-row: 3 / 4; }
+
+        @media (max-width: 992px) {
+            .canvas-grid { grid-template-columns: repeat(2, 1fr); }
+            .bm-partners, .bm-activities, .bm-resources, .bm-value, 
+            .bm-relationships, .bm-channels, .bm-customers, .bm-costs, .bm-revenues {
+                grid-column: span 1; grid-row: auto;
+            }
+            .bm-costs, .bm-revenues { grid-column: span 2; }
+        }
+        /* ===== PROBLEM TREE DIAGRAM (Coggle 4-Branch Layout) ===== */
+        .ptree-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            margin-top: 1.25rem;
+        }
+        .ptree-section-badge {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            text-align: center;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            width: fit-content;
+            margin: 0.4rem auto;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .ptree-badge-effects { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .ptree-badge-causes { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+        
+        .ptree-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.85rem;
+        }
+        .ptree-branch {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+        .ptree-branch-title {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 0.2rem;
+        }
+        .branch-1 .ptree-branch-title { color: #00b4d8; }
+        .branch-2 .ptree-branch-title { color: #00e676; }
+        .branch-3 .ptree-branch-title { color: #60a5fa; }
+        .branch-4 .ptree-branch-title { color: #f87171; }
+
+        .ptree-node {
+            padding: 0.8rem 0.7rem;
+            border-radius: 8px;
+            font-size: 0.74rem;
+            line-height: 1.35;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ptree-node:hover { transform: translateY(-2px); }
+
+        /* Branch Themes matching Thesis Coggle */
+        .branch-1 .node-ind-eff { background: rgba(0, 180, 216, 0.15); border: 1.5px solid #00b4d8; color: #38bdf8; font-weight: 700; }
+        .branch-1 .node-dir-eff { background: rgba(0, 180, 216, 0.07); border: 1px dashed #00b4d8; color: #93c5fd; }
+        .branch-1 .node-dir-cau { background: rgba(168, 85, 247, 0.07); border: 1px dashed #c084fc; color: #e9d5ff; }
+        .branch-1 .node-ind-cau { background: rgba(168, 85, 247, 0.15); border: 1.5px solid #c084fc; color: #f0abfc; font-weight: 700; }
+
+        .branch-2 .node-ind-eff { background: rgba(0, 230, 118, 0.15); border: 1.5px solid #00e676; color: #4ade80; font-weight: 700; }
+        .branch-2 .node-dir-eff { background: rgba(0, 230, 118, 0.07); border: 1px dashed #00e676; color: #86efac; }
+        .branch-2 .node-dir-cau { background: rgba(234, 179, 8, 0.07); border: 1px dashed #fde047; color: #fef08a; }
+        .branch-2 .node-ind-cau { background: rgba(234, 179, 8, 0.15); border: 1.5px solid #fde047; color: #facc15; font-weight: 700; }
+
+        .branch-3 .node-ind-eff { background: rgba(59, 130, 246, 0.15); border: 1.5px solid #3b82f6; color: #60a5fa; font-weight: 700; }
+        .branch-3 .node-dir-eff { background: rgba(59, 130, 246, 0.07); border: 1px dashed #3b82f6; color: #93c5fd; }
+        .branch-3 .node-dir-cau { background: rgba(234, 179, 8, 0.07); border: 1px dashed #fde047; color: #fef08a; }
+        .branch-3 .node-ind-cau { background: rgba(234, 179, 8, 0.15); border: 1.5px solid #fde047; color: #facc15; font-weight: 700; }
+
+        .branch-4 .node-ind-eff { background: rgba(0, 230, 118, 0.15); border: 1.5px solid #00e676; color: #4ade80; font-weight: 700; }
+        .branch-4 .node-dir-eff { background: rgba(0, 230, 118, 0.07); border: 1px dashed #00e676; color: #86efac; }
+        .branch-4 .node-dir-cau { background: rgba(239, 68, 68, 0.07); border: 1px dashed #f87171; color: #fca5a5; }
+        .branch-4 .node-ind-cau { background: rgba(239, 68, 68, 0.15); border: 1.5px solid #f87171; color: #ef4444; font-weight: 700; }
+
+        .ptree-center-node {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 0.9rem;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+            margin: 0.4rem 0;
+        }
+        .ptree-center-node h3 {
+            color: #fbbf24 !important;
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .ptree-arrow {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.75rem;
+            margin: -0.15rem 0;
+        }
+
+        /* ===== RESPONSIVE HORIZONTAL SCROLL CONTAINERS ===== */
+        .responsive-scroll-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 0.5rem;
+            margin-top: 1rem;
+        }
+        .canvas-grid {
+            min-width: 860px; /* Preserves authentic 9-Box Osterwalder Canvas structure on mobile */
+        }
+        .ptree-grid {
+            min-width: 860px; /* Preserves authentic 4-Branch Coggle Tree structure on mobile */
+        }
+        .scroll-hint {
+            display: none;
+            font-size: 0.73rem;
+            color: #00b4d8;
+            margin-bottom: 0.6rem;
+            align-items: center;
+            gap: 0.45rem;
+            font-weight: 700;
+            background: rgba(0, 180, 216, 0.08);
+            border: 1px dashed rgba(0, 180, 216, 0.3);
+            border-radius: 6px;
+            padding: 0.4rem 0.75rem;
+            width: fit-content;
+        }
+        @media (max-width: 900px) {
+            .scroll-hint { display: inline-flex; }
+        }
+
+        /* ===== 2X2 FINDINGS GRID ===== */
+        .findings-grid-2x2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+        @media (max-width: 768px) {
+            .findings-grid-2x2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ANALYTICAL INSIGHT BOX ===== */
+        .insight-box {
+            margin-top: 1.25rem;
+            background: rgba(15, 23, 42, 0.7);
+            border-left: 4px solid #00b4d8;
+            border-radius: 0 8px 8px 0;
+            padding: 0.85rem 1.1rem;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+        }
+        .insight-box i {
+            color: #00b4d8;
+            margin-right: 0.4rem;
+        }
+
+        /* ===== SUPERSYSTEM MAP ===== */
+        .supersys-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr 240px;
+            grid-template-rows: auto 1fr auto;
+            gap: 0.85rem;
+            min-width: 820px;
+        }
+        .supersys-box {
+            background: #0f172a;
+            border: 1.5px solid rgba(0, 180, 216, 0.3);
+            border-radius: 10px;
+            padding: 0.85rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            display: flex;
+            flex-direction: column;
+        }
+        .supersys-header {
+            grid-column: 1 / -1;
+            border-color: rgba(59, 130, 246, 0.4);
+            background: rgba(15, 23, 42, 0.95);
+        }
+        .supersys-center {
+            grid-column: 2 / 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 2px solid #00b4d8;
+            border-radius: 12px;
+            padding: 1.2rem;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.2);
+        }
+        .supersys-center h3 {
+            color: #38bdf8 !important;
+            font-size: 1.15rem;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            margin: 0 0 0.3rem 0;
+        }
+        .supersys-center p {
+            color: #94a3b8;
+            font-size: 0.72rem;
+            margin: 0;
+        }
+        .supersys-footer {
+            grid-column: 1 / -1;
+            border-color: rgba(168, 85, 247, 0.4);
+            background: rgba(15, 23, 42, 0.95);
+        }
+        .supersys-title {
+            font-size: 0.74rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin: 0 0 0.6rem 0;
+            color: #00e676;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .supersys-pill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 0.45rem;
+        }
+        .supersys-pill {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 0.45rem 0.6rem;
+            font-size: 0.72rem;
+            color: #cbd5e1;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        /* ===== PROCESS MAP (MACROPROCESOS CENABAST) ===== */
+        .procmap-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            min-width: 820px;
+        }
+        .procmap-layer {
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 0.9rem 1.1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+        .procmap-layer-strategic { border: 1.5px solid rgba(239, 68, 68, 0.4); }
+        .procmap-layer-core { border: 2px solid #00b4d8; background: rgba(15, 23, 42, 0.95); }
+        .procmap-layer-support { border: 1.5px solid rgba(0, 230, 118, 0.4); }
+        
+        .procmap-layer-title {
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            margin: 0 0 0.65rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+        .procmap-layer-strategic .procmap-layer-title { color: #f87171; }
+        .procmap-layer-core .procmap-layer-title { color: #38bdf8; }
+        .procmap-layer-support .procmap-layer-title { color: #4ade80; }
+
+        .procmap-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+        .procmap-grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.6rem; }
+        .procmap-grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+
+        .procmap-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 7px;
+            padding: 0.65rem;
+            text-align: center;
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            line-height: 1.35;
+        }
+        .procmap-layer-core .procmap-card {
+            background: rgba(0, 180, 216, 0.1);
+            border-color: rgba(0, 180, 216, 0.35);
+            color: #7dd3fc;
+            font-weight: 700;
+        }
+
+        .procmap-flank-bar {
+            background: rgba(0, 180, 216, 0.1);
+            border: 1.5px solid #00b4d8;
+            border-radius: 8px;
+            padding: 0.65rem 1rem;
+            font-size: 0.74rem;
+            font-weight: 800;
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* ===== EXECUTIVE SUMMARY DISCLAIMER ===== */
+        .summary-disclaimer {
+            grid-column: 1 / -1;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(0, 180, 216, 0.25);
+            border-left: 4px solid #00b4d8;
+            border-radius: 8px;
+            padding: 0.65rem 1rem;
+            font-size: 0.78rem;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-top: 0.85rem;
+            line-height: 1.4;
+        }
+        .summary-disclaimer i {
+            color: #00b4d8;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        /* ===== TABLE OVERFLOW PROTECTION ===== */
+        .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; }
+    </style>
+</head>
+<body id="page-healthcare-procurement">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ6WFTW7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- NAVBAR & HERO WRAPPER -->
+<div class="header-hero-wrapper">
+    <header class="container">
+        <a href="../index.html" class="logo"><img src="../assets/img/Logo.webp" alt="Ben Matias Logo" decoding="async"></a>
+        <div class="header-mobile-actions">
+            <button class="lang-toggle lang-toggle-header-mobile" aria-label="Change language"></button>
+            <button id="menu-toggle" class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">&#9776;</button>
+        </div>
+        <nav class="desktop-nav">
+            <a data-translate="navAbout" href="../index.html#about">About</a>
+            <a data-translate="navResume" href="../cv.html">CV / Resume</a>
+            <a data-translate="navProjects" href="../projects.html">Projects</a>
+            <a data-translate="navPublications" href="../publications.html">Publications</a>
+            <a href="mailto:bmatiasespinoza@gmail.com" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/benmatias" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <button class="lang-toggle" aria-label="Change language"></button>
+        </nav>
+        <div id="mobile-nav" class="mobile-nav">
+            <a data-translate="navAbout" href="../index.html#about">About</a>
+            <a data-translate="navResume" href="../cv.html">CV / Resume</a>
+            <a data-translate="navProjects" href="../projects.html">Projects</a>
+            <a data-translate="navPublications" href="../publications.html">Publications</a>
+            <a href="mailto:bmatiasespinoza@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://www.linkedin.com/in/benmatias" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <div class="lang-toggle-wrapper"><button class="lang-toggle" aria-label="Change language"></button></div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="case-study-hero">
+        <div class="container">
+            <span class="pill-badge"><i class="fas fa-chart-bar"></i> <span data-translate="hpa_badge">Case Study</span></span>
+
+            <h1 class="case-study-title" data-translate="hpa_title">Healthcare Procurement Analytics</h1>
+            <p class="case-study-subtitle" data-translate="hpa_subtitle">
+                An independent analysis of Chile's public healthcare supply chain — examining vendor compliance failures, procurement effectiveness, and order fulfillment gaps to propose a data-driven vendor management model for systemic improvement.
+            </p>
+
+            <div class="meta-pills-row">
+                <span class="meta-tag"><i class="fas fa-calendar"></i> <span data-translate="hpa_meta_date">2016–2019 Data</span></span>
+                <span class="meta-tag"><i class="fas fa-globe-americas"></i> <span data-translate="hpa_meta_country">Chile</span></span>
+                <span class="meta-tag"><i class="fas fa-hospital"></i> <span data-translate="hpa_meta_sector">Public Health Supply Chain</span></span>
+                <span class="meta-tag"><i class="fas fa-cogs"></i> <span data-translate="hpa_meta_bpm">BPM / Process Redesign</span></span>
+                <span class="meta-tag"><i class="fas fa-chart-line"></i> <span data-translate="hpa_meta_analytics">Supply Chain Analytics</span></span>
+            </div>
+
+            <div class="meta-pills-row">
+                <span class="pill-badge-blue"><i class="fas fa-project-diagram"></i> <span data-translate="hpa_pill_bpm">BPM / BPR</span></span>
+                <span class="pill-badge-blue"><i class="fas fa-sitemap"></i> <span data-translate="hpa_pill_ilpes">ILPES/CEPAL Methodology</span></span>
+                <span class="pill-badge-blue"><i class="fas fa-code"></i> <span data-translate="hpa_pill_python">Python & Analytics</span></span>
+                <span class="pill-badge-blue"><i class="fas fa-balance-scale"></i> <span data-translate="hpa_pill_scorecard">Vendor Scorecard (0–100)</span></span>
+                <span class="pill-badge-blue"><i class="fas fa-file-invoice"></i> <span data-translate="hpa_pill_chilecompra">ChileCompra / Public Procurement</span></span>
+            </div>
+        </div>
+    </section>
+</div>
+
+<main class="container page-container">
+
+    <!-- EXECUTIVE SUMMARY CARDS -->
+    <div class="project-executive-summary" style="margin-top: 2rem;">
+        <div class="summary-card">
+            <i class="fas fa-bullseye"></i>
+            <div class="summary-card-text">
+                <h3 data-translate="hpa_exec1_title">The Business Challenge</h3>
+                <p data-translate="hpa_exec1_body">Chronic vendor non-compliance in Chile's public health procurement agency (CENABAST) led to a 24.2% order non-fulfillment rate and an 82.9% surge in client complaints across 500+ health facilities.</p>
+            </div>
+        </div>
+        <div class="summary-card">
+            <i class="fas fa-rocket"></i>
+            <div class="summary-card-text">
+                <h3 data-translate="hpa_exec2_title">The Analytics Solution</h3>
+                <p data-translate="hpa_exec2_body">BPM process modeling, OTIF analytics on ChileCompra tender execution, and a proposed Vendor Management Model featuring a dynamic Vendor Scorecard.</p>
+            </div>
+        </div>
+        <div class="summary-card">
+            <i class="fas fa-chart-pie"></i>
+            <div class="summary-card-text">
+                <h3 data-translate="hpa_exec3_title">Targeted Impact</h3>
+                <p data-translate="hpa_exec3_body">Mitigation of $1.7B CLP in vendor fines, early detection of contract renewal risks, and systematic SLA enforcement for vital pharmaceutical supply lines.</p>
+            </div>
+        </div>
+        <div class="summary-disclaimer">
+            <i class="fas fa-info-circle"></i>
+            <span data-translate="hpa_exec_disclaimer">Methodological Note: Case study developed using historical data (2016–2019) and does not represent the current operational state or delivery performance of CENABAST.</span>
+        </div>
+    </div>
+
+    <!-- TABS NAVIGATION -->
+    <div class="cs-tabs-wrapper" style="margin: 2.5rem 0 1.5rem 0;">
+        <button class="cs-tab-btn active" onclick="switchTab('overview',this)" id="tab-overview">
+            <i class="fas fa-th-large"></i> <span data-translate="hpa_tab_overview">Overview</span>
+        </button>
+        <button class="cs-tab-btn" onclick="switchTab('process',this)" id="tab-process">
+            <i class="fas fa-stream"></i> <span data-translate="hpa_tab_process">Process (AS-IS)</span>
+        </button>
+        <button class="cs-tab-btn" onclick="switchTab('data',this)" id="tab-data">
+            <i class="fas fa-chart-area"></i> <span data-translate="hpa_tab_data">Data Analysis</span>
+        </button>
+        <button class="cs-tab-btn" onclick="switchTab('model',this)" id="tab-model">
+            <i class="fas fa-lightbulb"></i> <span data-translate="hpa_tab_model">Proposed Model</span>
+        </button>
+        <button class="cs-tab-btn" onclick="switchTab('method',this)" id="tab-method">
+            <i class="fas fa-flask"></i> <span data-translate="hpa_tab_method">Methodology</span>
+        </button>
+    </div>
+
+    <!-- ========================== TAB 1: OVERVIEW ========================== -->
+    <div class="cs-tab-pane active" id="pane-overview">
+
+
+    <!-- CONTEXT & BUSINESS MODEL -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-hospital"></i> <span data-translate="hpa_context_title">Organizational Context & Mission</span></h2>
+            <span class="pill-badge-blue">CENABAST — MINSAL</span>
+        </div>
+        <p style="color:#cbd5e1; font-size:0.92rem; line-height:1.7; margin-bottom:1.25rem;" data-translate="hpa_context_body">
+            CENABAST (Central Nacional de Abastecimiento) is Chile's public healthcare procurement agency, responsible for aggregating demand and managing supply of pharmaceuticals, medical devices, and food for the entire national health network. Operating without fiscal support, it sustains itself through commissions charged for its intermediation role — making procurement effectiveness directly tied to financial stability.
+        </p>
+        
+        <div style="display:flex; flex-direction:column; gap:0.65rem; background:rgba(15,23,42,0.6); border:1px solid rgba(0,180,216,0.2); border-radius:8px; padding:1rem 1.25rem;">
+            <div style="font-size:0.85rem; color:#cbd5e1; line-height:1.5;">
+                <i class="fas fa-layer-group" style="color:#00b4d8; margin-right:0.5rem;"></i> <strong data-translate="hpa_ctx1_title">Economies of Scale:</strong> <span data-translate="hpa_ctx1_body">Aggregates demand from 500+ facilities to achieve bulk pricing unavailable to individual buyers — its core value proposition.</span>
+            </div>
+            <div style="font-size:0.85rem; color:#cbd5e1; line-height:1.5;">
+                <i class="fas fa-exchange-alt" style="color:#00b4d8; margin-right:0.5rem;"></i> <strong data-translate="hpa_ctx2_title">Intermediation Model:</strong> <span data-translate="hpa_ctx2_body">Operates via ChileCompra public tenders. Suppliers deliver directly to facilities; CENABAST never physically handles products.</span>
+            </div>
+            <div style="font-size:0.85rem; color:#cbd5e1; line-height:1.5;">
+                <i class="fas fa-exclamation-triangle" style="color:#f87171; margin-right:0.5rem;"></i> <strong style="color:#f87171;" data-translate="hpa_ctx3_title">The Core Problem:</strong> <span data-translate="hpa_ctx3_body">Chronic vendor non-compliance — partial deliveries, false reporting, and late submissions — cascades into supply shortages for critical medications across the country.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- BUSINESS MODEL CANVAS -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-th"></i> <span data-translate="hpa_canvas_title">Business Model Canvas</span></h2>
+            <span class="pill-badge-blue" data-translate="hpa_canvas_badge">CENABAST Intermediation Model</span>
+        </div>
+        <div class="scroll-hint"><i class="fas fa-arrows-left-right"></i> <span data-translate="hpa_scroll_hint">Desliza horizontalmente para ver el Canvas de 9 bloques completo</span></div>
+        <div class="responsive-scroll-wrapper">
+            <div class="canvas-grid">
+                <!-- 1. Aliados Clave (Key Partners) -->
+                <div class="canvas-card bm-partners">
+                    <span class="canvas-num">1</span>
+                    <h4 data-translate="hpa_canvas_partners">Key Partners</h4>
+                    <ul>
+                        <li data-translate="hpa_canvas_partners1">National Suppliers</li>
+                        <li data-translate="hpa_canvas_partners2">International Suppliers</li>
+                        <li data-translate="hpa_canvas_partners3">Logistics Operators</li>
+                        <li data-translate="hpa_canvas_partners4">SEREMI Salud (Regional Health Secretariat)</li>
+                        <li data-translate="hpa_canvas_partners5">SAG (Agricultural & Livestock Service)</li>
+                        <li data-translate="hpa_canvas_partners6">Customs Authority (Aduanas)</li>
+                        <li data-translate="hpa_canvas_partners7">ChileCompra Public Procurement Platform</li>
+                    </ul>
+                </div>
+
+                <!-- 2. Actividades Clave (Key Activities) -->
+                <div class="canvas-card bm-activities">
+                    <span class="canvas-num">2</span>
+                    <h4 data-translate="hpa_canvas_activities">Key Activities</h4>
+                    <ul>
+                        <li data-translate="hpa_canvas_act1">Demand collection & aggregation</li>
+                        <li data-translate="hpa_canvas_act2">Order dispatch & delivery within agreed SLAs</li>
+                    </ul>
+                </div>
+
+                <!-- 3. Recursos Clave (Key Resources) -->
+                <div class="canvas-card bm-resources">
+                    <span class="canvas-num">3</span>
+                    <h4 data-translate="hpa_canvas_resources">Key Resources</h4>
+                    <ul>
+                        <li data-translate="hpa_canvas_res1">Central agency headquarters & infrastructure</li>
+                        <li data-translate="hpa_canvas_res2">Web procurement platforms</li>
+                        <li data-translate="hpa_canvas_res3">Awarded supply contracts</li>
+                    </ul>
+                </div>
+
+                <!-- 4. Propuesta de Valor (Value Proposition) -->
+                <div class="canvas-card bm-value">
+                    <span class="canvas-num">4</span>
+                    <h4 data-translate="hpa_canvas_value">Value Proposition</h4>
+                    <p data-translate="hpa_canvas_val1">Cost reduction for client health facilities through volume purchasing & economies of scale.</p>
+                </div>
+
+                <!-- 5. Relación con el Cliente (Customer Relationships) -->
+                <div class="canvas-card bm-relationships">
+                    <span class="canvas-num">5</span>
+                    <h4 data-translate="hpa_canvas_relationships">Customer Relationships</h4>
+                    <p data-translate="hpa_canvas_rel1">Dedicated personal & phone assistance.</p>
+                </div>
+
+                <!-- 6. Canales (Channels) -->
+                <div class="canvas-card bm-channels">
+                    <span class="canvas-num">6</span>
+                    <h4 data-translate="hpa_canvas_channels">Channels</h4>
+                    <ul>
+                        <li data-translate="hpa_canvas_ch1">Direct supplier channels</li>
+                        <li data-translate="hpa_canvas_ch2">External logistics operators</li>
+                        <li data-translate="hpa_canvas_ch3">Customer service & order portal</li>
+                    </ul>
+                </div>
+
+                <!-- 7. Segmentos de Clientes (Customer Segments) -->
+                <div class="canvas-card bm-customers">
+                    <span class="canvas-num">7</span>
+                    <h4 data-translate="hpa_canvas_customers">Customer Segments</h4>
+                    <ul>
+                        <li data-translate="hpa_canvas_cs1">Ministry of Health (MINSAL)</li>
+                        <li data-translate="hpa_canvas_cs2">Undersecretariat of Healthcare Networks</li>
+                        <li data-translate="hpa_canvas_cs3">Undersecretariat of Public Health</li>
+                        <li data-translate="hpa_canvas_cs4">National Health Fund (FONASA)</li>
+                        <li data-translate="hpa_canvas_cs5">Municipalities & Municipal Health Corporations</li>
+                        <li data-translate="hpa_canvas_cs6">Affiliated entities of the National Health Services System</li>
+                    </ul>
+                </div>
+
+                <!-- 8. Estructura de Costes (Cost Structure) -->
+                <div class="canvas-card bm-costs">
+                    <span class="canvas-num">8</span>
+                    <h4 data-translate="hpa_canvas_costs">Cost Structure</h4>
+                    <p data-translate="hpa_canvas_costs_desc">Inventory Holding and Transportation represent the primary operational cost drivers. Total annual expenditure (2016): $11,687,552 CLP (in thousands).</p>
+                </div>
+
+                <!-- 9. Estructura de Ingresos (Revenue Streams) -->
+                <div class="canvas-card bm-revenues">
+                    <span class="canvas-num">9</span>
+                    <h4 data-translate="hpa_canvas_revenue">Revenue Streams</h4>
+                    <p data-translate="hpa_canvas_rev_desc">Intermediation commission fees charged to client health institutions per transaction. Total annual revenue (2016): $12,359,324 CLP (in thousands).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BASELINE PERFORMANCE METRICS (KPIs) -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-chart-line"></i> <span data-translate="hpa_kpicard_title">Baseline Performance Indicators (2016–2019)</span></h2>
+            <span class="pill-badge-blue" data-translate="hpa_kpicard_badge">Empirical Baseline</span>
+        </div>
+        <p style="color:#94a3b8; font-size:0.85rem; margin-bottom:1.25rem;" data-translate="hpa_kpicard_desc">Quantitative baseline metrics highlighting the operational non-compliance gap, sanction rates, and financial risks across CENABAST's network before the proposed intervention.</p>
+        
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-value danger">24.2%</div>
+                <div class="kpi-label" data-translate="hpa_kpi_noncompliance">Non-Fulfillment Rate</div>
+                <div class="kpi-sub" data-translate="hpa_kpi_noncompliance_sub">231,488 of 954,815 orders unmet (2018)</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value warning">+82.9%</div>
+                <div class="kpi-label" data-translate="hpa_kpi_complaints">Complaint Surge</div>
+                <div class="kpi-sub" data-translate="hpa_kpi_complaints_sub">Client complaints 2017 → 2018</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value danger">$1.7B</div>
+                <div class="kpi-label" data-translate="hpa_kpi_fines">CLP Vendor Fines</div>
+                <div class="kpi-sub" data-translate="hpa_kpi_fines_sub">False/late info submissions alone</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value info">500+</div>
+                <div class="kpi-label" data-translate="hpa_kpi_facilities">Health Facilities</div>
+                <div class="kpi-sub" data-translate="hpa_kpi_facilities_sub">Served across all Chile's regions</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value warning">109%</div>
+                <div class="kpi-label" data-translate="hpa_kpi_sanction_rate">Sanction Rate</div>
+                <div class="kpi-sub" data-translate="hpa_kpi_sanction_rate_sub">1,867 sanctions / 1,707 active contracts (H1 2019)</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value danger">24.6%</div>
+                <div class="kpi-label" data-translate="hpa_kpi_expiring">Contracts Expiring</div>
+                <div class="kpi-sub" data-translate="hpa_kpi_expiring_sub">Near-expiry contracts without renewal pipeline</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROBLEM TREE -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-sitemap"></i> <span data-translate="hpa_problem_title">Problem Tree Analysis</span></h2>
+            <span class="pill-badge-blue" data-translate="hpa_problem_badge">ILPES/CEPAL Framework</span>
+        </div>
+        <p style="color:#94a3b8; font-size:0.85rem; margin-bottom:1.25rem;" data-translate="hpa_problem_desc">Root-cause analysis mapping the 4 operational branches of deficient vendor management. Indirect effects flow upward (top); root causes branch downward (bottom).</p>
+        
+        <div class="scroll-hint"><i class="fas fa-arrows-left-right"></i> <span data-translate="hpa_scroll_hint_diagram">Desliza horizontalmente para ver el diagrama completo</span></div>
+        <div class="responsive-scroll-wrapper">
+            <div class="ptree-wrapper">
+                <!-- Badge Top: Indirect Effects -->
+                <div class="ptree-section-badge ptree-badge-effects"><i class="fas fa-arrow-up"></i> <span data-translate="hpa_tree_effects_label">Indirect & Direct Effects (Top Level)</span></div>
+
+                <div class="ptree-grid">
+                    <!-- BRANCH 1 -->
+                    <div class="ptree-branch branch-1">
+                        <div class="ptree-branch-title" data-translate="hpa_tree_b1_title">Contract Enforcement</div>
+                        <div class="ptree-node node-ind-eff" data-translate="hpa_tree_b1_ind_eff">Early contract termination</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                        <div class="ptree-node node-dir-eff" data-translate="hpa_tree_b1_dir_eff">Accumulated vendor sanctions</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                    </div>
+
+                    <!-- BRANCH 2 -->
+                    <div class="ptree-branch branch-2">
+                        <div class="ptree-branch-title" data-translate="hpa_tree_b2_title">Procurement Volume</div>
+                        <div class="ptree-node node-ind-eff" data-translate="hpa_tree_b2_ind_eff">Decline in procurement transactions</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                        <div class="ptree-node node-dir-eff" data-translate="hpa_tree_b2_dir_eff">Health services refrain from expanding purchases</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                    </div>
+
+                    <!-- BRANCH 3 -->
+                    <div class="ptree-branch branch-3">
+                        <div class="ptree-branch-title" data-translate="hpa_tree_b3_title">Fulfillment & Compliance</div>
+                        <div class="ptree-node node-ind-eff" data-translate="hpa_tree_b3_ind_eff">Widespread client dissatisfaction</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                        <div class="ptree-node node-dir-eff" data-translate="hpa_tree_b3_dir_eff">Order delivery non-fulfillment</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                    </div>
+
+                    <!-- BRANCH 4 -->
+                    <div class="ptree-branch branch-4">
+                        <div class="ptree-branch-title" data-translate="hpa_tree_b4_title">Information & Costs</div>
+                        <div class="ptree-node node-ind-eff" data-translate="hpa_tree_b4_ind_eff">Increased operational costs for CENABAST</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                        <div class="ptree-node node-dir-eff" data-translate="hpa_tree_b4_dir_eff">External third-party deliveries billed to CENABAST</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                    </div>
+
+                    <!-- CENTRAL PROBLEM NODE (Spans all columns) -->
+                    <div class="ptree-center-node">
+                        <h3 data-translate="hpa_tree_center">⚠ DEFICIENT VENDOR MANAGEMENT</h3>
+                    </div>
+
+                    <!-- BRANCH 1 (CAUSES) -->
+                    <div class="ptree-branch branch-1">
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-dir-cau" data-translate="hpa_tree_b1_dir_cau">Deficient contract management</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-ind-cau" data-translate="hpa_tree_b1_ind_cau">Lack of staff training</div>
+                    </div>
+
+                    <!-- BRANCH 2 (CAUSES) -->
+                    <div class="ptree-branch branch-2">
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-dir-cau" data-translate="hpa_tree_b2_dir_cau">Lack of operational control</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-ind-cau" data-translate="hpa_tree_b2_ind_cau">Outsourced delivery operations</div>
+                    </div>
+
+                    <!-- BRANCH 3 (CAUSES) -->
+                    <div class="ptree-branch branch-3">
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-dir-cau" data-translate="hpa_tree_b3_dir_cau">Vendors evade penalty fines</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-ind-cau" data-translate="hpa_tree_b3_ind_cau">Poorly designed sanction system</div>
+                    </div>
+
+                    <!-- BRANCH 4 (CAUSES) -->
+                    <div class="ptree-branch branch-4">
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-dir-cau" data-translate="hpa_tree_b4_dir_cau">Vendors manipulate reporting data</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-ind-cau" data-translate="hpa_tree_b4_ind_cau">Absence of systematic data registration</div>
+                    </div>
+                </div>
+
+                <!-- Badge Bottom: Root Causes -->
+                <div class="ptree-section-badge ptree-badge-causes"><i class="fas fa-arrow-down"></i> <span data-translate="hpa_tree_causes_label">Direct & Root Causes (Base Level)</span></div>
+            </div>
+        </div>
+    </div>
+
+</div><!-- /pane-overview -->
+
+<!-- ========================== TAB 2: PROCESS ========================== -->
+<div class="cs-tab-pane" id="pane-process">
+
+    <!-- 1. RESUMEN DEL PROCESO DE COMPRAS Y ABASTECIMIENTO -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-info-circle"></i> <span data-translate="hpa_proc_summary_title">Resumen del Proceso de Compras y Abastecimiento de CENABAST</span></h2>
+            <span class="pill-badge-blue" data-translate="hpa_badge_ops_ctx">Contexto Operacional</span>
+        </div>
+        <p style="color:#cbd5e1; font-size:0.92rem; line-height:1.7;" data-translate="hpa_proc_summary_desc">
+            CENABAST opera como un intermediario estratégico conectando a más de 500 establecimientos de la red pública de salud con proveedores farmacéuticos privados. El ciclo inicia con pronósticos de demanda a 18 meses enviados por hospitales y consultorios. CENABAST agrega este volumen para estructurar licitaciones públicas o convenios marco en ChileCompra. Una vez adjudicado el contrato, los proveedores despachan las remesas directamente a los establecimientos de salud sin que los productos pasen por bodegas físicas de CENABAST. El seguimiento operacional y la aplicación de multas dependen de los informes de despacho cargados por los proveedores y las confirmaciones de recepción de los clientes.
+        </p>
+    </div>
+
+    <!-- 2. CICLO DE COMPRAS AS-IS (Mapeo de Flujo) -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-stream"></i> <span data-translate="hpa_process_title">Flujo del Proceso de Compras — AS-IS</span></h2>
+            <span class="pill-badge-blue" data-translate="hpa_proc_badge">Mapeo de Flujo</span>
+        </div>
+        <p style="color:#94a3b8; font-size:0.85rem; margin-bottom:1.5rem;" data-translate="hpa_process_desc">El ciclo de compras consta de 5 subprocesos secuenciales. En cada etapa se identifican las fallas operacionales y puntos de dolor del modelo actual (período ene–jul 2019).</p>
+
+        <!-- Process Flow -->
+        <div class="process-flow">
+            <div class="process-node">
+                <div class="node-icon"><i class="fas fa-database"></i></div>
+                <div class="node-title" data-translate="hpa_proc_p1">1. Agregación de Demanda</div>
+                <div class="node-desc" data-translate="hpa_proc_p1d">Los clientes envían pronósticos de demanda a 18 meses via plataforma. CENABAST consolida para planificar licitaciones.</div>
+                <div class="node-pain" data-translate="hpa_proc_p1p">⚠ Revisión manual; sin capa de validación</div>
+            </div>
+            <div class="process-arrow">→</div>
+            <div class="process-node">
+                <div class="node-icon"><i class="fas fa-gavel"></i></div>
+                <div class="node-title" data-translate="hpa_proc_p2">2. Creación de Licitación</div>
+                <div class="node-desc" data-translate="hpa_proc_p2d">Licitaciones publicadas en ChileCompra. Comisión de Adquisiciones adjudica ofertas sobre UTM 1.000.</div>
+                <div class="node-pain" data-translate="hpa_proc_p2p">⚠ Sanciones de proveedores no ponderadas sistemáticamente</div>
+            </div>
+            <div class="process-arrow">→</div>
+            <div class="process-node">
+                <div class="node-icon"><i class="fas fa-handshake"></i></div>
+                <div class="node-title" data-translate="hpa_proc_p3">3. Trato Directo / Renovación</div>
+                <div class="node-desc" data-translate="hpa_proc_p3d">Contratos excepcionales con proveedor único para urgencias o renovaciones de convenio marco.</div>
+                <div class="node-pain" data-translate="hpa_proc_p3p">⚠ Riesgo: proveedores incumplidores vuelven a ser seleccionados</div>
+            </div>
+            <div class="process-arrow">→</div>
+            <div class="process-node">
+                <div class="node-icon"><i class="fas fa-truck"></i></div>
+                <div class="node-title" data-translate="hpa_proc_p4">4. Ejecución del Contrato</div>
+                <div class="node-desc" data-translate="hpa_proc_p4d">El proveedor informa % de cumplimiento via plataforma. Entrega directa al establecimiento en máximo 48h.</div>
+                <div class="node-pain" data-translate="hpa_proc_p4p">⚠ Sin seguimiento en tiempo real; confirmación de entrega es reactiva</div>
+            </div>
+            <div class="process-arrow">→</div>
+            <div class="process-node">
+                <div class="node-icon"><i class="fas fa-exclamation-circle"></i></div>
+                <div class="node-title" data-translate="hpa_proc_p5">5. Reclamo y Sanción</div>
+                <div class="node-desc" data-translate="hpa_proc_p5d">Ejecutivos registran reclamos de clientes. Sanciones por información tardía/falsa e incumplimiento de entrega.</div>
+                <div class="node-pain" data-translate="hpa_proc_p5p">⚠ Multa la no entrega pero no la falta de información</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. HALLAZGOS OPERACIONALES DETALLADOS (Grilla 2x2) -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-search"></i> <span data-translate="hpa_crit_title">Análisis Detallado de Hallazgos Críticos Operacionales (AS-IS)</span></h2>
+            <span class="pill-badge-blue" data-translate="hpa_badge_root_causes">Causas Raíz Operacionales</span>
+        </div>
+        <div class="findings-grid-2x2">
+            <div class="summary-card" style="border-left-color:#f87171;">
+                <i class="fas fa-eye-slash" style="color:#f87171 !important;"></i>
+                <div>
+                    <h3 data-translate="hpa_crit1_title">Sin Visibilidad ni Scoring de Proveedores</h3>
+                    <p data-translate="hpa_crit1_body">Ausencia total de Scorecards históricos o métricas OTIF de proveedores. Las comisiones evaluadoras en ChileCompra no contaban con registros consolidados de cumplimiento, permitiendo que proveedores multados volvieran a adjudicarse licitaciones.</p>
+                </div>
+            </div>
+            <div class="summary-card" style="border-left-color:#f59e0b;">
+                <i class="fas fa-edit" style="color:#f59e0b !important;"></i>
+                <div>
+                    <h3 data-translate="hpa_crit2_title">Procesamiento Manual y Fragmentación de Datos</h3>
+                    <p data-translate="hpa_crit2_body">Los informes de despacho se cargaban manualmente mediante archivos planos sin validación automatizada en tiempo real. Esto generaba desfases operacionales de hasta 30 días entre la falta de entrega y la alerta del sistema.</p>
+                </div>
+            </div>
+            <div class="summary-card" style="border-left-color:#a78bfa;">
+                <i class="fas fa-balance-scale" style="color:#a78bfa !important;"></i>
+                <div>
+                    <h3 data-translate="hpa_crit3_title">Brecha Estructural en el Esquema de Sanciones</h3>
+                    <p data-translate="hpa_crit3_body">El reglamento penalizaba la información tardía o falsa ($1.695M CLP en multas en el H1 2019), pero no la omisión total del reporte. Los laboratorios aprovechaban esta brecha no subiendo datos para evitar multas por entregas parciales.</p>
+                </div>
+            </div>
+            <div class="summary-card" style="border-left-color:#00b4d8;">
+                <i class="fas fa-money-bill-wave" style="color:#00b4d8 !important;"></i>
+                <div>
+                    <h3 data-translate="hpa_crit4_title">Gestión Reactiva y Enfoque Exclusivamente Financiero</h3>
+                    <p data-translate="hpa_crit4_body">Los informes institucionales evaluaban montos presupuestarios contratados en lugar del nivel de servicio al paciente o la frecuencia de desabastecimiento. La agencia actuaba reactivamente solo tras el reclamo del establecimiento de salud.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div><!-- /pane-process -->
+
+<!-- ========================== TAB 3: DATA ANALYSIS ========================== -->
+<div class="cs-tab-pane" id="pane-data">
+
+    <!-- 0. CONTEXTUALIZACIÓN DEL ANÁLISIS DE DATOS -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-chart-line"></i> <span data-translate="hpa_data_intro_title">Contextualización del Análisis de Datos</span></h2>
+            <span class="pill-badge-blue" data-translate="hpa_data_intro_badge">Evidencia Cuantitativa</span>
+        </div>
+        <p style="color:#cbd5e1; font-size:0.92rem; line-height:1.7;" data-translate="hpa_data_intro_desc">
+            A continuación se presenta el análisis cuantitativo de la gestión de abastecimiento de CENABAST (período de referencia 2015–2019). Los datos consolidados permiten diagnosticar objetivamente los puntos de quiebre en el nivel de servicio (OTIF), la efectividad del proceso de compra, el impacto de las sanciones a proveedores y la percepción directa de los clientes de la red pública de salud — fundamentando con evidencia empírica el Modelo de Gestión de Proveedores propuesto.
+        </p>
+    </div>
+
+    <!-- 1. OTIF MENSUAL -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-chart-bar"></i> <span data-translate="hpa_otif_title">OTIF — Tasa de Cumplimiento Mensual (2018)</span></h2>
+            <span class="pill-badge-blue" data-translate="hpa_otif_badge">954.815 pedidos totales</span>
+        </div>
+        <p style="color:#94a3b8; font-size:0.83rem; margin-bottom:1.25rem;" data-translate="hpa_otif_desc">Desglose mensual de la tasa de cumplimiento de pedidos. Enero registró el peor rendimiento; junio–agosto mostraron mejora estacional, posiblemente alineada con ciclos presupuestarios de invierno.</p>
+        <div class="chart-container">
+            <div class="bar-row"><span class="bar-label">Ene</span><div class="bar-track"><div class="bar-fill danger" style="width:40%">40%</div></div></div>
+            <div class="bar-row"><span class="bar-label">Feb</span><div class="bar-track"><div class="bar-fill warning" style="width:68%">68%</div></div></div>
+            <div class="bar-row"><span class="bar-label">Mar</span><div class="bar-track"><div class="bar-fill warning" style="width:72%">72%</div></div></div>
+            <div class="bar-row"><span class="bar-label">Abr</span><div class="bar-track"><div class="bar-fill warning" style="width:74%">74%</div></div></div>
+            <div class="bar-row"><span class="bar-label">May</span><div class="bar-track"><div class="bar-fill warning" style="width:76%">76%</div></div></div>
+            <div class="bar-row"><span class="bar-label">Jun</span><div class="bar-track"><div class="bar-fill compliance" style="width:80%">80%</div></div></div>
+            <div class="bar-row"><span class="bar-label">Jul</span><div class="bar-track"><div class="bar-fill compliance" style="width:79%">79%</div></div></div>
+            <div class="bar-row"><span class="bar-label">Ago</span><div class="bar-track"><div class="bar-fill compliance" style="width:78%">78%</div></div></div>
+            <div class="bar-row"><span class="bar-label">Sep</span><div class="bar-track"><div class="bar-fill warning" style="width:75%">75%</div></div></div>
+            <div class="bar-row"><span class="bar-label">Oct</span><div class="bar-track"><div class="bar-fill warning" style="width:77%">77%</div></div></div>
+            <div class="bar-row"><span class="bar-label">Nov</span><div class="bar-track"><div class="bar-fill warning" style="width:74%">74%</div></div></div>
+            <div class="bar-row"><span class="bar-label">Dic</span><div class="bar-track"><div class="bar-fill warning" style="width:71%">71%</div></div></div>
+        </div>
+        <p style="color:#64748b; font-size:0.75rem; margin-top:0.75rem;" data-translate="hpa_otif_note">Promedio anual: 75,8% de cumplimiento → 24,2% de incumplimiento = 231.488 pedidos no completados. Fuente: Informe Anual CENABAST 2018.</p>
+        <div class="insight-box">
+            <i class="fas fa-lightbulb"></i> <span data-translate="hpa_otif_insight">Hallazgo Analítico Clave: Enero registró la tasa de cumplimiento más crítica (40%), generando un déficit operativo al inicio del año fiscal. Aunque en invierno el cumplimiento mejoró (80%), el promedio anual se estancó en 75,8%, dejando 231.488 pedidos incompletos que afectaron directamente el stock hospitalario.</span>
+        </div>
+    </div>
+
+    <!-- 2. ANÁLISIS DE PEDIDOS CON FALTANTES -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-boxes"></i> <span data-translate="hpa_vendor_title">Análisis de Pedidos con Faltantes</span></h2>
+        </div>
+        <p style="color:#94a3b8; font-size:0.83rem; margin-bottom:1rem;" data-translate="hpa_vendor_desc">
+            De 810.703 pedidos ejecutados, el 24,92% presentó faltantes confirmados. 5 proveedores concentraron los mayores volúmenes de faltantes — responsables colectivamente de 4,5 puntos porcentuales del incumplimiento total.
+        </p>
+        <div class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px,1fr));">
+            <div class="kpi-card">
+                <div class="kpi-value info">810.703</div>
+                <div class="kpi-label" data-translate="hpa_v1">Pedidos Ejecutados</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value danger">24,92%</div>
+                <div class="kpi-label" data-translate="hpa_v2">Tuvieron Faltantes</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value warning">2,53%</div>
+                <div class="kpi-label" data-translate="hpa_v3">Exceso Entregado</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value danger">4,5pp</div>
+                <div class="kpi-label" data-translate="hpa_v4">Impacto Top-5 Proveedores</div>
+                <div class="kpi-sub" data-translate="hpa_v4sub">Eliminar los 5 peores = +4.5% cumplimiento</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value warning">1pp</div>
+                <div class="kpi-label" data-translate="hpa_v5">Impacto Sanción Top-10</div>
+                <div class="kpi-sub" data-translate="hpa_v5sub">7.2% de faltantes provienen de sancionados</div>
+            </div>
+        </div>
+        <div class="insight-box">
+            <i class="fas fa-lightbulb"></i> <span data-translate="hpa_vendor_insight">Hallazgo Analítico Clave: El incumplimiento está altamente concentrado; solo 5 proveedores concentran 4,5 puntos porcentuales del total de fallas nacionales. Descalificar o penalizar a este pequeño grupo aumentaría el cumplimiento global de 75,8% a 80,3%.</span>
+        </div>
+    </div>
+
+    <!-- 3. TENDENCIA DE RECLAMOS DE CLIENTES -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-comment-alt"></i> <span data-translate="hpa_complaints_title">Tendencia de Reclamos de Clientes (2016–2018)</span></h2>
+        </div>
+        <p style="color:#94a3b8; font-size:0.83rem; margin-bottom:1.25rem;" data-translate="hpa_complaints_desc">Tras una baja en 2017 (probable subreporte), los reclamos aumentaron 82,9% en 2018, siendo "pedido con faltante" la causa dominante.</p>
+        <div class="chart-container">
+            <div class="chart-title" data-translate="hpa_complaints_by_cause">Reclamos por Causa Principal</div>
+            <div class="bar-row">
+                <span class="bar-label" style="width:130px; text-align:right;" data-translate="hpa_comp_c1">Pedido con Faltante</span>
+                <div class="bar-track"><div class="bar-fill danger" style="width:72%">72%</div></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label" style="width:130px; text-align:right;" data-translate="hpa_comp_c2">Entrega Tardía</span>
+                <div class="bar-track"><div class="bar-fill warning" style="width:15%">15%</div></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label" style="width:130px; text-align:right;" data-translate="hpa_comp_c3">Producto Erróneo</span>
+                <div class="bar-track"><div class="bar-fill warning" style="width:8%">8%</div></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label" style="width:130px; text-align:right;" data-translate="hpa_comp_c4">Otros / Información</span>
+                <div class="bar-track"><div class="bar-fill compliance" style="width:5%">5%</div></div>
+            </div>
+        </div>
+        <div class="insight-box">
+            <i class="fas fa-lightbulb"></i> <span data-translate="hpa_complaints_insight">Hallazgo Analítico Clave: El aumento del 82,9% en reclamos durante 2018 estuvo dominado por faltantes (72%). Los clientes priorizan recibir el pedido completo sobre el plazo estricto, convirtiendo al cumplimiento de volumen en el principal motor de satisfacción.</span>
+        </div>
+    </div>
+
+    <!-- 4. ENCUESTA DE SATISFACCIÓN DE CLIENTES (SISMARKET) -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-poll"></i> <span data-translate="hpa_survey_title">Encuesta de Satisfacción de Clientes — Hallazgos Clave</span></h2>
+            <span class="pill-badge-blue" data-translate="hpa_survey_badge">SISMARKET · Percepción de Clientes</span>
+        </div>
+        <p style="color:#94a3b8; font-size:0.83rem; margin-bottom:1.25rem;" data-translate="hpa_survey_desc">Encuesta aplicada en establecimientos de salud de la red pública para capturar la calidad percibida del servicio en compras, logística, atención y facturación.</p>
+
+        <h4 style="color:#00b4d8; font-size:0.9rem; margin-bottom:1rem;" data-translate="hpa_survey_q_title">Por qué los clientes NO aumentan sus compras en CENABAST (principales razones)</h4>
+        <div class="survey-item">
+            <div class="survey-question" data-translate="hpa_survey_s1">Riesgo de faltante de stock / incumplimiento</div>
+            <div class="survey-bar-wrap">
+                <div class="survey-bar-track"><div class="survey-bar-fill" style="width:68%">68%</div></div>
+                <span class="survey-pct">68%</span>
+            </div>
+        </div>
+        <div class="survey-item">
+            <div class="survey-question" data-translate="hpa_survey_s2">Proceso de resolución de reclamos lento</div>
+            <div class="survey-bar-wrap">
+                <div class="survey-bar-track"><div class="survey-bar-fill" style="width:52%">52%</div></div>
+                <span class="survey-pct">52%</span>
+            </div>
+        </div>
+        <div class="survey-item">
+            <div class="survey-question" data-translate="hpa_survey_s3">Falta de estado de entrega en tiempo real</div>
+            <div class="survey-bar-wrap">
+                <div class="survey-bar-track"><div class="survey-bar-fill" style="width:44%">44%</div></div>
+                <span class="survey-pct">44%</span>
+            </div>
+        </div>
+        <div class="survey-item">
+            <div class="survey-question" data-translate="hpa_survey_s4">La compra directa ofrece precios competitivos</div>
+            <div class="survey-bar-wrap">
+                <div class="survey-bar-track"><div class="survey-bar-fill" style="width:31%">31%</div></div>
+                <span class="survey-pct">31%</span>
+            </div>
+        </div>
+
+        <hr style="border-color:rgba(255,255,255,0.08); margin:1.5rem 0;">
+        <h4 style="color:#00b4d8; font-size:0.9rem; margin-bottom:1rem;" data-translate="hpa_survey_savings_title">Ahorro estimado vs. compra directa (percepción del cliente)</h4>
+        <div class="survey-item">
+            <div class="survey-question" data-translate="hpa_survey_sv1">10–20% de ahorro</div>
+            <div class="survey-bar-wrap"><div class="survey-bar-track"><div class="survey-bar-fill" style="width:38%">38%</div></div><span class="survey-pct">38%</span></div>
+        </div>
+        <div class="survey-item">
+            <div class="survey-question" data-translate="hpa_survey_sv2">21–30% de ahorro</div>
+            <div class="survey-bar-wrap"><div class="survey-bar-track"><div class="survey-bar-fill" style="width:29%">29%</div></div><span class="survey-pct">29%</span></div>
+        </div>
+        <div class="survey-item">
+            <div class="survey-question" data-translate="hpa_survey_sv3">Menos del 10% / no seguro</div>
+            <div class="survey-bar-wrap"><div class="survey-bar-track"><div class="survey-bar-fill" style="width:33%">33%</div></div><span class="survey-pct">33%</span></div>
+        </div>
+        <p style="color:#64748b; font-size:0.75rem; margin-top:1rem;" data-translate="hpa_survey_note">Encuesta realizada por SISMARKET a pedido de CENABAST. Aplicada a una muestra de administradores de establecimientos de salud clientes. Resultados utilizados para validar el diagnóstico operacional.</p>
+        <div class="insight-box">
+            <i class="fas fa-lightbulb"></i> <span data-translate="hpa_survey_insight">Hallazgo Analítico Clave: El 68% de las redes de salud frena la expansión de sus compras en CENABAST por temor al desabastecimiento, recurriendo a compras directas más costosas. Un scorecard dinámico de proveedores devuelve la confianza institucional.</span>
+        </div>
+    </div>
+
+    <!-- 5. DESGLOSE DE SANCIONES A PROVEEDORES -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-gavel"></i> <span data-translate="hpa_fines_title">Desglose de Sanciones a Proveedores</span></h2>
+            <span class="pill-badge-blue" data-translate="hpa_fines_badge">H1 2019 — 1.867 sanciones totales</span>
+        </div>
+        <div class="chart-container">
+            <div class="bar-row">
+                <span class="bar-label" style="width:160px; text-align:right;" data-translate="hpa_fine_f1">Información inexacta</span>
+                <div class="bar-track"><div class="bar-fill danger" style="width:48%">48% · $1.695M CLP</div></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label" style="width:160px; text-align:right;" data-translate="hpa_fine_f2">Entrega tardía</span>
+                <div class="bar-track"><div class="bar-fill warning" style="width:28%">28%</div></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label" style="width:160px; text-align:right;" data-translate="hpa_fine_f3">No entrega</span>
+                <div class="bar-track"><div class="bar-fill warning" style="width:17%">17%</div></div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label" style="width:160px; text-align:right;" data-translate="hpa_fine_f4">Otras infracciones</span>
+                <div class="bar-track"><div class="bar-fill compliance" style="width:7%">7%</div></div>
+            </div>
+        </div>
+        <p style="color:#94a3b8; font-size:0.8rem; margin-top:1rem;" data-translate="hpa_fines_note">
+            El proveedor con más infracciones acumuló <strong style="color:#f87171;">64 sanciones en solo 6 contratos activos</strong> — una tasa de sanción del 1.067%. Esto ilustra la ausencia de un mecanismo de lista negra de proveedores en el modelo existente.
+        </p>
+        <div class="insight-box">
+            <i class="fas fa-lightbulb"></i> <span data-translate="hpa_fines_insight">Hallazgo Analítico Clave: El reglamento multó la información inexacta ($1.695M CLP), pero no penalizó omitir por completo el reporte. El mayor infractor acumuló 64 sanciones en 6 contratos sin descalificación, demostrando la necesidad urgente de una lista negra.</span>
+        </div>
+    </div>
+
+    <!-- 6. EFECTIVIDAD DE COMPRAS -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-percentage"></i> <span data-translate="hpa_eff_title">Efectividad de Compras (2015–2018)</span></h2>
+        </div>
+        <p style="color:#94a3b8; font-size:0.83rem; margin-bottom:1.25rem;" data-translate="hpa_eff_desc">Relación entre compras proyectadas vs. efectivamente ejecutadas. El aumento de efectividad hasta 2017 se revirtió marcadamente en 2018 tras una reducción de la canasta de productos.</p>
+        <div class="table-wrap">
+        <table class="vendor-table">
+            <thead>
+                <tr>
+                    <th data-translate="hpa_eff_year">Año</th>
+                    <th data-translate="hpa_eff_intended">Contratos Proyectados</th>
+                    <th data-translate="hpa_eff_executed">Ejecutados</th>
+                    <th data-translate="hpa_eff_rate">Efectividad</th>
+                    <th data-translate="hpa_eff_trend">Tendencia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>2015</td><td>—</td><td>—</td><td class="badge-warn">Línea base</td><td>—</td></tr>
+                <tr><td>2016</td><td>Alto</td><td>Menor</td><td class="badge-warn">↑ Mejorando</td><td>+</td></tr>
+                <tr><td>2017</td><td>Medio</td><td>Coincidencia alta</td><td class="badge-ok">↑ Mejor período</td><td>++</td></tr>
+                <tr><td>2018</td><td>Canasta reducida</td><td>% Menor</td><td class="badge-danger">↓ Caída</td><td>−</td></tr>
+            </tbody>
+        </table>
+        </div><!-- /table-wrap -->
+        <p style="color:#64748b; font-size:0.75rem; margin-top:0.75rem;" data-translate="hpa_eff_note">La reducción de la canasta en 2018 eliminó SKUs sin demanda (señal positiva de eficiencia), pero la tasa de ejecución general cayó por incumplimientos de proveedores.</p>
+        <div class="insight-box">
+            <i class="fas fa-lightbulb"></i> <span data-translate="hpa_eff_insight">Hallazgo Analítico Clave: La caída de efectividad en 2018 responde a la depuración de la canasta (eliminando SKUs sin demanda), revelando que la tasa real de ejecución depende de la confiabilidad de los proveedores adjudicados.</span>
+        </div>
+    </div>
+
+</div><!-- /pane-data -->
+
+<!-- ========================== TAB 4: PROPOSED MODEL ========================== -->
+<div class="cs-tab-pane" id="pane-model">
+
+    <!-- PARTE 1: ARQUITECTURA DE LA SOLUCIÓN (MODELO TO-BE) -->
+    <div style="margin: 0.5rem 0 1.25rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(0, 180, 216, 0.3);">
+        <h3 style="color:#00b4d8; font-size:1.05rem; font-weight:800; text-transform:uppercase; letter-spacing:0.8px; margin:0 0 0.25rem 0;" data-translate="hpa_part1_title">PARTE 1: ARQUITECTURA DE LA SOLUCIÓN (MODELO TO-BE)</h3>
+        <p style="color:#94a3b8; font-size:0.82rem; margin:0;" data-translate="hpa_part1_subtitle">Definición del modelo operativo objetivo, estructura de objetivos, KPIs operacionales y sistema de scoring de proveedores.</p>
+    </div>
+
+    <!-- 0. DEFINICIÓN ESTRUCTURAL DEL MODELO TO-BE Y METAS OBJETIVO -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-cubes"></i> <span data-translate="hpa_model_def_title">¿En qué consiste el Modelo de Gestión de Proveedores Propuesto?</span></h2>
+            <span class="pill-badge-blue" data-translate="hpa_model_def_badge">Arquitectura de la Solución (TO-BE)</span>
+        </div>
+        <p style="color:#cbd5e1; font-size:0.92rem; line-height:1.7; margin-bottom:1.25rem;" data-translate="hpa_model_def_desc">
+            El modelo propuesto es un Sistema Integrado de Evaluación Histórica, Monitoreo en Tiempo Real y Gobernanza Automatizada de Proveedores, diseñado para reemplazar el esquema reactivo existente en CENABAST. El sistema funciona a través de 3 componentes estructurales clave:
+        </p>
+
+        <!-- 3 COMPONENTES DEL MODELO -->
+        <div class="findings-grid-2x2" style="margin-bottom:1.5rem;">
+            <div class="summary-card" style="border-left-color:#00b4d8;">
+                <i class="fas fa-star-half-alt" style="color:#00b4d8;"></i>
+                <div>
+                    <h3 data-translate="hpa_c1_title">1. Scorecard Dinámico de Evaluación en Licitaciones</h3>
+                    <p data-translate="hpa_c1_body">Establece una calificación histórica obligatoria de desempeño en ChileCompra (35% cumplimiento OTIF, 25% puntualidad, 25% calidad de datos, 15% sanciones) que descalifica automáticamente a laboratorios infractores reincidentes.</p>
+                </div>
+            </div>
+            <div class="summary-card" style="border-left-color:#38bdf8;">
+                <i class="fas fa-tachometer-alt" style="color:#38bdf8;"></i>
+                <div>
+                    <h3 data-translate="hpa_c2_title">2. Panel de Control de KPIs de Servicio en Tiempo Real</h3>
+                    <p data-translate="hpa_c2_body">Sustituye los informes exclusivamente financieros por monitoreo operacional diario integrado al ERP — monitoreando la tasa OTIF mensual, alertas a 90 días de vencimiento de contratos y puntualidad de entregas.</p>
+                </div>
+            </div>
+            <div class="summary-card" style="border-left-color:#00e676; grid-column: 1 / -1;">
+                <i class="fas fa-code-branch" style="color:#00e676;"></i>
+                <div>
+                    <h3 data-translate="hpa_c3_title">3. Esquema de Sanciones Automatizado e Integración API</h3>
+                    <p data-translate="hpa_c3_body">Rediseña el reglamento para cerrar vacíos legales (haciendo obligatoria la transmisión de datos de despacho bajo apercibimiento de multa) y elimina el ingreso manual de planillas CSV.</p>
+                </div>
+            </div>
+        </div>
+
+        <hr style="border-color:rgba(255,255,255,0.08); margin:1.25rem 0 1.25rem;">
+        <h4 style="color:#00e676; font-size:0.9rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:0.5px;" data-translate="hpa_target_metrics_title">Mejoras Objetivo de Desempeño (AS-IS → TO-BE)</h4>
+
+        <div class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="kpi-card">
+                <div class="kpi-value info" style="font-size: clamp(0.95rem, 1.4vw, 1.25rem); white-space: nowrap; font-weight:800;" data-translate="hpa_imp_box1_val">75,8% → ≥93%</div>
+                <div class="kpi-label" data-translate="hpa_imp_box1_lbl">Tasa Cumplimiento OTIF</div>
+                <div class="kpi-sub" data-translate="hpa_imp_box1_sub">+115.000 entregas fallidas recuperadas al año</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value danger" style="font-size: clamp(0.95rem, 1.4vw, 1.25rem); white-space: nowrap; font-weight:800;" data-translate="hpa_imp_box2_val">109% → &lt;10%</div>
+                <div class="kpi-label" data-translate="hpa_imp_box2_lbl">Tasa de Sanciones</div>
+                <div class="kpi-sub" data-translate="hpa_imp_box2_sub">Elimina $1.695M CLP en multas por reportes manuales</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value warning" style="font-size: clamp(0.95rem, 1.4vw, 1.25rem); white-space: nowrap; font-weight:800;" data-translate="hpa_imp_box3_val">24,6% → ≤5%</div>
+                <div class="kpi-label" data-translate="hpa_imp_box3_lbl">Contratos en Riesgo de Vencer</div>
+                <div class="kpi-sub" data-translate="hpa_imp_box3_sub">Monitoreo diario en ERP evita quiebres de licitación</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value success" style="font-size: clamp(0.95rem, 1.4vw, 1.25rem); white-space: nowrap; font-weight:800; color:#00e676;" data-translate="hpa_imp_box4_val">0% → 100%</div>
+                <div class="kpi-label" data-translate="hpa_imp_box4_lbl">Ponderación Scorecard en ChileCompra</div>
+                <div class="kpi-sub" data-translate="hpa_imp_box4_sub">35% OTIF / 25% Puntualidad bloquea a infractores</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. Proposed KPIs (INMEDIATAMENTE DESPUÉS DE LAS MÉTRICAS DE ARRIBA) -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-tachometer-alt"></i> <span data-translate="hpa_kpis_title">Marco de KPIs Propuesto</span></h2>
+        </div>
+        <p style="color:#94a3b8; font-size:0.83rem; margin-bottom:1rem;" data-translate="hpa_kpis_desc">Cuatro KPIs operacionales diseñados para monitorear el cumplimiento de proveedores en tiempo casi real, cada uno con frecuencia definida, línea base actual y meta de mejora.</p>
+        <div class="kpi-def-grid">
+            <div class="kpi-def-card">
+                <div class="kpi-name" data-translate="hpa_kpi2_name">Tasa de Cumplimiento de Entregas</div>
+                <code class="kpi-formula">Unidades Entregadas / Unidades Pedidas × 100</code>
+                <div class="kpi-current" data-translate="hpa_kpi2_current">📍 Actual (2019): 88,1%</div>
+                <div class="kpi-target" data-translate="hpa_kpi2_target">🎯 Meta: ≥ 93%</div>
+            </div>
+            <div class="kpi-def-card">
+                <div class="kpi-name" data-translate="hpa_kpi3_name">Tasa de Entregas a Tiempo</div>
+                <code class="kpi-formula">Pedidos a Tiempo / Pedidos Totales × 100</code>
+                <div class="kpi-current" data-translate="hpa_kpi3_current">📍 Actual: Sin seguimiento sistemático</div>
+                <div class="kpi-target" data-translate="hpa_kpi3_target">🎯 Meta: Binario — 100% marcado si hay atraso</div>
+            </div>
+            <div class="kpi-def-card">
+                <div class="kpi-name" data-translate="hpa_kpi4_name">Tasa de Sanciones a Proveedores</div>
+                <code class="kpi-formula">Sanciones Totales / Contratos Activos × 100</code>
+                <div class="kpi-current" data-translate="hpa_kpi4_current">📍 Actual: 109% (H1 2019)</div>
+                <div class="kpi-target" data-translate="hpa_kpi4_target">🎯 Meta: &lt; 10% · Tendencia → 0%</div>
+            </div>
+            <div class="kpi-def-card">
+                <div class="kpi-name" data-translate="hpa_kpi5_name">Contratos Próximos a Vencer</div>
+                <code class="kpi-formula">Contratos por Vencer / Totales Activos × 100</code>
+                <div class="kpi-current" data-translate="hpa_kpi5_current">📍 Actual: 24,63% en riesgo</div>
+                <div class="kpi-target" data-translate="hpa_kpi5_target">🎯 Meta: ≤ 5% · Monitoreo diario</div>
+            </div>
+        </div>
+        <div class="insight-box">
+            <i class="fas fa-lightbulb"></i> <span data-translate="hpa_kpi_insight">Hallazgo Analítico Clave: A diferencia del modelo AS-IS (que solo monitoreaba montos presupuestarios contratados), este nuevo marco mide el nivel de servicio operacional en tiempo real. Reducir la tasa de sanciones del 109% a <10% y mantener los contratos por vencer en ≤5% previene el desabastecimiento de forma proactiva.</span>
+        </div>
+    </div>
+
+    <!-- 2. Vendor Scorecard -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-star-half-alt"></i> <span data-translate="hpa_scorecard_title">Sistema de Scorecard de Proveedores (Propuesto)</span></h2>
+        </div>
+        <p style="color:#94a3b8; font-size:0.83rem; margin-bottom:1rem;" data-translate="hpa_scorecard_desc">Mecanismo estructurado de calificación para rankear proveedores por historial de cumplimiento. Scorecard integrado como insumo de evaluación obligatorio en licitaciones.</p>
+        <div class="table-wrap">
+        <table class="vendor-table">
+            <thead>
+                <tr>
+                    <th data-translate="hpa_sc_dim">Dimensión</th>
+                    <th data-translate="hpa_sc_metric">Métrica</th>
+                    <th data-translate="hpa_sc_weight">Ponderación</th>
+                    <th data-translate="hpa_sc_freq">Frecuencia</th>
+                    <th data-translate="hpa_sc_flag">Alerta de Riesgo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-translate="hpa_sc_r1d">Volumen de Entrega</td>
+                    <td data-translate="hpa_sc_r1m">Tasa de Cumplimiento (%)</td>
+                    <td>35%</td>
+                    <td data-translate="hpa_sc_r1f">Por entrega</td>
+                    <td><span class="badge-danger" data-translate="hpa_sc_r1fl">&lt;85% → Riesgo Alto</span></td>
+                </tr>
+                <tr>
+                    <td data-translate="hpa_sc_r2d">Puntualidad</td>
+                    <td data-translate="hpa_sc_r2m">Tasa a Tiempo (%)</td>
+                    <td>25%</td>
+                    <td data-translate="hpa_sc_r2f">Por entrega</td>
+                    <td><span class="badge-warn" data-translate="hpa_sc_r2fl">2+ atrasos → Advertencia</span></td>
+                </tr>
+                <tr>
+                    <td data-translate="hpa_sc_r3d">Calidad de Información</td>
+                    <td data-translate="hpa_sc_r3m">Reportes Inexactos (%)</td>
+                    <td>25%</td>
+                    <td data-translate="hpa_sc_r3f">Mensual</td>
+                    <td><span class="badge-danger" data-translate="hpa_sc_r3fl">1 reporte falso → Alerta</span></td>
+                </tr>
+                <tr>
+                    <td data-translate="hpa_sc_r4d">Sanciones</td>
+                    <td data-translate="hpa_sc_r4m">Tasa Sanción / Contratos</td>
+                    <td>15%</td>
+                    <td data-translate="hpa_sc_r4f">Semestral</td>
+                    <td><span class="badge-danger" data-translate="hpa_sc_r4fl">3+ → Descalificación Licitación</span></td>
+                </tr>
+            </tbody>
+        </table>
+        </div><!-- /table-wrap -->
+        <div class="insight-box">
+            <i class="fas fa-lightbulb"></i> <span data-translate="hpa_scorecard_insight">Hallazgo Analítico Clave: Otorgar un 35% de peso a la Tasa de Cumplimiento OTIF y un 25% a la Puntualidad en las evaluaciones de ChileCompra cierra la brecha histórica donde laboratorios incumplidores volvían a adjudicarse contratos sin penalización.</span>
+        </div>
+    </div>
+
+    <!-- 3. OBJECTIVE TREE -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-bullseye"></i> <span data-translate="hpa_obj_title">Árbol de Objetivos — Visión TO-BE</span></h2>
+            <span class="pill-badge-blue" data-translate="hpa_obj_badge">Marco de Solución ILPES/CEPAL</span>
+        </div>
+        <p style="color:#94a3b8; font-size:0.85rem; margin-bottom:1.25rem;" data-translate="hpa_obj_desc">Traducción directa del Árbol de Problemas en un marco de solución a través de 4 ramas operacionales. Los fines fluyen hacia arriba (superior); los medios hacia abajo (inferior).</p>
+        
+        <div class="scroll-hint"><i class="fas fa-arrows-left-right"></i> <span data-translate="hpa_scroll_hint_diagram">Desliza horizontalmente para ver el diagrama completo</span></div>
+        <div class="responsive-scroll-wrapper">
+            <div class="ptree-wrapper">
+                <!-- Badge Top: Strategic Outcomes -->
+                <div class="ptree-section-badge ptree-badge-effects"><i class="fas fa-arrow-up"></i> <span data-translate="hpa_obj_outcomes_label">Fines e Impacto Estratégico (Nivel Superior)</span></div>
+
+                <div class="ptree-grid">
+                    <!-- BRANCH 1 -->
+                    <div class="ptree-branch branch-1">
+                        <div class="ptree-branch-title" data-translate="hpa_tree_b1_title">Gestión de Contratos</div>
+                        <div class="ptree-node node-ind-eff" data-translate="hpa_obj_b1_ind">Cumplimiento oportuno de contratos y renovaciones planificadas</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                        <div class="ptree-node node-dir-eff" data-translate="hpa_obj_b1_dir">Reducción de sanciones e incumplimientos de proveedores</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                    </div>
+
+                    <!-- BRANCH 2 -->
+                    <div class="ptree-branch branch-2">
+                        <div class="ptree-branch-title" data-translate="hpa_tree_b2_title">Volumen de Compras</div>
+                        <div class="ptree-node node-ind-eff" data-translate="hpa_obj_b2_ind">Expansión del volumen de compras públicas</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                        <div class="ptree-node node-dir-eff" data-translate="hpa_obj_b2_dir">Los servicios de salud aumentan sus compras via CENABAST</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                    </div>
+
+                    <!-- BRANCH 3 -->
+                    <div class="ptree-branch branch-3">
+                        <div class="ptree-branch-title" data-translate="hpa_tree_b3_title">Cumplimiento y Entregas</div>
+                        <div class="ptree-node node-ind-eff" data-translate="hpa_obj_b3_ind">Alta satisfacción de clientes en la red de salud</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                        <div class="ptree-node node-dir-eff" data-translate="hpa_obj_b3_dir">Eliminación de faltantes en la entrega (OTIF ≥93%)</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                    </div>
+
+                    <!-- BRANCH 4 -->
+                    <div class="ptree-branch branch-4">
+                        <div class="ptree-branch-title" data-translate="hpa_tree_b4_title">Información y Costos</div>
+                        <div class="ptree-node node-ind-eff" data-translate="hpa_obj_b4_ind">Optimización de costos operacionales para CENABAST</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                        <div class="ptree-node node-dir-eff" data-translate="hpa_obj_b4_dir">Eliminación de facturación no autorizada de terceros</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-up"></i></div>
+                    </div>
+
+                    <!-- CENTRAL SOLUTION NODE (Spans all columns) -->
+                    <div class="ptree-center-node" style="border-color:#00e676; box-shadow:0 0 20px rgba(0,230,118,0.25);">
+                        <h3 style="color:#00e676 !important;" data-translate="hpa_obj_center">✅ SISTEMA DE GESTIÓN DE PROVEEDORES MEJORADO</h3>
+                    </div>
+
+                    <!-- BRANCH 1 (ENABLERS) -->
+                    <div class="ptree-branch branch-1">
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-dir-cau" data-translate="hpa_obj_b1_cau_dir">Gestión del ciclo de vida del contrato robusta</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-ind-cau" data-translate="hpa_obj_b1_cau_ind">Programa integral de capacitación de personal</div>
+                    </div>
+
+                    <!-- BRANCH 2 (ENABLERS) -->
+                    <div class="ptree-branch branch-2">
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-dir-cau" data-translate="hpa_obj_b2_cau_dir">Supervisión operacional proactiva y SLAs</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-ind-cau" data-translate="hpa_obj_b2_cau_ind">Capa de monitoreo logístico directo</div>
+                    </div>
+
+                    <!-- BRANCH 3 (ENABLERS) -->
+                    <div class="ptree-branch branch-3">
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-dir-cau" data-translate="hpa_obj_b3_cau_dir">Cumplimiento forzado y multas no excluibles</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-ind-cau" data-translate="hpa_obj_b3_cau_ind">Sistema de sanciones rediseñado y sin vacíos legales</div>
+                    </div>
+
+                    <!-- BRANCH 4 (ENABLERS) -->
+                    <div class="ptree-branch branch-4">
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-dir-cau" data-translate="hpa_obj_b4_cau_dir">Reporte automatizado y validado de datos de proveedores</div>
+                        <div class="ptree-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ptree-node node-ind-cau" data-translate="hpa_obj_b4_cau_ind">Fuente única de verdad integrada al ERP</div>
+                    </div>
+                </div>
+
+                <!-- Badge Bottom: Operational Enablers -->
+                <div class="ptree-section-badge ptree-badge-causes" style="background:rgba(0,230,118,0.15); color:#00e676; border-color:rgba(0,230,118,0.3);"><i class="fas fa-arrow-down"></i> <span data-translate="hpa_obj_enablers_label">Iniciativas y Medios Operacionales (Nivel Base)</span></div>
+            </div>
+        </div>
+
+        <hr style="border-color:rgba(255,255,255,0.08); margin:1.5rem 0 1.25rem;">
+        <h4 style="color:#00b4d8; font-size:0.92rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:0.5px;" data-translate="hpa_tree_guide_title">Cómo Funciona la Transformación: Explicación de los 4 Ejes del Árbol</h4>
+        <div class="findings-grid-2x2">
+            <div class="summary-card">
+                <i class="fas fa-file-contract"></i>
+                <div>
+                    <h3 data-translate="hpa_tree_g1_title">Eje 1: Gestión del Ciclo de Vida del Contrato</h3>
+                    <p data-translate="hpa_tree_g1_body">Habilitador: Monitoreo en ERP + capacitación del personal. Transformación: Elimina el 24,6% de contratos en riesgo de vencer mediante alertas automáticas a 90 días, garantizando renovaciones a tiempo.</p>
+                </div>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-truck-loading"></i>
+                <div>
+                    <h3 data-translate="hpa_tree_g2_title">Eje 2: Supervisión Logística Proactiva y SLAs</h3>
+                    <p data-translate="hpa_tree_g2_body">Habilitador: Capa de seguimiento logístico directo + SLAs explícitos. Transformación: Recupera la confianza del 68% de las redes públicas que no compraban en CENABAST por temor al desabastecimiento.</p>
+                </div>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-balance-scale"></i>
+                <div>
+                    <h3 data-translate="hpa_tree_g3_title">Eje 3: Rediseño del Esquema de Sanciones y Scorecard</h3>
+                    <p data-translate="hpa_tree_g3_body">Habilitador: Sanciones no excluibles + descalificación en ChileCompra tras 3 multas. Transformación: Erradica los faltantes en entregas, elevando la tasa OTIF de 75,8% a ≥93%.</p>
+                </div>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <div>
+                    <h3 data-translate="hpa_tree_g4_title">Eje 4: Integración ERP y Fuente Única de Verdad</h3>
+                    <p data-translate="hpa_tree_g4_body">Habilitador: Validación automática de datos vía API ERP. Transformación: Elimina la carga manual de planillas, borrando los $1.695M CLP en multas por reportes falsos y los 30 días de desfase en alertas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="insight-box">
+            <i class="fas fa-lightbulb"></i> <span data-translate="hpa_obj_insight">Hallazgo Analítico Clave: El Árbol de Objetivos transforma directamente las 4 causas raíz del diagnóstico en 4 habilitadores de valor. Al establecer el Sistema de Gestión de Proveedores como eje central, las metas de nivel superior (OTIF ≥93%, expansión del volumen de compras y eliminación de cobros improcedentes) se vuelven alcanzables de forma sostenible.</span>
+        </div>
+    </div>
+
+
+    <!-- PARTE 2: JUSTIFICACIÓN TÉCNICA Y MATRIZ DE IMPACTO -->
+    <div style="margin: 2.5rem 0 1.25rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(0, 230, 118, 0.3);">
+        <h3 style="color:#00e676; font-size:1.05rem; font-weight:800; text-transform:uppercase; letter-spacing:0.8px; margin:0 0 0.25rem 0;" data-translate="hpa_part2_title">PARTE 2: JUSTIFICACIÓN TÉCNICA Y MATRIZ DE IMPACTO</h3>
+        <p style="color:#94a3b8; font-size:0.82rem; margin:0;" data-translate="hpa_part2_subtitle">Evidencia empírica del retorno operacional y trazabilidad directa entre brechas diagnosticadas y soluciones.</p>
+    </div>
+
+    <!-- Expected Impact -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-chart-line"></i> <span data-translate="hpa_impact_title">Impacto Esperado — AS-IS vs TO-BE</span></h2>
+        </div>
+        <div class="table-wrap">
+        <table class="impact-table">
+            <thead>
+                <tr>
+                    <th data-translate="hpa_imp_metric">Métrica</th>
+                    <th data-translate="hpa_imp_asis">AS-IS (2016–2019)</th>
+                    <th data-translate="hpa_imp_tobe">Meta TO-BE</th>
+                    <th data-translate="hpa_imp_method">Intervención Clave</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-translate="hpa_imp_r1">Tasa Cumplimiento Pedidos</td>
+                    <td class="as-is">75,8%</td>
+                    <td class="to-be">≥ 88%</td>
+                    <td data-translate="hpa_imp_r1m">Scorecard de proveedor en selección de licitación</td>
+                </tr>
+                <tr>
+                    <td data-translate="hpa_imp_r2">Tasa de Sanciones</td>
+                    <td class="as-is">109%</td>
+                    <td class="to-be">≤ 10%</td>
+                    <td data-translate="hpa_imp_r2m">Reporte ERP automatizado + reglas de multas revisadas</td>
+                </tr>
+                <tr>
+                    <td data-translate="hpa_imp_r3">Contratos por Vencer</td>
+                    <td class="as-is">24,6%</td>
+                    <td class="to-be">≤ 5%</td>
+                    <td data-translate="hpa_imp_r3m">Dashboard de monitoreo diario de vencimientos</td>
+                </tr>
+                <tr>
+                    <td data-translate="hpa_imp_r4">Multas por Info Inexacta</td>
+                    <td class="as-is">$1.695M CLP / año</td>
+                    <td class="to-be">→ 0 (eliminado)</td>
+                    <td data-translate="hpa_imp_r4m">ERP elimina ingreso manual de datos por proveedor</td>
+                </tr>
+                <tr>
+                    <td data-translate="hpa_imp_r5">Reclamos de Clientes</td>
+                    <td class="as-is">Reactivo, tendencia ↑</td>
+                    <td class="to-be">Alerta proactiva temprana</td>
+                    <td data-translate="hpa_imp_r5m">Seguimiento de entrega en tiempo real y alertas</td>
+                </tr>
+            </tbody>
+        </table>
+        </div><!-- /table-wrap -->
+        <div class="insight-box">
+            <i class="fas fa-lightbulb"></i> <span data-translate="hpa_impact_insight">Hallazgo Analítico Clave: La transición del estado AS-IS (75,8% de cumplimiento OTIF) al TO-BE (≥88% en Fase 1) representa recuperar más de 115.000 entregas anuales que antes fallaban, restaurando la confianza operacional en la red pública de salud.</span>
+        </div>
+    </div>
+
+    <!-- STRATEGIC JUSTIFICATIONS (2X2 GRID) -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-shield-alt"></i> <span data-translate="hpa_just_title">Justificación Estratégica y Retorno Operacional del Modelo</span></h2>
+        </div>
+        <div class="findings-grid-2x2">
+            <div class="summary-card">
+                <i class="fas fa-gavel"></i>
+                <div>
+                    <h3 data-translate="hpa_j1_title">1. Cierre de la Brecha de Impunidad en Licitaciones</h3>
+                    <p data-translate="hpa_j1_body">El Scorecard dinámico asigna un 60% de peso al cumplimiento real (OTIF y puntualidad) en la evaluación de ChileCompra. Esto elimina la anomalía donde proveedores con hasta 64 sanciones activas continuaban ganando licitaciones.</p>
+                </div>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-eye"></i>
+                <div>
+                    <h3 data-translate="hpa_j2_title">2. Eliminación de la Ceguera Operacional</h3>
+                    <p data-translate="hpa_j2_body">La transición de reportes financieros a KPIs de servicio en tiempo real permite detectar riesgos antes del desabastecimiento hospitalario, manteniendo los contratos por vencer en ≤5%.</p>
+                </div>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-handshake"></i>
+                <div>
+                    <h3 data-translate="hpa_j3_title">3. Recuperación de la Confianza de la Red Pública</h3>
+                    <p data-translate="hpa_j3_body">Garantizar un OTIF ≥93% resuelve el motivo del 68% de clientes que evitaba comprar en CENABAST por temor a faltantes, impulsando la centralización de volumen de compras públicas.</p>
+                </div>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-database"></i>
+                <div>
+                    <h3 data-translate="hpa_j4_title">4. Automatización de Datos e Integración ERP</h3>
+                    <p data-translate="hpa_j4_body">La integración directa elimina la carga manual de archivos planos, borrando $1.695M CLP en multas por información inexacta y eliminando el desfase de 30 días en alertas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div><!-- /pane-model -->
+
+<!-- ========================== TAB 5: METHODOLOGY ========================== -->
+<div class="cs-tab-pane" id="pane-method">
+
+    <!-- 0. CONTEXTUALIZACIÓN METODOLÓGICA -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-flask"></i> <span data-translate="hpa_meth_intro_title">Contexto Metodológico e Integración de Marcos</span></h2>
+            <span class="pill-badge-blue" data-translate="hpa_meth_title">Enfoque Analítico y Metodología</span>
+        </div>
+        <p style="color:#cbd5e1; font-size:0.92rem; line-height:1.7; margin-bottom:1.25rem;" data-translate="hpa_meth_intro_desc">
+            Este caso de estudio sintetiza análisis cualitativo estructurado, reingeniería de procesos rigorosa y analítica cuantitativa de datos. La combinación de la metodología de Árbol de Problemas/Objetivos ILPES/CEPAL con el mapeo de procesos BPR y el procesamiento en Python de 810.703 pedidos garantiza que las soluciones propuestas resuelvan causas raíz verificadas.
+        </p>
+    </div>
+
+    <!-- FASES DEL PROYECTO (4 FASES) -->
+    <div class="artifact-card">
+        <div class="artifact-header">
+            <h2 class="artifact-title"><i class="fas fa-tasks"></i> <span data-translate="hpa_phases_title">Fases de Ejecución del Proyecto (4 Fases)</span></h2>
+        </div>
+        <div class="findings-grid-2x2">
+            <div class="summary-card" style="border-left-color:#00b4d8;">
+                <i class="fas fa-search" style="color:#00b4d8;"></i>
+                <div>
+                    <h3 data-translate="hpa_phase1_title">Fase 1: Mapeo de Procesos AS-IS y Diagnóstico</h3>
+                    <p data-translate="hpa_phase1_body">Modelado detallado de los 5 subprocesos de compra de CENABAST siguiendo la metodología BPR Ospina-Duque, identificando fallas en la aplicación de sanciones y lagunas de visibilidad.</p>
+                </div>
+            </div>
+            <div class="summary-card" style="border-left-color:#38bdf8;">
+                <i class="fas fa-chart-line" style="color:#38bdf8;"></i>
+                <div>
+                    <h3 data-translate="hpa_phase2_title">Fase 2: Analítica Cuantitativa de Datos</h3>
+                    <p data-translate="hpa_phase2_body">Procesamiento de 810.703 registros históricos de pedidos (datasets 2016–2019) con Python/Pandas para calcular tasas OTIF de referencia, concentración de faltantes (Top-5 proveedores), tasa de sanciones (109%) y multas por datos erróneos ($1.695M CLP).</p>
+                </div>
+            </div>
+            <div class="summary-card" style="border-left-color:#00e676;">
+                <i class="fas fa-cubes" style="color:#00e676;"></i>
+                <div>
+                    <h3 data-translate="hpa_phase3_title">Fase 3: Arquitectura del Modelo TO-BE</h3>
+                    <p data-translate="hpa_phase3_body">Diseño del Árbol de Objetivos ILPES, marco de 4 KPIs operacionales de servicio y Scorecard obligatorio en ChileCompra ponderando cumplimiento OTIF (35%) y puntualidad (25%).</p>
+                </div>
+            </div>
+            <div class="summary-card" style="border-left-color:#00b4d8;">
+                <i class="fas fa-route" style="color:#00b4d8;"></i>
+                <div>
+                    <h3 data-translate="hpa_phase4_title">Fase 4: Plan de Implementación y Gobernanza</h3>
+                    <p data-translate="hpa_phase4_body">Diseño de la hoja de ruta de implementación operacional, protocolos de integración de datos ERP, flujos de aplicación de sanciones y gestión del cambio institucional para CENABAST y ChileCompra.</p>
+                </div>
+            </div>
+        </div>
+
+        <hr style="border-color:rgba(255,255,255,0.08); margin:1.5rem 0 1.25rem;">
+        <h3 style="color:#00b4d8; font-size:1rem; margin-bottom:1rem;" data-translate="hpa_tools_title">Herramientas y Stack Tecnológico</h3>
+        <div class="tools-grid">
+            <span class="tool-chip" data-translate="hpa_tool_bpmn">Mapeo de Procesos BPMN / BPR</span>
+            <span class="tool-chip" data-translate="hpa_tool_canvas">Business Model Canvas</span>
+            <span class="tool-chip" data-translate="hpa_tool_ilpes">Metodología ILPES/CEPAL</span>
+            <span class="tool-chip" data-translate="hpa_tool_python">Python & Pandas Analytics</span>
+            <span class="tool-chip" data-translate="hpa_tool_stat">Modelado Estadístico de KPIs</span>
+            <span class="tool-chip" data-translate="hpa_tool_chilecompra">ChileCompra / Mercado Público</span>
+            <span class="tool-chip" data-translate="hpa_tool_erp">Integración SAP / ERP</span>
+            <span class="tool-chip" data-translate="hpa_tool_scorecard">Diseño Scorecard Proveedores</span>
+            <span class="tool-chip" data-translate="hpa_tool_kpis">Marco de KPIs Operacionales</span>
+            <span class="tool-chip" data-translate="hpa_tool_sismarket">Análisis Encuestas SISMARKET</span>
+        </div>
+
+        <div class="source-box" style="margin-top:1.5rem;" data-translate="hpa_sources_body">
+            <strong>📂 Fuentes de Datos e Integridad Regulatoria:</strong><br>
+            • Informes Anuales Institucionales CENABAST (BGI) 2016, 2017, 2018<br>
+            • Registros de plataforma de compras públicas ChileCompra (Mercado Público)<br>
+            • Reportes internos de cumplimiento CENABAST (Informe de Cumplimiento Progresivo)<br>
+            • Encuesta de satisfacción de clientes SISMARKET (aplicada a la red cliente CENABAST)<br>
+            • Estadísticas MINSAL / Subsecretaría de Redes Asistenciales<br>
+            • Registros regulatorios del ISP (Instituto de Salud Pública)<br>
+            • Ley 19.886 (Ley de Compras Públicas de Chile) y su Reglamento<br>
+            • Asociación de Profesionales BPM (ABPMP) — Referencia del ciclo de vida BPM
+        </div>
+    </div>
+
+    <!-- SYNTHESIS & DATA GOVERNANCE CARD -->
+    <div class="artifact-card" style="background: linear-gradient(135deg, #0a192f 0%, #0d2748 100%); border-color: rgba(0,230,118,0.3); text-align: center; padding: 2rem 1.5rem;">
+        <i class="fas fa-shield-alt" style="font-size:2.5rem; color:#00e676; margin-bottom:1rem;"></i>
+        <h3 style="color:#ffffff; font-size:1.3rem; margin-bottom:0.75rem;" data-translate="hpa_dash_title">Síntesis Analítica y Gobernanza Institucional</h3>
+        <p style="color:#94a3b8; max-width:680px; margin:0 auto 1.25rem; line-height:1.6;" data-translate="hpa_dash_desc">
+            La metodología cuantitativa consolida 810.703 registros de pedidos a lo largo de 36 meses (2016–2019), integrando encuestas empíricas de clientes (SISMARKET) con la estructuración ILPES/CEPAL para fundamentar una gobernanza de abastecimiento rigurosa y alineada con la Ley 19.886.
+        </p>
+
+        <div style="display:inline-flex; flex-wrap:wrap; justify-content:center; gap:0.75rem;">
+            <span class="tool-chip" style="background:rgba(0,180,216,0.15); border-color:#00b4d8; color:#38bdf8;"><i class="fas fa-database"></i> <span data-translate="hpa_chip_orders">810.703 Pedidos Procesados</span></span>
+            <span class="tool-chip" style="background:rgba(0,230,118,0.15); border-color:#00e676; color:#00e676;"><i class="fas fa-calendar-alt"></i> <span data-translate="hpa_chip_series">36 Meses de Serie Temporal</span></span>
+            <span class="tool-chip" style="background:rgba(56,189,248,0.15); border-color:#38bdf8; color:#38bdf8;"><i class="fas fa-poll"></i> <span data-translate="hpa_chip_survey">Validación SISMARKET Red Pública</span></span>
+            <span class="tool-chip" style="background:rgba(0,230,118,0.15); border-color:#00e676; color:#00e676;"><i class="fas fa-gavel"></i> <span data-translate="hpa_chip_law">Cumplimiento Ley 19.886</span></span>
+        </div>
+    </div>
+
+</div><!-- /pane-method -->
+
+</main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-organic-shape"></div>
+        <div class="footer-container container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="../assets/img/Logo.webp" alt="Ben Matias Logo" loading="lazy">
+                </div>
+                <p class="footer-tagline" data-translate="footerTagline">
+                    Transforming complex data into strategic business decisions through analytics, BI, and AI.
+                </p>
+            </div>
+
+            <div class="footer-nav">
+                <h4 data-translate="footerNavTitle">Quick Links</h4>
+                <ul>
+                    <li><a href="../index.html#about" data-translate="navAbout">About</a></li>
+                    <li><a href="../cv.html" data-translate="navResume">CV / Resume</a></li>
+                    <li><a href="../projects.html" data-translate="navProjects">Projects</a></li>
+                    <li><a href="../publications.html" data-translate="navPublications">Publications</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact-block">
+                <h4 data-translate="footerContactTitle">Let's Connect</h4>
+                <div class="footer-pills">
+                    <a href="mailto:bmatiasespinoza@gmail.com" class="footer-pill"><i class="fas fa-envelope"></i> bmatiasespinoza@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/benmatias" target="_blank" rel="noopener" class="footer-pill"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright container">
+            <p>&copy; <span id="year"></span> Benjamín Espinoza. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+    <script>
+        // TAB SWITCHING LOGIC
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.cs-tab-pane').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.cs-tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('pane-' + tabId).classList.add('active');
+            btn.classList.add('active');
+            window.scrollTo({ top: document.querySelector('.cs-tabs-wrapper').offsetTop - 80, behavior: 'smooth' });
+    }
+    </script>
+</body>
+</html>
