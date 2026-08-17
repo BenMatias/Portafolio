@@ -117,7 +117,21 @@
             gap: 0.75rem;
             border-bottom: 2px solid rgba(255, 255, 255, 0.1);
             overflow-x: auto;
-            padding-bottom: 2px;
+            padding-bottom: 4px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 230, 118, 0.4) rgba(255, 255, 255, 0.05);
+        }
+        .cs-tabs-wrapper::-webkit-scrollbar {
+            height: 4px;
+        }
+        .cs-tabs-wrapper::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+        .cs-tabs-wrapper::-webkit-scrollbar-thumb {
+            background: rgba(0, 230, 118, 0.45);
+            border-radius: 4px;
         }
         .cs-tab-btn {
             background: transparent;
@@ -869,10 +883,19 @@
                 grid-row: auto !important;
             }
             .artifact-header {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                gap: 0.5rem;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 0.5rem !important;
+            }
+            .artifact-header .meta-tag,
+            .artifact-header .pill-badge {
+                align-self: flex-start !important;
+                margin-top: 0.2rem !important;
+            }
+            .artifact-title {
+                font-size: 1.05rem !important;
+                line-height: 1.35 !important;
+                width: 100% !important;
             }
         }
 
