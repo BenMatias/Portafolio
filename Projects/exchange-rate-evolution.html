@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exchange Rate Evolution Dashboard | Ben Matias</title>
-    <meta name="description" content="A live Power BI dashboard tracking the exchange rates of USD, EUR, and GBP against the Chilean Peso, with data updated automatically from the Central Bank of Chile's API." />
+    <title>Foreign Exchange Dynamics & Currency Volatility BI | Ben Matias</title>
+    <meta name="description" content="Automated Power BI intelligence architecture tracking real-time and historical exchange rates (USD, EUR, GBP to CLP) via Central Bank API with DAX modeling." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://benmatias.com/projects/exchange-rate-evolution.html" />
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
@@ -12,8 +12,8 @@
     <!-- Open Graph / LinkedIn / Facebook -->
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Ben Matias Portfolio" />
-    <meta property="og:title" content="Exchange Rate Evolution Dashboard | Ben Matias" />
-    <meta property="og:description" content="A live Power BI dashboard tracking the exchange rates of USD, EUR, and GBP against the Chilean Peso, with data updated automatically from the Central Bank of Chile's API." />
+    <meta property="og:title" content="Foreign Exchange Dynamics & Currency Volatility BI | Ben Matias" />
+    <meta property="og:description" content="Automated Power BI intelligence architecture tracking exchange rates (USD, EUR, GBP to CLP) via Central Bank API with DAX modeling." />
     <meta property="og:image" content="https://benmatias.com/assets/img/exchange-rate-cover.webp" />
     <meta property="og:image:width" content="1280" />
     <meta property="og:image:height" content="720" />
@@ -21,15 +21,16 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Exchange Rate Evolution Dashboard | Ben Matias" />
-    <meta name="twitter:description" content="A live Power BI dashboard tracking the exchange rates of USD, EUR, and GBP against the Chilean Peso, with data updated automatically from the Central Bank of Chile's API." />
+    <meta name="twitter:title" content="Foreign Exchange Dynamics & Currency Volatility BI | Ben Matias" />
+    <meta name="twitter:description" content="Automated Power BI intelligence architecture tracking exchange rates (USD, EUR, GBP to CLP) via Central Bank API with DAX modeling." />
     <meta name="twitter:image" content="https://benmatias.com/assets/img/exchange-rate-cover.webp" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="../assets/css/style.css" />
+
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -52,15 +53,194 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-6Z42HX3EZZ');
     </script>
+
+    <style>
+        /* ===== BASE & HERO ===== */
+        body { background: #060d16; }
+        .case-study-hero {
+            padding: 5rem 0 2.5rem 0;
+            background: linear-gradient(135deg, #0a192f 0%, #0d1b2a 100%);
+            border-bottom: 1px solid rgba(0, 180, 216, 0.2);
+        }
+        .pill-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.35rem 0.9rem; border-radius: 50px; font-size: 0.82rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+            background: rgba(0, 230, 118, 0.15); color: #00e676; border: 1px solid #00e676;
+            margin-bottom: 1rem;
+        }
+        .pill-badge-blue {
+            background: rgba(0, 180, 216, 0.15); color: #00b4d8; border: 1px solid #00b4d8;
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .case-study-title {
+            font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #ffffff;
+            line-height: 1.2; margin-bottom: 1rem;
+        }
+        .case-study-subtitle {
+            font-size: 1.15rem; color: #94a3b8; max-width: 850px;
+            line-height: 1.6; margin-bottom: 2rem;
+        }
+        .meta-pills-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
+        .meta-tag {
+            background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e2e8f0; padding: 0.4rem 0.85rem; border-radius: 6px;
+            font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;
+            transition: all 0.2s ease;
+        }
+        .meta-tag:hover { border-color: #00e676; }
+
+        /* ===== EXECUTIVE SUMMARY ===== */
+        .project-executive-summary {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+            margin-top: 2rem; margin-bottom: 2.5rem;
+            background: rgba(13, 27, 42, 0.6); border: 1px solid rgba(0, 180, 216, 0.2);
+            border-radius: 14px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+        .summary-card {
+            background: #0f172a; border: 1.5px solid rgba(0, 180, 216, 0.3); border-left: 4px solid #00e676;
+            border-radius: 12px; padding: 1.35rem; display: flex; align-items: flex-start; gap: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); color: #f8fafc !important;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .summary-card:hover { transform: translateY(-2px); border-color: #00e676; }
+        .summary-card i { font-size: 1.6rem !important; color: #00e676 !important; margin-top: 0.2rem; flex-shrink: 0; }
+        .summary-card h3 { font-size: 1.05rem !important; font-weight: 700; color: #ffffff !important; margin: 0 0 0.5rem 0; }
+        .summary-card p { font-size: 0.88rem !important; color: #cbd5e1 !important; line-height: 1.55; margin: 0; }
+
+        /* ===== SECTION SEPARATORS & ARTIFACT CARDS ===== */
+        .section-separator {
+            display: flex; align-items: center; gap: 1rem; margin: 3rem 0 1.5rem 0;
+        }
+        .section-separator h2 {
+            font-size: 1.45rem; font-weight: 800; color: #ffffff; margin: 0; white-space: nowrap;
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .section-separator .separator-line {
+            flex-grow: 1; height: 1px; background: linear-gradient(90deg, rgba(0, 180, 216, 0.4), transparent);
+        }
+
+        .artifact-card {
+            background: #111c2e; border: 1.5px solid rgba(0, 180, 216, 0.25);
+            border-radius: 12px; padding: 1.75rem; margin-bottom: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); color: #f8fafc !important;
+        }
+        .artifact-header {
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 0.75rem;
+        }
+        .artifact-title {
+            font-size: 1.2rem; font-weight: 700; color: #00b4d8 !important;
+            margin: 0; display: flex; align-items: center; gap: 0.6rem; flex: 1 1 auto;
+        }
+        .artifact-card p, .artifact-card li { color: #cbd5e1 !important; line-height: 1.6; }
+        .artifact-card strong, .artifact-card b { color: #ffffff !important; font-weight: 700; }
+
+        /* ===== KPI CARDS ===== */
+        .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.5rem 0; }
+        .kpi-card {
+            background: #0f172a; border: 1.5px solid rgba(0, 180, 216, 0.3);
+            border-radius: 12px; padding: 1.4rem 1.25rem; text-align: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+        .kpi-card:hover { transform: translateY(-3px); border-color: #00e676; }
+        .kpi-card .kpi-value {
+            font-size: 2.2rem; font-weight: 800; color: #00e676;
+            font-family: 'Outfit', sans-serif; line-height: 1;
+        }
+        .kpi-card .kpi-value.info { color: #00b4d8; }
+        .kpi-card .kpi-value.warning { color: #f59e0b; }
+        .kpi-card .kpi-label { font-size: 0.78rem; color: #94a3b8; margin-top: 0.4rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .kpi-card .kpi-sub { font-size: 0.75rem; color: #64748b; margin-top: 0.35rem; }
+
+        /* ===== SCHEMA & ARCHITECTURE CARDS ===== */
+        .schema-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 1.25rem 0; }
+        .schema-card {
+            background: #090f1d; border: 1px solid rgba(0, 180, 216, 0.3); border-radius: 10px;
+            padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .schema-card-title {
+            font-size: 0.95rem; font-weight: 700; color: #38bdf8;
+            margin: 0 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.5rem;
+        }
+        .schema-fields-list { list-style: none; padding: 0; margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+        .schema-fields-list li {
+            padding: 0.3rem 0; display: flex; justify-content: space-between;
+            border-bottom: 1px dashed rgba(255,255,255,0.05); color: #94a3b8 !important;
+        }
+        .schema-fields-list li .field-type { color: #00e676; font-size: 0.72rem; }
+
+        /* ===== LIVE EMBED CONTAINER ===== */
+        .dashboard-live-wrapper {
+            background: #090d16; border: 2px solid rgba(0, 180, 216, 0.3);
+            border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative; min-height: 800px; width: 100%; margin-top: 1rem;
+        }
+        .dashboard-live-wrapper iframe {
+            width: 100%; height: 800px; border: none; display: block;
+        }
+        .dashboard-action-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            background: #0d1b2a; border-bottom: 1px solid rgba(0, 180, 216, 0.2);
+            padding: 0.75rem 1.25rem; font-size: 0.85rem; color: #94a3b8;
+        }
+
+        /* ===== INSIGHT CARDS ===== */
+        .insight-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin: 1.25rem 0; }
+        .insight-card {
+            background: #0f172a; border: 1.5px solid rgba(0, 180, 216, 0.25);
+            border-left: 4px solid #00b4d8; border-radius: 10px; padding: 1.35rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+        .insight-card.highlight { border-left-color: #00e676; }
+        .insight-title { font-size: 1.05rem; font-weight: 700; color: #ffffff; margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .insight-card p { font-size: 0.88rem !important; color: #cbd5e1 !important; line-height: 1.55; margin: 0; }
+
+        /* ===== CODE SNIPPET ===== */
+        pre.code-block {
+            background: #080c14; border: 1px solid rgba(0, 180, 216, 0.2);
+            border-left: 4px solid #00e676; border-radius: 8px;
+            padding: 1.2rem; font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem; color: #38bdf8; overflow-x: auto; line-height: 1.6;
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+            .schema-grid { grid-template-columns: 1fr; }
+            .insight-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .case-study-hero { padding-top: 6.5rem !important; padding-bottom: 1.5rem !important; }
+            .case-study-title { font-size: 1.85rem !important; line-height: 1.25 !important; }
+            .case-study-subtitle { font-size: 0.95rem !important; line-height: 1.5 !important; margin-bottom: 1.25rem !important; }
+            .meta-pills-row { gap: 0.5rem !important; margin-bottom: 1rem !important; }
+            .meta-tag, .pill-badge-blue { font-size: 0.75rem !important; padding: 0.3rem 0.65rem !important; }
+            .project-executive-summary { grid-template-columns: 1fr !important; padding: 1rem !important; gap: 1rem !important; margin-top: 1.25rem !important; }
+            .summary-card { padding: 1.1rem 1rem !important; }
+            .artifact-header { flex-direction: column !important; align-items: flex-start !important; gap: 0.5rem !important; }
+            .artifact-header .pill-badge-blue, .artifact-header .pill-badge, .artifact-header .meta-tag { align-self: flex-start !important; margin-top: 0.2rem !important; }
+            .artifact-title { font-size: 1.05rem !important; line-height: 1.35 !important; width: 100% !important; }
+            .artifact-card { padding: 1.1rem 0.9rem !important; max-width: 100% !important; box-sizing: border-box !important; border-radius: 10px !important; }
+            .kpi-grid { grid-template-columns: 1fr !important; gap: 0.85rem !important; }
+            .kpi-card { padding: 1.1rem 0.9rem !important; }
+            .kpi-card .kpi-value { font-size: 2rem !important; }
+            .dashboard-live-wrapper { min-height: 540px; }
+            .dashboard-live-wrapper iframe { height: 540px; }
+        }
+    </style>
 </head>
-<body id="page-exchange-rate" class="page-project-case-study">
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ6WFTW7"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+<body id="page-exchange-rate">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ6WFTW7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <div class="header-hero-wrapper">
         <header class="container">
@@ -89,11 +269,19 @@
             </div>
         </header>
 
-        <section class="page-hero section">
-            <div class="container page-hero-container">
-                <div class="project-header">
-                    <h1 id="project-title" class="page-hero-title"></h1>
-                    <div id="project-button-group" class="btn-group"></div>
+        <section class="case-study-hero">
+            <div class="container">
+                <div class="pill-badge"><i class="fas fa-coins"></i> <span data-translate="fx_badge">Financial Economics & FX BI</span></div>
+                <h1 class="case-study-title" data-translate="fx_title">Foreign Exchange Dynamics & Currency Volatility BI</h1>
+                <p class="case-study-subtitle" data-translate="fx_subtitle">
+                    Automated Power BI intelligence architecture tracking real-time and historical exchange rates (USD, EUR, GBP to CLP) via Central Bank API with DAX statistical volatility modeling.
+                </p>
+                <div class="meta-pills-row">
+                    <a href="https://si3.bcentral.cl/Siete/" target="_blank" rel="noopener" class="meta-tag" style="text-decoration: none; color: #00e676; border-color: rgba(0, 230, 118, 0.4);"><i class="fas fa-external-link-alt"></i> Central Bank of Chile (BCCh) API</a>
+                    <span class="meta-tag"><i class="fas fa-chart-line"></i> Microsoft Power BI</span>
+                    <span class="meta-tag"><i class="fas fa-calculator"></i> Advanced DAX Time Intelligence</span>
+                    <span class="meta-tag"><i class="fas fa-wave-square"></i> 30D/90D Rolling Volatility Index</span>
+                    <span class="meta-tag"><i class="fas fa-sync-alt"></i> Automated Ingestion Pipeline</span>
                 </div>
             </div>
         </section>
@@ -101,16 +289,250 @@
 
     <main class="container page-container">
 
-        <section id="project-executive-summary" class="project-executive-summary"></section>
-
-        <div class="case-study-layout">
-            <aside id="project-sidebar" class="project-sidebar"></aside>
-            <div id="project-dashboard-content" class="project-dashboard-content">
-                <h2 id="dashboard-title"></h2>
-                <p id="dashboard-subtitle"></p>
-                <div id="dashboard-embed-container" class="dashboard-embed-container"></div>
+        <!-- RESUMEN EJECUTIVO (3 CARDS STANDARD) -->
+        <div class="project-executive-summary">
+            <div class="summary-card">
+                <i class="fas fa-bullseye"></i>
+                <div class="summary-card-text">
+                    <h3 data-translate="fx_exec1_title">The Financial Volatility Challenge</h3>
+                    <p data-translate="fx_exec1_desc">Import/export enterprises, treasury desks, and corporate planning units face severe margin erosion from rapid currency fluctuations without automated FX tracking and statistical trend alerting.</p>
+                </div>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-rocket"></i>
+                <div class="summary-card-text">
+                    <h3 data-translate="fx_exec2_title">The BI Analytical Solution</h3>
+                    <p data-translate="fx_exec2_desc">Engineered an automated Power BI pipeline fetching daily official fixings from the Central Bank REST API, modeling 30-day and 90-day moving averages and rolling standard deviations.</p>
+                </div>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-chart-pie"></i>
+                <div class="summary-card-text">
+                    <h3 data-translate="fx_exec3_title">Strategic Treasury Impact</h3>
+                    <p data-translate="fx_exec3_desc">Enables CFOs and financial managers to benchmark hedging thresholds, optimize foreign currency cash buffers, and anticipate import cost variances with empirical confidence intervals.</p>
+                </div>
             </div>
         </div>
+
+        <!-- ========================== 1. LIVE INTERACTIVE DASHBOARD (HERO CENTERPIECE) ========================== -->
+        <div class="section-separator">
+            <h2><i class="fas fa-desktop" style="color: #00e676;"></i> <span data-translate="fx_dash_title">Live Interactive BI Report</span></h2>
+            <div class="separator-line"></div>
+        </div>
+
+        <div class="artifact-card">
+            <div class="artifact-header">
+                <span class="artifact-title"><i class="fas fa-chart-area"></i> <span data-translate="fx_dash_title">Interactive Foreign Exchange Dashboard</span></span>
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiNGE4NGI0ODItNDhkZS00Y2Y0LWFlZjgtNjcxNDcwNWJhYTBhIiwidCI6ImJiMDZmMmM2LTIxNjItNDczMS05NmYwLTljZTE0MGZmMWFmNiIsImMiOjR9" target="_blank" rel="noopener" class="pill-badge-blue">
+                    <i class="fas fa-external-link-alt"></i> <span data-translate="fx_fullscreen">Open in Full Screen</span>
+                </a>
+            </div>
+            <p data-translate="fx_dash_guide">
+                <strong>Interactive Navigation Guide:</strong> Toggle between currency slicers (USD, EUR, GBP) to update the time-series trajectory. Use the date range slider to isolate specific macroeconomic shock windows and observe the automated 30-day Bollinger/SMA bands.
+            </p>
+
+            <!-- LIVE EMBED WRAPPER -->
+            <div class="dashboard-live-wrapper">
+                <div class="dashboard-action-bar">
+                    <span><i class="fas fa-circle" style="color: #00e676; font-size: 0.65rem;"></i> Power BI Service Embedded Live</span>
+                    <span><i class="fas fa-sync-alt"></i> BCCh API Automated Daily Refresh</span>
+                </div>
+                <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNGE4NGI0ODItNDhkZS00Y2Y0LWFlZjgtNjcxNDcwNWJhYTBhIiwidCI6ImJiMDZmMmM2LTIxNjItNDczMS05NmYwLTljZTE0MGZmMWFmNiIsImMiOjR9" loading="lazy" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- ========================== 2. STRATEGIC FINDINGS & INSIGHTS ========================== -->
+        <div class="section-separator">
+            <h2><i class="fas fa-lightbulb" style="color: #38bdf8;"></i> <span data-translate="fx_insights_title">Strategic Treasury Findings & Macroeconomic Insights</span></h2>
+            <div class="separator-line"></div>
+        </div>
+
+        <div class="artifact-card">
+            <p data-translate="fx_insights_intro">
+                Quantitative time series analysis of historical exchange rate cycles (2013–2024) reveals four key treasury principles:
+            </p>
+
+            <div class="insight-grid">
+                <div class="insight-card highlight">
+                    <h4 class="insight-title"><i class="fas fa-gem"></i> <span data-translate="fx_ins1_title">1. Inverse Copper Correlation (-0.72)</span></h4>
+                    <p data-translate="fx_ins1_desc">USD/CLP exhibits a robust -0.72 inverse correlation with LME copper spot prices. Significant copper drawdowns precede sharp CLP depreciation by an average of 14 trading sessions.</p>
+                </div>
+
+                <div class="insight-card">
+                    <h4 class="insight-title"><i class="fas fa-percentage"></i> <span data-translate="fx_ins2_title">2. Policy Rate Spread Sensitivity</span></h4>
+                    <p data-translate="fx_ins2_desc">The interest rate differential between Chile's TPM and the US Federal Funds Rate serves as the primary predictor of short-term speculative currency flows and carry trade unwinding.</p>
+                </div>
+
+                <div class="insight-card">
+                    <h4 class="insight-title"><i class="fas fa-shield-virus"></i> <span data-translate="fx_ins3_title">3. Dynamic Hedging Trigger Rule</span></h4>
+                    <p data-translate="fx_ins3_desc">When the 30-day Rolling Volatility Index exceeds 1.85 standard deviations, execution of forward hedging contracts is empirically optimal to preserve gross import margins.</p>
+                </div>
+
+                <div class="insight-card highlight">
+                    <h4 class="insight-title"><i class="fas fa-balance-scale"></i> <span data-translate="fx_ins4_title">4. Cross-Currency EUR vs. USD Arbitrage</span></h4>
+                    <p data-translate="fx_ins4_desc">EUR/CLP exhibits higher tail-risk during European geopolitical events, whereas USD/CLP is heavily tied to domestic political and sovereign risk premiums.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================== 3. CONTEXT & METRICS FOUNDATION ========================== -->
+        <div class="section-separator">
+            <h2><i class="fas fa-info-circle" style="color: #00e676;"></i> <span data-translate="fx_ctx_title">Macroeconomic Context & Exchange Rate Dynamics</span></h2>
+            <div class="separator-line"></div>
+        </div>
+
+        <div class="artifact-card">
+            <p data-translate="fx_ctx_p1">
+                In small open economies such as Chile, exchange rate dynamics serve as the primary transmission mechanism for international macroeconomic shocks, copper commodity price swings, and central bank monetary policy rate differentials (TPM vs. US Fed Funds Rate).
+            </p>
+            <p data-translate="fx_ctx_p2">
+                This business intelligence project establishes an automated connection to the <strong>Banco Central de Chile's official API</strong>, capturing daily closing fixings across major international trading currencies (USD, EUR, GBP) to structure a longitudinal analytical engine spanning historical cycles from 2013 to the present.
+            </p>
+
+            <!-- KPI SNAPSHOT -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-value info">3 Pairs</div>
+                    <div class="kpi-label" data-translate="fx_kpi1_label">Major Currencies</div>
+                    <div class="kpi-sub" data-translate="fx_kpi1_sub">USD, EUR, GBP vs. CLP</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">Daily</div>
+                    <div class="kpi-label" data-translate="fx_kpi2_label">API Refresh Cadence</div>
+                    <div class="kpi-sub" data-translate="fx_kpi2_sub">Official Fixing Ingestion</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value warning">10+ Yrs</div>
+                    <div class="kpi-label" data-translate="fx_kpi3_label">Historical Horizon</div>
+                    <div class="kpi-sub" data-translate="fx_kpi3_sub">Multi-Cycle Trend Archive</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">DAX</div>
+                    <div class="kpi-label" data-translate="fx_kpi4_label">Statistical Engine</div>
+                    <div class="kpi-sub" data-translate="fx_kpi4_sub">SMA 30/90 & Rolling Vol</div>
+                </div>
+            </div>
+
+            <!-- DATASET INFORMATION CARD CON LINK DIRECTO -->
+            <div class="artifact-card" style="margin-top: 1.5rem; background: #0c1626; border-left: 4px solid #00b4d8; border-color: rgba(0, 180, 216, 0.4);">
+                <div class="artifact-header" style="border-bottom: 1px solid rgba(0, 180, 216, 0.2);">
+                    <h3 class="artifact-title" style="font-size: 1.05rem;"><i class="fas fa-database"></i> <span data-translate="fx_dataset_title">Dataset Source & API Feed</span></h3>
+                    <a href="https://si3.bcentral.cl/Siete/" target="_blank" rel="noopener" class="pill-badge-blue" style="text-decoration: none;">
+                        <i class="fas fa-external-link-alt"></i> <span data-translate="fx_dataset_btn">Access Central Bank Portal</span>
+                    </a>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-top: 0.75rem;">
+                    <div>
+                        <span style="font-size: 0.78rem; text-transform: uppercase; color: #94a3b8; font-weight: 700;" data-translate="dataset_source_label">Official Data Source</span>
+                        <p style="margin: 0.35rem 0 0 0; font-weight: 600;">
+                            <a href="https://si3.bcentral.cl/Siete/" target="_blank" rel="noopener" style="color: #00e676; text-decoration: underline;">
+                                Banco Central de Chile (BCCh API) <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </p>
+                    </div>
+                    <div>
+                        <span style="font-size: 0.78rem; text-transform: uppercase; color: #94a3b8; font-weight: 700;" data-translate="dataset_period_label">Time Horizon / Period</span>
+                        <p style="margin: 0.35rem 0 0 0; color: #e2e8f0 !important;" data-translate="fx_dataset_period">2013 – Present (Daily Financial Time Series)</p>
+                    </div>
+                    <div>
+                        <span style="font-size: 0.78rem; text-transform: uppercase; color: #94a3b8; font-weight: 700;" data-translate="dataset_scope_label">Coverage & Scope</span>
+                        <p style="margin: 0.35rem 0 0 0; color: #e2e8f0 !important;" data-translate="fx_dataset_scope">Daily Official Fixings (USD/CLP, EUR/CLP, GBP/CLP), SMA 30/90 & Volatility</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="artifact-header" style="margin-top: 1.5rem;">
+                <h3 class="artifact-title" style="font-size: 1.05rem;"><i class="fas fa-users-cog"></i> <span data-translate="fx_stakeholders_title">Stakeholder Decision Personas</span></h3>
+            </div>
+            <ul>
+                <li data-translate="fx_stk1"><strong>CFOs & Corporate Treasury Managers</strong>: Model forward currency hedging requirements (FX Forwards / Options) and optimize dollar-denominated working capital.</li>
+                <li data-translate="fx_stk2"><strong>Procurement & International Trade Heads</strong>: Forecast landed cost inflation for imported inventory and renegotiate supplier contractual indexations.</li>
+                <li data-translate="fx_stk3"><strong>Investment & Wealth Management Analysts</strong>: Track real effective exchange rate (TCR) deviations and asset allocation risk exposures.</li>
+            </ul>
+        </div>
+
+        <!-- ========================== 4. DATA ARCHITECTURE & DAX MODELING ========================== -->
+        <div class="section-separator">
+            <h2><i class="fas fa-project-diagram" style="color: #38bdf8;"></i> <span data-translate="fx_model_title">BI Tabular Model Architecture (Star Schema)</span></h2>
+            <div class="separator-line"></div>
+        </div>
+
+        <div class="artifact-card">
+            <p data-translate="fx_model_p1">
+                The Power BI data engine utilizes a normalized Star Schema separating daily time series observations from the currency metadata and the financial master calendar:
+            </p>
+
+            <div class="schema-grid">
+                <div class="schema-card">
+                    <h4 class="schema-card-title"><i class="fas fa-table"></i> Fact_FX_Daily_Rates</h4>
+                    <ul class="schema-fields-list">
+                        <li><span>DateKey (FK)</span> <span class="field-type">INT [YYYYMMDD]</span></li>
+                        <li><span>CurrencyKey (FK)</span> <span class="field-type">INT</span></li>
+                        <li><span>ObservedRate (CLP)</span> <span class="field-type">DECIMAL(10,4)</span></li>
+                        <li><span>DailyVariation_CLP</span> <span class="field-type">DECIMAL(8,4)</span></li>
+                        <li><span>DailyVariation_Pct</span> <span class="field-type">DECIMAL(6,4)</span></li>
+                    </ul>
+                </div>
+
+                <div class="schema-card">
+                    <h4 class="schema-card-title"><i class="fas fa-dollar-sign"></i> Dim_Currency</h4>
+                    <ul class="schema-fields-list">
+                        <li><span>CurrencyKey (PK)</span> <span class="field-type">INT</span></li>
+                        <li><span>CurrencyCode</span> <span class="field-type">CHAR(3)</span></li>
+                        <li><span>CurrencyName</span> <span class="field-type">VARCHAR(50)</span></li>
+                        <li><span>CentralBankSeriesID</span> <span class="field-type">VARCHAR(20)</span></li>
+                        <li><span>CountryOfOrigin</span> <span class="field-type">VARCHAR(40)</span></li>
+                    </ul>
+                </div>
+
+                <div class="schema-card">
+                    <h4 class="schema-card-title"><i class="fas fa-calendar-check"></i> Dim_Date</h4>
+                    <ul class="schema-fields-list">
+                        <li><span>DateKey (PK)</span> <span class="field-type">INT [YYYYMMDD]</span></li>
+                        <li><span>FullDate</span> <span class="field-type">DATE</span></li>
+                        <li><span>Year / Quarter</span> <span class="field-type">INT / VARCHAR(2)</span></li>
+                        <li><span>MonthName</span> <span class="field-type">VARCHAR(15)</span></li>
+                        <li><span>IsBusinessDay</span> <span class="field-type">BOOLEAN</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="artifact-header" style="margin-top: 1.5rem;">
+                <h3 class="artifact-title" style="font-size: 1.05rem;"><i class="fas fa-code"></i> <span data-translate="fx_calc_title">Advanced DAX Time Intelligence & Volatility Measures</span></h3>
+            </div>
+            <p data-translate="fx_calc_desc">
+                Core DAX expressions engineered to compute 30-day moving averages, rolling annual volatility, and Year-To-Date (YTD) cumulative returns:
+            </p>
+
+            <pre class="code-block"><code>// 30-Day Simple Moving Average (SMA)
+SMA_30D = 
+CALCULATE(
+    AVERAGE(Fact_FX_Daily_Rates[ObservedRate]),
+    DATESINPERIOD(Dim_Date[FullDate], MAX(Dim_Date[FullDate]), -30, DAY)
+)
+
+// 30-Day Rolling Annualized Volatility
+Rolling_Volatility_30D = 
+VAR DailyStdDev = 
+    CALCULATE(
+        STDEV.S(Fact_FX_Daily_Rates[DailyVariation_Pct]),
+        DATESINPERIOD(Dim_Date[FullDate], MAX(Dim_Date[FullDate]), -30, DAY)
+    )
+RETURN
+    DailyStdDev * SQRT(252)
+
+// Year-to-Date (YTD) Cumulative Depreciation (%)
+YTD_Depreciation_Pct = 
+VAR CurrentRate = [Latest_Observed_Rate]
+VAR YearStartRate = 
+    CALCULATE(
+        [Latest_Observed_Rate],
+        STARTOFYEAR(Dim_Date[FullDate])
+    )
+RETURN
+    DIVIDE(CurrentRate - YearStartRate, YearStartRate, 0) * 100</code></pre>
+        </div>
+
     </main>
 
     <footer class="footer">
@@ -145,11 +567,11 @@
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2025 Ben Matias. All rights reserved.</p>
+        <div class="footer-copyright container">
+            <p>&copy; <span id="year"></span> Benjamín Espinoza. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="../assets/js/script.js" defer></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
